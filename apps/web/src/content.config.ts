@@ -8,7 +8,7 @@
 // under lib/data/mediaMetadata/, which is framework-agnostic Astro Content Layer
 // is the only thing here that's Astro-specific.
 import { defineCollection } from 'astro:content';
-import { z } from 'astro/zod'
+import { z } from 'astro/zod';
 import { titleInfoLoader } from './lib/data/mediaMetadata/titleInfoLoader';
 import { episodeInfoLoader } from './lib/data/mediaMetadata/episodeInfoLoader';
 

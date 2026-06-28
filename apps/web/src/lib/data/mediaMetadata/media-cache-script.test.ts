@@ -1,22 +1,12 @@
-import { mkdir, rm, writeFile } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { buildCacheRequests, isCliEntry, selectRequestsToFetch } from '../../../../../../scripts/media-cache.mjs';
-
-const cacheRoots: string[] = [];
+import { cleanupCacheRoots, createCacheRoot } from './cacheRootTestHelper';
 
 afterEach(async () => {
-	await Promise.all(cacheRoots.map((root) => rm(root, { recursive: true, force: true })));
-	cacheRoots.length = 0;
+	await cleanupCacheRoots();
 });
-
-async function createCacheRoot(): Promise<string> {
-	const root = join(tmpdir(), `media-cache-script-${crypto.randomUUID()}`);
-	cacheRoots.push(root);
-	await mkdir(root, { recursive: true });
-	return root;
-}
 
 async function writeCacheEntry(cacheRoot: string, path: string, updatedAt: string): Promise<void> {
 	const cachePath = join(cacheRoot, path);
@@ -44,7 +34,7 @@ describe('media cache script', () => {
 	});
 
 	it('selects only missing cache files in missing mode', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('media-cache-script-');
 		await writeCacheEntry(cacheRoot, 'imdbapi.dev/titles/tt0371746.json', '2026-06-24T00:00:00.000Z');
 		const requests = [
 			{ cachePath: 'imdbapi.dev/titles/tt0371746.json' },
@@ -61,7 +51,7 @@ describe('media cache script', () => {
 	});
 
 	it('selects missing and week-old cache files in stale mode', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('media-cache-script-');
 		await writeCacheEntry(cacheRoot, 'imdbapi.dev/titles/tt0371746.json', '2026-06-20T00:00:00.000Z');
 		await writeCacheEntry(cacheRoot, 'imdbapi.dev/videos/tt0371746.json', '2026-06-10T00:00:00.000Z');
 		const requests = [

@@ -1,27 +1,16 @@
-import { mkdtemp, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fetchEpisodeInfoFromImdbApiDev } from './episodeInfoFetch';
 import { writeRawCache } from './rawResponseCache';
-
-const cacheRoots: string[] = [];
+import { cleanupCacheRoots, createCacheRoot } from './cacheRootTestHelper';
 
 afterEach(async () => {
 	vi.restoreAllMocks();
-	await Promise.all(cacheRoots.map((root) => rm(root, { recursive: true, force: true })));
-	cacheRoots.length = 0;
+	await cleanupCacheRoots();
 });
-
-async function createCacheRoot(): Promise<string> {
-	const root = await mkdtemp(join(tmpdir(), 'episode-info-cache-'));
-	cacheRoots.push(root);
-	return root;
-}
 
 describe('fetchEpisodeInfoFromImdbApiDev', () => {
 	it('uses cached imdbapi.dev episode data without fetching', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('episode-info-cache-');
 		await writeRawCache(
 			{ source: 'imdbapi.dev', endpoint: 'episodes', key: 'tt9140560-s1' },
 			200,

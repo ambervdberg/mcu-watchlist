@@ -55,7 +55,7 @@ type RequestLinkBody = {
   returnPath?: unknown;
 };
 
-/**Issues a magic-link login token and emails it, without revealing whether the email is registered. */
+/** Issues a magic-link login token and emails it, without revealing whether the email is registered. */
 export async function handleRequestLink(
   request: HttpRequest,
   dependencies: RequestLinkDependencies = {}
@@ -93,7 +93,7 @@ export async function handleRequestLink(
   return requestLinkSentResponse();
 }
 
-/**Consumes a magic-link token, creates a user session, and redirects back into the app. */
+/** Consumes a magic-link token, creates a user session, and redirects back into the app. */
 export async function handleConsumeLink(
   request: HttpRequest,
   dependencies: ConsumeLinkDependencies = {}
@@ -123,7 +123,7 @@ export async function handleConsumeLink(
   };
 }
 
-/**Returns the current signed-in user state without requiring authentication. */
+/** Returns the current signed-in user state without requiring authentication. */
 export async function handleMe(
   request: HttpRequest,
   dependencies: MeDependencies = {}
@@ -153,7 +153,7 @@ export async function handleMe(
   };
 }
 
-/**Expires the current signed user session cookie. */
+/** Expires the current signed user session cookie. */
 export function handleLogout(): HttpResponseInit {
   return {
     status: 200,
@@ -164,6 +164,11 @@ export function handleLogout(): HttpResponseInit {
   };
 }
 
+// ---------------------------------------------------------------------------
+// handleRequestLink helpers (in the order the handler reads top to bottom)
+// ---------------------------------------------------------------------------
+
+/** Parses the request body, returning null when the payload is missing or not JSON. */
 async function readRequestLinkBody(request: HttpRequest): Promise<RequestLinkBody | null> {
   try {
     return (await request.json()) as RequestLinkBody;
@@ -172,6 +177,7 @@ async function readRequestLinkBody(request: HttpRequest): Promise<RequestLinkBod
   }
 }
 
+/** Normalizes an email, returning null instead of throwing when it is invalid. */
 function tryNormalizeEmail(email: string): string | null {
   try {
     return normalizeEmail(email);
@@ -180,6 +186,37 @@ function tryNormalizeEmail(email: string): string | null {
   }
 }
 
+/** 400 returned when the submitted email cannot be normalized. */
+function invalidEmailResponse(): HttpResponseInit {
+  return {
+    status: 400,
+    jsonBody: {
+      message: "Enter a valid email address."
+    }
+  };
+}
+
+/** Extracts the caller IP from the x-forwarded-for header for rate limiting. */
+function getClientIp(request: HttpRequest): string {
+  return readHeader(request, "x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+}
+
+/** Reads a single request header, returning null when it is absent. */
+function readHeader(request: HttpRequest, name: string): string | null {
+  return request.headers?.get(name) ?? null;
+}
+
+/** 429 returned when the rate limiter rejects further sign-in attempts. */
+function throttledResponse(): HttpResponseInit {
+  return {
+    status: 429,
+    jsonBody: {
+      message: "Too many sign-in attempts. Try again later."
+    }
+  };
+}
+
+/** Builds the absolute magic-link URL emailed to the user. */
 function buildMagicLink(rawToken: string): string {
   const baseUrl = process.env.APP_BASE_URL;
 
@@ -190,6 +227,7 @@ function buildMagicLink(rawToken: string): string {
   return `${baseUrl}/api/auth/consume-link?token=${encodeURIComponent(rawToken)}`;
 }
 
+/** 200 returned once the magic link has been emailed (without confirming the email exists). */
 function requestLinkSentResponse(): HttpResponseInit {
   return {
     status: 200,
@@ -199,32 +237,11 @@ function requestLinkSentResponse(): HttpResponseInit {
   };
 }
 
-function throttledResponse(): HttpResponseInit {
-  return {
-    status: 429,
-    jsonBody: {
-      message: "Too many sign-in attempts. Try again later."
-    }
-  };
-}
+// ---------------------------------------------------------------------------
+// handleConsumeLink helpers
+// ---------------------------------------------------------------------------
 
-function invalidEmailResponse(): HttpResponseInit {
-  return {
-    status: 400,
-    jsonBody: {
-      message: "Enter a valid email address."
-    }
-  };
-}
-
-function getClientIp(request: HttpRequest): string {
-  return readHeader(request, "x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-}
-
-function readHeader(request: HttpRequest, name: string): string | null {
-  return request.headers?.get(name) ?? null;
-}
-
+/** Reads the one-time token from the consume-link URL, returning null when malformed. */
 function readToken(url: string): string | null {
   try {
     return new URL(url).searchParams.get("token");
@@ -233,6 +250,7 @@ function readToken(url: string): string | null {
   }
 }
 
+/** 400 returned when the magic-link token is missing, invalid, or already used. */
 function invalidLinkResponse(): HttpResponseInit {
   return {
     status: 400,
@@ -242,6 +260,11 @@ function invalidLinkResponse(): HttpResponseInit {
   };
 }
 
+// ---------------------------------------------------------------------------
+// handleMe helpers
+// ---------------------------------------------------------------------------
+
+/** 200 signed-out state returned when no valid session is present. */
 function anonymousMeResponse(): HttpResponseInit {
   return {
     status: 200,

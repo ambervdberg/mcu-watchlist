@@ -1,0 +1,15 @@
+{
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"checkJs": true,
+		"rewriteRelativeImportExtensions": true,
+		"sourceMap": true,
+		// $lib is wired into Vite via astro.config.mjs's resolve.alias; TS needs its own
+		// mapping here so tsc/astro check can resolve $lib/... imports too.
+		"paths": {
+			"$lib": ["./src/lib"],
+			"$lib/*": ["./src/lib/*"]
+		}
+	},
+	"exclude": ["build"]
+}

@@ -1,0 +1,123 @@
+---
+// Movie/series detail page (spec sections 3, 4). `getStaticPaths()` makes every catalog
+// item get its own crawlable static HTML file at build time, complete with per-item SEO
+// tags below -- this is the Astro equivalent of SvelteKit's old +page.ts `entries()`.
+//
+// There is no "unknown id" 404 branch here (unlike the old +page.ts's `error(404, ...)`):
+// getStaticPaths only ever generates pages for ids returned below, and every entry comes
+// straight from items.ts, so an out-of-range id can never reach this template at all.
+//
+// titleInfo/episodes used to be fetched client-side in TitleDetail.svelte's onMount (the
+// SvelteKit-era +page.svelte pattern, kept alive through the first Astro migration). Per
+// marvel-h8a, that runtime fetch is gone: this getStaticPaths now reads the build-time-baked
+// `titleInfo`/`episodes` Content Layer collections (content.config.ts) and passes the
+// matching entry's `data` straight through as props, keyed exactly like the loaders key
+// their store entries -- `imdbId` for movies/shorts/specials, `imdbId-s{season}` for series
+// (see titleInfoLoader.ts/episodeInfoLoader.ts). A missing entry (no imdbId, or a snapshot
+// that never had data for this key) becomes `undefined`, which TitleDetail/EpisodeList must
+// render as "nothing for this block" rather than treat as an error.
+//
+// `progressStore` is still NOT passed as a prop here: Astro serializes island props through
+// JSON, which silently drops functions, so a store object's methods (isWatched,
+// toggleWatched, ...) would arrive as null on the client. TitleDetail.svelte imports the
+// `progressStore` singleton directly instead, same as every other component that needs it.
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TitleDetail from '../../lib/components/detail/TitleDetail.svelte';
+import { items } from '../../lib/data/items';
+import { getSeasonNumber } from '../../lib/data/mediaMetadata/itemSeason';
+
+export const getStaticPaths = (async () => {
+	const titleInfoEntries = await getCollection('titleInfo');
+	const episodeEntries = await getCollection('episodes');
+
+	const titleInfoByKey = new Map(titleInfoEntries.map((entry) => [entry.id, entry.data]));
+	const episodesByKey = new Map(episodeEntries.map((entry) => [entry.id, entry.data]));
+
+	return items.map((item) => {
+		const season = getSeasonNumber(item.id);
+		const titleInfoKey = item.type === 'series' ? `${item.imdbId}-s${season}` : item.imdbId;
+		const episodesKey = `${item.imdbId}-s${season}`;
+
+		// The `episodes` collection entry wraps the array in `{ episodes, totalCount }`
+		// (content.config.ts) -- unwrap here so downstream props are the plain array
+		// TitleDetail/EpisodeList expect, same shape the old EpisodeGateway.list() resolved to.
+		const episodeEntry = item.type === 'series' ? episodesByKey.get(episodesKey) : undefined;
+
+		return {
+			params: { id: item.id },
+			props: {
+				item,
+				season,
+				titleInfo: titleInfoByKey.get(titleInfoKey),
+				episodes: episodeEntry?.episodes
+			}
+		};
+	});
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { item, season, titleInfo, episodes } = Astro.props;
+
+// SEO copy, ported from the catalog fields available at build time (no OMDb data, since
+// that is fetched client-side only and must not block or vary the prerendered HTML).
+const pageTitle = `${item.title} — Marvel Chronological Watchlist`;
+const pageDescription = `${item.title} (${item.timeline}) in the MCU chronological watch order.`;
+---
+
+<BaseLayout>
+	<Fragment slot="head">
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:type" content="video.movie" />
+		<meta property="og:url" content={`https://mcu-watchlist.codequest.nl/title/${item.id}/`} />
+	</Fragment>
+
+	<a class="back-link" href="/">&larr; Back to timeline</a>
+
+	<article class="detail-card">
+		<TitleDetail item={item} season={season} titleInfo={titleInfo} episodes={episodes} client:load />
+	</article>
+</BaseLayout>
+
+<style>
+	.back-link {
+		display: inline-block;
+		margin-bottom: 1rem;
+		color: var(--muted);
+		text-decoration: none;
+		font-size: 0.9rem;
+	}
+
+	.back-link:hover,
+	.back-link:focus-visible {
+		color: var(--text);
+	}
+
+	.detail-card {
+		padding: 1.5rem;
+		border: 1px solid var(--border);
+		border-radius: 1rem;
+		background: var(--panel-solid);
+		box-shadow: var(--shadow);
+	}
+
+	@media (max-width: 600px) {
+		.back-link {
+			margin: -0.35rem 0 1.35rem 0.25rem;
+		}
+
+		.detail-card {
+			margin-inline: -1.5rem;
+			margin-bottom: 5rem;
+			padding: 1.35rem;
+			border-right: 0;
+			border-left: 0;
+			border-radius: 0;
+		}
+	}
+</style>

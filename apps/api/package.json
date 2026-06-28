@@ -1,0 +1,24 @@
+{
+  "name": "mcu-watchlist-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/functions/*.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "func start",
+    "test": "npm run build && node --test dist/auth/auth.test.js dist/auth/userAuth.test.js dist/auth/authHandlers.test.js dist/progress/progressStore.test.js"
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.3.2",
+    "@azure/functions": "^4.16.1",
+    "resend": "^6.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0",
+    "typescript": "^5.8.0"
+  },
+  "volta": {
+    "node": "22.22.1"
+  }
+}

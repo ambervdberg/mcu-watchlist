@@ -1,0 +1,25 @@
+name: marvel-watchlist
+metadata:
+  template: marvel-watchlist@0.0.1
+
+resourceGroup: rg-marvel
+
+infra:
+  provider: bicep
+  path: infra
+  module: main
+
+hooks:
+  postdeploy:
+    shell: pwsh
+    run: |
+      $appName = azd env get-value AZURE_STATIC_WEB_APP_NAME
+      $token = az staticwebapp secrets list --name $appName --resource-group rg-marvel --query "properties.apiKey" --output tsv
+      npx --yes @azure/static-web-apps-cli deploy ./apps/web/build --api-location ./apps/api --api-language node --api-version 20 --deployment-token $token --env production
+
+services:
+  web:
+    project: ./apps/web
+    dist: build
+    language: js
+    host: staticwebapp

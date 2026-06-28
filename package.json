@@ -1,0 +1,23 @@
+{
+  "name": "mcu-watchlist",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:web": "npm --prefix apps/web install",
+    "build:web": "npm --prefix apps/web run build",
+    "install:api": "npm --prefix apps/api install",
+    "build:api": "npm --prefix apps/api run build",
+    "start:local": "npx --yes @azure/static-web-apps-cli start ./apps/web/build --api-location ./apps/api --swa-config-location ./apps/web/build",
+    "dev": "npm run build:api && npm run build:web && npm run start:local",
+    "media-cache:missing": "node scripts/media-cache.mjs missing",
+    "media-cache:stale": "node scripts/media-cache.mjs stale --max-age-days=7",
+    "media-cache:typecheck": "cd apps/web && npm exec -- tsc --ignoreConfig --allowJs --checkJs --noEmit --module NodeNext --moduleResolution NodeNext --target ES2022 --lib ES2022,DOM --types node ../../scripts/media-cache.mjs ../../scripts/media-cache-core.mjs",
+    "azd:up": "azd up",
+    "azd:deploy": "azd deploy"
+  },
+  "devDependencies": {},
+  "volta": {
+    "node": "22.22.1"
+  }
+}

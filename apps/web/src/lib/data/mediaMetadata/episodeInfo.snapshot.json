@@ -1,0 +1,3462 @@
+{
+	"tt10160804-s1": {
+		"episodes": [
+			{
+				"id": "tt10166574",
+				"title": "Never Meet Your Heroes",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2820,
+				"plot": "Archer Kate Bishop lands in the middle of a criminal conspiracy, forcing Hawkeye out of retirement.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWIzMDZmMzYtYzMyNy00OWZkLTgwNzctZDAzNGUwZDk5M2I1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2021-11-24"
+			},
+			{
+				"id": "tt10166576",
+				"title": "Hide and Seek",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2940,
+				"plot": "Clint has to help Kate disentangle herself from the Tracksuit Mafia and a real-life murder mystery.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2IxM2I1YmYtMGY4NS00ZTUzLTlhNTktMGE3ZTdjMjM2Y2JkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2021-11-24"
+			},
+			{
+				"id": "tt10166580",
+				"title": "Echoes",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2520,
+				"plot": "After escaping a new threat, Clint and Kate join forces against an expanding criminal conspiracy.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDAxY2JkYjItMTQwZi00YWI2LTliNTAtY2M0ODcwMDc5N2Y2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2021-12-01"
+			},
+			{
+				"id": "tt10166578",
+				"title": "Partners, Am I Right?",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2340,
+				"plot": "Secrets are revealed and hard truths emerge, culminating in a battle against two opposing forces.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODZmZTA2MjgtNmI0Zi00MWJjLThmNGUtM2E4ZmE2YTZiOGI1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2021-12-08"
+			},
+			{
+				"id": "tt10166584",
+				"title": "Ronin",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2640,
+				"plot": "After a fallout between Clint and Kate, the latter is ready to abandon her dream of becoming a hero, but Kate makes a discovery that changes everything.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTFkNjdlOTgtNTNiZS00ZTY5LTlhNTktNjQ3ZDBkY2ExNzRiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2021-12-15"
+			},
+			{
+				"id": "tt10166582",
+				"title": "So This Is Christmas?",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3660,
+				"plot": "Clint and Kate's partnership is tested as they face the consequences of exposing the conspiracy.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTUwYTcxMWMtOTFhZS00M2QyLTgwZWQtNmNlNjkwZWU4Y2EyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2021-12-22"
+			}
+		],
+		"totalCount": 6
+	},
+	"tt10168312-s1": {
+		"episodes": [
+			{
+				"id": "tt10670784",
+				"title": "What If... Captain Carter Were the First Avenger?",
+				"episodeNumber": 1,
+				"runtimeSeconds": 1860,
+				"plot": "When Steve Rogers is seriously injured, Peggy Carter becomes the world's first super soldier.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTIwYjUyYTQtNzMwZS00YmIyLWEwODEtZjdjMGQwMGFiMjMwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.0",
+				"released": "2021-08-11"
+			},
+			{
+				"id": "tt13106186",
+				"title": "What If... T'Challa Became a Star-Lord?",
+				"episodeNumber": 2,
+				"runtimeSeconds": 1920,
+				"plot": "The rough-and-tumble space pirates known as the Ravagers abduct T'Challa instead of Peter Quill.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDk3NjE0YTItOWVlYS00YjBlLTgyMWYtOGY1ZDRjN2NjY2M4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2021-08-18"
+			},
+			{
+				"id": "tt13106188",
+				"title": "What If... The World Lost Its Mightiest Heroes?",
+				"episodeNumber": 3,
+				"runtimeSeconds": 1800,
+				"plot": "Nick Fury struggles to launch The Avengers when candidates are targeted by a serial killer.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzQzNDFlNmItZTI3Ni00OTc3LTgzOGItODYxODZjYjgxZDI5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2021-08-25"
+			},
+			{
+				"id": "tt13106190",
+				"title": "What If... Doctor Strange Lost His Heart Instead of His Hands?",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2100,
+				"plot": "A grief-stricken Doctor Strange uses the Eye of Agamotto in a dangerous effort to change the past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjBjOWFkZTUtYTc2MC00YWZhLThkYmUtZGFhMmZkNDBlNjM3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2021-09-01"
+			},
+			{
+				"id": "tt13106194",
+				"title": "What If... Zombies?!",
+				"episodeNumber": 5,
+				"runtimeSeconds": 1920,
+				"plot": "When The Avengers are infected by a zombie plague, surviving heroes search for a cure.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzg2YmZiNTMtNmQyNC00MjQ1LWEyZmItZDQzYzBjMzdiNTIzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2021-09-08"
+			},
+			{
+				"id": "tt13106196",
+				"title": "What If... Killmonger Rescued Tony Stark?",
+				"episodeNumber": 6,
+				"runtimeSeconds": 1980,
+				"plot": "Killmonger rescues Tony Stark when his Humvee is attacked in Afghanistan and manipulates his influence for his designs of conquering Wakanda.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTQyNjdkNGMtNTdlMS00NmY4LTgwNGItZGIzNDVkNmU0Nzk2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.6",
+				"released": "2021-09-15"
+			},
+			{
+				"id": "tt13106200",
+				"title": "What If... Thor Were an Only Child?",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2100,
+				"plot": "Thor, who never learned to be a good hero, throws an out-of-control intergalactic party on Earth.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjlhZGRhYjktYzZjMS00M2JhLThlZTUtMjYxZTY5MTg3OGI4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.4",
+				"released": "2021-09-22"
+			},
+			{
+				"id": "tt15387948",
+				"title": "What If... Ultron Won?",
+				"episodeNumber": 8,
+				"runtimeSeconds": 1680,
+				"plot": "Natasha Romanoff and Clint Barton seek to destroy killer-robot Ultron following a cataclysmic event.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNGEzZTBjZWQtYmUwZi00ZmU4LWExNzQtMTU2Y2MwMWM1YzkwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2021-09-29"
+			},
+			{
+				"id": "tt13106212",
+				"title": "What If... The Watcher Broke His Oath?",
+				"episodeNumber": 9,
+				"runtimeSeconds": 1980,
+				"plot": "The Watcher gathers heroes from across the multiverse for one final battle against Infinity Ultron.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWZjZGUzYzgtMDZlZi00NzY1LTgwMDAtMTE5OGE5YmU3MWI1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2021-10-06"
+			}
+		],
+		"totalCount": 9
+	},
+	"tt10168312-s2": {
+		"episodes": [
+			{
+				"id": "tt14169970",
+				"title": "What If... Nebula Joined the Nova Corps?",
+				"episodeNumber": 1,
+				"runtimeSeconds": 1800,
+				"plot": "Nebula sets out to prove her detective chops when she's recruited to join the Nova Corps.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMGFmMDFhNzctZTQ4OC00ZDdkLWE0MGItYTMwNThiZTA4ZjYyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.9",
+				"released": "2023-12-22"
+			},
+			{
+				"id": "tt15090982",
+				"title": "What If... Peter Quill Attacked Earth's Mightiest Heroes?",
+				"episodeNumber": 2,
+				"runtimeSeconds": 1860,
+				"plot": "When Ego and a young Peter Quill attack Earth in 1988, Howard Stark and Peggy Carter form a team.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BY2EyZGQ1NWEtZGExZS00MTM0LWFhNWItZDVlZWVlZDYyODBmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.2",
+				"released": "2023-12-23"
+			},
+			{
+				"id": "tt15167138",
+				"title": "What If... Happy Hogan Saved Christmas?",
+				"episodeNumber": 3,
+				"runtimeSeconds": 1740,
+				"plot": "Happy Hogan sets out to prove his hero chops when Justin Hammer lays siege to Avengers Tower during the annual holiday party.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZWFhOTI0MmQtYjg1Yi00MmEzLTg5NmEtYmE4N2RjZjcyNGQwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.6",
+				"released": "2023-12-24"
+			},
+			{
+				"id": "tt15167142",
+				"title": "What If... Iron Man Crashed Into the Grandmaster?",
+				"episodeNumber": 4,
+				"runtimeSeconds": 1980,
+				"plot": "Tony Stark challenges The Grandmaster, leading to a grand prix-turned-demolition-derby death match.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTgxMWZkNGUtZGJlMi00MzUwLTg4NTQtMDljZWNlOTFlNjVlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2023-12-25"
+			},
+			{
+				"id": "tt15167144",
+				"title": "What If... Captain Carter Fought the Hydra Stomper?",
+				"episodeNumber": 5,
+				"runtimeSeconds": 1920,
+				"plot": "Captain Carter's mission to save Steve Rogers sets her on a collision course with new enemies.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGYyODQwYzUtMDE5OS00ZTY4LWJjMzUtYzhjOGMxZmVkZDM1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2023-12-26"
+			},
+			{
+				"id": "tt15167146",
+				"title": "What If... Kahhori Reshaped the World?",
+				"episodeNumber": 6,
+				"runtimeSeconds": 1980,
+				"plot": "A Mohawk woman ventures into the waters of the Forbidden Lake to help save her people.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWNmYzZkNjktOTEzYS00ZDgyLTliOTEtYWQ3MDk0ZDY1NGFlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2023-12-27"
+			},
+			{
+				"id": "tt15167148",
+				"title": "What If... Hela Found the Ten Rings?",
+				"episodeNumber": 7,
+				"runtimeSeconds": 1800,
+				"plot": "Hela - stripped of her powers and banished to Earth - comes across a new source of power: the Ten Rings.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjE0ZTk4ZjgtODQxYS00MmE4LWJmY2ItYjM4YThhOTRiOTRiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2023-12-28"
+			},
+			{
+				"id": "tt15167150",
+				"title": "What If... The Avengers Assembled in 1602?",
+				"episodeNumber": 8,
+				"runtimeSeconds": 1860,
+				"plot": "Captain Carter tries to undo the anomaly that strands familiar heroes and villains in 1602.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTdkNGIwNmYtNDc5Zi00YzU5LTkwYjAtYjVhZTcwZGZjYjJmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2023-12-29"
+			},
+			{
+				"id": "tt15167152",
+				"title": "What If... Strange Supreme Intervened?",
+				"episodeNumber": 9,
+				"runtimeSeconds": 1920,
+				"plot": "Strange asks Peggy to help with an adversary. But this demented sorcerer is keeping a secret from his old friend.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTEwYTA2MjMtODliMS00M2U5LWJmYjgtZTYwOWY0ZDYzZDBmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2023-12-30"
+			}
+		],
+		"totalCount": 9
+	},
+	"tt10168312-s3": {
+		"episodes": [
+			{
+				"id": "tt21744882",
+				"title": "What If... The Hulk Fought the Mech Avengers?",
+				"episodeNumber": 1,
+				"runtimeSeconds": 1740,
+				"plot": "Massive monsters emerge after a gamma incident, threatening humanity. As the Avengers struggle, new heroes rise to battle the creatures using advanced mech suits. Sam Wilson forms an unexpected bond with Bruce Banner amid the chaos.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDJlYTkzYjItNTkzMC00MzFjLThlOWQtYjRkMjg4NDBmMWY1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.6",
+				"released": "2024-12-22"
+			},
+			{
+				"id": "tt34561508",
+				"title": "What If... Agatha Went to Hollywood?",
+				"episodeNumber": 2,
+				"runtimeSeconds": 1680,
+				"plot": "In 1930s Hollywood, a rising starlet manipulates a wealthy industrialist to fund her film, secretly planning a world-altering ritual. An unlikely hero emerges from Bollywood to thwart her mystical scheme and save reality as we know it.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTNiMTQyNWItY2QwMi00MzA5LWI0NDEtNDY5MTMyMjdmODJmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.5",
+				"released": "2024-12-23"
+			},
+			{
+				"id": "tt34561503",
+				"title": "What If... The Red Guardian Stopped the Winter Soldier?",
+				"episodeNumber": 3,
+				"runtimeSeconds": 1800,
+				"plot": "Two Soviet agents, the Red Guardian and Winter Soldier, botch a 1991 mission to eliminate the Starks. Facing consequences, they flee their handlers and SHIELD, becoming unlikely allies in a dangerous game of survival and evasion.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2FhMTdlOTgtOGRiZS00N2ViLWI3NGEtZTc1ZTY4ZjJjNmQ2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.6",
+				"released": "2024-12-24"
+			},
+			{
+				"id": "tt34561505",
+				"title": "What If... Howard the Duck Got Hitched?",
+				"episodeNumber": 4,
+				"runtimeSeconds": 1800,
+				"plot": "A duck-human couple's unexpected offspring becomes the center of a cosmic power struggle. As various MCU entities seek the child's prophesied abilities, the new parents face challenges, starting with a suspicious vacation offer.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZWM2ZmE4YTMtM2UyYy00OGQ0LTgyNDItYTFmMWMyODU1YmU0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.7",
+				"released": "2024-12-25"
+			},
+			{
+				"id": "tt34561504",
+				"title": "What If... The Emergence Destroyed the Earth?",
+				"episodeNumber": 5,
+				"runtimeSeconds": 1860,
+				"plot": "In a fractured world, Riri Williams leads rebels against the oppressive Quentin Beck and his Iron Legion. Armed with illusion-based powers, Beck seems unstoppable. Riri's failures are mirrored in other realities observed by the Watcher.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDQwNmI0OWMtZjA4OC00NzY0LWJjZTEtMmE0Y2E2ZjIzNWUxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.2",
+				"released": "2024-12-26"
+			},
+			{
+				"id": "tt34561506",
+				"title": "What If... 1872?",
+				"episodeNumber": 6,
+				"runtimeSeconds": 1800,
+				"plot": "In an alternate 1872, Shang-Chi and Kate Bishop roam the Wild West, battling foes and searching for the nefarious Hood. They seek his Ghost Train and hope to find Shang-Chi's missing sister, along with other vanished Chinese immigrants.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjVhNjJjMzQtYjNhOS00ZTVjLThmNGQtMmJiMmY0ZjQ4NzVhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.2",
+				"released": "2024-12-27"
+			},
+			{
+				"id": "tt34561509",
+				"title": "What If... The Watcher Disappeared?",
+				"episodeNumber": 7,
+				"runtimeSeconds": 1500,
+				"plot": "A skilled leader forms an elite squad to combat interdimensional threats. When her ally vanishes, they embark on a quest to locate him, seeking a powerful entity capable of transporting them to his otherworldly prison.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzJlODNjYzYtZjA0MC00NzFjLWEzZTEtYjA2NWU0MzAxODdiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.6",
+				"released": "2024-12-28"
+			},
+			{
+				"id": "tt34561507",
+				"title": "What If... What If?",
+				"episodeNumber": 8,
+				"runtimeSeconds": 1920,
+				"plot": "Pursued across realities, Captain Carter and her team aid the Watcher in evading capture. They seek refuge in the Multiverse's hidden corners in a fight for survival as other Watchers close in, intent on their total annihilation.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjA3OTVhMTktNzA0MS00NTVkLWIyNGItZTBlNGI0ODE3M2I1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.4",
+				"released": "2024-12-29"
+			}
+		],
+		"totalCount": 8
+	},
+	"tt10234724-s1": {
+		"episodes": [
+			{
+				"id": "tt11006864",
+				"title": "The Goldfish Problem",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2820,
+				"plot": "Socially awkward, amiable , \"gift shop-ist\" Steven Grant learns that he may share a body with a ruthless mercenary.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZWRhMjc3ZjEtM2Y4Yi00OWNhLTk5YTAtYjRkMjAwOWYwZGMyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2022-03-30"
+			},
+			{
+				"id": "tt11950074",
+				"title": "Summon the Suit",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3000,
+				"plot": "With little time to react, Steven is thrust into a war of the gods as a mysterious partner arrives.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTcyMjk0OTctZDNjMy00YjUyLTk1MzgtZmJlZTEwMjM5NTA3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2022-04-06"
+			},
+			{
+				"id": "tt11950096",
+				"title": "The Friendly Type",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3000,
+				"plot": "With Marc in the forefront and Harrow ahead, Marc and Layla navigate Cairo for intel.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjBhODM2YzYtYmU5OS00MjZhLWI0OTMtYTc1NjM0NjMyYjdjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2022-04-13"
+			},
+			{
+				"id": "tt11950082",
+				"title": "The Tomb",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3060,
+				"plot": "Marc and Steven must find balance as supernatural threats ahead look to stop them.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTFhMDA3NmItNGQ2YS00NzU3LTg2YzEtYjAxNWFiZDJlMjQzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2022-04-20"
+			},
+			{
+				"id": "tt11950098",
+				"title": "Asylum",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2820,
+				"plot": "Marc and Steven search through their memories to find their truth or become left behind.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTkzMDFjYWEtZDVhMi00MWE5LWJlZGYtYjdhMzhmMDIyOGVjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2022-04-27"
+			},
+			{
+				"id": "tt11950090",
+				"title": "Gods and Monsters",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2520,
+				"plot": "As Moon Knight joins the fray, Marc, Steven and Khonshu must work together to stop Ammit.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjhlZmEwNDEtM2ZkNy00ZjQzLWFlNWYtMjllYzEyMDYyNWE0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2022-05-04"
+			}
+		],
+		"totalCount": 6
+	},
+	"tt10857160-s1": {
+		"episodes": [
+			{
+				"id": "tt11261206",
+				"title": "A Normal Amount of Rage",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2100,
+				"plot": "Jen Walters' world is turned upside down after a freak accident leaves her with superpowers.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2JkMmFlMDAtN2QwMi00MjE5LWJhYjAtZDQxYjZhMDMzZjY3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2022-08-18"
+			},
+			{
+				"id": "tt11950134",
+				"title": "Superhuman Law",
+				"episodeNumber": 2,
+				"runtimeSeconds": 1680,
+				"plot": "Jen is hired at a prestigious law firm but must practice as She-Hulk and rep a complicated client.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmFjYjNiM2MtMTc4MS00ZGQ3LTlkOTgtMmUyNzcwMmY0ZjdjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.2",
+				"released": "2022-08-25"
+			},
+			{
+				"id": "tt11950138",
+				"title": "The People vs. Emil Blonsky",
+				"episodeNumber": 3,
+				"runtimeSeconds": 1920,
+				"plot": "She-Hulk represents Emil Blonsky aka The Abomination, but his parole hearing doesn't go as planned.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjcxZjAxODktZTI1Ny00NzhiLTgwMzYtZDA4ODQwZjQ3NTRkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.7",
+				"released": "2022-09-01"
+			},
+			{
+				"id": "tt11950140",
+				"title": "Is This Not Real Magic?",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2160,
+				"plot": "She-Hulk's new client Wong is suing a magician for unauthorized use of the Mystic Arts.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTBhMzQ5ZjQtMDJlOC00N2UwLTkyYjYtZTVhMjJjN2RmOWIxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.0",
+				"released": "2022-09-08"
+			},
+			{
+				"id": "tt11950144",
+				"title": "Mean, Green, and Straight Poured into These Jeans",
+				"episodeNumber": 5,
+				"runtimeSeconds": 1740,
+				"plot": "She-Hulk discovers Titania owns the name \"She -Hulk\" and is suing her for trademark infringement.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDg0YmYzYTMtNzNjMC00NGYwLTlmM2UtNjU0YTNmYWUwYzY2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.3",
+				"released": "2022-09-15"
+			},
+			{
+				"id": "tt11950142",
+				"title": "Just Jen",
+				"episodeNumber": 6,
+				"runtimeSeconds": 1740,
+				"plot": "Jen is a bridesmaid in a friend's wedding, a stressful event compounded by uniquely She-Hulk issues.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzliNTY3NGQtYTJmNi00ZTlkLWFjNjMtYjAwZTVhODZhNzAyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "4.7",
+				"released": "2022-09-22"
+			},
+			{
+				"id": "tt13841074",
+				"title": "The Retreat",
+				"episodeNumber": 7,
+				"runtimeSeconds": 1920,
+				"plot": "Jen visits Blonsky's wellness retreat, meets new friends and gets in touch with her inner She-Hulk.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzdmNzI3YzUtYWU0Ny00MGQ3LWIzN2MtYjEwZTQzZjllY2M5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.6",
+				"released": "2022-09-29"
+			},
+			{
+				"id": "tt13841076",
+				"title": "Ribbit and Rip It",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2160,
+				"plot": "She-Hulk represents Leap-Frog who was injured due to a malfunction in his custom-made super suit.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTZjOTJlNmUtZjc5NS00NTA4LTg0YjYtMTc0MTVlYjI1M2RkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2022-10-06"
+			},
+			{
+				"id": "tt13841098",
+				"title": "Whose Show Is This?",
+				"episodeNumber": 9,
+				"runtimeSeconds": 1920,
+				"plot": "Jen finds herself in trouble with the law and struggles to pick up the pieces of her life.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDM0YjA3ZTEtYTk4MS00NjdkLWFiYzgtMzcxYmE5ZmY3ZDllXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.5",
+				"released": "2022-10-13"
+			}
+		],
+		"totalCount": 9
+	},
+	"tt10857164-s1": {
+		"episodes": [
+			{
+				"id": "tt11860740",
+				"title": "Generation Why",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2820,
+				"plot": "Kamala Khan attends Avengercon only to discover that she herself might have superpowers.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDZhMmEzZmQtZjVlNC00OWI4LTlkNzUtMjMxODk4MTY1YzBlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2022-06-08"
+			},
+			{
+				"id": "tt11950110",
+				"title": "Crushed",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2940,
+				"plot": "Kamala and Bruno explore the source of her newfound powers just in time for a perilous adventure.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2FjZDE3MzktM2FmNi00YjRmLTliNWItMTJjNDhjOTAyZjJhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.9",
+				"released": "2022-06-15"
+			},
+			{
+				"id": "tt11950112",
+				"title": "Destined",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2700,
+				"plot": "Ahead of Aamir's wedding, Kamala may face grave consequences due to a crucial decision she makes.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjgzYzBmMDItN2NkYy00NzRhLTllYjAtNzQ0YmY2N2MxOGMyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.9",
+				"released": "2022-06-22"
+			},
+			{
+				"id": "tt11950118",
+				"title": "Seeing Red",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2700,
+				"plot": "Kamala travels around the world to solve the mystery of the bangle and her family's history.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDQ5NWQ3NGMtM2NmMC00MzdkLWE1MTMtMjM3ZjZjNDg0ZjBlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.6",
+				"released": "2022-06-29"
+			},
+			{
+				"id": "tt11950120",
+				"title": "Time and Again",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2280,
+				"plot": "The bangle reveals to Kamala secrets about her family lineage, as well as the truth behind the Veil.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNWMwNzlmMjMtZThlNi00MjA5LTkyNzYtZjRmNzUxMTIwZmUwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2022-07-06"
+			},
+			{
+				"id": "tt11950122",
+				"title": "No Normal",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2820,
+				"plot": "Back in Jersey, Kamala finds Kamran and protects him from Damage Control who will stop at nothing to take him in.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjUxMTNjNGUtNjRiMy00NzFkLThkYzQtYzcxOWQ0OTlhZjg1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.0",
+				"released": "2022-07-13"
+			}
+		],
+		"totalCount": 6
+	},
+	"tt13157618-s1": {
+		"episodes": [
+			{
+				"id": "tt13221172",
+				"title": "Resurrection",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3180,
+				"plot": "Nick Fury learns of a clandestine invasion of Earth by Skrulls.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTFlNjVhOTQtYjNlOS00MmM4LTk0MzItZmQyNWRkZDIzNzc4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.0",
+				"released": "2023-06-21"
+			},
+			{
+				"id": "tt13221890",
+				"title": "Promises",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3360,
+				"plot": "Fury grapples with past and present.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjA1NzYyZDMtODk4OC00ZDcyLWI1MDctMTI0Yzg0YTg4N2E1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2023-06-28"
+			},
+			{
+				"id": "tt13848336",
+				"title": "Betrayed",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2520,
+				"plot": "Fury uncovers a rebel Skrull plot.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjUwMzllNjgtOGFlNy00NGRjLWIxM2UtYzQwM2YyMzU3NzQxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.7",
+				"released": "2023-07-05"
+			},
+			{
+				"id": "tt13848338",
+				"title": "Beloved",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2160,
+				"plot": "Fury must make some hard sacrifices.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzFiNzQ5ODYtY2E4Yy00NGI5LWExODAtOTNlZGIxMTdjNWRjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.2",
+				"released": "2023-07-12"
+			},
+			{
+				"id": "tt13852640",
+				"title": "Harvest",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2220,
+				"plot": "Fury gathers his allies. Gravik deals with unrest.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDZkODY4MTQtNGZiNy00NGQ5LWJmY2YtNjNmMWRiMWRjMjJkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.7",
+				"released": "2023-07-19"
+			},
+			{
+				"id": "tt13852642",
+				"title": "Home",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2220,
+				"plot": "All hope for humanity rests on Fury's shoulders.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2U4YWVmN2QtMDhkNy00YzAwLTg5YTgtYWVlYjQwZGM0YTNhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.4",
+				"released": "2023-07-26"
+			}
+		],
+		"totalCount": 6
+	},
+	"tt13623126-s1": {
+		"episodes": [
+			{
+				"id": "tt13820446",
+				"title": "Take Me Home",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2460,
+				"plot": "MIT student Riri Williams builds an advanced armor suit inspired by Tony Stark. While dealing with challenges as a young black woman in tech, she confronts a tech-based threat and must decide if she's ready to become Ironheart.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMGZiMmRhMGMtZDIyMS00NTlhLWFiNjItMmM2NDJkN2JjMjM0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.2",
+				"released": "2025-06-24"
+			},
+			{
+				"id": "tt14538992",
+				"title": "Will the Real Natalie Please Stand Up?",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2880,
+				"plot": "Riri's new A.I. dredges up painful memories ahead of her first heist with Parker and his crew.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMWMxMmQzOTktZDY0MS00ZWNmLWFkZmMtOTMxYmE0MmYzNjEzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.4",
+				"released": "2025-06-24"
+			},
+			{
+				"id": "tt14539390",
+				"title": "We in Danger, Girl",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3180,
+				"plot": "Riri is uncomfortable being part of Parker's crew-two more heists, max, and she's out, she promises.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODEwMDA3ZmMtM2JiMC00ODE4LTg5N2ItZWNjM2YxYzE4N2IwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.8",
+				"released": "2025-06-24"
+			},
+			{
+				"id": "tt14539394",
+				"title": "Bad Magic",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3000,
+				"plot": "When Parker suspects Riri of wrongdoing, she knows she has to figure out the source of his powers.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTg4MmY4YzEtZDZjYy00ZjYwLWE2YTYtOTcwNDMyM2MxNWZjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.6",
+				"released": "2025-07-01"
+			},
+			{
+				"id": "tt14539406",
+				"title": "Karma's a Glitch",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3420,
+				"plot": "Riri sets out to create a suit unlike anything she has ever attempted - but at what cost?",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTVjMzE5YTItNWUyNC00YzA2LTg1MmMtOTA5ZmEwNGFjMmFjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "5.9",
+				"released": "2025-07-01"
+			},
+			{
+				"id": "tt14539408",
+				"title": "The Past Is the Past",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2400,
+				"plot": "Riri builds her most powerful suit yet, but she's unsure if it's enough to beat Parker and The Hood.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODgyMjkxNDYtM2U0Ni00ODVkLTk0MDktZTQxOTI1ZGQ5NGIyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.0",
+				"released": "2025-07-01"
+			}
+		],
+		"totalCount": 6
+	},
+	"tt13623148-s1": {
+		"episodes": [
+			{
+				"id": "tt13820496",
+				"title": "Groot's First Steps",
+				"episodeNumber": 1,
+				"runtimeSeconds": 240,
+				"plot": "Baby Groot takes his first steps out of his pot, only to learn you have to walk before you can run.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNmIwMzNlOGEtY2E3Mi00ODU2LTgxNDItM2VjODVmZmUyN2JkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2022-08-10"
+			},
+			{
+				"id": "tt14513152",
+				"title": "The Little Guy",
+				"episodeNumber": 2,
+				"runtimeSeconds": 300,
+				"plot": "It's hard to be the little guy, but when Baby Groot accidentally uncovers a civilization of miniature blue aliens, the tables are turned.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjdmMjRmZjUtYzZmMS00YTAzLWI3OWMtYTdlNGMyMTIxZTlmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2022-08-10"
+			},
+			{
+				"id": "tt21316834",
+				"title": "Groot's Pursuit",
+				"episodeNumber": 3,
+				"runtimeSeconds": 300,
+				"plot": "Baby Groot investigates a spooky noise that's been haunting the Quadrant, the massive Ravager ship that he calls home.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOGY0YzlkZmQtZTFkZS00OTkzLWE0M2MtMTUyZThiMzI2YjI4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.7",
+				"released": "2022-08-10"
+			},
+			{
+				"id": "tt21316848",
+				"title": "Groot Takes a Bath",
+				"episodeNumber": 4,
+				"runtimeSeconds": 300,
+				"plot": "Everybody needs some alone time to relax and wash up, but things go quite differently when you're a Flora Colossi toddler.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2MzYjgwMWUtNWM4OS00NThjLWE0NzgtZmZiNzc0ODJjYzUxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.0",
+				"released": "2022-08-10"
+			},
+			{
+				"id": "tt21316870",
+				"title": "Magnum Opus",
+				"episodeNumber": 5,
+				"runtimeSeconds": 240,
+				"plot": "Groot sets out to paint a family portrait of himself and the Guardians, and goes to great lengths to collect art supplies and forge his masterpiece.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWY4MWY3YjctNTY1MC00ZTk3LWJhMzQtYTYwNTY2MjBlMTFkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2022-08-10"
+			}
+		],
+		"totalCount": 5
+	},
+	"tt13623148-s2": {
+		"episodes": [
+			{
+				"id": "tt21798870",
+				"title": "Are You My Groot?",
+				"episodeNumber": 1,
+				"runtimeSeconds": 120,
+				"plot": "Groot stumbles across a strange egg, adopting the little creature that emerges as his own.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMWVjNjZkZWYtNmNiOC00YzIyLWE2OTMtODg2YTYxNGUyYTE1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.1",
+				"released": "2023-09-06"
+			},
+			{
+				"id": "tt28603271",
+				"title": "Groot Noses Around",
+				"episodeNumber": 2,
+				"runtimeSeconds": 240,
+				"plot": "When Groot gets the sense of smell, he learns not to stick his new nose where it doesn't belong.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTI4NzgwY2ItNTY2ZC00OGE1LWIxODEtNDhmYzk5MjlkZGFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2023-09-06"
+			},
+			{
+				"id": "tt28603279",
+				"title": "Groot's Snow Day",
+				"episodeNumber": 3,
+				"runtimeSeconds": 120,
+				"plot": "Groot builds a snowman with scraps of junk, creating an unstoppable snowman-robot that wreaks havoc.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDlkMTEwMWUtNGJjZC00YjIxLTg1MzYtNjllZTU1MGZkMTMxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2023-09-06"
+			},
+			{
+				"id": "tt28603282",
+				"title": "Groot's Sweet Treat",
+				"episodeNumber": 4,
+				"runtimeSeconds": 120,
+				"plot": "Groot frantically scours the ship for coins as an intergalactic ice cream truck approaches.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDFhMzJkODctZWU4NC00N2NlLWE4YWEtM2E3Zjc4OTFiN2YwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2023-09-06"
+			},
+			{
+				"id": "tt28603284",
+				"title": "Groot and the Great Prophecy",
+				"episodeNumber": 5,
+				"runtimeSeconds": 120,
+				"plot": "Groot lands in the heart of an ancient temple with a prophecy he must fulfill to save the universe.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWY1NTFiMmYtNDc1Ni00MDFhLWE2ZmUtNWQ1MTVkMWQzY2ViXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.9",
+				"released": "2023-09-06"
+			}
+		],
+		"totalCount": 5
+	},
+	"tt13966962-s1": {
+		"episodes": [
+			{
+				"id": "tt19407628",
+				"title": "Chafa",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2940,
+				"plot": "Young Maya Lopez leaves her hometown of Tamaha, Oklahoma following her mother's death and moves to New York City, where Wilson Fisk raises her to be a ruthless assassin. Upon learning Fisk had her father killed, Maya shoots him and flees.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDNhOWVhNDUtZTIwYi00ODk5LTg2YWQtNmVlMGI4Yzg2NDVlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.0",
+				"released": "2024-01-09"
+			},
+			{
+				"id": "tt28785828",
+				"title": "Lowak",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2340,
+				"plot": "Maya enlists her disapproving family to help take down Fisk's army while experiencing strange visions.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWRhYzVlNmMtYzNhZC00ZjQwLTk5MjQtODRiZTRkNTkyODMzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2024-01-09"
+			},
+			{
+				"id": "tt29762827",
+				"title": "Tuklo",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2520,
+				"plot": "Maya learns the meaning of collateral damage when Fisk's army arrives in Tamaha.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWJjZWQwZjctOWMyOC00ZWI4LWI1ZGEtNzhkNzIxNzNkODg0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.8",
+				"released": "2024-01-09"
+			},
+			{
+				"id": "tt29762828",
+				"title": "Taloa",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2340,
+				"plot": "Maya finds herself at a crossroads as she faces the shadows of her past and contemplates her future.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2NjZmEyNmEtNmU3MC00Mjk2LWFhNjAtNzU5YmY2NTQyOGZjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.7",
+				"released": "2024-01-09"
+			},
+			{
+				"id": "tt29762830",
+				"title": "Maya",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2340,
+				"plot": "The lives of Maya's family hang in the balance when Fisk's army invade the Choctaw Nation powwow.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjg2MDYyNmEtNzc5YS00NTE0LWIzY2EtNWFhYjYwOTkyZWUzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.0",
+				"released": "2024-01-09"
+			}
+		],
+		"totalCount": 5
+	},
+	"tt13968252-s1": {
+		"episodes": [
+			{
+				"id": "tt14749248",
+				"title": "Into the Lion's Den",
+				"episodeNumber": 1,
+				"runtimeSeconds": 1740,
+				"plot": "A former member of the Dora Milaje is sent to take down a rogue Wakandan known as the Lion.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZmYzYTFjMzAtZjE2Ny00YjY3LTkzNmEtNjJkZDUwODc3NTNjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.5",
+				"released": "2025-08-01"
+			},
+			{
+				"id": "tt34376528",
+				"title": "Legends and Lies",
+				"episodeNumber": 2,
+				"runtimeSeconds": 1860,
+				"plot": "Amidst the Trojan War, a soldier attempts to breach the city's defenses to retrieve an artifact.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNGY4ODljMWQtMGNmYy00YTE0LTk1NWItYjQ1ODlhZDcyYzI5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.6",
+				"released": "2025-08-01"
+			},
+			{
+				"id": "tt34376527",
+				"title": "Lost and Found",
+				"episodeNumber": 3,
+				"runtimeSeconds": 1800,
+				"plot": "A powerful stowaway infiltrates the Golden City and threatens the secrets kept within.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzgyZDJlZWEtNjI1Ni00ODdmLWI1MTEtMDA2YWYwZjIxMTNkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.6",
+				"released": "2025-08-01"
+			},
+			{
+				"id": "tt34376529",
+				"title": "The Last Panther",
+				"episodeNumber": 4,
+				"runtimeSeconds": 1740,
+				"plot": "Two Wakandans must choose to complete their mission or defy their homeland and save their world.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTdjMjhmMzAtZjlkZC00MTNmLThmNTAtNjhkZGUxMjQ3YTFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "6.9",
+				"released": "2025-08-01"
+			}
+		],
+		"totalCount": 4
+	},
+	"tt15571732-s1": {
+		"episodes": [
+			{
+				"id": "tt16491682",
+				"title": "Seekest Thou the Road",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2340,
+				"plot": "In small town Westview, Detective Agnes' murder case sends her down a road that changes everything.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDBjZWY5YzAtYjAyNS00MjZlLWIyZmItYzM4ZmMyNjM4YmJkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.2",
+				"released": "2024-09-18"
+			},
+			{
+				"id": "tt28633352",
+				"title": "Circle Sewn with Fate/Unlock Thy Hidden Gate",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2460,
+				"plot": "With old foes in hot pursuit, Agatha and Teen gather a desperate coven to walk The Witches' Road.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWFjOWI5N2UtMmU2Yi00ZjlmLTg3YjktNWNhNzBmZjA4NmJkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2024-09-18"
+			},
+			{
+				"id": "tt32368794",
+				"title": "Through Many Miles/Of Tricks and Trials",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2220,
+				"plot": "The coven sets off down, down, down The Road and its many perils are quickly revealed, including their first trial.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjM0NTM0NTYtMzZjYy00ODE5LTg2ODctMWI0ODNjZGRiYTMyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2024-09-25"
+			},
+			{
+				"id": "tt32368797",
+				"title": "If I Can't Reach You/Let My Song Teach You",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2400,
+				"plot": "The Road isn't subtle. A new addition to the coven brings the witches to their second cursed trial.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzFiYTcxYWEtMDIwYS00MmIyLWEzODgtZDRmNDUzZmE2NzAxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.2",
+				"released": "2024-10-02"
+			},
+			{
+				"id": "tt32368801",
+				"title": "Darkest Hour/Wake Thy Power",
+				"episodeNumber": 5,
+				"runtimeSeconds": 1800,
+				"plot": "With enemies closing in, the coven flees under the light of a blood moon to the next ghastly trial.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjA4ZGY3OTEtZTgzOC00OWJmLTk3ODAtZTAyOWMwNjlhZDUyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2024-10-09"
+			},
+			{
+				"id": "tt32368805",
+				"title": "Familiar by Thy Side",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2820,
+				"plot": "Familiar Teen is much more than he seems, and his connections to the rest of the coven are revealed.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGYxOGI3YmQtYzVhOS00ODNjLTgyM2MtMmU4MzViODAxYTUxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2024-10-16"
+			},
+			{
+				"id": "tt32368809",
+				"title": "Death's Hand in Mine",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2100,
+				"plot": "Those remaining suffer the hand they are dealt in the next trial.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWQzMTRkODktODkwMi00NWRhLTg3NDktYTAzYWI2MjM5MDRmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2024-10-23"
+			},
+			{
+				"id": "tt32368811",
+				"title": "Follow Me My Friend/To Glory at the End",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2760,
+				"plot": "Get ready for fireworks. Get ready for spectacle. It's the last trial and the end of The Road after all.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmVjOGQ2OWMtMDc0ZS00NjJiLTkwNWEtMmIxYWQxNmRhNTI2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2024-10-30"
+			},
+			{
+				"id": "tt32368814",
+				"title": "Maiden Mother Crone",
+				"episodeNumber": 9,
+				"runtimeSeconds": 2280,
+				"plot": "The truth of Agatha Harkness and The Witches' Road.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BY2Q1OTRlOGEtYzU1NC00ODQ2LWEzOTctMTdkMzIyZTVhZTc4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2024-10-30"
+			}
+		],
+		"totalCount": 9
+	},
+	"tt16027014-s1": {
+		"episodes": [
+			{
+				"id": "tt16175132",
+				"title": "Episode #1.1",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2100,
+				"plot": "In a ravaged world, isolated survivors battle endless horrors while struggling to endure a ruthless and dangerous reality.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNWQ0ZTE1NGUtNGNjOC00YWMzLTk4NTktZmU4NGYxNmU5OTcyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2025-09-24"
+			},
+			{
+				"id": "tt34376535",
+				"title": "Episode #1.2",
+				"episodeNumber": 2,
+				"runtimeSeconds": 1860,
+				"plot": "On a Mexican highway, primal hunger takes over, turning an ordinary road trip into a terrifying nightmare.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjJiN2Y4NzgtNTE2Ny00YjBkLWEwZmYtOWVjM2U4MGVhZDBkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2025-09-24"
+			},
+			{
+				"id": "tt34376536",
+				"title": "Episode #1.3",
+				"episodeNumber": 3,
+				"runtimeSeconds": 1800,
+				"plot": "In a besieged city, the dead rise from their graves, hungry for human flesh. Fear spreads as survivors fight for their lives against the savage hordes.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIzZDExNTctNGVlOC00Y2Y2LTk5YzAtYzQ0ZTk2NjBjMDM0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2025-09-24"
+			},
+			{
+				"id": "tt34376537",
+				"title": "Episode #1.4",
+				"episodeNumber": 4,
+				"runtimeSeconds": 1680,
+				"plot": "Good news; bad news. The Nova Corps have quarantined the Earth to stop the virus from escaping. Worse news: Wanda seeks the power of the Infinity Stones, which are being contained in the remains of Wakanda by an old friend.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjhjYTJmMGEtY2ZlMi00YjdlLWI1NWMtNWEyYThmMTdmMWQxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2025-09-24"
+			}
+		],
+		"totalCount": 4
+	},
+	"tt18923754-s1": {
+		"episodes": [
+			{
+				"id": "tt20419694",
+				"title": "Heaven's Half Hour",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3660,
+				"plot": "Matt Murdock gives up the mask. Wilson Fisk has his sights set to new heights.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDRmNzg5YWItYWNkNy00NWZhLTg3NTctYzRiMWY5ZTgzYjQ5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.5",
+				"released": "2025-03-04"
+			},
+			{
+				"id": "tt21357476",
+				"title": "Optics",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2940,
+				"plot": "Matt Murdock gets a new client who's more than he claims to be. Fisk learns the power of optics.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzFlMjllZjctZjliZC00ZWE0LWEwNTctM2QyY2UxMzA0NmNlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2025-03-04"
+			},
+			{
+				"id": "tt21357486",
+				"title": "The Hollow of His Hand",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2820,
+				"plot": "The trial of Hector Ayala begins. Fisk's old business associates seek to claim his vacant mantle.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2RlZmI2YmUtZjkxMS00ZWQ3LWFjYTctZDRkZDY0NWJmMGRiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.5",
+				"released": "2025-03-11"
+			},
+			{
+				"id": "tt21357478",
+				"title": "Sic Semper Systema",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3060,
+				"plot": "Matt Murdock and Wilson Fisk's darker halves fight to be unleashed.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNGEwOWQyMTUtZmI2YS00MGVlLTk3OTMtYWE0YTA5OThkNWZiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2025-03-18"
+			},
+			{
+				"id": "tt21357484",
+				"title": "With Interest",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2340,
+				"plot": "A day in the life of Matt Murdock gets unexpectedly intense, forcing him to team up with a familiar face.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzA0MjkxN2YtM2IxOC00OTNiLWI0ZDctOGNiN2NkMDVkYTQ5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2025-03-25"
+			},
+			{
+				"id": "tt21357482",
+				"title": "Excessive Force",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2520,
+				"plot": "When a serial killer terrorizes the streets of New York, the city needs a savior.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZmOTUxMGUtNDAzZS00YWQ1LTgwNzQtYTJmNjgxNWY0YjQyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2025-03-25"
+			},
+			{
+				"id": "tt21357490",
+				"title": "Art for Art's Sake",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2400,
+				"plot": "Daredevil is back and races to stop Muse before he can kill again. Fisk's rivals in the criminal underworld take advantage of the chaos.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDE4ODM2M2YtOTVmZC00NTVhLTllN2MtMTZlYjc4NDFmZTY1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2025-04-01"
+			},
+			{
+				"id": "tt21357480",
+				"title": "Isle of Joy",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2940,
+				"plot": "At his inaugural Black and White Ball, Mayor Fisk tightens his grip on New York City. Matt Murdock learns shocking information when an old enemy reaches out.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZWZjZTY2OTYtOTRlMC00YjU4LTkzZTctY2M3ZTIwYjMzZjM3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2025-04-08"
+			},
+			{
+				"id": "tt21357488",
+				"title": "Straight to Hell",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3420,
+				"plot": "Mayor Fisk becomes Mayor Kingpin, and Daredevil is unleashed as chaos takes over the city.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTk1YTllNmItYTZhZC00MTkwLWExMTQtNWE5MmU1NGI1N2Q2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2025-04-15"
+			}
+		],
+		"totalCount": 9
+	},
+	"tt18923754-s2": {
+		"episodes": [
+			{
+				"id": "tt21357492",
+				"title": "The Northern Star",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3060,
+				"plot": "In a fractured New York City, a fugitive Matt Murdock targets an illegal weapons transport linked to Mayor Wilson Fisk, but a brutal law enforcement ambush forces Daredevil into an unmasked corner with high stakes.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzVhOGRhNmUtNjY5ZS00ZGMwLWJiM2UtZGY4ZGU2YWM0NTQwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2026-03-24"
+			},
+			{
+				"id": "tt21357494",
+				"title": "Shoot the Moon",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2760,
+				"plot": "Wilson Fisk launches a targeted legal and media dragnet across Hell's Kitchen to capture Matt Murdock, forcing the fugitive vigilante and Karen Page into hiding while escalating task force brutality triggers a citywide boiling point.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjdjNTUyOGQtN2Q2OC00ODdiLThkOWYtZDQwYjhiMDkwMGVhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2026-03-31"
+			},
+			{
+				"id": "tt21357496",
+				"title": "The Scales & the Sword",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2820,
+				"plot": "An unconscious task force officer gives Matt Murdock and Karen Page a key-card to Wilson Fisk's secure shipping facility, sparking a desperate infiltration to rescue imprisoned allies before a brutal conspiracy is buried forever.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzY0YjVlOTQtM2ZmOS00YTZhLWI3Y2UtZjg2MTJiM2Q5YjZlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2026-03-31"
+			},
+			{
+				"id": "tt21357500",
+				"title": "Gloves Off",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3060,
+				"plot": "Benjamin Poindexter, Wilson Fisk, and Matt Murdock collide as a vigilante attack and political power play escalate across New York, pulling in law enforcement and resistance groups while control of the city tightens.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTcyNzI5MDEtNjQ1My00ZDI0LWFjNDktNTkwZjk0MDg1N2E3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.3",
+				"released": "2026-04-07"
+			},
+			{
+				"id": "tt21357498",
+				"title": "The Grand Design",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3000,
+				"plot": "Following a rooftop confrontation, Matt Murdock hides a wounded Benjamin Poindexter while Wilson Fisk keeps vigil at a hospital. Flashbacks detail the origins of their criminal network, ending in a profound, soul-shattering loss.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMmY5ZDVjMjktZTZkOS00NTUzLTliNTctY2M3YTQyZTFhMWM4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2026-04-14"
+			},
+			{
+				"id": "tt21357502",
+				"title": "Requiem",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2940,
+				"plot": "Wilson Fisk reels from personal loss as his authority fractures across New York. Matt Murdock and Jessica Jones enter opposing battles while Benjamin Poindexter becomes leverage in escalating resistance against Fisk's collapsing control.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjY3ODY2OGYtODNmYS00N2Q0LTkxNjgtYTk2Njk2NmY1ZTNlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2026-04-21"
+			},
+			{
+				"id": "tt21357504",
+				"title": "The Hateful Darkness",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2640,
+				"plot": "Following the city hall shooting, Mayor Fisk consolidates power, detaining Karen. Matt launches a desperate legal defense while Benjamin Poindexter and other vigilantes operate in the shadows to destabilize the mayoral administration.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjgyYjFlMTUtMjdlYS00ZjdjLWFkYzItNDVlODFiNjg1ZDgzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2026-04-28"
+			},
+			{
+				"id": "tt21357506",
+				"title": "The Southern Cross",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3060,
+				"plot": "Matt confronts Fisk in a public courtroom battle as Jessica Jones supports a fragile legal offensive. The stakes spiral into citywide unrest, with Fisk's control over New York threatened by testimony, exposure, and escalating resistance.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmU5NDI5MmItNzg4ZS00ZmEwLTk5ODYtNTJjY2RlMWUzNjRlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.4",
+				"released": "2026-05-05"
+			}
+		],
+		"totalCount": 8
+	},
+	"tt21066182-s1": {
+		"episodes": [
+			{
+				"id": "tt21941138",
+				"title": "Matinee",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2100,
+				"plot": "Actor Simon Williams bombs an audition due to overthinking. He later tries out for the lead in the \"Wonder Man\" remake, where he meets fellow actor Trevor Slattery. Trevor offers helpful audition tips and the two strike up a friendship.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzc4MTI5N2UtMjllYi00N2MyLWIzZWMtZDMxZjBlMzkxNzYwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2026-01-27"
+			},
+			{
+				"id": "tt27774495",
+				"title": "Self-Tape",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2040,
+				"plot": "Trevor's recruitment as Simon's spy comes to light. Simon needs to film an audition tape, so Trevor brings him to a friend's place. Meanwhile, Janelle learns Simon secretly pursued the Wonder Man role without telling her.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjllMDU4ZWQtZDQ4ZS00YzE3LWE2ZTgtY2RlMDY3YmUxNTc5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2026-01-27"
+			},
+			{
+				"id": "tt31260214",
+				"title": "Pacoima",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2040,
+				"plot": "Cleary demands Trevor deliver results to secure funding. At Simon's mom's birthday party, his brother Eric creates tension while Trevor gains insight into Simon's past. Meanwhile, both await news about their \"Wonder Man\" auditions.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjVhN2JjNWEtZjc3Yy00YTdhLTlkNGUtNDE4YTMwM2JiMmE2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2026-01-27"
+			},
+			{
+				"id": "tt29258523",
+				"title": "Doorman",
+				"episodeNumber": 4,
+				"runtimeSeconds": 1920,
+				"plot": "Ding dong.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmZlZjM2MWYtMWI1NS00ODlmLWI2MTYtODc4MjRkODhjZmU3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2026-01-27"
+			},
+			{
+				"id": "tt31260217",
+				"title": "Found Footage",
+				"episodeNumber": 5,
+				"runtimeSeconds": 1560,
+				"plot": "Simon's caught on camera using superpowers while defending Trevor from drug dealers. Blackmailed by the videographer, he's forced to raid an illegal Chamoy candy operation. Comedy erupts when the duo infiltrates the home-based business.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmU1NmVmZTUtODkxYi00MGU3LTlkYTEtODc4Zjg0MjNmNWU2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2026-01-27"
+			},
+			{
+				"id": "tt31260218",
+				"title": "Callback",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2160,
+				"plot": "Von Kovac summons Simon and Trevor for final auditions for lead roles in his masterpiece. When Simon stumbles, Trevor offers guidance, earning Simon another shot. Elsewhere, Cleary drops by to see Trevor, who firmly sets boundaries.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY4ZTk5MWMtNTVkNS00ZWY1LWIxZjctNjMxZWU2ZWJkN2NhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2026-01-27"
+			},
+			{
+				"id": "tt27739623",
+				"title": "Kathy Friedman",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2100,
+				"plot": "Simon frets his secret identity might be exposed during a New York Times interview for the Wonder Man film. He then learns Trevor has been working undercover for the government's Damage Control division.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzM0ZmZkMzQtYzJjZS00YzkzLThkZjgtY2EyMGFhMDhlNTkzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2026-01-27"
+			},
+			{
+				"id": "tt27739622",
+				"title": "Yucca Valley",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2100,
+				"plot": "After Trevor takes credit for being the Mandarin and causing an explosion on set, he gets arrested while Simon enjoys newfound fame. Simon later assumes a different identity to spring his imprisoned friend from jail.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMGQ4NTE3YjktOWEwZS00NjgwLTk4ODgtOGNiZTVkMjU4OWQ5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2026-01-27"
+			}
+		],
+		"totalCount": 8
+	},
+	"tt21066182-s2": {
+		"episodes": [
+			{
+				"id": "tt41030185",
+				"title": "Episode #2.1",
+				"episodeNumber": 1,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDk5YzQ3NjQtNzY3MC00NzM3LWE4NzYtZGRkNDQxYjdiZDkyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			}
+		],
+		"totalCount": 1
+	},
+	"tt23112594-s1": {
+		"episodes": [
+			{
+				"id": "tt23134204",
+				"title": "Episode #1.1",
+				"episodeNumber": 1,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzFmYzAzY2EtYzMyYy00NmQ1LWI3ZjEtNThmZDAyMzI0MzRiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "2026-10-14"
+			},
+			{
+				"id": "tt38934465",
+				"title": "Episode #1.2",
+				"episodeNumber": 2,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			},
+			{
+				"id": "tt38934479",
+				"title": "Episode #1.3",
+				"episodeNumber": 3,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			},
+			{
+				"id": "tt38934485",
+				"title": "Episode #1.4",
+				"episodeNumber": 4,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			},
+			{
+				"id": "tt38934491",
+				"title": "Episode #1.5",
+				"episodeNumber": 5,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			},
+			{
+				"id": "tt38934495",
+				"title": "Episode #1.6",
+				"episodeNumber": 6,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			},
+			{
+				"id": "tt38934500",
+				"title": "Episode #1.7",
+				"episodeNumber": 7,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			},
+			{
+				"id": "tt38934502",
+				"title": "Episode #1.8",
+				"episodeNumber": 8,
+				"runtimeSeconds": null,
+				"plot": "",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "N/A",
+				"released": "N/A"
+			}
+		],
+		"totalCount": 8
+	},
+	"tt2357547-s1": {
+		"episodes": [
+			{
+				"id": "tt4162058",
+				"title": "A.K.A. Ladies Night",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3120,
+				"plot": "Jessica Jones is hired to find an NYU student-athlete who has vanished, but it turns out to be more than a simple missing-persons case.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjA0MTIxMTA1OF5BMl5BanBnXkFtZTgwNzg3OTczNzE@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162062",
+				"title": "A.K.A. Crush Syndrome",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3120,
+				"plot": "Jessica vows to prove Hope's innocence, even though it means tracking down a terrifying figure from her own past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjAxOTY5MjcyMV5BMl5BanBnXkFtZTgwNDg3OTczNzE@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162064",
+				"title": "A.K.A. It's Called Whiskey",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3240,
+				"plot": "It won't be easy to acquire or deploy but Jessica thinks she's found a weapon to use against Kilgrave. Luke and Jessica bond over their similarities.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTdhZTFhMDYtYzFmNy00NTg4LWI1MzktZDhkZDVkZjU2OTA4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162066",
+				"title": "A.K.A. 99 Friends",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2940,
+				"plot": "A new case demands attention as Jessica tries to find out who's spying on her for Kilgrave. Trish's radio show yields unexpected consequences.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzAyNjQwNDE5OF5BMl5BanBnXkFtZTgwMDY3OTczNzE@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162072",
+				"title": "A.K.A. The Sandwich Saved Me",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3000,
+				"plot": "Despite Jessica's objections, Trish's new friend Simpson gets involved in the hunt for Kilgrave. Jessica recalls a pivotal moment in her life.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjIxOTYyNTQxN15BMl5BanBnXkFtZTgwOTg3OTczNzE@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162076",
+				"title": "A.K.A. You're a Winner!",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3240,
+				"plot": "Luke hires Jessica to help him find someone who may have skipped town, but she fears he'll learn too much about her history in the process.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMGI1N2E2MTQtMjg1OS00M2JmLTljMDItZWY2ZWRjMzRlODkzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162080",
+				"title": "A.K.A. Top Shelf Perverts",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3300,
+				"plot": "Malcolm, Simpson and Trish go rogue to prevent Jessica from carrying out an extreme plan to outwit Kilgrave.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTExODQxMTQxODBeQTJeQWpwZ15BbWU4MDM5Nzk3Mzcx._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162078",
+				"title": "A.K.A. WWJD?",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3000,
+				"plot": "Jessica experiences a strange homecoming courtesy of Kilgrave. Hogarth's conflict with her estranged wife reaches a tipping point.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWVlM2Q4MTEtNmFjNy00YzY0LTljZGUtMGRhNDU4Yzg1NzJhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162086",
+				"title": "A.K.A. Sin Bin",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3300,
+				"plot": "Just when Jessica has Kilgrave right where she wants him, Hogarth's involvement complicates the situation. Details of Kilgrave's past emerge.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjE3MTg2OTg4Nl5BMl5BanBnXkFtZTgwNDk3OTczNzE@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162088",
+				"title": "A.K.A. 1,000 Cuts",
+				"episodeNumber": 10,
+				"runtimeSeconds": 2760,
+				"plot": "A discovery has the potential to change the entire game if Jessica can refuse Kilgrave's offer.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMWVhYmEyZGEtODgyZS00ZDNlLTkzNTAtMDQ2ODIxZTcxODRmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162092",
+				"title": "A.K.A. I've Got the Blues",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3000,
+				"plot": "Jessica searches morgues for clues. Trish goes all out to keep Simpson from getting in Jessica's way. Malcolm has an epiphany.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDUyMjYxMTYwOV5BMl5BanBnXkFtZTgwNTg3OTczNzE@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162094",
+				"title": "A.K.A. Take a Bloody Number",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3240,
+				"plot": "The hunt for Kilgrave reunites Jessica with Luke. Trish receives some unexpected information about Simpson and Jessica.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjkzMjkyYmQtNTE4ZS00OTE1LWE5ZWYtMTUyZjI2NjNlYzk2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2015-11-20"
+			},
+			{
+				"id": "tt4162096",
+				"title": "A.K.A. Smile",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3120,
+				"plot": "Jessica and Luke get help from someone else in the neighborhood. Kilgrave gears up for a major test of powers against Jessica.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIyNDY2MjAwM15BMl5BanBnXkFtZTgwNjE4OTczNzE@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2015-11-20"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt2357547-s2": {
+		"episodes": [
+			{
+				"id": "tt5349278",
+				"title": "A.K.A. Start at the Beginning",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3240,
+				"plot": "While Jessica deals with a rival PI and a paranoid would-be client, Trish digs up a medical file that could unlock the mystery of Jessica's powers.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTAxNzEzNTg2MDFeQTJeQWpwZ15BbWU4MDIxNjg2OTQz._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349282",
+				"title": "A.K.A. Freak Accident",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3360,
+				"plot": "Jessica sets out to find Dr. Kozlov and makes a startling discovery. Trish recruits Malcolm for backup as she visits a figure from her past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjM5Mzk3NTU0N15BMl5BanBnXkFtZTgwNTE2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349300",
+				"title": "A.K.A. Sole Survivor",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3300,
+				"plot": "As her visions intensify, Jessica visits an abandoned clinic, where she stumbles on a new lead. Jeri faces an ultimatum after her secret gets out.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjI2MjY4NjI5OF5BMl5BanBnXkFtZTgwOTA2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349302",
+				"title": "A.K.A. God Help the Hobo",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3000,
+				"plot": "Between anger management classes and tabloid scandals, Jessica and Trish track down a third patient linked to IGH. Oscar extends an olive branch.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjI3NDUzNDg0MF5BMl5BanBnXkFtZTgwMTE2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349312",
+				"title": "A.K.A. The Octopus",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3180,
+				"plot": "Backed into a corner, Jessica's forced to share her intel on the killer. A groggy Trish tries to pull herself together before an important meeting.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTc2ODk4OTExMV5BMl5BanBnXkFtZTgwMDE2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349328",
+				"title": "A.K.A. Facetime",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2940,
+				"plot": "Jessica crashes an exclusive country club on the hunt for the killer. Trish's new addiction begins to spiral out of control.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI5MjU1MjA0M15BMl5BanBnXkFtZTgwMzE2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349332",
+				"title": "A.K.A. I Want Your Cray Cray",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3240,
+				"plot": "Flashbacks shed new light on the aftermath of the family's car accident and reveal a painful turning point in Jessica's adult life.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTYxMzAzODIwOF5BMl5BanBnXkFtZTgwNzA2ODY5NDM@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349338",
+				"title": "A.K.A. Ain't We Got Fun",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3000,
+				"plot": "While Jessica debates her next move, Malcolm confronts Trish about her erratic behavior, and Jeri makes contact with a healer.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjE4MjU0MzIxNl5BMl5BanBnXkFtZTgwNDE2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349342",
+				"title": "A.K.A. Shark in the Bathtub, Monster in the Bed",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3000,
+				"plot": "The shooting forces Jessica to rethink her plans. Meanwhile, Oscar asks for help with a family crisis, and Trish's frustrations finally boil over.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTU4NzIwMzExN15BMl5BanBnXkFtZTgwNTA2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349348",
+				"title": "A.K.A. Pork Chop",
+				"episodeNumber": 10,
+				"runtimeSeconds": 3300,
+				"plot": "Jeri finagles a deal for her new client in exchange for Karl's location. Trish forges ahead with her own investigation. A prison guard crosses a line.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjE3MjA3MzczOV5BMl5BanBnXkFtZTgwNjE2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349356",
+				"title": "A.K.A. Three Lives and Counting",
+				"episodeNumber": 11,
+				"runtimeSeconds": 2940,
+				"plot": "Shocked by her own actions and haunted by visions of Kilgrave, Jessica worries she's turning into a monster. Trish's plans for Karl become clear.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjM5MzY1OTQ5NF5BMl5BanBnXkFtZTgwODA2ODY5NDM@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349360",
+				"title": "A.K.A. Pray for My Patsy",
+				"episodeNumber": 12,
+				"runtimeSeconds": 2820,
+				"plot": "As Jessica and Dorothy wait anxiously for updates on Trish, a call from Costa brings alarming news. Jeri hatches a plan to get her revenge.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTg5MjUyNzYwNV5BMl5BanBnXkFtZTgwNDA2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-03-08"
+			},
+			{
+				"id": "tt5349376",
+				"title": "A.K.A. Playland",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3180,
+				"plot": "Waking up in unfamiliar surroundings, Jessica once again finds herself torn between two worlds and facing an impossible choice.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjk0NzEyODMzNV5BMl5BanBnXkFtZTgwNjA2ODY5NDM@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2018-03-08"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt2357547-s3": {
+		"episodes": [
+			{
+				"id": "tt8272228",
+				"title": "A.K.A. The Perfect Burger",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3060,
+				"plot": "Jessica focuses on helping people who need her help. Dorothy Walker shows up at Alias to ask for help finding Trish.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWViMGRjYTQtZmQyNS00YzM4LWI4NjctYWUxMzA3YzMzZTgxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt8682974",
+				"title": "A.K.A. You're Welcome",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3300,
+				"plot": "Tensions run high between Jessica and Trish as Trish hones her new catlike skills and scours the city for a chance to be a hero.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDJmN2Y3NzEtZjI4YS00MDAyLThhNmEtMTVjZDc1YmJhNzA4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt8960480",
+				"title": "A.K.A. I Have No Spleen",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3360,
+				"plot": "Itching to get back out on the streets and find her attacker, Jessica defies her doctor's advice. Jeri reconnects with her college flame Kith.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWQxZTlkZDYtNTc3Yi00YTgzLTg2YjItZWM1ZWM0MTk5YzdiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt8960486",
+				"title": "A.K.A. Customer Service is Standing By",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2700,
+				"plot": "Jessica learns there's more to Erik than meets the eye as they track down three potential attackers. Malcolm digs up dirt on Kith's husband.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOGI3NTJkNWUtNjNiMC00NWYxLThkYmQtMTdjNmJhMWQ1OWRiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt8978254",
+				"title": "A.K.A. I Wish",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3180,
+				"plot": "Teaming up with Trish to stake out Sallinger, Jessica makes a startling discovery. Jeri's plot to expose Peter yields unexpected consequences.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDFmMmQwZTUtMTk3Ny00YzJkLTljMGYtMmQ3ZGRlODE1NjdlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9007560",
+				"title": "A.K.A. Sorry Face",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3180,
+				"plot": "As the police sift through the gruesome crime scene, Jessica and Trish race to find Sallinger's latest captive.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2YwNDZjYjAtZTI2Mi00MzA2LThlMDYtNDhhOTc2NjI3MWVjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9046968",
+				"title": "A.K.A. The Double Half-Wappinger",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3000,
+				"plot": "Jessica and Trish go on a road trip to dig into Sallinger's past and unearth a horrifying discovery.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BY2NhZWU2NWEtMjkxYy00YmRjLTlkOTYtZmRlOTQ0MjZlNmE3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9341012",
+				"title": "A.K.A. Camera Friendly",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2640,
+				"plot": "When Sallinger posts a video teasing his next crime, Jessica responds with her own media play. Jeri demands that Malcolm identify the masked woman.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYThkODhlNTAtYTlhMC00ODliLWE2MDAtMTUwNGNmNGRmMzdjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9341014",
+				"title": "A.K.A. I Did Something Today",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3060,
+				"plot": "After a shocking blow, Jessica's forced to choose between protecting Trish and destroying Sallinger. Jeri seizes a chance to get back in Kith's life.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNmFlOTI1MjEtODhkMi00NjY2LTk0NzAtNzgzYzZiZTQwOTQ2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9238320",
+				"title": "A.K.A. Hero Pants",
+				"episodeNumber": 10,
+				"runtimeSeconds": 3000,
+				"plot": "Jessica wrestles with her emotions as she tries to untangle herself from a murder investigation.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2JlMTI1OTktYTMyOS00ZjE0LWJkM2UtOTRkZTE0NzM3ZGVhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9257820",
+				"title": "A.K.A. Hellcat",
+				"episodeNumber": 11,
+				"runtimeSeconds": 2880,
+				"plot": "Trish revisits her troubled childhood with Dorothy while plotting to stop Sallinger and stamp out evil across the city.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjlkY2FkMmUtMzljNi00Y2M4LTg5ZGYtYTFmMWUwMDc1YzFlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9341016",
+				"title": "A.K.A. A Lotta Worms",
+				"episodeNumber": 12,
+				"runtimeSeconds": 2940,
+				"plot": "As Trish makes a move on Sallinger, Jessica intervenes and ends up caught in a harrowing dance with the killer.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTc0MmY4MTctNmIxZC00OWI2LTlkZDctY2I3M2RiODA2YzhkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2019-06-14"
+			},
+			{
+				"id": "tt9341018",
+				"title": "A.K.A. Everything",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3060,
+				"plot": "An old friend visits Jessica as she sets out on an agonizing mission and learns the true cost of being a hero.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTJmYWMxZDctNjNhOC00NDJkLTk4YjgtNDU1YWMxNWVmZjMyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2019-06-14"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt3322310-s1": {
+		"episodes": [
+			{
+				"id": "tt4174026",
+				"title": "Snow Gives Way",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3420,
+				"plot": "After being presumed dead, Danny Rand returns home to New York after fifteen years, only to find things aren't as they were.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjkzYWZlMGEtZDZjYS00YzZlLWI4ZjQtN2M4MmZmNjViM2JkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174028",
+				"title": "Shadow Hawk Takes Flight",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3660,
+				"plot": "Danny struggles with his new surroundings, Colleen dishes out a harsh lesson, and Joy sends an unconventional message.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2MyMThjMGItZDU5NS00YjBiLWEzMTEtMDE2MjU2ZDFkYjA3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174030",
+				"title": "Rolling Thunder Cannon Punch",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3540,
+				"plot": "Joy proves herself a shrewd businessperson, Danny recalls a painful memory, and Colleen puts her talents to good use.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmUzYjM4ZTgtMjY1OS00NTVlLWE1NmItODFmMWRiODE5ZDhmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174066",
+				"title": "Eight Diagram Dragon Palm",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3240,
+				"plot": "Danny makes a shocking discovery and a radical pricing proposal; Colleen's extracurricular activities go viral; Ward issues a stern warning.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTI3OTk1YmItNDM0ZC00YWU2LWE4MjQtNWQ2MGI2ZTkwZGY4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174070",
+				"title": "Under Leaf Pluck Lotus",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3360,
+				"plot": "An insidious new drug hits New York. Danny recruits Colleen for the fight, and Claire discovers that credit cards can have many uses.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDM2M2Y3MDgtODRmNC00NjE2LTgxNjktMWEzNWI1OGVmZTNmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174072",
+				"title": "Immortal Emerges from Cave",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3180,
+				"plot": "Danny receives an invitation like no other. Colleen and Claire face a difficult choice. A worried Joy confronts her brother.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDliYTNkMmQtNmM5Ni00ZmMzLThkMjgtN2RlMTIyY2JjMmNhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174074",
+				"title": "Felling Tree with Roots",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3480,
+				"plot": "Ward's loyalty is tested. Danny discovers a rogue division, and the mysterious Bakuto visits Colleen's dojo unannounced.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDE4Mjc3ZDktMWY2Yi00MDBiLWIwNWEtYWNjZjUwMDcyNDFhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174078",
+				"title": "The Blessing of Many Fractures",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3300,
+				"plot": "Danny faces his fear, and Colleen meets her match. Joy makes a hasty decision while Ward struggles to accept his sister's admiration.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDQ3YmEyYTYtMzM2MC00NTY2LTllZWQtY2ExYjcwYTEyZTBiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174080",
+				"title": "The Mistress of All Agonies",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3240,
+				"plot": "Madame Gao plays mind games. Ward's old habits catch up with him, and Danny discovers that he still has much to learn about being the Iron Fist.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIyZGYyNWMtODlhMy00NzM2LWJmYjktMTc1MjE5ZDk2NGMwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174082",
+				"title": "Black Tiger Steals Heart",
+				"episodeNumber": 10,
+				"runtimeSeconds": 3360,
+				"plot": "Exhausted from fighting, Danny tries to recharge with Bakuto's help. Meanwhile, Rand's management gets another shakeup.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk4MTY3MDAwNV5BMl5BanBnXkFtZTgwMjE5NjIyMDI@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174084",
+				"title": "Lead Horse Back to Stable",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3120,
+				"plot": "Claire uses her improvisational skills, and Colleen gets conflicting information. Danny yearns to be more than just a destroyer.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzRiZjFmODQtZDM4OS00NzQzLWIxYjAtZTcwZmM2MTIzYzYwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174090",
+				"title": "Bar the Big Boss",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3000,
+				"plot": "Ward receives an offer with strings attached. Davos advocates for an extreme solution and a deadly duel gets personal.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZmRmYzZkNTAtNjEzYi00OWU0LTgxMWEtNzU4YjYzYWU1NDAwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2017-03-17"
+			},
+			{
+				"id": "tt4174096",
+				"title": "Dragon Plays with Fire",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3180,
+				"plot": "In a desperate search to clear his name, Danny learns a terrible truth that places him on a new path.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjBjZDlkNGQtMDIxNy00ZGQ1LWI2NDQtNDRiMzIyZDQ0NWRjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2017-03-17"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt3322310-s2": {
+		"episodes": [
+			{
+				"id": "tt7166218",
+				"title": "The Fury of Iron Fist",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3420,
+				"plot": "While rival gangs battle for the soul of New York, Danny and Colleen cross paths with an old acquaintance. Joy embarks on a new adventure.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDYxYjg3MGEtZmM1OS00OTY2LTk0NjUtZTI0ZTEwYWE3YTMwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8007196",
+				"title": "The City's Not for Burning",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3180,
+				"plot": "Danny and Colleen strive to broker a badly needed peace. Ward crashes his sister's auction, and Joy plays matchmaker - with a twist.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjcwMWYzZWItOWE4Yy00MzQzLWE1OTQtZGUyOGU4MDJmMmQwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051660",
+				"title": "This Deadly Secret...",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3120,
+				"plot": "In an effort to ease the tension between Ward and Joy, Danny and Colleen switch gears and host a dinner party. Mary delivers a warning.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTQyZjQyZmQtYTA0Zi00MjE5LTk3MmItOWU5NmNhYzU2OTI5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051684",
+				"title": "Target: Iron Fist",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3180,
+				"plot": "Joy's interrogation of Mary takes a turn. Misty gives Danny an earful. Ward extends an olive branch. Davos makes a crucial discovery.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMmZjNzExM2UtZDVjMy00ZWZhLTg3MDUtNWI4NTNkYjJkNTZlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051692",
+				"title": "Heart of the Dragon",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3300,
+				"plot": "There's a new Iron Fist in town, and he's itching to make his presence felt. Meanwhile, Ward calls in a favor, and Joy considers her options.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjFjYTI3NzktNTZiMC00NmRjLWEwMjYtODYzN2MwYzQ4N2I4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.4",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051700",
+				"title": "The Dragon Dies at Dawn",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3060,
+				"plot": "Misty and Colleen's trip to the tattoo parlor turns painful -- but not for them. As Davos crosses names off his list, Mary makes Danny an offer.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2VmNWE3YmUtZGNiZC00MThmLWJlNDgtZjYzMTE1ZDgwYjg1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051704",
+				"title": "Morning of the Mindstorm",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3240,
+				"plot": "As Danny steps up his training, Davos ramps up recruitment. Ward falls prey to old demons, and Misty butts heads with a captain.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNmE0YmQ5NmEtNmMwNS00ZGIyLTg1N2EtOGYxNDJmYWYzNzFjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.0",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051706",
+				"title": "Citadel on the Edge of Vengeance",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2940,
+				"plot": "Joy offers Davos tips on appealing to the masses, Danny begins to understand his limits, and Mary seeks the truth about her past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2U0ODIyOGQtYjU3YS00ZmEwLThiZjYtNTBmMDA4MzUwYzY1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.2",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051708",
+				"title": "War Without End",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3000,
+				"plot": "Facing a life-changing decision, Danny and Colleen debate their next move. Meanwhile, Davos's contempt for mercy grows stronger.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZmUzYTE1OTctNmQxZC00NWRjLTgwMGUtNzhkZTU5ZjRjOTVkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2018-09-07"
+			},
+			{
+				"id": "tt8051710",
+				"title": "A Duel of Iron",
+				"episodeNumber": 10,
+				"runtimeSeconds": 3120,
+				"plot": "In the season finale, Iron Fists collide as the fate of New York City hangs in the balance.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDJhMjRhMmItZDVlMy00NWM0LWE1ZjUtMzdjMDM2YzY3OTZiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2018-09-07"
+			}
+		],
+		"totalCount": 10
+	},
+	"tt3322312-s1": {
+		"episodes": [
+			{
+				"id": "tt3330796",
+				"title": "Into the Ring",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3180,
+				"plot": "Matt Murdock and Foggy Nelson open their law firm, and take the case of a woman accused of murder who Matt believes is innocent.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTIwMzNkZTItZmNlZi00NjNkLTgwYTUtNmMyMTUwZWYzZmJkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt3915096",
+				"title": "Cut Man",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3180,
+				"plot": "Murdock makes a near fatal error while trying to save a kidnapped boy, and finds an unlikely ally when he needs saving himself.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZmFhODE4NGYtYTBhMS00ZWVjLWE3N2EtZmMzZjUzMGEyMmM2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4000782",
+				"title": "Rabbit in a Snowstorm",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3120,
+				"plot": "Murdock and Foggy take on a mysterious wealthy client, but Murdock is convinced that there's more to the case than just the facts.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjAwMDkwMjg0NF5BMl5BanBnXkFtZTgwNzEzMzQ3NDE@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4061068",
+				"title": "In the Blood",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3120,
+				"plot": "Two vicious Russian brothers working for Fisk strike back against Daredevil. Fisk moves to further consolidate his power in the criminal underworld.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODQyODRiODktNDQxYS00NzBiLTlkNzUtOTYxMzc4ZmRiY2E1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4061074",
+				"title": "World on Fire",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3360,
+				"plot": "Fisk moves forward with plans that threaten to rip Hell's Kitchen apart. Murdock and Foggy take on a case helping tenants victimised by a slumlord.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTczNjI0OWUtZGE4OS00MDg2LWJmNmQtZGY4OGRmNGQ5OTgzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4065594",
+				"title": "Condemned",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2880,
+				"plot": "Daredevil finds himself trapped in the fallout of Fisk's plan to take control of Hell's Kitchen. Ben Urich digs closer to the truth.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjg3NWMwZDctNDk5Zi00YWMzLWI3ZmMtYTNmNmVhNWM3ZTUxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4125416",
+				"title": "Stick",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3000,
+				"plot": "An important figure from Murdock's past reemerges seeking his help to battle a new enemy threatening Hell's Kitchen.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWZmODc4ZWMtZTNiYi00YWQ3LWEwMjgtZWM1ZjJkZWZjYjA3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.5",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4125418",
+				"title": "Shadows in the Glass",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3180,
+				"plot": "While Murdock, Foggy and Karen's mission becomes clearer, Fisk's world spins further out of control in his battle for Hell's Kitchen.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMGZiNTg4NTMtZTU5ZS00YWIwLTgxM2QtZWM5NzljZmM4YTZhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4125420",
+				"title": "Speak of the Devil",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3480,
+				"plot": "When Fisk gains the upper hand, the goal to destroy him becomes even more difficult, while Daredevil faces his own demons.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjJjZjkyOWQtNWI1MC00YjZjLWI0ZTktYzhlMDI5NDUyOGI5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.1",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4125422",
+				"title": "Nelson v. Murdock",
+				"episodeNumber": 10,
+				"runtimeSeconds": 3420,
+				"plot": "After Foggy and Murdock's relationship has taken a turn for the worst, a new enemy of Fisk has surfaced.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDIyOTU4MzAtYjEyMC00MTA1LTliMDItOTMxMTRjZmJmZGZiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4125426",
+				"title": "The Path of the Righteous",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3540,
+				"plot": "Fisk and Murdock wrestle with the consequences of their chosen paths, while Ben and Karen get closer to Fisk's true past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTM1ZWFjYTQtNTA0My00NWQyLWExOWUtMDczNzc2ODRhZmUwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4125424",
+				"title": "The Ones We Leave Behind",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3600,
+				"plot": "Fisk seeks revenge while Karen is haunted by recent events. Daredevil makes a startling discovery about Fisk's financing.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTg2NjhhZmItMTE2ZS00NGU0LTk4YTUtNzI0MTgxMjljM2Y3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2015-04-10"
+			},
+			{
+				"id": "tt4125428",
+				"title": "Daredevil",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3360,
+				"plot": "In the season finale, a boxed-in Fisk and a desperate Murdock, Foggy, and Karen are forced to play their end games.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTg4NDAzMDg0MF5BMl5BanBnXkFtZTgwODU5MzIzNTE@._V1_.jpg",
+				"imdbRating": "9.3",
+				"released": "2015-04-10"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt3322312-s2": {
+		"episodes": [
+			{
+				"id": "tt4625048",
+				"title": "Bang",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2880,
+				"plot": "In the void left by Fisk's removal, a new threat to Hell's Kitchen emerges. Murdock and Foggy take on a client with a questionable past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTgzOTQzMjM2N15BMl5BanBnXkFtZTgwMjExNzE5NzE@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4817432",
+				"title": "Dogs to a Gunfight",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3000,
+				"plot": "As Murdock recovers from an attack, Foggy and Karen fight to protect their new client from both the law and the Kitchen's newest vigilante.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGNmZmU4YTAtMjc4OS00OTQ4LWE2YzAtOWFlY2RiZjlhOTM2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4935616",
+				"title": "New York's Finest",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2880,
+				"plot": "Trapped face-to-face with the Punisher, Daredevil wrestles with the morality of vigilante justice. Meanwhile, Foggy and Karen work to save the firm.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNmQzMjc2MzgtOTc1MS00MGE1LWEzYmItYjdlZWI3MGNmOWRhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.4",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4947664",
+				"title": "Penny and Dime",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3600,
+				"plot": "Karen uncovers shocking facts about the Punisher, who finds himself hunted by a powerful force in Hell's Kitchen. Daredevil ponders his next moves.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODI2N2NiMWUtZDExZi00YmQ0LWI3ZWItMWM0NGJlYjQ1YzhiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.4",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950308",
+				"title": "Kinbaku",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3360,
+				"plot": "A former lover arrives in Hell's Kitchen and turns Murdock's world upside down. Karen digs for the truth about the Punisher.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTcwMjI0Nzk0MF5BMl5BanBnXkFtZTgwOTAxNzE5NzE@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950312",
+				"title": "Regrets Only",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3360,
+				"plot": "A lethal foe returns with a vengeance, Foggy and Murdock risk the firm to ensure justice, and Karen sees a different side of the Punisher.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTQzNTM4MTQtNTEwNS00MDJhLTgwN2MtNTk0MGFjODMzMDY4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950310",
+				"title": "Semper Fidelis",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3360,
+				"plot": "Murdock and Foggy take on the DA in the trial of the century, but their client refuses to play along. Murdock struggles to balance his dual identities.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGE2MjNhODktZDI0ZS00NjgyLWFhY2YtZDAwNjQ4ZjdhYmRlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.5",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950326",
+				"title": "Guilty as Sin",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3240,
+				"plot": "As the firm's trial spins out of control, a figure from Murdock's past returns to deliver shocking revelations about the future of Hell's Kitchen.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNWExYTkwODUtNjMxYS00MDM3LWFjNWMtZmVlYmYwNzQxMGFlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950314",
+				"title": "Seven Minutes in Heaven",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3540,
+				"plot": "Castle gets an offer he can't refuse. Foggy and Murdock question the future of their firm, but Karen won't give up so easily.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODk1Y2FhZjYtNDJkOS00ZTljLTkzNDUtNTk2ZDYzNTA5NmUzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.4",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950318",
+				"title": "The Man in the Box",
+				"episodeNumber": 10,
+				"runtimeSeconds": 3120,
+				"plot": "Murdock and Foggy get caught in the crossfire of the Punisher's revenge. Karen and Murdock dig for the truth in very different ways.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTAxM2MzMjEtYjlkZi00NmU1LTgzOTYtOTQxMTc4OGEwMmM4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950322",
+				"title": ".380",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3300,
+				"plot": "Karen starts working with Frank to bring the mysterious Blacksmith down. Claire quits her job as the hospital's administration are trying to keep her silent. Matt visits Madame Gao to get information on Blacksmith.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTcyYzI0MTYtOWEyOS00ODljLTk5OGUtOWE5YTEyMzBiZDFkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950320",
+				"title": "The Dark at the End of the Tunnel",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3120,
+				"plot": "Daredevil goes underground to save an old friend. Karen follows a dangerous lead. The law firm of Nelson and Murdock may have reached its final chapter.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTYyZTc2YjQtNWZiZC00YmZlLWI4YWMtNWQ3NjQyMDBhY2Y1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2016-03-18"
+			},
+			{
+				"id": "tt4950324",
+				"title": "A Cold Day in Hell's Kitchen",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3480,
+				"plot": "In the season finale, Daredevil is backed into the ultimate showdown for his own life - and the future of Hell's Kitchen.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTkxZjdmMGUtMDVjOS00N2NjLTk0OTgtYmEwMWE3ZDQ4ODg5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.1",
+				"released": "2016-03-18"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt3322312-s3": {
+		"episodes": [
+			{
+				"id": "tt5902120",
+				"title": "Resurrection",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3180,
+				"plot": "Shattered physically and spiritually, Matt rethinks his purpose and place in Hell's Kitchen. Meanwhile, Fisk puts a plan in motion from behind bars.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTg1MzY4MDAwOF5BMl5BanBnXkFtZTgwMzg2NzE0NjM@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741926",
+				"title": "Please",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3000,
+				"plot": "Grieving for the life he's abandoned, Matt suffers a crisis of faith. Fisk makes a deal with the FBI that turns him into a target.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIwODYwMTY5N15BMl5BanBnXkFtZTgwNjU1NTI0NjM@._V1_.jpg",
+				"imdbRating": "8.5",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741928",
+				"title": "No Good Deed",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3000,
+				"plot": "As Fisk moves into swanky new digs amid a public outcry, Matt wrestles with how far he's ready to go to right this wrong. Dex's aim comes into focus.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjQyMTg1NzkxM15BMl5BanBnXkFtZTgwOTk2ODk0NjM@._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741930",
+				"title": "Blindsided",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3240,
+				"plot": "While Matt infiltrates a prison to find information on the Albanians, Fisk puts Dex in his crosshairs and a fed-up Foggy goes on the offensive.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYWVmYTI1MTUtOTkzNi00M2UyLTkwNmMtMTAxNjBlMzMzZTQyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.5",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741932",
+				"title": "The Perfect Game",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2940,
+				"plot": "To quell the rising backlash over his release, Fisk serves up a scapegoat to the FBI. Dex misses the mark when he runs into a woman from his past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDkxODFhYWItOWZlNC00NTY2LTgyNTctOTdhNWViZDJmMDBkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741934",
+				"title": "The Devil You Know",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3240,
+				"plot": "Driven to the edge, Dex loses his way until he's offered a lifeline by Fisk. Matt comes to Karen for help, which she agrees to give on one condition.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYWQ0Y2UyYjMtMjI1Ni00MmJkLTg5ZTItNzJiYTAyNDQwMGI3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.5",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741936",
+				"title": "Aftermath",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3000,
+				"plot": "The press crucifies Daredevil after the attack on the Bulletin. Agent Nadeem suspects that the F.B.I. paid too high a price for Fisk's cooperation.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWFhYmM5YzYtYjMxMy00MjJlLTk0M2UtM2IwYTI2NGFjMDI1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741938",
+				"title": "Upstairs/Downstairs",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3000,
+				"plot": "A desperate Dex reaches out for help, Matt forms an uneasy alliance with Agent Nadeem, and Karen concocts a dangerous plan to provoke Fisk.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTA4NDJjMTUtNGE5OC00MzJiLWI3MzQtMDE2YjVmNzkyZDdmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741940",
+				"title": "Revelations",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3240,
+				"plot": "Matt's already shaky world tilts when he learns a shocking truth. Karen runs for her life. Nadeem discovers how deep Fisk's influence runs.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYTk3MTQ4NmUtNTM5OS00NDJhLWJkZGMtMDA0ZDA3Njc2ZmNkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.1",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741942",
+				"title": "Karen",
+				"episodeNumber": 10,
+				"runtimeSeconds": 2760,
+				"plot": "Hunted by Fisk and haunted by mistakes from her past, Karen seeks refuge at the church. Matt finally gets his shot. Dex goes in for the kill.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNWZmNjg3NTAtMWIyOS00OTU5LTk1YmMtNGMzZjdmMzRjZjE0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741944",
+				"title": "Reunion",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3000,
+				"plot": "Dex tries to run his prey to ground, Nadeem's conscience kicks in, and Fisk looks to recover a gift from Vanessa seized during his incarceration.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjcxYjBkOGItNmVmMS00NGExLWI2ZTMtMGRlZjI3MDk0OTFlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.1",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741946",
+				"title": "One Last Shot",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3300,
+				"plot": "Fisk's long-awaited reunion doesn't go as planned. Nelson & Murdock take on a new client who holds key information on Kingpin.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYWJiMDMxN2ItNDYzMS00OTBiLThjMTMtZGJmNDgwMmEyYWFiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.3",
+				"released": "2018-10-19"
+			},
+			{
+				"id": "tt6741948",
+				"title": "A New Napkin",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3240,
+				"plot": "Matt prepares to cross the line, as Dex becomes more dangerous than ever and Fisk enacts his endgame.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzU0ZjY0ZGItOTEyOC00Y2FhLWIwNzgtZTk2ZTMyOTE0YzZkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.6",
+				"released": "2018-10-19"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt3322314-s1": {
+		"episodes": [
+			{
+				"id": "tt4179626",
+				"title": "Moment of Truth",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3300,
+				"plot": "With tension building in the streets of Harlem thanks to ruthless club owner Cottonmouth, Luke finds it increasingly difficult to live a quiet life.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjc2NTc4MjY5NF5BMl5BanBnXkFtZTgwNDk5MTcxMDI@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179628",
+				"title": "Code of the Streets",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3540,
+				"plot": "Luke is pulled deeper into the fight for his neighborhood when, as a favor to an old friend, he tries to help a kid who's in trouble with Cottonmouth.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk5MDY5MDY2M15BMl5BanBnXkFtZTgwOTExMjcxMDI@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179634",
+				"title": "Who's Gonna Take the Weight?",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3420,
+				"plot": "In the aftermath of a chaotic event at a favorite Harlem hangout, Luke heeds the call to action and hits Cottonmouth where he'll feel it most.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjEzNzc4NjQ0OV5BMl5BanBnXkFtZTgwMTI4MTcxMDI@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179636",
+				"title": "Step in the Arena",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3180,
+				"plot": "As he rescues a victim of Cottonmouth's vengeance, Luke remembers his earlier life and the conspiracy that led to his superhuman strength.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNmI5Yzk2ZjUtZGFiYi00M2JkLTgyMDctNWZiNTM5ODRjZTMwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179642",
+				"title": "Just to Get a Rep",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3120,
+				"plot": "Cottonmouth strikes back at Luke by taking his vengeance out on the people of Harlem, while detective Knight and Scarfe face an unexpected threat.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTgxOTEzMjYyOV5BMl5BanBnXkFtZTgwOTM5MTcxMDI@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179686",
+				"title": "Suckas Need Bodyguards",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3240,
+				"plot": "After Cottonmouth and Scarfe's bloody clash, Luke realizes that saving the community may turn former allies into enemies, and enemies into allies.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2QyNDlmYmUtZWQ1ZC00ZjM0LWI3NGItMDMyYWU3YWQ2NGMzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179742",
+				"title": "Manifest",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3120,
+				"plot": "Mariah's political career comes under fire, and Cottonmouth picks up information that could put Luke on the run.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI1MDg3NjY2OF5BMl5BanBnXkFtZTgwNDE1NDU4OTE@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179760",
+				"title": "Blowin' Up the Spot",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2940,
+				"plot": "Mariah campaigns to turn the city and the police against Luke, and not even Misty or Claire may be able to save him.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTkwMDk2MDY3MF5BMl5BanBnXkFtZTgwODAyMjcxMDI@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179772",
+				"title": "DWYCK",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3960,
+				"plot": "With Luke wounded and on the run, Misty faces a soul-searching interrogation. Mariah's rise to power takes a dark turn.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTkxMmQ1NTktOTRkNC00NjQ4LWFlZmQtMzE2OTlhYjQ4MTZmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179776",
+				"title": "Take It Personal",
+				"episodeNumber": 10,
+				"runtimeSeconds": 2880,
+				"plot": "Luke gets closer to the truth about Reva and her part in his fate, while Mariah wrestles with the morality of her new role. Misty hunts for Luke.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODU0MTdhOTYtMGQyOS00ODViLWFhMTQtMTNlNjhkYWM1MTBlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179784",
+				"title": "Now You're Mine",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3120,
+				"plot": "In one bold move, a person from Luke's past puts Luke on the defensive, Misty in dire straits, and Harlem's safety in jeopardy.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODdjMTA3NGItYjFjOC00ZTZkLWIyMGUtNDc3OTM1MTA2MWNjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179798",
+				"title": "Soliloquy of Chaos",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3780,
+				"plot": "Misty digs deeper for the truth as the neighbourhood's power players throw the city into confusion.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjU1MDMyMjkyNF5BMl5BanBnXkFtZTgwNTA4MTcxMDI@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2016-09-30"
+			},
+			{
+				"id": "tt4179804",
+				"title": "You Know My Steez",
+				"episodeNumber": 13,
+				"runtimeSeconds": 2760,
+				"plot": "With all of Harlem bearing witness, Luke takes on the fight of his life in hopes of emerging as the defender his city needs.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjdlZGM4ZDYtZWQ0NS00MGIzLTgwNzQtNDA1OTcyZmFmMjlhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2016-09-30"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt3322314-s2": {
+		"episodes": [
+			{
+				"id": "tt6312068",
+				"title": "Soul Brother #1",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3360,
+				"plot": "As Luke adjusts to his growing fame and tries to shut down the flow of heroin branded with his name, someone from his past reaches out.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjE1NzM1ODk5Nl5BMl5BanBnXkFtZTgwMzQ1NzU1NTM@._V1_.jpg",
+				"imdbRating": "7.0",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6401054",
+				"title": "Straighten It Out",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3300,
+				"plot": "Luke tests out his abilities on the ballfield, Misty ruffles feathers at the precinct, and Mariah plans a reunion to boost her image.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTUzNzAwMTM0N15BMl5BanBnXkFtZTgwODQ1NzU1NTM@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6415098",
+				"title": "Wig Out",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3600,
+				"plot": "Worried Luke is heading down a dark path, Claire pays a visit to his father. Bushmaster makes a bid for Mariah's guns.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMmFmNDU4YTEtNWUwZS00NjQxLTg5ODktY2I5NWQ1ZThlYjUxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.2",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741906",
+				"title": "I Get Physical",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3240,
+				"plot": "As footage of his fight with Bushmaster goes viral, Luke struggles with the aftereffects and follows a trail of clues to Tilda's shop.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDgyOTI4Njc2MV5BMl5BanBnXkFtZTgwNzQ1NzU1NTM@._V1_.jpg",
+				"imdbRating": "7.1",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741908",
+				"title": "All Souled Out",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3420,
+				"plot": "Desperate to drum up quick cash for a lawsuit, Luke weighs an offer from a superfan. Mariah invites Tilda to join the new family business.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjcxY2I3NmQtYjAxMC00YmExLWI2NzgtMzJmZDNhYTE4NmQ1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741910",
+				"title": "The Basement",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3840,
+				"plot": "As a wave of violence rocks Harlem, everyone races to connect the dots between Piranha, Mariah, Bushmaster and the grisly find at the clinic.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjMzNTk5MTkyNF5BMl5BanBnXkFtZTgwOTQ1NzU1NTM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741912",
+				"title": "On and On",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3300,
+				"plot": "Reeling from the showdown on the bridge, Luke teams up with Misty to find Piranha. The hunt for the snitch heats up. Bushmaster reveals his endgame.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTU2OTgxODI5Nl5BMl5BanBnXkFtZTgwNjQ1NzU1NTM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741914",
+				"title": "If It Ain't Rough, It Ain't Right",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3300,
+				"plot": "While Shades, Mariah and Misty come to terms with the previous night's events, Bushmaster searches for a way to boost his strength.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BM2YzODk5MGItYzFlYS00MzNhLWFhMTAtMTZjZWE1MjgwY2MzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741916",
+				"title": "For Pete's Sake",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3540,
+				"plot": "Hunkered down in a makeshift safe house, Luke and Misty butt heads over how to handle Mariah. Meanwhile, long-buried family secrets come to light.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDEzNzRjOTQtNzYxZC00MjhjLTk1MTEtYjkwYjk0Njc4NWE5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741918",
+				"title": "The Main Ingredient",
+				"episodeNumber": 10,
+				"runtimeSeconds": 3540,
+				"plot": "Danny Rand insists on helping Luke hunt for Bushmaster -- the Iron Fist way. Mariah sets out to reclaim her empire. Misty pursues a traitor.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTA5MTc2Njg1NzVeQTJeQWpwZ15BbWU4MDI0NTc1NTUz._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741920",
+				"title": "The Creator",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3360,
+				"plot": "Shaken by Mariah's latest act, Luke combs the city for a witness. Flashbacks reveal a fateful encounter between the Stokes and McIver families.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDMyNGIzNjUtM2MzZi00YjdhLTg2NTktYTAwZjYwZTU3MDQ4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741922",
+				"title": "Can't Front on Me",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3720,
+				"plot": "Luke teams up with an unlikely ally to combat a new strain of heroin. As Shades plows ahead with his plan, a massive party draws everyone to the club.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjdmMTgyZTgtYmYyYi00YzYzLWIyOWMtMWRhMjZhM2MzMTIwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2018-06-22"
+			},
+			{
+				"id": "tt6741924",
+				"title": "They Reminisce Over You",
+				"episodeNumber": 13,
+				"runtimeSeconds": 4140,
+				"plot": "Mariah adapts to her new circumstances and goes to extremes to cover her tracks. Luke takes a new approach to protecting Harlem.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMWYwYTI5MTgtMTEyNS00MWNiLTg0YjEtOTAwOTQ2MWRiZDFjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2018-06-22"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt3475734-s1": {
+		"episodes": [
+			{
+				"id": "tt3976236",
+				"title": "Now Is Not the End",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2580,
+				"plot": "In 1946, Peggy Carter is treated as a secretary at the Strategic Scientific Reserve, with degrading remarks and sexism. Howard Stark asks her for help when the country believes he is selling deadly weapons to their enemies.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDQwN2E1ZGItN2I3YS00ZjcxLTk0NWEtMTBhYTMwMDk1ODg3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2015-01-06"
+			},
+			{
+				"id": "tt4125394",
+				"title": "Bridge and Tunnel",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2460,
+				"plot": "Howard Stark's deadliest weapon has fallen into enemy hands, and only Agent Carter can recover it. But can she do so before her undercover mission is discovered by SSR Chief Dooley and Agent Thompson?",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzcxYTliOGItYWY5MS00MGEzLWE5YzYtZjMwNGU2ZDBlZTZkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2015-01-06"
+			},
+			{
+				"id": "tt4125398",
+				"title": "Time and Tide",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2460,
+				"plot": "As Agent Carter closes in on Howard Stark's stolen technology, Peggy's secret mission could unravel when the SSR arrests Jarvis and a secret is revealed.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjEwNjQxODEyOF5BMl5BanBnXkFtZTgwNDI3MTIwNDE@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2015-01-13"
+			},
+			{
+				"id": "tt4125400",
+				"title": "The Blitzkrieg Button",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2460,
+				"plot": "Peggy may be in more trouble than usual when fugitive Howard Stark suddenly returns for mysterious reasons. And Chief Dooley chases a new clue all the way to Europe that threatens to destroy Peggy's future at the SSR.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTY4MTY1Njk3NF5BMl5BanBnXkFtZTgwMDkxMzIxNDE@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2015-01-27"
+			},
+			{
+				"id": "tt4125402",
+				"title": "The Iron Ceiling",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2580,
+				"plot": "Peggy is finally trusted with a mission. Carter finally gets a chance to prove herself as she is sent on a mission in Russia with Agent Thompson and the Howling Commandos. Meanwhile, Agent Sousa makes an important discovery.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI1Njg1NDM5N15BMl5BanBnXkFtZTgwMTkxMzAyNDE@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2015-02-03"
+			},
+			{
+				"id": "tt4125404",
+				"title": "A Sin to Err",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2460,
+				"plot": "Peggy discovers the truth about Leviathan. Carter believes that the spy that stole Stark's technology is a woman. The SSR now knows that Carter is helping Stark. There's a new spy in the agency.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjM0OTIzNzc3M15BMl5BanBnXkFtZTgwNjk2MDE0NDE@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2015-02-10"
+			},
+			{
+				"id": "tt4125406",
+				"title": "SNAFU",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2460,
+				"plot": "Peggy is cornered and more vulnerable than ever as Leviathan makes their move against her. As the SSR zeroes in on Howard Stark, they may pay the ultimate price as they find their true enemy is closer than they realized.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTQ2MDc4ODAwNF5BMl5BanBnXkFtZTgwNDY0MTg0NDE@._V1_.jpg",
+				"imdbRating": "8.5",
+				"released": "2015-02-17"
+			},
+			{
+				"id": "tt4125408",
+				"title": "Valediction",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2520,
+				"plot": "Peggy faces the full fury of Leviathan, as Howard Stark makes his return.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjMwMjM3ODc4OV5BMl5BanBnXkFtZTgwMDE1ODk1NDE@._V1_.jpg",
+				"imdbRating": "8.4",
+				"released": "2015-02-24"
+			}
+		],
+		"totalCount": 8
+	},
+	"tt4230076-s1": {
+		"episodes": [
+			{
+				"id": "tt4270062",
+				"title": "The H Word",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3060,
+				"plot": "Matt Murdock, Jessica Jones, Luke Cage, and Danny Rand investigate criminals and fight injustice, unaware their paths are about to cross.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTk4MjQ1MjM2NV5BMl5BanBnXkFtZTgwNjMyNzA5MjI@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2017-08-18"
+			},
+			{
+				"id": "tt4270066",
+				"title": "Mean Right Hook",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2640,
+				"plot": "As a new conspiracy takes shape, Matt finds old habits are hard to break, Jessica gets in over her head, Luke tracks a lead, and Danny meets his match.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOWU1MzJlYTQtNDlkYi00NTE0LWJjZDktMmUyMWM3ZGI1YjNjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2017-08-18"
+			},
+			{
+				"id": "tt4270076",
+				"title": "Worst Behavior",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3300,
+				"plot": "Elektra's secrets are revealed. Danny changes his tactics. Matt gives Jessica some legal advice. Luke searches for the White Hat.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzMyNjE1MDkwNF5BMl5BanBnXkFtZTgwNzMyNzA5MjI@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2017-08-18"
+			},
+			{
+				"id": "tt4270082",
+				"title": "Royal Dragon",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2700,
+				"plot": "As the Defenders get to know each other over dinner, they're greeted by a series of party crashers - none of them friendly.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTU3NmEyMjMtNGI5OS00OGUyLWIzNDEtMTcwZjFkYjVmYWFmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2017-08-18"
+			},
+			{
+				"id": "tt4270086",
+				"title": "Take Shelter",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3000,
+				"plot": "Elektra's loyalties are questioned, Colleen clashes with an old acquaintance, and Luke proves he knows how to take a hit.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzBhODE2NjQtNjAyNC00MjM0LWI5MTAtZmI5NTEyOWYwMTljXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.9",
+				"released": "2017-08-18"
+			},
+			{
+				"id": "tt4270094",
+				"title": "Ashes, Ashes",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3060,
+				"plot": "Stick offers up a theory, Danny finds himself sidelined, and Alexandra learns that it's not easy being the leader.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjQzZjA0YWEtNzlhOC00MzUzLWIwMGMtZDc1NGQwZjJhZGJjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2017-08-18"
+			},
+			{
+				"id": "tt4270098",
+				"title": "Fish in the Jailhouse",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2700,
+				"plot": "Matt, Jessica and Luke embark on a desperate search. Colleen and Claire debate heroism. Elektra tries to recruit an all-important ally.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDcwYzc0NTItZmNkZS00YmRlLTgzZmItMjdhYTVkZWI4N2ZlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2017-08-18"
+			},
+			{
+				"id": "tt4270102",
+				"title": "The Defenders",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3420,
+				"plot": "As New York edges closer to disaster, Elektra sees what's beyond the wall, and the Defenders make a last-ditch effort to save the city.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDZiMGJhMGEtNmFkOC00NWQxLWJhNDgtYmM0OWJmOTZkYWZiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2017-08-18"
+			}
+		],
+		"totalCount": 8
+	},
+	"tt5675620-s1": {
+		"episodes": [
+			{
+				"id": "tt5690490",
+				"title": "3 AM",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3060,
+				"plot": "Former Marine Frank Castle takes the law into his own hands while struggling to come to terms with his traumatic past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDQzMzIzMTAtY2QzMS00NmQ5LThlZmEtY2NjMDQ2YjcxOWM0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.5",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690496",
+				"title": "Two Dead Men",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3420,
+				"plot": "A mysterious phone call forces Frank's hand. Meanwhile, Madani goes digging for suspects and Curtis delivers a message.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTg3NTlmOWEtMjI4MC00MWMwLWE4YTEtMTZjZjVhYjVjYWViXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690500",
+				"title": "Kandahar",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3480,
+				"plot": "Frank skips the subtlety while interrogating Micro. Brutal memories of top-secret missions shed light on Frank's past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDE2NGY0YjMtNTQxNy00YjY3LWEyYjQtYzQxM2ZkNTA0ZjE2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690506",
+				"title": "Resupply",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2940,
+				"plot": "Madani and Sam plan a delicate operation. Curtis tries to connect with Lewis. Frank encourages Micro to get his hands dirty.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzcwM2ZhMmItYzEzYS00NDU2LWI0N2QtZjYxY2Q5NzQxZDUzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690514",
+				"title": "Gunner",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3300,
+				"plot": "Frank and Micro go looking for answers from a reluctant witness. Madani and Sam learn of a looming investigation. Rawlins sees a ghost.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzc0NjdiNzktYjJlOS00MzU4LTllODktNjA5NjZjYTRkYWU2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690526",
+				"title": "The Judas Goat",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3300,
+				"plot": "With Frank in bad shape, Micro calls on Curtis for help. Madani and Russo continue to mix business with pleasure. Lewis stands up for his rights.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDIxMjYwNzYtYmE0ZS00ZmU4LTgxZDUtYzIyOWQxZjgyYmQ4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690528",
+				"title": "Crosshairs",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2940,
+				"plot": "Lewis struggles with the ramifications of his actions. Frank and Micro pursue another face from the past. Madani and Sam go bug hunting.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTAxNWM4MTgtM2E2ZC00Y2Q4LWI4N2YtMDkwZTM5MTRiOWZhXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690534",
+				"title": "Cold Steel",
+				"episodeNumber": 8,
+				"runtimeSeconds": 3180,
+				"plot": "Russo opens up to Madani about his past. Sarah shares her concerns about her son with Frank. A decoy operation takes a turn.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BN2IwNmM4MGYtZjk3Ny00Y2MyLTgyYzQtNGViMzVlZTQyYjk3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690538",
+				"title": "Front Toward Enemy",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3240,
+				"plot": "Following a deadly explosion, Karen lands in a bomber's crosshairs -- and Frank isn't happy about it. Meanwhile, Curtis makes a grisly discovery.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGI5MmQ0MmQtNDA2Ni00ZWJkLWJlNTAtZGEyMjU5Y2JlMDEzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690544",
+				"title": "Virtue of the Vicious",
+				"episodeNumber": 10,
+				"runtimeSeconds": 2940,
+				"plot": "An attack on a high-profile politician is examined (and reexamined) through different perspectives. Madani faces a painful truth.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjJhNzA1YWQtNTE2NS00MjZiLWEwYTktMTljYjMyZDE4OGY3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.1",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690548",
+				"title": "Danger Close",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3120,
+				"plot": "As danger knocks on Sarah's door, Frank takes his quest for vengeance to the next level with some help from an ally.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjk4NTU4MmUtN2I0OS00MTg3LTgxZGMtZDk4M2QwYzU4OGE4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.2",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690552",
+				"title": "Home",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3060,
+				"plot": "Frank makes a damning confession. A shootout leaves Sarah wondering what to believe. Rawlins goes in for the kill, once and for all.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmM4ZGM3YjEtYmEyNC00MGJkLTkwYzItM2IyNjE5ZDc3OGVkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.5",
+				"released": "2017-11-17"
+			},
+			{
+				"id": "tt5690560",
+				"title": "Memento Mori",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3300,
+				"plot": "As the authorities close in, an exhausted but unbroken Frank vows to put an end to the war that has consumed his life.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDQ4M2M0MGEtNWIxZS00OGIxLTllYWItZTI0NWRjODhkNTlmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.2",
+				"released": "2017-11-17"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt5675620-s2": {
+		"episodes": [
+			{
+				"id": "tt7746006",
+				"title": "Roadhouse Blues",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3180,
+				"plot": "While driving through Michigan, Frank stops for a beer at a roadside bar. But staying out of trouble has never been his strong suit.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BODc4MTI0ODk4MV5BMl5BanBnXkFtZTgwNjg3OTMxNzM@._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8050238",
+				"title": "Fight or Flight",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3300,
+				"plot": "Frank and a reluctant Rachel go on the run as a menacing adversary gives chase. Meanwhile, Madani pays Russo an unwelcome visit.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDRkOTFiNDktMGQzYy00ZDg4LWJmMWEtY2NkYTA4ZTBlZjViXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8230684",
+				"title": "Trouble the Water",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3060,
+				"plot": "As Pilgrim's past comes into focus, Frank and Rachel find themselves in police custody, where they're anything but safe.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTA5MDMzNzA4OTheQTJeQWpwZ15BbWU4MDM4NzkzMTcz._V1_.jpg",
+				"imdbRating": "8.8",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8762254",
+				"title": "Scar Tissue",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3480,
+				"plot": "Rachel recalls the night everything changed and lets Frank in on the truth about her name. Russo sits down with a face from his childhood.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjI3NDkyMDM5N15BMl5BanBnXkFtZTgwMTM1OTgwNzM@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8709448",
+				"title": "One-Eyed Jacks",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3060,
+				"plot": "Frank walks into a trap, but really he's the one setting a trap. Madani opens up to Curtis. Pilgrim plans a visit to an unholy land.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTEwNTAzODUxMDFeQTJeQWpwZ15BbWU4MDU3NzkzMTcz._V1_.jpg",
+				"imdbRating": "8.1",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8762262",
+				"title": "Nakazat",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3420,
+				"plot": "Amy (previously know as Rachel) develops photographs that point to a conspiracy. Russo reads his own report. Madani's story about Russo comes under fire.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjUyNTIxMjQ5OV5BMl5BanBnXkFtZTgwMDk3OTMxNzM@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8762270",
+				"title": "One Bad Day",
+				"episodeNumber": 7,
+				"runtimeSeconds": 3120,
+				"plot": "Madani's quest to ID Pilgrim hits a wall. Russo and his crew put their plan into action. Frank encounters someone from the past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzg0MzYxNjIyMl5BMl5BanBnXkFtZTgwNzg3OTMxNzM@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8581084",
+				"title": "My Brother's Keeper",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2940,
+				"plot": "Painful memories take ahold of Russo. Frank's frustration frightens those closest to him. Madani receives a visitor bearing a warning.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTU5NDY0NTU5MF5BMl5BanBnXkFtZTgwNDg3OTMxNzM@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8390538",
+				"title": "Flustercluck",
+				"episodeNumber": 9,
+				"runtimeSeconds": 3480,
+				"plot": "A big bounty inspires New York's worst to pursue the Punisher. A restless Amy seeks help from a fellow grifter. Russo and Krista consider the future.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDFkM2E5OTYtYzBiMy00N2M4LThmZjMtNzc5ODMzMTFkYjRjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8639358",
+				"title": "The Dark Hearts of Men",
+				"episodeNumber": 10,
+				"runtimeSeconds": 2820,
+				"plot": "As Madani and Krista debate who's worth saving, Frank prepares to storm Russo's territory. A brutal encounter pushes Pilgrim back into old habits.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTczOTk5MDY0NV5BMl5BanBnXkFtZTgwMjM1OTgwNzM@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8737922",
+				"title": "The Abyss",
+				"episodeNumber": 11,
+				"runtimeSeconds": 3300,
+				"plot": "Amy rushes to protect Frank, who lies defenseless in a hospital. Pilgrim gets some crushing news, and Karen Page calls in a favor.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZGY4MjI2ODktZDMwZi00NWVhLTkwYWYtZDljMDFkMWEwMDcyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8737924",
+				"title": "Collision Course",
+				"episodeNumber": 12,
+				"runtimeSeconds": 3000,
+				"plot": "Buckle up -- Mahoney and Frank are about to take a ride to remember. Amy makes an entrance, Russo cashes out, and Madani comes clean to Krista.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMTU2NjkyNTYzNF5BMl5BanBnXkFtZTgwNTY3OTMxNzM@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2019-01-18"
+			},
+			{
+				"id": "tt8737926",
+				"title": "The Whirlwind",
+				"episodeNumber": 13,
+				"runtimeSeconds": 3480,
+				"plot": "Frank, Pilgrim, Madani, Russo, Amy, Curt and the Schultz family. No bullet is left unspent as season two comes to an explosive conclusion.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjIxMTE5MjY0NV5BMl5BanBnXkFtZTgwMjc3OTMxNzM@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2019-01-18"
+			}
+		],
+		"totalCount": 13
+	},
+	"tt9140554-s1": {
+		"episodes": [
+			{
+				"id": "tt10161330",
+				"title": "Glorious Purpose",
+				"episodeNumber": 1,
+				"runtimeSeconds": 3060,
+				"plot": "Loki, the God of Mischief, finds himself out of time and in an unusual place and forced - against his godly disposition - to cooperate with others.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDYwN2U0MWQtMzc0NC00NTNhLWE5ZjQtY2EwYzJmZmUwYmYwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2021-06-09"
+			},
+			{
+				"id": "tt10161334",
+				"title": "The Variant",
+				"episodeNumber": 2,
+				"runtimeSeconds": 3180,
+				"plot": "Mobius puts Loki to work, but not everyone at TVA is thrilled about the God of Mischief's presence.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNGRlYmUyOWQtZWIwYS00ODYwLTg0MzktZjQ5NDU0MDM2MDk2XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2021-06-16"
+			},
+			{
+				"id": "tt10161336",
+				"title": "Lamentis",
+				"episodeNumber": 3,
+				"runtimeSeconds": 2520,
+				"plot": "Loki finds out The Variant's plan, but he has his own that will forever alter both their destinies.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjc4YzQxMTEtOGJkNC00NmQ0LTg5ZWMtZTZhOGQ0YTEzNDRlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2021-06-23"
+			},
+			{
+				"id": "tt10161340",
+				"title": "The Nexus Event",
+				"episodeNumber": 4,
+				"runtimeSeconds": 2880,
+				"plot": "Frayed nerves and paranoia infiltrate the TVA as Mobius and Hunter B-15 search for Loki and Sylvie.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDM5NjQxYTEtZWI1NC00M2YzLWIzZWMtN2M0MWIwNWI2ZWExXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.0",
+				"released": "2021-06-30"
+			},
+			{
+				"id": "tt10161338",
+				"title": "Journey Into Mystery",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2880,
+				"plot": "Loki tries to escape The Void, a desolate purgatory where he meets variant versions of himself.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDc3Y2QxYWUtMzVlYi00YzczLWI4MzgtNWQwZjExNmJmN2VlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2021-07-07"
+			},
+			{
+				"id": "tt10161342",
+				"title": "For All Time. Always.",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2700,
+				"plot": "The clock is ticking in the season finale which finds Loki and Sylvie on a date with destiny.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTY2Y2VjZjAtZjJkOC00NDhhLWFhZDYtYjgxYWM5YWYxMTdiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2021-07-14"
+			}
+		],
+		"totalCount": 6
+	},
+	"tt9140554-s2": {
+		"episodes": [
+			{
+				"id": "tt15046608",
+				"title": "Ouroboros",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2700,
+				"plot": "Loki finds himself lost to time and torn, quite literally, between past, present and future.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTBkZDRiMTgtY2I4Yi00NzRkLTg5ZmItNzEzZDBjYTBlNDBkXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.2",
+				"released": "2023-10-05"
+			},
+			{
+				"id": "tt18271346",
+				"title": "Breaking Brad",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2940,
+				"plot": "With the TVA on the verge of a temporal meltdown, Loki and Mobius will stop at nothing to find Sylvie.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzI0ZGEzMGYtMzhiMy00YzM2LWI1ZDEtY2M1NjFjMzJmMTg1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2023-10-12"
+			},
+			{
+				"id": "tt18271344",
+				"title": "1893",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3240,
+				"plot": "Loki and Mobius go on the hunt for everyone's favorite cartoon clock as they try to save the TVA.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNmRmN2VjYjYtZjVmMS00NjJhLWE5NTQtZWUwNjRiOTY5MzMzXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2023-10-19"
+			},
+			{
+				"id": "tt18271348",
+				"title": "Heart of the TVA",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3000,
+				"plot": "The TVA's Loom nears catastrophic failure, but Loki, Mobius and Sylvie have a He Who Remains variant.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYmE3NWQ5NjEtYjVlNS00NTNjLWIyOTgtNjU4OWI1ZDU2NGRjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2023-10-26"
+			},
+			{
+				"id": "tt18271350",
+				"title": "Science/Fiction",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2700,
+				"plot": "Loki traverses dying timelines in an attempt to find his friends, but Reality is not what it seems.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzViZGNjNjUtYjFiMC00MTU2LTk4NzUtZjgxMjNiYTBmY2MyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2023-11-02"
+			},
+			{
+				"id": "tt18271352",
+				"title": "Glorious Purpose",
+				"episodeNumber": 6,
+				"runtimeSeconds": 3360,
+				"plot": "Loki learns the true nature of 'glorious purpose' as he rectifies the past.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDZkMzFhN2EtYTIzYy00NjNmLWFmODAtZjljMmM3ZDJlOTU0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "9.5",
+				"released": "2023-11-09"
+			}
+		],
+		"totalCount": 6
+	},
+	"tt9140560-s1": {
+		"episodes": [
+			{
+				"id": "tt9601584",
+				"title": "Filmed Before a Live Studio Audience",
+				"episodeNumber": 1,
+				"runtimeSeconds": 1620,
+				"plot": "Wanda and Vision struggle to conceal their powers during dinner with Vision's boss and his wife.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYzY1NDc3ZTEtMWY4Zi00ZTVmLWJiMTgtNGFlMjQ4MTI3ZDE4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.3",
+				"released": "2021-01-15"
+			},
+			{
+				"id": "tt10161310",
+				"title": "Don't Touch That Dial",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2040,
+				"plot": "In an effort to fit in, Wanda and Vision perform a magic act in their community talent show.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDU0MmVhOGEtNjMwYi00ZGE5LTk2YWItYTE1YTRmZDhmYWQwXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.6",
+				"released": "2021-01-15"
+			},
+			{
+				"id": "tt10161312",
+				"title": "Now in Color",
+				"episodeNumber": 3,
+				"runtimeSeconds": 1800,
+				"plot": "Wanda's pregnancy fritzes her powers as she and Vision prepare for an accelerated delivery.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTc3MzM3NmEtODQ2YS00MzEzLTlmYmYtYzk3NmQ1MDM3ODc5XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.0",
+				"released": "2021-01-22"
+			},
+			{
+				"id": "tt10161316",
+				"title": "We Interrupt This Program",
+				"episodeNumber": 4,
+				"runtimeSeconds": 1920,
+				"plot": "Monica Rambeau, tasked with a special assignment regarding sentient weapons, goes missing.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BYjQ3NjY0OWQtY2ZiZi00YjQwLWIyNTMtMzc1ODhjZTkxYjQyXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2021-01-29"
+			},
+			{
+				"id": "tt10161318",
+				"title": "On a Very Special Episode...",
+				"episodeNumber": 5,
+				"runtimeSeconds": 2280,
+				"plot": "Wanda addresses Vision's worries when he grows suspicious of the neighbors' strange behaviour.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDcyMmRhYzktODIxNC00MDliLThlMGYtZDcxYTUxZGUzYzc0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2021-02-05"
+			},
+			{
+				"id": "tt10161320",
+				"title": "All-New Halloween Spooktacular!",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2100,
+				"plot": "Disturbances on Halloween separate Wanda from Vision, who looks into anomalous activity in Westview.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNTgwYzVmMzItNDcxZi00OTBlLTk5ZDctMjI4ODI4NzI2ZGU1XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.7",
+				"released": "2021-02-12"
+			},
+			{
+				"id": "tt13776690",
+				"title": "Breaking the Fourth Wall",
+				"episodeNumber": 7,
+				"runtimeSeconds": 2100,
+				"plot": "Monica plots her return, Wanda navigates unsettling complications, and Vision forms a new alliance.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNjhiYTUyZjItMmFhZC00MzNhLTk1OGYtY2IxYjI3YTVkMDkxXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2021-02-19"
+			},
+			{
+				"id": "tt13776714",
+				"title": "Previously On",
+				"episodeNumber": 8,
+				"runtimeSeconds": 2580,
+				"plot": "Wanda embarks on a troubling journey revisiting her past for insight into her present and future.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNzhkZGJjNzUtZWE5NS00NmZhLWIxYzMtMDhjYTMxNmE1ZTdlXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.9",
+				"released": "2021-02-26"
+			},
+			{
+				"id": "tt13778978",
+				"title": "The Series Finale",
+				"episodeNumber": 9,
+				"runtimeSeconds": 2820,
+				"plot": "The events of WandaVision come to a head, and the destinies of all who took part are determined.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDA0NWJhMmQtOWM0MC00OWY3LTg0NzAtMzcyMzJiOGZmNWNiXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.3",
+				"released": "2021-03-05"
+			}
+		],
+		"totalCount": 9
+	},
+	"tt9208876-s1": {
+		"episodes": [
+			{
+				"id": "tt9212984",
+				"title": "New World Order",
+				"episodeNumber": 1,
+				"runtimeSeconds": 2820,
+				"plot": "Sam Wilson and Bucky Barnes realize that their futures are anything but normal.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZTNmZWU1ZTItODQyYy00N2M0LTk1YjctZGFhNDk2NmYxZjY0XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.5",
+				"released": "2021-03-19"
+			},
+			{
+				"id": "tt9212988",
+				"title": "The Star-Spangled Man",
+				"episodeNumber": 2,
+				"runtimeSeconds": 2820,
+				"plot": "John Walker is named Captain America, and Sam Wilson and Bucky Barnes team up against the rebel group the Flag Smashers.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BNDkwM2Q4ZjgtNmEyNy00NzVmLWE2ZTgtMzQzOTNjZmMzNDk4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2021-03-26"
+			},
+			{
+				"id": "tt9212992",
+				"title": "Power Broker",
+				"episodeNumber": 3,
+				"runtimeSeconds": 3060,
+				"plot": "To find the source of the Super Soldier Serum, Sam and Bucky must scale a ladder of low-lifes starting in Madripoor with Zemo.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BMzNmNGI4MjYtYWIxNi00YWZkLWI4NmQtYmNiOWYzOWM5Yzk3XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2021-04-02"
+			},
+			{
+				"id": "tt9212994",
+				"title": "The Whole World Is Watching",
+				"episodeNumber": 4,
+				"runtimeSeconds": 3060,
+				"plot": "John Walker loses patience with Sam and Bucky as they learn more about Karli Morgenthau.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZDBjMTkxZjktN2QyNi00ZmE0LWI2MDYtY2IyZDU3MGI0ZTBmXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "8.6",
+				"released": "2021-04-09"
+			},
+			{
+				"id": "tt9212996",
+				"title": "Truth",
+				"episodeNumber": 5,
+				"runtimeSeconds": 3420,
+				"plot": "Sam Wilson, Bucky Barnes, Baron Zemo, John Walker, and Karli Morgenthau must all deal with the fall out from their actions.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BOTE1MTg4MjAtZTk0Ny00ODhjLTkwZDgtOTYyMGY5ZTRmZDFjXkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.8",
+				"released": "2021-04-16"
+			},
+			{
+				"id": "tt9212998",
+				"title": "One World, One People",
+				"episodeNumber": 6,
+				"runtimeSeconds": 2940,
+				"plot": "As the Flag Smashers escalate their efforts, Sam and Bucky take action.",
+				"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjNlNGM2NDgtZWRjZC00MzM5LTk4OTctNjA2YTcyODlhOWY4XkEyXkFqcGc@._V1_.jpg",
+				"imdbRating": "7.7",
+				"released": "2021-04-23"
+			}
+		],
+		"totalCount": 6
+	}
+}

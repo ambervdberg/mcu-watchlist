@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "marvel",
+  "project_id": "bd2fe46c-6e4b-4dbc-8007-8cdf90777ebe"
+}

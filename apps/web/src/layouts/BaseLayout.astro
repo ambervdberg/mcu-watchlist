@@ -1,0 +1,119 @@
+---
+// Root layout (replaces +layout.svelte + +layout.ts): the document shell -- <html>/<head>/
+// <body> -- plus the app header (title/home link, AccountBadge island) and the
+// always-mounted SignInPanel island, with every page's content rendered into <slot />.
+//
+// Astro layouts own the full document shell (unlike SvelteKit's +layout.svelte, which only
+// supplied the body content inside app.html's shell), so this file's <head> is adapted from
+// app.html. Every route stays fully prerendered at build time (output: 'static' in
+// astro.config.mjs is the project-wide equivalent of +layout.ts's old `prerender = true`),
+// so nothing visitor-specific is ever baked into the HTML here -- see the doc comment on
+// AccountBadge.svelte's onMount for where the client-only session/progress hydration lives.
+//
+// No DI wiring lives here: session/progress are module-level nanostore singletons
+// (lib/state/session.ts, lib/state/progress.ts), imported directly by whichever island
+// needs them.
+//
+// SignInPanel is always mounted here (not conditionally, the way +layout.svelte's
+// `{#if $signInOpen}` used to gate it) because an .astro template has no SSR access to a
+// Svelte store's runtime value -- signInOpen is only known on the client, after hydration.
+// SignInPanel.svelte now guards its own visible markup internally with its own
+// `{#if $signInOpen}`, so mounting it unconditionally here renders nothing when closed.
+import AccountBadge from '../lib/components/auth/AccountBadge.svelte';
+import SignInPanel from '../lib/components/auth/SignInPanel.svelte';
+import '../app.css';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<!-- Favicon is served straight from /static (Astro's publicDir), no import needed (it never changes per-route). -->
+		<link rel="icon" href="/favicon.svg" />
+
+		<!--
+			Site-wide social-card defaults. The og:image URL must be absolute: scrapers
+			(LinkedIn, Facebook, X) fetch it out of context and never resolve relative paths.
+			og-image.png is rasterized from static/og-image.svg by the build hook in
+			astro.config.mjs. Per-page og:title/og:description/og:type are layered on top in
+			each page's `head` slot; these image/card tags are never overridden, so they live
+			here once instead of being repeated per page.
+		-->
+		<meta property="og:image" content="https://mcu-watchlist.codequest.nl/og-image.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:alt" content="Marvel Chronological Watchlist" />
+		<meta property="og:site_name" content="Marvel Chronological Watchlist" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content="https://mcu-watchlist.codequest.nl/og-image.png" />
+
+		<slot name="head" />
+	</head>
+	<body>
+		<header class="app-header">
+			<a class="app-title" href="/">Marvel Chronological Watchlist</a>
+
+			<div class="app-header-account">
+				<AccountBadge client:load />
+			</div>
+		</header>
+
+		<SignInPanel client:load />
+
+		<main class="app-main">
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style>
+	.app-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 1.5rem;
+		border-bottom: 1px solid var(--border);
+		background: var(--panel);
+	}
+
+	.app-title {
+		flex: 0 1 auto;
+		min-width: 0;
+		color: var(--text);
+		font-weight: 700;
+		font-size: 1.1rem;
+		line-height: 1.25;
+		text-decoration: none;
+	}
+
+	.app-header-account {
+		display: flex;
+		flex: 0 1 auto;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 0.75rem;
+		min-width: 0;
+	}
+
+	.app-main {
+		max-width: 72rem;
+		margin: 0 auto;
+		padding: 1.5rem;
+	}
+
+	@media (max-width: 420px) {
+		.app-header {
+			gap: 0.75rem;
+			padding: 0.9rem 1rem;
+		}
+
+		.app-title {
+			flex: 1 1 auto;
+			font-size: 1rem;
+		}
+	}
+</style>

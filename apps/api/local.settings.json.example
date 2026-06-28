@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "SESSION_SECRET": "<random secret, e.g. output of: node -e \"console.log(crypto.randomUUID()+crypto.randomUUID())\">",
+    "STORAGE_CONNECTION_STRING": "<Azure Storage connection string, or Azurite's well-known dev connection string for local-only>",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "APP_BASE_URL": "http://localhost:4280",
+    "EMAIL_FROM": "<verified Resend sender, e.g. Marvel Watchlist <no-reply@yourdomain.com>>",
+    "RESEND_API_KEY": "<your Resend API key, https://resend.com/api-keys>"
+  }
+}

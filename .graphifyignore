@@ -1,0 +1,26 @@
+# graphify: exclude data/config JSON from AST extraction.
+# .json is in graphify's CODE_EXTENSIONS, so every JSON file becomes a node
+# per top-level key (type/value/properties/scripts/...). Those keys are not
+# real code abstractions; they inflate node count and crater cluster cohesion.
+# package.json + tsconfig.json are intentionally NOT ignored: graphify reads
+# them to resolve TS path aliases and workspace packages for real import edges.
+
+# Astro build cache (generated; source of the .schema.json type/value/properties noise)
+.astro/
+
+# Astro build output
+apps/web/build/
+
+# Baked content snapshots (pure data; source of the "Episode/Title Schema" noise)
+apps/web/src/lib/data/mediaMetadata/*.snapshot.json
+
+# Editor / tooling config (no architectural signal)
+.vscode/
+.beads/metadata.json
+
+# Azure Functions host + SWA platform config (data, not code)
+apps/api/host.json
+apps/web/static/staticwebapp.config.json
+
+# Bicep parameter data
+infra/main.parameters.json

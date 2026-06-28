@@ -3,12 +3,10 @@
 // snapshot. (Trailer preservation is handled upstream in the loader, which only fetches a
 // trailer when none is cached, so there is nothing to merge here for it.)
 
-import { mkdtemp, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fetchTitleInfo, mergeTitleInfoWithPrior, type TitleInfo, type TrailerInfo } from './titleInfoFetch';
 import { writeRawCache } from './rawResponseCache';
+import { cleanupCacheRoots, createCacheRoot } from './cacheRootTestHelper';
 
 const trailer: TrailerInfo = {
 	id: 'vi123',
@@ -20,20 +18,11 @@ const trailer: TrailerInfo = {
 	runtimeSeconds: 120
 };
 
-const cacheRoots: string[] = [];
-
 afterEach(async () => {
 	vi.unstubAllEnvs();
 	vi.restoreAllMocks();
-	await Promise.all(cacheRoots.map((root) => rm(root, { recursive: true, force: true })));
-	cacheRoots.length = 0;
+	await cleanupCacheRoots();
 });
-
-async function createCacheRoot(): Promise<string> {
-	const root = await mkdtemp(join(tmpdir(), 'title-info-cache-'));
-	cacheRoots.push(root);
-	return root;
-}
 
 /** A fully-populated, good snapshot entry to merge fresh fetches against. */
 function goodPrior(): TitleInfo {
@@ -135,7 +124,7 @@ describe('mergeTitleInfoWithPrior', () => {
 
 describe('fetchTitleInfo', () => {
 	it('uses imdbapi.dev title data without requiring an OMDb API key', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('title-info-cache-');
 		vi.stubEnv('OMDB_API_KEY', '');
 		const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
 			new Response(
@@ -164,7 +153,7 @@ describe('fetchTitleInfo', () => {
 	});
 
 	it('uses cached imdbapi.dev title data without fetching', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('title-info-cache-');
 		await writeRawCache(
 			{ source: 'imdbapi.dev', endpoint: 'titles', key: 'tt0371746' },
 			200,
@@ -187,7 +176,7 @@ describe('fetchTitleInfo', () => {
 	});
 
 	it('ignores imdbapi.dev runtime for series seasons', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('title-info-cache-');
 		vi.stubEnv('OMDB_API_KEY', '');
 		vi.spyOn(globalThis, 'fetch').mockResolvedValue(
 			new Response(
@@ -207,7 +196,7 @@ describe('fetchTitleInfo', () => {
 	});
 
 	it('uses the configured OMDb key when imdbapi.dev title data is unusable', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('title-info-cache-');
 		vi.stubEnv('OMDB_API_KEY', 'test-key');
 		const fetchMock = vi
 			.spyOn(globalThis, 'fetch')
@@ -234,7 +223,7 @@ describe('fetchTitleInfo', () => {
 	});
 
 	it('skips OMDb fallback when prior snapshot data is usable', async () => {
-		const cacheRoot = await createCacheRoot();
+		const cacheRoot = await createCacheRoot('title-info-cache-');
 		vi.stubEnv('OMDB_API_KEY', 'test-key');
 		const fetchMock = vi
 			.spyOn(globalThis, 'fetch')

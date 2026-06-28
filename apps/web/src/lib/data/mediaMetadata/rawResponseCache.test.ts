@@ -1,8 +1,6 @@
-import { mkdtemp, rm } from 'node:fs/promises';
-import { join } from 'node:path';
-import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fetchJsonWithRawCache, readRawCache, writeRawCache, type RawCacheDescriptor } from './rawResponseCache';
+import { cleanupCacheRoots, createCacheRoot } from './cacheRootTestHelper';
 
 const descriptor: RawCacheDescriptor = {
 	source: 'imdbapi.dev',
@@ -10,19 +8,10 @@ const descriptor: RawCacheDescriptor = {
 	key: 'tt0371746'
 };
 
-const cacheRoots: string[] = [];
-
 afterEach(async () => {
 	vi.restoreAllMocks();
-	await Promise.all(cacheRoots.map((root) => rm(root, { recursive: true, force: true })));
-	cacheRoots.length = 0;
+	await cleanupCacheRoots();
 });
-
-async function createCacheRoot(): Promise<string> {
-	const root = await mkdtemp(join(tmpdir(), 'media-cache-'));
-	cacheRoots.push(root);
-	return root;
-}
 
 describe('raw response cache', () => {
 	it('writes full raw response bodies with update metadata', async () => {

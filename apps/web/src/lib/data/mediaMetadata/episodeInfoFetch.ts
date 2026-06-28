@@ -1,7 +1,7 @@
 // Build-time port of apps/api/src/media/episodeInfoFetcher.ts. Same upstream shape and
 // mapping as the API version — see titleInfoFetch.ts's file doc for why this is a
 // straight copy rather than a reimplementation.
-import { fetchJsonWithRawCache } from './rawResponseCache';
+import { fetchJsonWithRawCache, type RawFetchOptions } from './rawResponseCache';
 
 /** A single episode as returned by imdbapi.dev's per-season episode list. */
 export type Episode = {
@@ -43,11 +43,6 @@ type ImdbApiDevEpisode = {
 type ImdbApiDevEpisodesResponse = {
 	episodes?: ImdbApiDevEpisode[];
 	totalCount?: number;
-};
-
-type RawFetchOptions = {
-	cacheRoot?: string;
-	refreshRawCache?: boolean;
 };
 
 function formatReleaseDate(releaseDate: ImdbApiDevEpisode['releaseDate']): string {

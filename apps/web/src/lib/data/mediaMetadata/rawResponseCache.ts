@@ -14,6 +14,19 @@ export type RawCacheEntry<TBody> = RawCacheDescriptor & {
 	body: TBody;
 };
 
+/**
+ * Cache-root and refresh overrides accepted by the public fetch functions in
+ * episodeInfoFetch.ts and titleInfoFetch.ts. Defined here -- next to
+ * {@link RawCacheDescriptor} and {@link fetchJsonWithRawCache} -- so both fetchers
+ * share one canonical type instead of each maintaining an identical private copy.
+ */
+export type RawFetchOptions = {
+	/** Overrides the default `.media-cache` directory; useful in tests for isolation. */
+	cacheRoot?: string;
+	/** When true, bypasses cached data and forces a fresh upstream fetch. */
+	refreshRawCache?: boolean;
+};
+
 type FetchJsonWithRawCacheOptions = {
 	descriptor: RawCacheDescriptor;
 	url: string;

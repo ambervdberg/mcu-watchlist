@@ -3,7 +3,7 @@
 // scoring heuristic) — this is a straight copy of behavior, not a reimplementation,
 // so the two stay in lockstep until apps/api/src/media is deleted in a later subtask
 // (marvel-h8a.3) and this file becomes the only copy.
-import { fetchJsonWithRawCache } from './rawResponseCache';
+import { fetchJsonWithRawCache, type RawFetchOptions } from './rawResponseCache';
 
 /** OMDb/IMDb-sourced plot, rating, poster, runtime, and trailer metadata for a title. */
 export type TitleInfo = {
@@ -96,11 +96,6 @@ type ImdbVideo = {
 
 type ImdbVideosResponse = {
 	videos?: ImdbVideo[];
-};
-
-type RawFetchOptions = {
-	cacheRoot?: string;
-	refreshRawCache?: boolean;
 };
 
 /** Parses OMDb runtime strings like "126 min" into minutes. */

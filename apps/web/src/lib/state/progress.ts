@@ -26,40 +26,6 @@ import { HttpProgressGateway } from '../api/http-gateways';
 import type { ProgressDto, ProgressGateway } from '../api/ports';
 import { sessionStore, type SessionStore } from './session';
 
-/** Converts the API's array-based ProgressDto into the domain's presence-map Progress. */
-function dtoToDomain(dto: ProgressDto): Progress {
-	return {
-		watchedIds: toPresenceMap(dto.watchedIds),
-		skippedIds: toPresenceMap(dto.skippedIds),
-		watchedDates: { ...dto.watchedDates },
-		watchedEpisodes: { ...dto.watchedEpisodes }
-	};
-}
-
-/** Converts the domain's presence-map Progress back into the API's array-based ProgressDto. */
-function domainToDto(progress: Progress): ProgressDto {
-	return {
-		watchedIds: Object.keys(progress.watchedIds),
-		skippedIds: Object.keys(progress.skippedIds),
-		watchedDates: { ...progress.watchedDates },
-		watchedEpisodes: { ...progress.watchedEpisodes }
-	};
-}
-
-/** Builds a `Record<string, true>` presence map from an array of ids. */
-function toPresenceMap(ids: string[]): Record<string, true> {
-	const map: Record<string, true> = {};
-	for (const id of ids) {
-		map[id] = true;
-	}
-	return map;
-}
-
-/** Today's date as "YYYY-MM-DD", in the visitor's local timezone, for stamping watchedDates. */
-function todayIsoDate(): string {
-	return new Date().toISOString().slice(0, 10);
-}
-
 /** The store shape returned by `createProgressStore`: the progress atom plus the toggle actions. */
 export interface ProgressStore {
 	/** The signed-in visitor's progress. Starts empty (anonymous-safe); see module doc. */
@@ -196,6 +162,43 @@ export function createProgressStore(gateway: ProgressGateway, session: SessionSt
 	}
 
 	return { progress, load, toggleWatched, toggleSkipped, toggleEpisodeWatched, isWatched, isSkipped, clear };
+}
+
+// --- Shape converters: the one place that bridges the domain's presence-map
+// Progress and the API's array-based ProgressDto (see module doc). ---
+
+/** Converts the API's array-based ProgressDto into the domain's presence-map Progress. */
+function dtoToDomain(dto: ProgressDto): Progress {
+	return {
+		watchedIds: toPresenceMap(dto.watchedIds),
+		skippedIds: toPresenceMap(dto.skippedIds),
+		watchedDates: { ...dto.watchedDates },
+		watchedEpisodes: { ...dto.watchedEpisodes }
+	};
+}
+
+/** Converts the domain's presence-map Progress back into the API's array-based ProgressDto. */
+function domainToDto(progress: Progress): ProgressDto {
+	return {
+		watchedIds: Object.keys(progress.watchedIds),
+		skippedIds: Object.keys(progress.skippedIds),
+		watchedDates: { ...progress.watchedDates },
+		watchedEpisodes: { ...progress.watchedEpisodes }
+	};
+}
+
+/** Builds a `Record<string, true>` presence map from an array of ids. */
+function toPresenceMap(ids: string[]): Record<string, true> {
+	const map: Record<string, true> = {};
+	for (const id of ids) {
+		map[id] = true;
+	}
+	return map;
+}
+
+/** Today's date as "YYYY-MM-DD", in the visitor's local timezone, for stamping watchedDates. */
+function todayIsoDate(): string {
+	return new Date().toISOString().slice(0, 10);
 }
 
 /**

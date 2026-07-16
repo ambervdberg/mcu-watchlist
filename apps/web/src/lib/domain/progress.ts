@@ -113,6 +113,25 @@ export function setSkipped(progress: Progress, itemId: string, nextSkipped: bool
 }
 
 /**
+ * Re-stamps `watchedDates[itemId]` with `isoDate` ("YYYY-MM-DD"), so a visitor can
+ * correct the date an item was marked watched.
+ *
+ * Only applies when the item is currently watched: `watchedDates` entries must only
+ * exist for watched items (markWatched/unmarkWatched keep them in lockstep), so
+ * editing the date of a non-watched item returns the input unchanged.
+ */
+export function setWatchedDate(progress: Progress, itemId: string, isoDate: string): Progress {
+	if (!isWatched(progress, itemId)) {
+		return progress;
+	}
+
+	return {
+		...progress,
+		watchedDates: { ...progress.watchedDates, [itemId]: isoDate }
+	};
+}
+
+/**
  * Replaces the full watched-episode list for `seriesItemId` with `episodeIds`.
  *
  * The caller computes the next episode id array (e.g. by adding/removing one

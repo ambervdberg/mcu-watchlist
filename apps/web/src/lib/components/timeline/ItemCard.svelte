@@ -11,8 +11,9 @@
 	would be invalid HTML (interactive controls can't nest) and would break keyboard nav.
 -->
 <script lang="ts">
-	import { formatItemType, formatRuntimeMinutes, formatWatchedDate, type Item } from '$lib/domain/item';
+	import { formatItemType, formatRuntimeMinutes, type Item } from '$lib/domain/item';
 	import { progressStore } from '$lib/state/progress';
+	import WatchedDateEditor from '$lib/components/common/WatchedDateEditor.svelte';
 
 	interface Props {
 		/** The catalog entry this card represents. */
@@ -108,7 +109,11 @@
 				</div>
 
 				{#if watched && watchedDate}
-					<p class="watched-date">Watched {formatWatchedDate(watchedDate)}</p>
+					<!-- Wrapper opts back into pointer events (card-content disables them so text
+					     clicks fall through to the overlay link), keeping the Edit control clickable. -->
+					<div class="watched-date-row">
+						<WatchedDateEditor itemId={item.id} itemTitle={item.title} {watchedDate} />
+					</div>
 				{/if}
 			</div>
 
@@ -259,10 +264,9 @@
 		line-height: 1.32;
 	}
 
-	.watched-date {
-		margin: 6px 0 0;
-		color: var(--done);
-		font-size: 12px;
+	.watched-date-row {
+		width: fit-content;
+		pointer-events: auto;
 	}
 
 	.meta {

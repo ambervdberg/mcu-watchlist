@@ -7,6 +7,7 @@ import {
 	markWatched,
 	setSkipped,
 	setWatched,
+	setWatchedDate,
 	setWatchedEpisodes,
 	unmarkSkipped,
 	unmarkWatched,
@@ -147,6 +148,47 @@ describe('setWatched / setSkipped (toggle helpers)', () => {
 
 		expect(isWatched(progress, ITEM_ID)).toBe(true);
 		expect(isSkipped(progress, ITEM_ID)).toBe(false);
+	});
+});
+
+describe('setWatchedDate', () => {
+	it('re-stamps the watched date for a watched item', () => {
+		const watched = markWatched(createEmptyProgress(), ITEM_ID, TODAY);
+		const result = setWatchedDate(watched, ITEM_ID, '2026-01-15');
+
+		expect(result.watchedDates[ITEM_ID]).toBe('2026-01-15');
+		expect(isWatched(result, ITEM_ID)).toBe(true);
+	});
+
+	it('returns the input unchanged when the item is not watched', () => {
+		const progress = createEmptyProgress();
+		const result = setWatchedDate(progress, ITEM_ID, '2026-01-15');
+
+		expect(result).toBe(progress);
+		expect(result.watchedDates[ITEM_ID]).toBeUndefined();
+	});
+
+	it('returns the input unchanged for a skipped item', () => {
+		const skipped = markSkipped(createEmptyProgress(), ITEM_ID);
+		const result = setWatchedDate(skipped, ITEM_ID, '2026-01-15');
+
+		expect(result).toBe(skipped);
+	});
+
+	it('does not mutate the input progress', () => {
+		const watched = markWatched(createEmptyProgress(), ITEM_ID, TODAY);
+		setWatchedDate(watched, ITEM_ID, '2026-01-15');
+
+		expect(watched.watchedDates[ITEM_ID]).toBe(TODAY);
+	});
+
+	it("leaves other items' dates untouched", () => {
+		let progress = markWatched(createEmptyProgress(), 'other-item', '2026-01-01');
+		progress = markWatched(progress, ITEM_ID, TODAY);
+
+		const result = setWatchedDate(progress, ITEM_ID, '2026-01-15');
+
+		expect(result.watchedDates['other-item']).toBe('2026-01-01');
 	});
 });
 

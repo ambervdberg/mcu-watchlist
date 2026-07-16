@@ -16,9 +16,10 @@
 	-- a store object's methods would arrive as null on the client.
 -->
 <script lang="ts">
-	import { formatItemType, formatRuntimeMinutes, formatWatchedDate, type Item } from '$lib/domain/item';
+	import { formatItemType, formatRuntimeMinutes, type Item } from '$lib/domain/item';
 	import type { TitleInfoDto, EpisodeDto } from '$lib/api/ports';
 	import { progressStore } from '$lib/state/progress';
+	import WatchedDateEditor from '$lib/components/common/WatchedDateEditor.svelte';
 	import EpisodeList from './EpisodeList.svelte';
 	import TrailerEmbed from './TrailerEmbed.svelte';
 
@@ -66,7 +67,9 @@
 </div>
 
 {#if isWatched && watchedDate}
-	<p class="watched-date">Watched {formatWatchedDate(watchedDate)}</p>
+	<div class="watched-date-row">
+		<WatchedDateEditor itemId={item.id} itemTitle={item.title} {watchedDate} />
+	</div>
 {/if}
 
 <div class="watch-toggle" role="group" aria-label={`Watch status for ${item.title}`}>
@@ -222,10 +225,8 @@
 		outline-offset: 2px;
 	}
 
-	.watched-date {
-		margin: 6px 0 0;
-		color: var(--done);
-		font-size: 12px;
+	.watched-date-row {
+		width: fit-content;
 	}
 
 	.watch-toggle {
@@ -309,9 +310,13 @@
 	}
 
 	@media (max-width: 600px) {
-		.title,
-		.watched-date {
+		.title {
 			text-align: center;
+		}
+
+		.watched-date-row {
+			margin-right: auto;
+			margin-left: auto;
 		}
 
 		.meta {

@@ -20,7 +20,14 @@
 // optimistic update happens for an anonymous visitor).
 
 import { atom } from 'nanostores';
-import { createEmptyProgress, setSkipped, setWatched, setWatchedEpisodes, type Progress } from '../domain/progress';
+import {
+	createEmptyProgress,
+	setSkipped,
+	setWatched,
+	setWatchedDate as applyWatchedDate,
+	setWatchedEpisodes,
+	type Progress
+} from '../domain/progress';
 import { emptyProgress, FakeProgressGateway } from '../api/fakes';
 import { HttpProgressGateway } from '../api/http-gateways';
 import type { ProgressDto, ProgressGateway } from '../api/ports';
@@ -86,6 +93,14 @@ export interface ProgressStore {
 	 * opening sign-in) for an anonymous visitor.
 	 */
 	toggleSkipped(itemId: string): Promise<void>;
+
+	/**
+	 * Re-stamps the watched date for `itemId` with `isoDate` ("YYYY-MM-DD"), so the
+	 * visitor can correct when they actually watched it. No-ops on progress for an item
+	 * that isn't watched (domain/progress.ts's setWatchedDate), and no-ops (other than
+	 * opening sign-in) for an anonymous visitor.
+	 */
+	setWatchedDate(itemId: string, isoDate: string): Promise<void>;
 
 	/**
 	 * Toggles whether `episodeId` (within series `seriesId`) is marked watched, given the
@@ -159,6 +174,16 @@ export function createProgressStore(gateway: ProgressGateway, session: SessionSt
 		await persist();
 	}
 
+	async function setWatchedDate(itemId: string, isoDate: string): Promise<void> {
+		if (!session.isAuthenticated.get()) {
+			session.openSignIn();
+			return;
+		}
+
+		progress.set(applyWatchedDate(progress.get(), itemId, isoDate));
+		await persist();
+	}
+
 	async function toggleEpisodeWatched(
 		seriesId: string,
 		episodeId: string,
@@ -195,7 +220,17 @@ export function createProgressStore(gateway: ProgressGateway, session: SessionSt
 		progress.set(createEmptyProgress());
 	}
 
-	return { progress, load, toggleWatched, toggleSkipped, toggleEpisodeWatched, isWatched, isSkipped, clear };
+	return {
+		progress,
+		load,
+		toggleWatched,
+		toggleSkipped,
+		setWatchedDate,
+		toggleEpisodeWatched,
+		isWatched,
+		isSkipped,
+		clear
+	};
 }
 
 /**

@@ -137,6 +137,41 @@ describe('createProgressStore()', () => {
 		});
 	});
 
+	describe('setWatchedDate()', () => {
+		it('when authenticated: re-stamps the watched date for a watched item and persists it', async () => {
+			const { store, gateway } = await authenticatedStore();
+			await store.toggleWatched('iron-man');
+
+			await store.setWatchedDate('iron-man', '2026-01-15');
+
+			expect(store.progress.get().watchedDates['iron-man']).toBe('2026-01-15');
+			expect(store.isWatched('iron-man')).toBe(true);
+			expect(gateway.stored?.watchedDates).toEqual({ 'iron-man': '2026-01-15' });
+		});
+
+		it('leaves progress unchanged for an item that is not watched', async () => {
+			const { store, gateway } = await authenticatedStore();
+
+			await store.setWatchedDate('iron-man', '2026-01-15');
+
+			expect(store.progress.get().watchedDates['iron-man']).toBeUndefined();
+			expect(gateway.stored?.watchedDates).toEqual({});
+		});
+
+		it('when anonymous: opens sign-in instead of mutating progress or calling the gateway', async () => {
+			const sessionGateway = new FakeSessionGateway();
+			const session = createSessionStore(sessionGateway);
+			const gateway = new FakeProgressGateway();
+			const store = createProgressStore(gateway, session);
+
+			await store.setWatchedDate('iron-man', '2026-01-15');
+
+			expect(session.signInOpen.get()).toBe(true);
+			expect(store.progress.get().watchedDates['iron-man']).toBeUndefined();
+			expect(gateway.stored).toBeNull();
+		});
+	});
+
 	describe('toggleEpisodeWatched()', () => {
 		it('adds the episode id to watchedEpisodes for the series and persists it', async () => {
 			const { store, gateway } = await authenticatedStore();

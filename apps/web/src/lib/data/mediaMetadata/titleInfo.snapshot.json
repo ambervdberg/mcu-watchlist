@@ -21,7 +21,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BNzUyM2YyY2MtNzNlMS00MWU5LTgxNjAtNzZlNmI2NjU2NDZlXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 124,
 		"released": "22 Jul 2011",
-		"trailer": null
+		"trailer": {
+			"id": "W4DlMggBPvc",
+			"name": "Trailer 2",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=W4DlMggBPvc",
+			"embedUrl": "https://www.youtube.com/embed/W4DlMggBPvc",
+			"imageUrl": "https://img.youtube.com/vi/W4DlMggBPvc/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt0478970": {
 		"plot": "Armed with the astonishing ability to shrink in scale but increase in strength, con-man Scott Lang must embrace his inner-hero and help his mentor, Dr. Hank Pym, protect the secret behind his spectacular Ant-Man suit from a new generation of towering threats. Against seemingly insurmountable obstacles, Pym and Lang must plan and pull off a heist that will save the world.",
@@ -29,7 +37,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMjM2NTQ5Mzc2M15BMl5BanBnXkFtZTgwNTcxMDI2NTE@._V1_.jpg",
 		"runtimeMinutes": 117,
 		"released": "17 Jul 2015",
-		"trailer": null
+		"trailer": {
+			"id": "cx3joJnXydc",
+			"name": "Trailer 2",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=cx3joJnXydc",
+			"embedUrl": "https://www.youtube.com/embed/cx3joJnXydc",
+			"imageUrl": "https://img.youtube.com/vi/cx3joJnXydc/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt0800080": {
 		"plot": "The story of Dr. Bruce Banner, who seeks a cure to his unique condition, which causes him to turn into a giant green monster under emotional stress, is depicted. Whilst on the run from military, which seeks his capture, Banner comes close to a cure. But he must contend with a new creature that emerges: The Abomination.",
@@ -177,7 +193,7 @@
 	},
 	"tt10676048": {
 		"plot": "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
-		"imdbRating": "5.4",
+		"imdbRating": "5.5",
 		"poster": "https://m.media-amazon.com/images/M/MV5BYzczOWM4MzItMWMyOS00ZDczLWIxMzctNzBmYTgzOTI1MzI3XkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 105,
 		"released": "10 Nov 2023",
@@ -245,7 +261,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMmFiZGZjMmEtMTA0Ni00MzA2LTljMTYtZGI2MGJmZWYzZTQ2XkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 148,
 		"released": "17 Dec 2021",
-		"trailer": null
+		"trailer": {
+			"id": "JfVOs4VSpmA",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=JfVOs4VSpmA",
+			"embedUrl": "https://www.youtube.com/embed/JfVOs4VSpmA",
+			"imageUrl": "https://img.youtube.com/vi/JfVOs4VSpmA/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt10954600": {
 		"plot": "When Scott Lang and Hope van Dyne, along with Hope's parents, Hank Pym and Janet van Dyne, and Scott's daughter, Cassie, are accidentally sent to the Quantum Realm, they soon find themselves exploring the Realm, interacting with strange new creatures",
@@ -253,7 +277,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMThkYWY5ZjQtYjJlMS00MDFmLWFkYzEtODEzZjg5YWFmMGY4XkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 124,
 		"released": "17 Feb 2023",
-		"trailer": null
+		"trailer": {
+			"id": "ZlNFpri-Y40",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=ZlNFpri-Y40",
+			"embedUrl": "https://www.youtube.com/embed/ZlNFpri-Y40",
+			"imageUrl": "https://img.youtube.com/vi/ZlNFpri-Y40/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt1211837": {
 		"plot": "Marvel's \"Doctor Strange\" follows the story of the talented neurosurgeon Doctor Stephen Strange who, after a tragic car accident, must put ego aside and learn the secrets of a hidden world of mysticism and alternate dimensions. Based in New York City's Greenwich Village, Doctor Strange must act as an intermediary between the real world and what lies beyond, utilising a vast array of metaphysical abilities and artifacts to protect the Marvel Cinematic Universe.",
@@ -261,7 +293,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_.jpg",
 		"runtimeMinutes": 115,
 		"released": "04 Nov 2016",
-		"trailer": null
+		"trailer": {
+			"id": "HSzx-zryEgM",
+			"name": "Official Trailer 2",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=HSzx-zryEgM",
+			"embedUrl": "https://www.youtube.com/embed/HSzx-zryEgM",
+			"imageUrl": "https://img.youtube.com/vi/HSzx-zryEgM/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt1228705": {
 		"plot": "With the world now aware of his dual life as the armored superhero Iron Man, billionaire inventor Tony Stark faces pressure from the government, the press, and the public to share his technology with the military. Unwilling to let go of his invention, Stark, along with Pepper Potts, and James \"Rhodey\" Rhodes at his side, must forge new alliances - and confront powerful enemies.",
@@ -285,7 +325,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMjIzMzAzMjQyM15BMl5BanBnXkFtZTcwNzM2NjcyOQ@@._V1_.jpg",
 		"runtimeMinutes": 130,
 		"released": "03 May 2013",
-		"trailer": null
+		"trailer": {
+			"id": "YLorLVa95Xo",
+			"name": "Domestic Trailer 2",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=YLorLVa95Xo",
+			"embedUrl": "https://www.youtube.com/embed/YLorLVa95Xo",
+			"imageUrl": "https://img.youtube.com/vi/YLorLVa95Xo/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt13157618-s1": {
 		"plot": "Fury and Talos try to stop the Skrulls who have infiltrated the highest spheres of the Marvel Universe.",
@@ -469,7 +517,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg",
 		"runtimeMinutes": 134,
 		"released": "16 Feb 2018",
-		"trailer": null
+		"trailer": {
+			"id": "xjDjIWPwcPU",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=xjDjIWPwcPU",
+			"embedUrl": "https://www.youtube.com/embed/xjDjIWPwcPU",
+			"imageUrl": "https://img.youtube.com/vi/xjDjIWPwcPU/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt1843866": {
 		"plot": "For Steve Rogers, awakening after decades of suspended animation involves more than catching up on pop culture; it also means that this old school idealist must face a world of subtler threats and difficult moral complexities. That becomes clear when Director Nick Fury is killed by the mysterious assassin, the Winter Soldier, but not before warning Rogers that SHIELD has been subverted by its enemies. When Rogers acts on Fury's warning to trust no one there, he is branded as a traitor by the organization. Now a fugitive, Captain America must get to the bottom of this deadly mystery with the help of the Black Widow and his new friend, The Falcon. However, the battle will be costly for the Sentinel of Liberty, with Rogers finding enemies where he least expects them while learning that the Winter Soldier looks disturbingly familiar.",
@@ -477,7 +533,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BNWY1NjFmNDItZDhmOC00NjI1LWE0ZDItMTM0MjBjZThiOTQ2XkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 136,
 		"released": "04 Apr 2014",
-		"trailer": null
+		"trailer": {
+			"id": "7SlILk2WMTI",
+			"name": "Official Trailer 2",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=7SlILk2WMTI",
+			"embedUrl": "https://www.youtube.com/embed/7SlILk2WMTI",
+			"imageUrl": "https://img.youtube.com/vi/7SlILk2WMTI/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt18923754-s1": {
 		"plot": "Matt Murdock, a blind lawyer with heightened abilities is fighting for justice through his bustling law firm, while former mob boss Wilson Fisk pursues his own political endeavors in New York. When their past identities begin to emerge, both men find themselves on an inevitable collision course.",
@@ -517,23 +581,47 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMTQyNzAwOTUxOF5BMl5BanBnXkFtZTcwMTE0OTc5OQ@@._V1_.jpg",
 		"runtimeMinutes": 112,
 		"released": "08 Nov 2013",
-		"trailer": null
+		"trailer": {
+			"id": "npvJ9FTgZbM",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=npvJ9FTgZbM",
+			"embedUrl": "https://www.youtube.com/embed/npvJ9FTgZbM",
+			"imageUrl": "https://img.youtube.com/vi/npvJ9FTgZbM/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt2011109": {
 		"plot": "Agent Coulson stops at a convenience store and deals with a coincidental robbery during his visit.",
-		"imdbRating": "7.1",
+		"imdbRating": "7.3",
 		"poster": "https://m.media-amazon.com/images/M/MV5BNGQ4MmMxOTAtZDY5Yi00YjBmLThiMGEtYzc0MDA1YzI2NzI5XkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 4,
 		"released": "25 Oct 2011",
-		"trailer": null
+		"trailer": {
+			"id": "AqcnUD468no",
+			"name": "A Funny Thing Happened on the Way to Thor's Hammer - Commentary - MCU: Phase 2 Collection",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=AqcnUD468no",
+			"embedUrl": "https://www.youtube.com/embed/AqcnUD468no",
+			"imageUrl": "https://img.youtube.com/vi/AqcnUD468no/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt2011118": {
 		"plot": "Agents Coulson and Sitwell plan to derail General Thaddeus \"Thunderbolt\" Ross from interfering with S.H.I.E.L.D. affairs with a very special person.",
-		"imdbRating": "6.3",
+		"imdbRating": "6.6",
 		"poster": "https://m.media-amazon.com/images/M/MV5BZGMxYzBkMTEtZDljYi00YjM2LTgxMTMtNjFiOWQwMTg0NjhmXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 4,
 		"released": "13 Sep 2011",
-		"trailer": null
+		"trailer": {
+			"id": "5fqkhw1jiZI",
+			"name": "Marvel One-Shot: The Consultant - comics - 2011 - clip - Robert Downey Jr., William Hurt",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=5fqkhw1jiZI",
+			"embedUrl": "https://www.youtube.com/embed/5fqkhw1jiZI",
+			"imageUrl": "https://img.youtube.com/vi/5fqkhw1jiZI/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt2015381": {
 		"plot": "After stealing a mysterious orb in the far reaches of outer space, Peter Quill from Earth is now the main target of a manhunt led by the villain known as Ronan the Accuser. To help fight Ronan and his team and save the galaxy from his power, Quill creates a team of space heroes known as the \"Guardians of the Galaxy\" to save the galaxy.",
@@ -541,7 +629,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BM2ZmNjQ2MzAtNDlhNi00MmQyLWJhZDMtNmJiMjFlOWY4MzcxXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 121,
 		"released": "01 Aug 2014",
-		"trailer": null
+		"trailer": {
+			"id": "3CqymRQ1uUU",
+			"name": "trailer 2 UK",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=3CqymRQ1uUU",
+			"embedUrl": "https://www.youtube.com/embed/3CqymRQ1uUU",
+			"imageUrl": "https://img.youtube.com/vi/3CqymRQ1uUU/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt20969586": {
 		"plot": "A team of reformed supervillains is recruited for covert missions by a secret organization. They navigate internal conflict, moral dilemmas, and external threats while attempting to prove loyalty and effectiveness. The film blends superhero action, intrigue, and ensemble dynamics, exploring redemption, trust, and the blurred line between heroism and villainy in a high-stakes environment.",
@@ -579,7 +675,7 @@
 		"plot": "Heroes from three different worlds must unite when they're thrust together to confront a catastrophic danger that could destroy everything they know.",
 		"imdbRating": "N/A",
 		"poster": "https://m.media-amazon.com/images/M/MV5BM2E1ZTJiZTgtZGI2Zi00MzAxLThhZjktMmU3M2E3Yzk3NjUxXkEyXkFqcGc@._V1_.jpg",
-		"runtimeMinutes": null,
+		"runtimeMinutes": 165,
 		"released": "18 Dec 2026",
 		"trailer": {
 			"id": "vi3347106585",
@@ -601,7 +697,7 @@
 	},
 	"tt22084616": {
 		"plot": "Four years have passed since the events of No Way Home, and Peter is now an adult living entirely alone, having voluntarily erased himself from the lives and memories of those he loves. Crime-fighting in a New York that no longer knows his name, he's devoted himself entirely to protecting his city - a full-time Spider-Man - but as the demands on him intensify, the pressure sparks a surprising physical evolution that threatens his existence, even as a strange new pattern of crimes gives rise to one of the most powerful threats he has ever faced.",
-		"imdbRating": "N/A",
+		"imdbRating": "8.1",
 		"poster": "https://m.media-amazon.com/images/M/MV5BOWNjYWM3NWItOGE0ZS00MWRjLThiZWEtYjc4ZmNmMmU5ZTVmXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 150,
 		"released": "31 Jul 2026",
@@ -617,11 +713,19 @@
 	},
 	"tt2247732": {
 		"plot": "This film shows a couple - Claire and Benny - robbing banks with a piece of alien technology that they've recovered from the New York battle site. Eventually we see them in a motel room with a load of money. Their neighbor starts playing music really loud. Benny goes out to investigate, but doesn't return.",
-		"imdbRating": "6.6",
+		"imdbRating": "6.7",
 		"poster": "https://m.media-amazon.com/images/M/MV5BMTI2NDI2MzgtNTMzNi00MmEyLWE0ZDYtZmQ2NjJjMjUyYzMzXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 12,
 		"released": "25 Sep 2012",
-		"trailer": null
+		"trailer": {
+			"id": "Gog0_GKYpIg",
+			"name": "Official Clip",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=Gog0_GKYpIg",
+			"embedUrl": "https://www.youtube.com/embed/Gog0_GKYpIg",
+			"imageUrl": "https://img.youtube.com/vi/Gog0_GKYpIg/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt2250912": {
 		"plot": "A young Peter Parker/Spider-Man begins to navigate his newfound identity as web-slinging superhero Spider-Man. Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark. Peter tries to fall back into his normal daily routine--distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man--but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened.",
@@ -629,7 +733,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BODY2MTAzOTQ4M15BMl5BanBnXkFtZTgwNzg5MTE0MjI@._V1_.jpg",
 		"runtimeMinutes": 133,
 		"released": "07 Jul 2017",
-		"trailer": null
+		"trailer": {
+			"id": "xEvV3OsE2WM",
+			"name": "Official Trailer #3",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=xEvV3OsE2WM",
+			"embedUrl": "https://www.youtube.com/embed/xEvV3OsE2WM",
+			"imageUrl": "https://img.youtube.com/vi/xEvV3OsE2WM/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt23112594-s1": {
 		"plot": "It follows The Vision trying to regain his memory and humanity.",
@@ -693,7 +805,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BODBhYTg1NGQtNGVmNS00ZTdiLThjYTYtZDFkNzRiNTZmNDZjXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 141,
 		"released": "01 May 2015",
-		"trailer": null
+		"trailer": {
+			"id": "JAUoeqvedMo",
+			"name": "Trailer 3",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=JAUoeqvedMo",
+			"embedUrl": "https://www.youtube.com/embed/JAUoeqvedMo",
+			"imageUrl": "https://img.youtube.com/vi/JAUoeqvedMo/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt3322310-s1": {
 		"plot": "Danny Rand returns to New York City after being missing for years, trying to reconnect with his past and his family legacy. He fights against the criminal element corrupting his world around him with his incredible kung-fu mastery and ability to summon the awesome power of the fiery Iron Fist.",
@@ -809,11 +929,19 @@
 	},
 	"tt3438640": {
 		"plot": "After the events of Iron Man 3, Trevor Slattery is an infamous icon. He's also locked up in a high-security prison. Luckily, his newfound profile has brought him celebrity and protection on the inside - and the actor has gladly agreed to an in-depth profile with a documentary filmmaker.",
-		"imdbRating": "7.2",
+		"imdbRating": "7.4",
 		"poster": "https://m.media-amazon.com/images/M/MV5BNDBiYzBhMTktMTM1Mi00NGE1LTg3NTUtZTNhYzNmYmJkOGJkXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 14,
 		"released": "04 Feb 2014",
-		"trailer": null
+		"trailer": {
+			"id": "XlJuWdLpdNw",
+			"name": "Marvel One-Shot: All Hail the King Fan Event",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=XlJuWdLpdNw",
+			"embedUrl": "https://www.youtube.com/embed/XlJuWdLpdNw",
+			"imageUrl": "https://img.youtube.com/vi/XlJuWdLpdNw/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt3475734-s1": {
 		"plot": "The war is over and almost everyone has experienced a loss. Agent Peggy Carter has lost the love of her life. To top it off, when billionaire Howard Stark is accused of Treason, he secretly employs her to clear his name. With the help of Stark's butler, she embarks on a whimsical journey full of deceit, murder and controversy with a side of wise-cracking roommates.",
@@ -837,7 +965,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BZTMyZTA0ZTItYjY3Yi00ODNjLWExYTgtYzgxZTk0NTg0Y2FlXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 134,
 		"released": "09 Jul 2021",
-		"trailer": null
+		"trailer": {
+			"id": "Fp9pNPdNwjI",
+			"name": "New Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=Fp9pNPdNwjI",
+			"embedUrl": "https://www.youtube.com/embed/Fp9pNPdNwjI",
+			"imageUrl": "https://img.youtube.com/vi/Fp9pNPdNwjI/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt3498820": {
 		"plot": "With many people fearing the actions of super heroes, the government decides to push for the Hero Registration Act, a law that limits a hero's actions. This results in a division in The Avengers. Iron Man stands with this Act, claiming that their actions must be kept in check otherwise cities will continue to be destroyed, but Captain America feels that saving the world is daring enough and that they cannot rely on the government to protect the world. This escalates into an all-out war between Team Iron Man (Iron Man, Black Panther, Vision, Black Widow, War Machine, and Spider-Man) and Team Captain America (Captain America, Bucky Barnes, Falcon, Scarlet Witch, Hawkeye, and Ant Man) while a new villain emerges.",
@@ -845,7 +981,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_.jpg",
 		"runtimeMinutes": 147,
 		"released": "06 May 2016",
-		"trailer": null
+		"trailer": {
+			"id": "dKrVegVI0Us",
+			"name": "Trailer 2",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=dKrVegVI0Us",
+			"embedUrl": "https://www.youtube.com/embed/dKrVegVI0Us",
+			"imageUrl": "https://img.youtube.com/vi/dKrVegVI0Us/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt3501632": {
 		"plot": "Imprisoned on the other side of the universe, the mighty Thor finds himself in a deadly gladiatorial contest that puts him against The Incredible Hulk, his former ally and fellow Avenger. Thor's quest for survival leads him in a race against time to prevent the all-powerful Hela from destroying his home world and the Asgardian civilization.",
@@ -885,7 +1029,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BNWE5MGI3MDctMmU5Ni00YzI2LWEzMTQtZGIyZDA5MzQzNDBhXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 136,
 		"released": "05 May 2017",
-		"trailer": null
+		"trailer": {
+			"id": "wUn05hdkhjM",
+			"name": "Trailer 3",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=wUn05hdkhjM",
+			"embedUrl": "https://www.youtube.com/embed/wUn05hdkhjM",
+			"imageUrl": "https://img.youtube.com/vi/wUn05hdkhjM/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt4154664": {
 		"plot": "After crashing an experimental aircraft, Air Force pilot Carol Danvers is discovered by the Kree and trained as a member of the elite Starforce Military under the command of her mentor Yon-Rogg. Six years later, after escaping to Earth while under attack by the Skrulls, Danvers begins to discover there's more to her past. With help from S.H.I.E.L.D. agent Nick Fury, they set out to unravel the truth.",
@@ -893,7 +1045,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BZDI1NGU2ODAtNzBiNy00MWY5LWIyMGEtZjUxZjUwZmZiNjBlXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 123,
 		"released": "08 Mar 2019",
-		"trailer": null
+		"trailer": {
+			"id": "Z1BCujX3pw8",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=Z1BCujX3pw8",
+			"embedUrl": "https://www.youtube.com/embed/Z1BCujX3pw8",
+			"imageUrl": "https://img.youtube.com/vi/Z1BCujX3pw8/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt4154756": {
 		"plot": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment, the fate of Earth and existence has never been more uncertain.",
@@ -901,7 +1061,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg",
 		"runtimeMinutes": 149,
 		"released": "27 Apr 2018",
-		"trailer": null
+		"trailer": {
+			"id": "QwievZ1Tx-8",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=QwievZ1Tx-8",
+			"embedUrl": "https://www.youtube.com/embed/QwievZ1Tx-8",
+			"imageUrl": "https://img.youtube.com/vi/QwievZ1Tx-8/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt4154796": {
 		"plot": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...",
@@ -909,7 +1077,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
 		"runtimeMinutes": 181,
 		"released": "26 Apr 2019",
-		"trailer": null
+		"trailer": {
+			"id": "L2NAh3CIdig",
+			"name": "Encore Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=L2NAh3CIdig",
+			"embedUrl": "https://www.youtube.com/embed/L2NAh3CIdig",
+			"imageUrl": "https://img.youtube.com/vi/L2NAh3CIdig/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt4230076-s1": {
 		"plot": "\"Marvel's The Defenders\" follows Daredevil, Jessica Jones, Luke Cage and Iron Fist. A quartet of singular heroes with one common goal - to save New York City. This is the story of four solitary figures, burdened with their own personal challenges, who realize they just might be stronger when teamed together.",
@@ -933,7 +1109,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BODVkY2ZmZTAtYzFhMi00YzZlLWE2YWMtMDBiYjY2OTU4ZWM0XkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 118,
 		"released": "06 Jul 2018",
-		"trailer": null
+		"trailer": {
+			"id": "UUkn-enk2RU",
+			"name": "Official Trailer #2",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=UUkn-enk2RU",
+			"embedUrl": "https://www.youtube.com/embed/UUkn-enk2RU",
+			"imageUrl": "https://img.youtube.com/vi/UUkn-enk2RU/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt5675620-s1": {
 		"plot": "After exacting revenge on those responsible for the death of his wife and children, Frank Castle uncovers a conspiracy that runs far deeper than New York's criminal underworld. Now known throughout the city as The Punisher, he must discover the truth about injustices that affect more than his family alone.",
@@ -989,7 +1173,15 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BMzNhNTE0NWQtN2E1Ny00NjcwLTg1YTctMGY1NmMwODJmY2NmXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 129,
 		"released": "02 Jul 2019",
-		"trailer": null
+		"trailer": {
+			"id": "LFoz8ZJWmPs",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=LFoz8ZJWmPs",
+			"embedUrl": "https://www.youtube.com/embed/LFoz8ZJWmPs",
+			"imageUrl": "https://img.youtube.com/vi/LFoz8ZJWmPs/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt6791350": {
 		"plot": "In Marvel Studios \"Guardians of the Galaxy Vol. 3\" our beloved band of misfits are looking a bit different these days. Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them.",
@@ -1109,11 +1301,19 @@
 		"poster": "https://m.media-amazon.com/images/M/MV5BZmY5MDcyNzAtYzg3MC00MGNlLTg3OGItNmRjYThkZGVlNzAyXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 132,
 		"released": "03 Sep 2021",
-		"trailer": null
+		"trailer": {
+			"id": "8YjFbMbfXaQ",
+			"name": "Official Trailer",
+			"description": "",
+			"url": "https://www.youtube.com/watch?v=8YjFbMbfXaQ",
+			"embedUrl": "https://www.youtube.com/embed/8YjFbMbfXaQ",
+			"imageUrl": "https://img.youtube.com/vi/8YjFbMbfXaQ/hqdefault.jpg",
+			"runtimeSeconds": null
+		}
 	},
 	"tt9419884": {
 		"plot": "Following the events of Spider-Man No Way Home, Doctor Strange unwittingly casts a forbidden spell that accidentally opens up the multiverse. With help from Wong and Scarlet Witch, Strange confronts various versions of himself as well as teaming up with the young America Chavez while traveling through various realities and working to restore reality as he knows it. Along the way, Strange and his allies realize they must take on a powerful new adversary who seeks to take over the multiverse.",
-		"imdbRating": "6.8",
+		"imdbRating": "6.9",
 		"poster": "https://m.media-amazon.com/images/M/MV5BN2YxZGRjMzYtZjE1ZC00MDI0LThjZmQtZTZmMzVmMmQ2NzBmXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 126,
 		"released": "06 May 2022",

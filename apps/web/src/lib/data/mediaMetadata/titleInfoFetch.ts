@@ -85,13 +85,14 @@ async function resolveTrailer(
 	}
 
 	try {
-		const tmdbId = await resolveTmdbId(imdbId, options);
+		const kind = season ? 'tv' : 'movie';
+		const tmdbId = await resolveTmdbId(imdbId, kind, options);
 
 		if (!tmdbId) {
 			return null;
 		}
 
-		return await fetchTrailerFromTmdb(tmdbId.id, tmdbId.kind, season, options);
+		return await fetchTrailerFromTmdb(tmdbId, kind, season, options);
 	} catch (error) {
 		const message = error instanceof Error ? error.message : String(error);
 		console.warn(`[titleInfoFetch] trailer fetch failed for ${imdbId}: ${message}`);

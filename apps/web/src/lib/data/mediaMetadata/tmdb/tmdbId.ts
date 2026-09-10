@@ -2,22 +2,23 @@
 import { fetchJsonWithRawCache, type RawFetchOptions } from '../rawResponseCache';
 import { getTmdbApiKey } from './tmdbKey';
 
-/** The kind of TMDB entity a resolved id refers to. */
+/** The kind of TMDB entity to resolve an IMDb id into. */
 export type TmdbKind = 'movie' | 'tv';
-
-/** A TMDB id resolved from an IMDb id, together with its entity kind. */
-export type TmdbIdResult = {
-	id: number;
-	kind: TmdbKind;
-};
 
 type TmdbFindResponse = {
 	movie_results?: Array<{ id: number }>;
 	tv_results?: Array<{ id: number }>;
 };
 
-/** Resolves an IMDb id to a TMDB id and kind. Null when TMDB has neither a movie nor a tv match. */
-export async function resolveTmdbId(imdbId: string, options?: RawFetchOptions): Promise<TmdbIdResult | null> {
+/**
+ * Resolves an IMDb id to a TMDB id of the given kind.
+ *
+ * TMDB's /find can return both a movie and a tv match for the same IMDb id -- a series and
+ * an unrelated movie sometimes share one. There is no way to pick the right one from the
+ * response alone, so the caller must say which kind it wants. Null when TMDB has no match
+ * of that kind.
+ */
+export async function resolveTmdbId(imdbId: string, kind: TmdbKind, options?: RawFetchOptions): Promise<number | null> {
 	const apiKey = getTmdbApiKey();
 
 	const data = await fetchJsonWithRawCache<TmdbFindResponse>({
@@ -31,19 +32,13 @@ export async function resolveTmdbId(imdbId: string, options?: RawFetchOptions): 
 		return null;
 	}
 
-	return firstMovieResult(data) ?? firstTvResult(data);
+	return firstMatchOfKind(data, kind);
 }
 
-/** Picks the first movie match, when TMDB found one. */
-function firstMovieResult(data: TmdbFindResponse): TmdbIdResult | null {
-	const [movie] = data.movie_results ?? [];
+/** Picks the first result from the array matching the requested kind, when TMDB found one. */
+function firstMatchOfKind(data: TmdbFindResponse, kind: TmdbKind): number | null {
+	const results = kind === 'movie' ? data.movie_results : data.tv_results;
+	const [match] = results ?? [];
 
-	return movie ? { id: movie.id, kind: 'movie' } : null;
-}
-
-/** Picks the first tv match, when TMDB found one. */
-function firstTvResult(data: TmdbFindResponse): TmdbIdResult | null {
-	const [tv] = data.tv_results ?? [];
-
-	return tv ? { id: tv.id, kind: 'tv' } : null;
+	return match?.id ?? null;
 }

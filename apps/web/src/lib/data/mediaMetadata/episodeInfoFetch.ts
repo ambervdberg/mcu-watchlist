@@ -40,13 +40,13 @@ export async function fetchEpisodeInfoFromTmdb(
 	options?: RawFetchOptions
 ): Promise<EpisodeInfo | null> {
 	try {
-		const tmdbId = await resolveTmdbId(imdbId, options);
+		const tmdbId = await resolveTmdbId(imdbId, 'tv', options);
 
 		if (!tmdbId) {
 			return null;
 		}
 
-		const episodeInfo = await fetchEpisodesFromTmdb(tmdbId.id, season, options);
+		const episodeInfo = await fetchEpisodesFromTmdb(tmdbId, season, options);
 
 		return episodeInfo && (await withOmdbRatings(episodeInfo, imdbId, season, options));
 	} catch {

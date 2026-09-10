@@ -138,7 +138,8 @@ export async function runMediaCacheRefresh({
 	const selected = await selectRequestsToFetch(requests, cacheRoot, { mode, now, maxAgeDays });
 	const env = { ...(await readEnvFile(envPath)), ...process.env };
 	const apiKeys = { omdbApiKey: env.OMDB_API_KEY, tmdbApiKey: env.TMDB_API_KEY };
-	const resolvedTmdbIds = await loadResolvedTmdbIds(requests, cacheRoot);
+	const kindByImdbId = buildKindByImdbId(items);
+	const resolvedTmdbIds = await loadResolvedTmdbIds(requests, cacheRoot, kindByImdbId);
 	/** @type {CacheRefreshResults} */
 	const results = { total: requests.length, selected: selected.length, fetched: 0, skipped: 0, failed: 0 };
 
@@ -156,11 +157,13 @@ export async function runMediaCacheRefresh({
 			continue;
 		}
 
-		const ok = await fetchAndWriteRequest(request, url, cacheRoot, fetchImpl, now);
+		const outcome = await fetchAndWriteRequest(request, url, cacheRoot, fetchImpl, now);
 
-		if (ok) {
+		if (outcome === 'fetched') {
 			results.fetched += 1;
-			await rememberResolvedTmdbId(request, cacheRoot, resolvedTmdbIds);
+			await rememberResolvedTmdbId(request, cacheRoot, resolvedTmdbIds, kindByImdbId);
+		} else if (outcome === 'skipped') {
+			results.skipped += 1;
 		} else {
 			results.failed += 1;
 		}
@@ -170,18 +173,39 @@ export async function runMediaCacheRefresh({
 }
 
 /**
+ * Maps each catalog item's imdb id to the TMDB kind its "find" response should resolve to:
+ * 'tv' for a series, 'movie' for anything else (movie or short). A find response can hold
+ * both a movie and a tv match for one imdb id, so this is the only way to pick the right one.
+ * @param {CatalogItem[]} items
+ * @returns {Map<string, 'movie' | 'tv'>}
+ */
+function buildKindByImdbId(items) {
+	const kindByImdbId = new Map();
+
+	for (const item of items) {
+		if (item.imdbId) {
+			kindByImdbId.set(item.imdbId, item.type === 'series' ? 'tv' : 'movie');
+		}
+	}
+
+	return kindByImdbId;
+}
+
+/**
  * Preloads already-cached TMDB id resolutions for every "find" request, so a season/videos
  * request can use one resolved on an earlier run (and so isn't part of this run's selection).
  * @param {CacheRequest[]} requests
  * @param {string} cacheRoot
+ * @param {Map<string, 'movie' | 'tv'>} kindByImdbId
  * @returns {Promise<Map<string, ResolvedTmdbId>>}
  */
-async function loadResolvedTmdbIds(requests, cacheRoot) {
+async function loadResolvedTmdbIds(requests, cacheRoot, kindByImdbId) {
 	const findRequests = requests.filter((request) => request.source === 'tmdb' && request.endpoint === 'find');
 	const resolvedIds = new Map();
 
 	for (const request of findRequests) {
-		const resolved = await readCachedTmdbId(cacheRoot, request.key);
+		const kind = kindByImdbId.get(request.key) ?? 'movie';
+		const resolved = await readCachedTmdbId(cacheRoot, request.key, kind);
 
 		if (resolved) {
 			resolvedIds.set(request.key, resolved);
@@ -197,14 +221,16 @@ async function loadResolvedTmdbIds(requests, cacheRoot) {
  * @param {CacheRequest} request
  * @param {string} cacheRoot
  * @param {Map<string, ResolvedTmdbId>} resolvedTmdbIds
+ * @param {Map<string, 'movie' | 'tv'>} kindByImdbId
  * @returns {Promise<void>}
  */
-async function rememberResolvedTmdbId(request, cacheRoot, resolvedTmdbIds) {
+async function rememberResolvedTmdbId(request, cacheRoot, resolvedTmdbIds, kindByImdbId) {
 	if (request.source !== 'tmdb' || request.endpoint !== 'find') {
 		return;
 	}
 
-	const resolved = await readCachedTmdbId(cacheRoot, request.key);
+	const kind = kindByImdbId.get(request.key) ?? 'movie';
+	const resolved = await readCachedTmdbId(cacheRoot, request.key, kind);
 
 	if (resolved) {
 		resolvedTmdbIds.set(request.key, resolved);
@@ -212,24 +238,23 @@ async function rememberResolvedTmdbId(request, cacheRoot, resolvedTmdbIds) {
 }
 
 /**
- * Reads a cached TMDB "find" response and extracts its resolved id + kind.
+ * Reads a cached TMDB "find" response and extracts the id matching the requested kind.
+ * A find response can hold both a movie and a tv match for one imdb id, so the caller must
+ * say which kind it wants -- there is no correct way to guess from the response alone.
  * @param {string} cacheRoot
  * @param {string} imdbId
+ * @param {'movie' | 'tv'} kind
  * @returns {Promise<ResolvedTmdbId | null>}
  */
-async function readCachedTmdbId(cacheRoot, imdbId) {
+async function readCachedTmdbId(cacheRoot, imdbId, kind) {
 	try {
 		const cachePath = join(cacheRoot, 'tmdb', 'find', `${safeCacheKey(imdbId)}.json`);
 		const raw = await readFile(cachePath, 'utf-8');
 		const entry = JSON.parse(raw);
-		const [movie] = entry.body?.movie_results ?? [];
-		const [tv] = entry.body?.tv_results ?? [];
+		const results = kind === 'movie' ? entry.body?.movie_results : entry.body?.tv_results;
+		const [match] = results ?? [];
 
-		if (movie) {
-			return { id: movie.id, kind: 'movie' };
-		}
-
-		return tv ? { id: tv.id, kind: 'tv' } : null;
+		return match ? { id: match.id, kind } : null;
 	} catch {
 		return null;
 	}
@@ -308,15 +333,20 @@ export function parseArgs(args) {
  * @param {string} cacheRoot
  * @param {typeof fetch} fetchImpl
  * @param {Date} now
- * @returns {Promise<boolean>}
+ * @returns {Promise<'fetched' | 'skipped' | 'failed'>}
  */
 async function fetchAndWriteRequest(request, url, cacheRoot, fetchImpl, now) {
 	try {
 		const response = await fetchImpl(url);
 
 		if (!response.ok) {
+			if (isUnairedSeasonNotFound(request, response)) {
+				console.log(`skip ${request.cachePath} season not on TMDB yet`);
+				return 'skipped';
+			}
+
 			console.log(`fail ${request.cachePath} HTTP ${response.status}`);
-			return false;
+			return 'failed';
 		}
 
 		const body = await response.json();
@@ -334,11 +364,25 @@ async function fetchAndWriteRequest(request, url, cacheRoot, fetchImpl, now) {
 		await writeFile(cachePath, JSON.stringify(entry, null, '\t') + '\n', 'utf-8');
 		console.log(`fetch ${request.cachePath}`);
 
-		return true;
+		return 'fetched';
 	} catch (error) {
 		console.log(`fail ${request.cachePath} ${describeFetchError(error)}`);
-		return false;
+		return 'failed';
 	}
+}
+
+/**
+ * True for a 404 on a season-specific TMDB "season" or "videos" request. TMDB correctly
+ * 404s both endpoints for a season that has not aired yet, so that is an expected gap, not
+ * a failure worth surfacing alongside real errors.
+ * @param {CacheRequest} request
+ * @param {Response} response
+ * @returns {boolean}
+ */
+function isUnairedSeasonNotFound(request, response) {
+	const isSeasonRequest = request.source === 'tmdb' && (request.endpoint === 'season' || request.endpoint === 'videos');
+
+	return response.status === 404 && isSeasonRequest && /-s\d+$/.test(request.key);
 }
 
 /**

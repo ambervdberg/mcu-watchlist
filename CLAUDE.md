@@ -1,12 +1,14 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code in this repo.
 
  @.claude.local.md
 
 ## What this is
 
-A public Marvel (MCU) chronological watchlist, hosted on Azure Static Web Apps. The catalog (browse/search/filter, title and episode detail) is open to anonymous visitors. Anyone can create a personal account with just an email address (passwordless, magic-link) to save their own watched/skipped progress.
+A public Marvel (MCU) chronological watchlist, hosted on Azure Static Web Apps. Catalog browsing (browse/search/filter, title and episode detail) is open to anonymous visitors. Anyone can create an account with just an email (passwordless, magic-link) to save watched/skipped progress.
+
+Catalog scope is the undisputed MCU timeline. Marvel Animation's separate-universe shows (X-Men '97, Your Friendly Neighborhood Spider-Man) stay out.
 
 ## Commands
 
@@ -19,82 +21,86 @@ npm run dev             # build:api + build:web, then swa start (local frontend 
 npm run start:local     # swa start only, against the already-built API
 npm run azd:up         # azd up (provision + deploy)
 npm run azd:deploy     # azd deploy
-npm run media-cache:missing    # fetch OMDb/imdbapi metadata only for catalog titles absent from titleInfo.snapshot.json
+npm run media-cache:missing    # fetch OMDb/TMDB metadata for catalog titles missing from titleInfo.snapshot.json
 npm run media-cache:stale      # re-fetch snapshot entries older than 7 days
 npm run media-cache:typecheck  # tsc --checkJs over the scripts/media-cache*.mjs files
 ```
 
-The frontend is an Astro app (Svelte islands) in `apps/web`. Its deployable output is `apps/web/build`.
+`media-cache:missing`/`media-cache:stale` only write to `apps/web/.media-cache`. Run `npm run build:web` after, that step writes `titleInfo.snapshot.json`.
 
-The API has real tests: `cd apps/api && npm test` runs `tsc` then `node --test` against the compiled `auth.test.js`, `userAuth.test.js`, `authHandlers.test.js`, and `progressStore.test.js`.
+The frontend is an Astro app (Svelte islands) in `apps/web`, building to `apps/web/build`.
 
-The frontend also has real tests: `cd apps/web && npm run test:unit` runs vitest against the domain/state/api-gateway test files; `cd apps/web && npm test` runs that plus `playwright test` (installs browsers first). `cd apps/web && npm run lint` runs `prettier --check` + `eslint`; `cd apps/web && npm run check` runs `astro check` type checking.
+API tests: `cd apps/api && npm test` (tsc, then `node --test` against `auth.test.js`, `userAuth.test.js`, `authHandlers.test.js`, `progressStore.test.js`).
+
+Web tests: `cd apps/web && npm run test:unit` (vitest, domain/state/api-gateway). `npm test` adds `playwright test`. `npm run lint` runs prettier + eslint. `npm run check` runs `astro check`.
 
 ## Architecture
 
 ```
-apps/web/                                  Astro frontend (Svelte islands); build output goes to apps/web/build
+apps/web/                                  Astro frontend (Svelte islands), builds to apps/web/build
 apps/web/static/staticwebapp.config.json   SWA routing/platform config (node:20 API runtime, fallback)
-apps/api/                                  Azure Functions v4 (TypeScript) managed API, deployed alongside the SWA
+apps/api/                                  Azure Functions v4 (TypeScript) managed API, deployed with the SWA
 apps/api/src/functions/                    route registration + handlers, one file per HTTP function
 apps/api/src/auth/                         session cookie, magic-link, user/token stores, email sender, rate limiter
 apps/api/src/progress/                     WatchProgress table store
-apps/web/src/lib/data/mediaMetadata/       Astro Content Layer loaders: OMDb/imdbapi.dev fetch baked into the build, with a committed JSON snapshot fallback
-scripts/media-cache*.mjs                   Standalone offline CLI to pre-fetch/refresh titleInfo.snapshot.json outside a build (missing/stale modes); core logic in media-cache-core.mjs, tested by media-cache-script.test.ts
+apps/web/src/lib/data/mediaMetadata/       Astro Content Layer loaders: OMDb/TMDB fetch baked into the build, with a committed JSON snapshot fallback
+scripts/media-cache*.mjs                   Standalone CLI to pre-fetch/refresh titleInfo.snapshot.json outside a build, core logic in media-cache-core.mjs, tested by media-cache-script.test.ts
 apps/api/src/shared/                       cross-cutting helpers (http, tableStorage)
 infra/main.bicep                           Storage account + Tables + Static Web App + app settings
 azure.yaml                                 azd service/hook config
 ```
 
-**Frontend** — `apps/web` is an Astro app (`output: 'static'`, fully prerendered at build time, no SSR server in production).
-- Pages live under `apps/web/src/pages/` (`index.astro`, `title/[id].astro` via `getStaticPaths()`), both wrapped in `apps/web/src/layouts/BaseLayout.astro`.
+**Frontend** (`apps/web`, `output: 'static'`, fully prerendered, no SSR server in production)
+- Pages live under `apps/web/src/pages/` (`index.astro`, `title/[id].astro` via `getStaticPaths()`), wrapped in `apps/web/src/layouts/BaseLayout.astro`.
 - Catalog data is typed in `apps/web/src/lib/data/items.ts`.
-- Domain/API layers under `apps/web/src/lib` are framework-agnostic and unaffected by the page/component layer.
-- State (`apps/web/src/lib/state/{session,progress,filters}.ts`) is nanostores: each module exports a factory (e.g. `createSessionStore`) plus a module-level singleton wired to the real gateway. Tests use the factory with `lib/api/fakes.ts`; production code imports the singleton directly.
-- Timeline and detail UI are Svelte components mounted as islands (`client:load`, or `client:visible` for the heaviest below-the-fold island) on otherwise-static pages. Each island reads the shared singletons directly (`import { sessionStore } from '$lib/state/session'`, native `$store` syntax) — there is no provider/context layer, since nanostores satisfy Svelte's store contract on their own.
-- Don't pass a store singleton as an Astro component **prop** into an island — Astro serializes island props through JSON, which silently drops functions, so a store's methods arrive as `null` on the client. Import the singleton inside the island component instead.
-- **Fake logged-in state for local debugging**: set `PUBLIC_FAKE_LOGIN=true` in an untracked `apps/web/.env` and run `npm run dev` (Astro's own dev server, `astro dev`). The session/progress singletons (`lib/state/session.ts`, `lib/state/progress.ts`) then swap in `lib/api/fakes.ts`'s in-memory gateways, pre-seeded as signed-in, instead of the real HTTP gateways. Only takes effect when Astro's `DEV` flag is also true, so it can never leak into a production build. Real auth needs the `Secure` cookie below, which only works over HTTPS against a deployed SWA, this is the only way to see the logged-in UI without deploying.
+- Domain/API layers under `apps/web/src/lib` are framework-agnostic.
+- State (`apps/web/src/lib/state/{session,progress,filters}.ts`) is nanostores: each module exports a factory plus a module-level singleton wired to the real gateway. Tests use the factory with `lib/api/fakes.ts`. Production code imports the singleton directly.
+- Timeline and detail UI are Svelte islands (`client:load`, or `client:visible` for the heaviest below-the-fold one). Each island imports the shared singletons directly, no provider/context layer needed.
+- Never pass a store singleton as an Astro island **prop**. Astro serializes island props through JSON and drops functions, so the store's methods arrive `null` on the client. Import the singleton inside the island instead.
+- **Fake logged-in state for local debugging**: set `PUBLIC_FAKE_LOGIN=true` in an untracked `apps/web/.env`, run `npm run dev`. The session/progress singletons swap in `lib/api/fakes.ts`'s in-memory gateways, pre-seeded signed-in. Only active when Astro's `DEV` flag is true, never in a production build. Real auth needs HTTPS (see the cookie note below), so this is the only way to see logged-in UI without deploying.
 
-**Auth model** — app-owned, per-user, passwordless email magic-link auth, no password anywhere.
-- Catalog browsing and title/episode metadata are anonymous-accessible (and don't touch the API at all, see "Title detail & episode tracking" below); only watched/skipped/episode progress requires sign-in.
-- `POST /api/auth/request-link` (`apps/api/src/auth/userAuth.ts`) gets-or-creates a `Users` row for the email, stores a one-time hashed token in `LoginTokens`, and emails the raw link via `auth/emailSender.ts` (Resend).
-- `GET /api/auth/consume-link` verifies and burns the token, then sets the signed `marvel_user_session` cookie (see `apps/api/src/auth/auth.ts`): `HttpOnly`/`Secure`/`SameSite=Strict`, payload `{userId, iat, exp}` base64url-encoded and HMAC-SHA256-signed with `SESSION_SECRET`, verified with `timingSafeEqual`.
-- Because the cookie is `Secure`, the full auth flow only works correctly over HTTPS, test it against the deployed SWA URL, not over plain local HTTP.
-- `POST /api/login` (the old password endpoint) is kept only as a stub that always returns `410`.
+**Auth** (app-owned, passwordless email magic-link, no password anywhere)
+- Catalog browsing and title/episode metadata are anonymous and don't touch the API. Only progress requires sign-in.
+- `POST /api/auth/request-link` (`apps/api/src/auth/userAuth.ts`) gets-or-creates a `Users` row, stores a hashed one-time token in `LoginTokens`, emails the link via `auth/emailSender.ts` (Resend).
+- `GET /api/auth/consume-link` verifies and burns the token, then sets the signed `marvel_user_session` cookie (`apps/api/src/auth/auth.ts`): `HttpOnly`/`Secure`/`SameSite=Strict`, payload `{userId, iat, exp}` base64url-encoded, HMAC-SHA256-signed with `SESSION_SECRET`, verified with `timingSafeEqual`.
+- The cookie is `Secure`, so auth only works over HTTPS. Test it against the deployed SWA URL, not local HTTP.
+- `POST /api/login` is a stub, always returns `410`.
 
-**Progress storage** (`apps/api/src/progress/progressStore.ts`) — one row per user in the `WatchProgress` table (`PartitionKey: userId`, `RowKey: marvel-mcu`), storing `watchedIds`/`skippedIds`/`watchedDates`/`watchedEpisodes` as JSON strings. No shared/household row, every account's progress is isolated.
+**Progress** (`apps/api/src/progress/progressStore.ts`): one row per user in `WatchProgress` (`PartitionKey: userId`, `RowKey: marvel-mcu`), `watchedIds`/`skippedIds`/`watchedDates`/`watchedEpisodes` as JSON strings. No shared/household row.
 
-**Title detail & episode tracking** — baked at build time, not served by any runtime API.
-- `apps/web/src/lib/data/mediaMetadata/titleInfoLoader.ts` is an Astro Content Layer loader (registered in `apps/web/src/content.config.ts`) that, for every catalog item in `items.ts`, fetches OMDb plot/rating/poster/runtime plus a trailer picked from imdbapi.dev's videos endpoint (scored by season-name match and "official trailer" keywords), via `titleInfoFetch.ts` (a straight port of the old `apps/api/src/media/titleInfoFetcher.ts`).
-- A sibling loader bakes per-season episode lists from imdbapi.dev the same way.
-- Per-item upstream failures (missing `OMDB_API_KEY`, network error, rate limit) never fail the build: `snapshot.ts`'s `withSnapshotFallback` falls back to the committed `titleInfo.snapshot.json`, and a successful fetch updates that snapshot on disk for the next commit.
-- Pages (`title/[id].astro`) and the `TitleDetail` island read this baked data as static props; there is no client-side fetch and no `/api/title-info` or `/api/episodes` endpoint anymore.
+**Title detail & episodes** (baked at build time, no runtime API)
+- `apps/web/src/lib/data/mediaMetadata/titleInfoLoader.ts` (an Astro Content Layer loader, registered in `content.config.ts`) fetches OMDb plot/rating/poster/runtime plus a trailer picked from TMDB's videos endpoint (scored by season-name match and "official trailer" keywords), via `titleInfoFetch.ts`. `tmdb/tmdbId.ts` resolves the catalog item's IMDb id to a TMDB id first.
+- A sibling loader (`episodeInfoLoader.ts`) bakes per-season episode lists from TMDB, via `episodeInfoFetch.ts`.
+- Per-item upstream failures (missing `OMDB_API_KEY`/`TMDB_API_KEY`, network error, rate limit) never fail the build: `snapshot.ts`'s `withSnapshotFallback` falls back to the committed `titleInfo.snapshot.json`/`episodeInfo.snapshot.json`. A successful fetch updates that snapshot for the next commit.
+- Merge rule: a fetch never overwrites real prior snapshot data, it only fills a gap the prior entry never had a real value for. Exceptions are `released` and `imdbRating` (title and episode level), which take the live value whenever it is real, since those change over time. See `mergeTitleInfoWithPrior` in `titleInfoFetch.ts`.
+- `title/[id].astro` and the `TitleDetail` island read this baked data as static props. No client-side fetch, no `/api/title-info` or `/api/episodes`.
+- `npm run check` (`astro check`) also runs these loaders and can write `titleInfo.snapshot.json`/`episodeInfo.snapshot.json` to disk, even for a type check alone.
 
-**API functions** (`apps/api/src/functions/`) — `auth/request-link`, `auth/consume-link`, `login` (410 stub), `logout`, `me`, `progress` (`GET`/`PUT`). Each checks auth itself (via `requireAuthenticatedUser`/`isAuthenticated`) rather than relying on shared middleware, Azure Functions v4's `app.http` model doesn't have one.
+**API functions** (`apps/api/src/functions/`): `auth/request-link`, `auth/consume-link`, `login` (410 stub), `logout`, `me`, `progress` (`GET`/`PUT`). Each checks auth itself. Azure Functions v4's `app.http` model has no shared middleware.
 
 **Infra** (`infra/main.bicep`)
-- Deploys into the **pre-existing** resource group `rg-marvel` (never create/delete this RG from automation).
-- Storage account + Table Storage (not Cosmos DB, explicit constraint from the handoff), with tables `WatchProgress`, `Users`, `LoginTokens`.
-- App settings pushed via `Microsoft.Web/staticSites/config`, never embedded in frontend JS: `APP_BASE_URL`, `EMAIL_FROM`, `RESEND_API_KEY`, `SESSION_SECRET`, `STORAGE_CONNECTION_STRING`, `TABLE_NAME`, `APPLICATIONINSIGHTS_CONNECTION_STRING`.
-- `sessionSecret` and `resendApiKey` are required, non-defaulted secure Bicep parameters, set each with `azd env set <NAME> <value>` (`SESSION_SECRET`, `RESEND_API_KEY`) before `azd up`/`azd deploy`, or provisioning will fail.
-- `appBaseUrl`/`APP_BASE_URL` is optional and only needed for a custom domain, it falls back to the auto-generated `*.azurestaticapps.net` hostname (used to build magic-link URLs).
-- `OMDB_API_KEY` is **not** a SWA app setting anymore (it was, back when `/api/title-info` fetched at runtime). It's a **build-time** secret read by `apps/web/src/lib/data/mediaMetadata/titleInfoFetch.ts` via `process.env.OMDB_API_KEY` while `astro build` runs. Locally, export it in the shell (or put it in an untracked `apps/web/.env`) before `npm run build:web`. For `azd up`/`azd deploy`, run `azd env set OMDB_API_KEY <value>` first, `azd` injects its env values into the `web` service's build step, so the key reaches the Astro build that produces `apps/web/build`. Missing key just means loader falls back to the committed snapshot (see above), it doesn't fail the build or deploy.
+- Deploys into the pre-existing resource group `rg-marvel`. Never create/delete this RG from automation.
+- Table Storage (not Cosmos DB), tables `WatchProgress`, `Users`, `LoginTokens`.
+- App settings via `Microsoft.Web/staticSites/config`, never in frontend JS: `APP_BASE_URL`, `EMAIL_FROM`, `RESEND_API_KEY`, `SESSION_SECRET`, `STORAGE_CONNECTION_STRING`, `TABLE_NAME`, `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+- `sessionSecret` and `resendApiKey` are required secure Bicep parameters. Set with `azd env set SESSION_SECRET <value>` and `azd env set RESEND_API_KEY <value>` before `azd up`/`azd deploy`, or provisioning fails.
+- `appBaseUrl`/`APP_BASE_URL` is optional, only needed for a custom domain. Falls back to the auto-generated `*.azurestaticapps.net` hostname.
+- `OMDB_API_KEY` and `TMDB_API_KEY` are build-time secrets, not SWA app settings. Read via `process.env.OMDB_API_KEY` in `titleInfoFetch.ts` and `getTmdbApiKey()` in `tmdb/tmdbKey.ts` during `astro build`. Locally, export both or put them in an untracked `apps/web/.env`. For `azd up`/`azd deploy`, run `azd env set OMDB_API_KEY <value>` and `azd env set TMDB_API_KEY <value>` first. Missing either key just falls back to the committed snapshot, doesn't fail the build or deploy.
 
-## A real `azd` gotcha baked into `azure.yaml`
+## A real azd gotcha in azure.yaml
 
-`azd`'s `staticwebapp` host does **not** run an Oryx build for the managed API and doesn't pass `--api-language`/`--api-version` to the underlying SWA CLI deploy. Without those, the SWA backend can't detect the Functions runtime language and silently deploys **zero functions** — `/api/*` then falls through `navigationFallback` to `index.html` instead of returning JSON, with no error surfaced by `azd up`/`azd deploy`.
+`azd`'s `staticwebapp` host doesn't run an Oryx build for the managed API and doesn't pass `--api-language`/`--api-version` to the SWA CLI deploy. Without those, the SWA backend can't detect the Functions runtime and silently deploys zero functions. `/api/*` then falls through `navigationFallback` to `index.html` instead of returning JSON, with no error from `azd up`/`azd deploy`.
 
-The root-level `postdeploy` hook in `azure.yaml` works around this: after `azd`'s own (incomplete) deploy, it re-deploys `apps/web/build` via `npx @azure/static-web-apps-cli deploy` directly, passing `--api-language node --api-version 20` explicitly. Don't remove this hook without re-verifying `/api/me` returns JSON (not HTML) after a deploy — that's the regression signal if this gap ever resurfaces or gets fixed upstream.
+The root `postdeploy` hook in `azure.yaml` works around this: after `azd`'s deploy, it redeploys `apps/web/build` via `npx @azure/static-web-apps-cli deploy`, passing `--api-language node --api-version 20` explicitly. Don't remove this hook without re-checking that `/api/me` returns JSON, not HTML, after a deploy.
 
-If `/api/*` ever starts returning HTML again, check `az rest --method get --uri ".../staticSites/<name>/builds/default/functions?api-version=2023-01-01"` — an empty `value` array means the managed Functions backend has zero registered functions, which is exactly this bug.
+If `/api/*` returns HTML again, check `az rest --method get --uri ".../staticSites/<name>/builds/default/functions?api-version=2023-01-01"`. An empty `value` array means zero registered functions, this bug again.
 
 ## Monitoring
 
-`infra/main.bicep` provisions a workspace-based Application Insights resource (`appInsights` + `logAnalyticsWorkspace`) wired to the API via the `APPLICATIONINSIGHTS_CONNECTION_STRING` app setting. This is server-side only — no client-side snippet runs in the browser, so it sets no cookies and collects no visitor identity, which is why there's no consent banner or privacy policy tied to it. `DisableIpMasking` is left `false` so client IPs stay anonymized (last octet zeroed) the same way the rest of the app avoids storing PII.
+`infra/main.bicep` provisions Application Insights (`appInsights` + `logAnalyticsWorkspace`), wired to the API via `APPLICATIONINSIGHTS_CONNECTION_STRING`. Server-side only, no client-side snippet, no cookies, no visitor identity, so no consent banner. `DisableIpMasking` stays `false`, client IPs stay anonymized.
 
-Two things to check in Application Insights (Azure Portal → the `appi-marvel-*` resource → Logs):
-- **App usage**: `AppRequests | where Name == "me"` — the frontend calls this on every page load regardless of auth state, so its count is a good proxy for total visits.
-- **Resend email volume**: `AppTraces | where Message  == "resend:email_sent"` (and `"resend:email_failed"` for failures) — these are explicit log lines in `emailSender.ts`, logged without the recipient address, so they reflect Resend usage independently of how many sign-in attempts failed before ever calling Resend (e.g. invalid email).
+Two queries in Application Insights (Portal → `appi-marvel-*` → Logs):
+- App usage: `AppRequests | where Name == "me"`. The frontend calls this on every page load regardless of auth state, a proxy for total visits.
+- Resend email volume: `AppTraces | where Message == "resend:email_sent"` (and `"resend:email_failed"`). Logged in `emailSender.ts` without the recipient address.
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
 ## Beads Issue Tracker

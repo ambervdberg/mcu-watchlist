@@ -3,9 +3,9 @@ import { fetchJsonWithRawCache, readRawCache, writeRawCache, type RawCacheDescri
 import { cleanupCacheRoots, createCacheRoot } from './cacheRootTestHelper';
 
 const descriptor: RawCacheDescriptor = {
-	source: 'imdbapi.dev',
+	source: 'tmdb',
 	endpoint: 'titles',
-	key: 'tt0371746'
+	key: '1726'
 };
 
 afterEach(async () => {
@@ -24,9 +24,9 @@ describe('raw response cache', () => {
 
 		expect(cacheEntry).toEqual({
 			updatedAt: '2026-06-24T10:00:00.000Z',
-			source: 'imdbapi.dev',
+			source: 'tmdb',
 			endpoint: 'titles',
-			key: 'tt0371746',
+			key: '1726',
 			status: 200,
 			body
 		});
@@ -39,7 +39,7 @@ describe('raw response cache', () => {
 
 		const body = await fetchJsonWithRawCache<{ id: string }>({
 			descriptor,
-			url: 'https://api.imdbapi.dev/titles/tt0371746',
+			url: 'https://api.themoviedb.org/3/movie/1726',
 			cacheRoot,
 			fetchImpl: fetchMock
 		});
@@ -55,7 +55,7 @@ describe('raw response cache', () => {
 
 		const body = await fetchJsonWithRawCache<{ id: string }>({
 			descriptor,
-			url: 'https://api.imdbapi.dev/titles/tt0371746',
+			url: 'https://api.themoviedb.org/3/movie/1726',
 			cacheRoot,
 			refresh: true,
 			fetchImpl: fetchMock,

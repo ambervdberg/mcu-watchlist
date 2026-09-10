@@ -3,8 +3,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export type RawCacheDescriptor = {
-	source: 'imdbapi.dev' | 'omdb';
-	endpoint: 'titles' | 'videos' | 'episodes';
+	source: 'omdb' | 'tmdb';
+	endpoint: 'titles' | 'videos' | 'episodes' | 'find' | 'season' | 'configuration';
 	key: string;
 };
 

@@ -852,18 +852,18 @@ export const items: Item[] = [
 		essential: false
 	},
 	{
-		id: 'wonder-man-season-2',
-		title: 'Wonder Man season 2',
-		timeline: '2026-2027',
-		era: '2026-2027',
-		dot: '2026',
-		type: 'series',
-		imdbId: 'tt21066182',
-		essential: false
-	},
-	{
 		id: 'daredevil-born-again-season-2',
 		title: 'Daredevil: Born Again season 2',
+		timeline: '2027',
+		era: '2027',
+		dot: '2027',
+		type: 'series',
+		imdbId: 'tt18923754',
+		essential: true
+	},
+	{
+		id: 'daredevil-born-again-season-3',
+		title: 'Daredevil: Born Again season 3',
 		timeline: '2027',
 		era: '2027',
 		dot: '2027',

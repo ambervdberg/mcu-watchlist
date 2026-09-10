@@ -1,8 +1,8 @@
 // Committed fallback snapshots for build-time-fetched title/episode metadata.
 //
-// Why this exists: titleInfoLoader.ts and episodeInfoLoader.ts fetch OMDb/imdbapi.dev
+// Why this exists: titleInfoLoader.ts and episodeInfoLoader.ts fetch OMDb/TMDB
 // data at `astro build`/`astro dev` time. Both upstreams are third-party services that
-// can be down, rate-limited, or (for OMDb) simply unconfigured (no OMDB_API_KEY) in a
+// can be down, rate-limited, or simply unconfigured (no OMDB_API_KEY/TMDB_API_KEY) in a
 // given build environment — e.g. a contributor's machine, or CI without secrets. The
 // build must never hard-fail just because a trailer lookup timed out, so every loader
 // falls back to the last-known-good value from these committed JSON snapshots instead

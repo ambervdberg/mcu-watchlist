@@ -1,7 +1,7 @@
 // Astro Content Layer collections for build-time-baked, anonymous-readable media
 // metadata (see marvel-h8a). Both collections are populated by custom loaders
 // (titleInfoLoader.ts / episodeInfoLoader.ts) that iterate the static catalog in
-// lib/data/items.ts and fetch from OMDb/imdbapi.dev, instead of the SvelteKit-era
+// lib/data/items.ts and fetch from OMDb/TMDB, instead of the SvelteKit-era
 // pattern of fetching from a hand-rolled Azure Functions cache at runtime.
 //
 // This file only wires loader -> schema; all fetch/mapping/fallback logic lives

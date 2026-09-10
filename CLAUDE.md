@@ -19,7 +19,7 @@ npm run dev             # build:api + build:web, then swa start (local frontend 
 npm run start:local     # swa start only, against the already-built API
 npm run azd:up         # azd up (provision + deploy)
 npm run azd:deploy     # azd deploy
-npm run media-cache:missing    # fetch OMDb/imdbapi metadata only for catalog titles absent from titleInfo.snapshot.json
+npm run media-cache:missing    # fetch OMDb/TMDB metadata only for catalog titles absent from titleInfo.snapshot.json
 npm run media-cache:stale      # re-fetch snapshot entries older than 7 days
 npm run media-cache:typecheck  # tsc --checkJs over the scripts/media-cache*.mjs files
 ```
@@ -39,7 +39,7 @@ apps/api/                                  Azure Functions v4 (TypeScript) manag
 apps/api/src/functions/                    route registration + handlers, one file per HTTP function
 apps/api/src/auth/                         session cookie, magic-link, user/token stores, email sender, rate limiter
 apps/api/src/progress/                     WatchProgress table store
-apps/web/src/lib/data/mediaMetadata/       Astro Content Layer loaders: OMDb/imdbapi.dev fetch baked into the build, with a committed JSON snapshot fallback
+apps/web/src/lib/data/mediaMetadata/       Astro Content Layer loaders: OMDb/TMDB fetch baked into the build, with a committed JSON snapshot fallback
 scripts/media-cache*.mjs                   Standalone offline CLI to pre-fetch/refresh titleInfo.snapshot.json outside a build (missing/stale modes); core logic in media-cache-core.mjs, tested by media-cache-script.test.ts
 apps/api/src/shared/                       cross-cutting helpers (http, tableStorage)
 infra/main.bicep                           Storage account + Tables + Static Web App + app settings
@@ -65,10 +65,12 @@ azure.yaml                                 azd service/hook config
 **Progress storage** (`apps/api/src/progress/progressStore.ts`) — one row per user in the `WatchProgress` table (`PartitionKey: userId`, `RowKey: marvel-mcu`), storing `watchedIds`/`skippedIds`/`watchedDates`/`watchedEpisodes` as JSON strings. No shared/household row, every account's progress is isolated.
 
 **Title detail & episode tracking** — baked at build time, not served by any runtime API.
-- `apps/web/src/lib/data/mediaMetadata/titleInfoLoader.ts` is an Astro Content Layer loader (registered in `apps/web/src/content.config.ts`) that, for every catalog item in `items.ts`, fetches OMDb plot/rating/poster/runtime plus a trailer picked from imdbapi.dev's videos endpoint (scored by season-name match and "official trailer" keywords), via `titleInfoFetch.ts` (a straight port of the old `apps/api/src/media/titleInfoFetcher.ts`).
-- A sibling loader bakes per-season episode lists from imdbapi.dev the same way.
-- Per-item upstream failures (missing `OMDB_API_KEY`, network error, rate limit) never fail the build: `snapshot.ts`'s `withSnapshotFallback` falls back to the committed `titleInfo.snapshot.json`, and a successful fetch updates that snapshot on disk for the next commit.
+- `apps/web/src/lib/data/mediaMetadata/titleInfoLoader.ts` is an Astro Content Layer loader (registered in `apps/web/src/content.config.ts`) that, for every catalog item in `items.ts`, fetches OMDb plot/rating/poster/runtime plus a trailer picked from TMDB's videos endpoint (scored by season-name match and "official trailer" keywords), via `titleInfoFetch.ts`. `tmdb/tmdbId.ts` resolves the catalog item's IMDb id to a TMDB id first, via TMDB's `/find` endpoint.
+- A sibling loader (`episodeInfoLoader.ts`) bakes per-season episode lists from TMDB the same way, via `episodeInfoFetch.ts`.
+- Per-item upstream failures (missing `OMDB_API_KEY`/`TMDB_API_KEY`, network error, rate limit) never fail the build: `snapshot.ts`'s `withSnapshotFallback` falls back to the committed `titleInfo.snapshot.json`/`episodeInfo.snapshot.json`, and a successful fetch updates that snapshot on disk for the next commit.
+- Merge rule: a fetch never overwrites real prior snapshot data, it only fills a gap the prior entry never had a real value for. The two exceptions are `released` and `imdbRating` (title and episode level), which take the live value whenever it is real, since those genuinely change over time. See `mergeTitleInfoWithPrior` in `titleInfoFetch.ts`.
 - Pages (`title/[id].astro`) and the `TitleDetail` island read this baked data as static props; there is no client-side fetch and no `/api/title-info` or `/api/episodes` endpoint anymore.
+- `npm run check` (`astro check`) syncs Astro's content collections before type-checking, which runs these loaders and writes `titleInfo.snapshot.json`/`episodeInfo.snapshot.json` to disk. A type check alone can change those files when upstream data has moved on.
 
 **API functions** (`apps/api/src/functions/`) — `auth/request-link`, `auth/consume-link`, `login` (410 stub), `logout`, `me`, `progress` (`GET`/`PUT`). Each checks auth itself (via `requireAuthenticatedUser`/`isAuthenticated`) rather than relying on shared middleware, Azure Functions v4's `app.http` model doesn't have one.
 
@@ -78,7 +80,7 @@ azure.yaml                                 azd service/hook config
 - App settings pushed via `Microsoft.Web/staticSites/config`, never embedded in frontend JS: `APP_BASE_URL`, `EMAIL_FROM`, `RESEND_API_KEY`, `SESSION_SECRET`, `STORAGE_CONNECTION_STRING`, `TABLE_NAME`, `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 - `sessionSecret` and `resendApiKey` are required, non-defaulted secure Bicep parameters, set each with `azd env set <NAME> <value>` (`SESSION_SECRET`, `RESEND_API_KEY`) before `azd up`/`azd deploy`, or provisioning will fail.
 - `appBaseUrl`/`APP_BASE_URL` is optional and only needed for a custom domain, it falls back to the auto-generated `*.azurestaticapps.net` hostname (used to build magic-link URLs).
-- `OMDB_API_KEY` is **not** a SWA app setting anymore (it was, back when `/api/title-info` fetched at runtime). It's a **build-time** secret read by `apps/web/src/lib/data/mediaMetadata/titleInfoFetch.ts` via `process.env.OMDB_API_KEY` while `astro build` runs. Locally, export it in the shell (or put it in an untracked `apps/web/.env`) before `npm run build:web`. For `azd up`/`azd deploy`, run `azd env set OMDB_API_KEY <value>` first, `azd` injects its env values into the `web` service's build step, so the key reaches the Astro build that produces `apps/web/build`. Missing key just means loader falls back to the committed snapshot (see above), it doesn't fail the build or deploy.
+- `OMDB_API_KEY` and `TMDB_API_KEY` are **not** SWA app settings (`OMDB_API_KEY` was, back when `/api/title-info` fetched at runtime). Both are **build-time** secrets: `OMDB_API_KEY` read via `process.env.OMDB_API_KEY` in `titleInfoFetch.ts`, `TMDB_API_KEY` via `getTmdbApiKey()` in `tmdb/tmdbKey.ts`, both while `astro build` runs. Locally, export them in the shell (or put them in an untracked `apps/web/.env`) before `npm run build:web`. For `azd up`/`azd deploy`, run `azd env set OMDB_API_KEY <value>` and `azd env set TMDB_API_KEY <value>` first, `azd` injects its env values into the `web` service's build step, so the keys reach the Astro build that produces `apps/web/build`. Missing either key just means the loaders fall back to the committed snapshots (see above), it doesn't fail the build or deploy.
 
 ## A real `azd` gotcha baked into `azure.yaml`
 

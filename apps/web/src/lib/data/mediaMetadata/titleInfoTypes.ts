@@ -10,7 +10,7 @@ export type TitleInfo = {
 	trailer: TrailerInfo | null;
 };
 
-/** Trailer metadata picked from imdbapi.dev's videos endpoint. */
+/** Trailer metadata picked from TMDB's videos endpoint. */
 export type TrailerInfo = {
 	id: string;
 	name: string;
@@ -22,7 +22,7 @@ export type TrailerInfo = {
 };
 
 /**
- * A single video entry from imdbapi.dev's /titles/:id/videos response.
+ * A single video entry, normalized from TMDB's /movie|tv/:id/videos response.
  * Shared between trailerPicker (scoring) and titleInfoFetch (fetching + mapping).
  */
 export type ImdbVideo = {

@@ -3,8 +3,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-/** @typedef {'imdbapi.dev' | 'omdb'} CacheSource */
-/** @typedef {'titles' | 'videos' | 'episodes'} CacheEndpoint */
+/** @typedef {'omdb' | 'tmdb'} CacheSource */
+/** @typedef {'titles' | 'videos' | 'episodes' | 'find' | 'season'} CacheEndpoint */
 /** @typedef {'missing' | 'stale'} CacheRefreshMode */
 /** @typedef {{ id: string, type: string, imdbId: string }} CatalogItem */
 /** @typedef {{ source: CacheSource, endpoint: CacheEndpoint, key: string, cachePath: string }} CacheRequest */
@@ -12,6 +12,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 /** @typedef {{ total: number, selected: number, fetched: number, skipped: number, failed: number }} CacheRefreshResults */
 /** @typedef {{ mode: CacheRefreshMode, cacheRoot?: string, itemsPath?: string, envPath?: string, now?: Date, maxAgeDays?: number, dryRun?: boolean, fetchImpl?: typeof fetch }} CacheRefreshOptions */
 /** @typedef {{ mode: CacheRefreshMode, dryRun: boolean, maxAgeDays: number }} CliOptions */
+/** @typedef {{ id: number, kind: 'movie' | 'tv' }} ResolvedTmdbId */
+/** @typedef {{ omdbApiKey: string | undefined, tmdbApiKey: string | undefined }} ApiKeys */
 
 const REPO_ROOT = fileURLToPath(new URL('..', import.meta.url));
 const WEB_ROOT = join(REPO_ROOT, 'apps', 'web');
@@ -22,7 +24,14 @@ const DEFAULT_MAX_AGE_DAYS = 7;
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
 /**
- * Builds all raw cache requests expected by the catalog.
+ * Builds all raw cache requests expected by the catalog: TMDB's imdb-id lookup ("find"),
+ * OMDb's title fields, and TMDB's per-season episode list ("season") and trailer videos
+ * ("videos"). A series is keyed by imdb id + season for anything season-specific; a movie
+ * has no season, so its videos request is keyed by imdb id alone. TMDB's "season" and
+ * "videos" requests use the imdb id here rather than the numeric TMDB id -- resolving that
+ * id needs a live "find" call, which this catalog-only builder never makes -- so its output
+ * describes the requests this catalog needs, not the exact on-disk cache keys the real
+ * build-time loaders use once they know the resolved TMDB id.
  * @param {CatalogItem[]} items
  * @returns {CacheRequest[]}
  */
@@ -35,13 +44,17 @@ export function buildCacheRequests(items) {
 			continue;
 		}
 
-		addRequest(requests, createRequest('imdbapi.dev', 'titles', item.imdbId));
-		addRequest(requests, createRequest('imdbapi.dev', 'videos', item.imdbId));
+		addRequest(requests, createRequest('tmdb', 'find', item.imdbId));
 		addRequest(requests, createRequest('omdb', 'titles', item.imdbId));
 
 		if (item.type === 'series') {
 			const season = getSeasonNumber(item.id);
-			addRequest(requests, createRequest('imdbapi.dev', 'episodes', `${item.imdbId}-s${season}`));
+			const seasonKey = `${item.imdbId}-s${season}`;
+			addRequest(requests, createRequest('omdb', 'season', seasonKey));
+			addRequest(requests, createRequest('tmdb', 'season', seasonKey));
+			addRequest(requests, createRequest('tmdb', 'videos', seasonKey));
+		} else {
+			addRequest(requests, createRequest('tmdb', 'videos', item.imdbId));
 		}
 	}
 
@@ -124,15 +137,17 @@ export async function runMediaCacheRefresh({
 	const requests = buildCacheRequests(items);
 	const selected = await selectRequestsToFetch(requests, cacheRoot, { mode, now, maxAgeDays });
 	const env = { ...(await readEnvFile(envPath)), ...process.env };
+	const apiKeys = { omdbApiKey: env.OMDB_API_KEY, tmdbApiKey: env.TMDB_API_KEY };
+	const resolvedTmdbIds = await loadResolvedTmdbIds(requests, cacheRoot);
 	/** @type {CacheRefreshResults} */
 	const results = { total: requests.length, selected: selected.length, fetched: 0, skipped: 0, failed: 0 };
 
 	for (const request of selected) {
-		const url = createRequestUrl(request, env.OMDB_API_KEY);
+		const url = createRequestUrl(request, apiKeys, resolvedTmdbIds);
 
 		if (!url) {
 			results.skipped += 1;
-			console.log(`skip ${request.cachePath} missing OMDB_API_KEY`);
+			console.log(`skip ${request.cachePath} ${skipReason(request, apiKeys)}`);
 			continue;
 		}
 
@@ -145,12 +160,94 @@ export async function runMediaCacheRefresh({
 
 		if (ok) {
 			results.fetched += 1;
+			await rememberResolvedTmdbId(request, cacheRoot, resolvedTmdbIds);
 		} else {
 			results.failed += 1;
 		}
 	}
 
 	return results;
+}
+
+/**
+ * Preloads already-cached TMDB id resolutions for every "find" request, so a season/videos
+ * request can use one resolved on an earlier run (and so isn't part of this run's selection).
+ * @param {CacheRequest[]} requests
+ * @param {string} cacheRoot
+ * @returns {Promise<Map<string, ResolvedTmdbId>>}
+ */
+async function loadResolvedTmdbIds(requests, cacheRoot) {
+	const findRequests = requests.filter((request) => request.source === 'tmdb' && request.endpoint === 'find');
+	const resolvedIds = new Map();
+
+	for (const request of findRequests) {
+		const resolved = await readCachedTmdbId(cacheRoot, request.key);
+
+		if (resolved) {
+			resolvedIds.set(request.key, resolved);
+		}
+	}
+
+	return resolvedIds;
+}
+
+/**
+ * Records a "find" request's freshly-fetched TMDB id so a season/videos request later in
+ * the same run can use it immediately, without waiting for a second run.
+ * @param {CacheRequest} request
+ * @param {string} cacheRoot
+ * @param {Map<string, ResolvedTmdbId>} resolvedTmdbIds
+ * @returns {Promise<void>}
+ */
+async function rememberResolvedTmdbId(request, cacheRoot, resolvedTmdbIds) {
+	if (request.source !== 'tmdb' || request.endpoint !== 'find') {
+		return;
+	}
+
+	const resolved = await readCachedTmdbId(cacheRoot, request.key);
+
+	if (resolved) {
+		resolvedTmdbIds.set(request.key, resolved);
+	}
+}
+
+/**
+ * Reads a cached TMDB "find" response and extracts its resolved id + kind.
+ * @param {string} cacheRoot
+ * @param {string} imdbId
+ * @returns {Promise<ResolvedTmdbId | null>}
+ */
+async function readCachedTmdbId(cacheRoot, imdbId) {
+	try {
+		const cachePath = join(cacheRoot, 'tmdb', 'find', `${safeCacheKey(imdbId)}.json`);
+		const raw = await readFile(cachePath, 'utf-8');
+		const entry = JSON.parse(raw);
+		const [movie] = entry.body?.movie_results ?? [];
+		const [tv] = entry.body?.tv_results ?? [];
+
+		if (movie) {
+			return { id: movie.id, kind: 'movie' };
+		}
+
+		return tv ? { id: tv.id, kind: 'tv' } : null;
+	} catch {
+		return null;
+	}
+}
+
+/**
+ * Explains why a request has no fetchable URL yet: a missing provider key, or (TMDB
+ * season/videos only) a "find" lookup that has not resolved a TMDB id yet.
+ * @param {CacheRequest} request
+ * @param {ApiKeys} apiKeys
+ * @returns {string}
+ */
+function skipReason(request, apiKeys) {
+	if (request.source === 'omdb') {
+		return 'missing OMDB_API_KEY';
+	}
+
+	return apiKeys.tmdbApiKey ? 'TMDB id not resolved yet' : 'missing TMDB_API_KEY';
 }
 
 /**
@@ -239,9 +336,24 @@ async function fetchAndWriteRequest(request, url, cacheRoot, fetchImpl, now) {
 
 		return true;
 	} catch (error) {
-		console.log(`fail ${request.cachePath} ${error instanceof Error ? error.message : String(error)}`);
+		console.log(`fail ${request.cachePath} ${describeFetchError(error)}`);
 		return false;
 	}
+}
+
+/**
+ * Describes a fetch failure with its underlying error code (e.g. ENOTFOUND) when Node's
+ * fetch attaches one via `error.cause`, so a dead host reads clearly instead of a bare
+ * "fetch failed".
+ * @param {unknown} error
+ * @returns {string}
+ */
+function describeFetchError(error) {
+	const message = error instanceof Error ? error.message : String(error);
+	const cause = error instanceof Error ? error.cause : undefined;
+	const code = cause && typeof cause === 'object' && 'code' in cause ? cause.code : undefined;
+
+	return code ? `${message} (${code})` : message;
 }
 
 /**
@@ -293,27 +405,65 @@ function createRequest(source, endpoint, key) {
 }
 
 /**
- * Converts a cache request into its upstream URL.
+ * Converts a cache request into its upstream URL. TMDB's "season" and "videos" requests
+ * need the resolved numeric TMDB id, looked up from `resolvedTmdbIds` -- null when a
+ * provider key is missing, or that id has not been resolved by a "find" request yet.
  * @param {CacheRequest} request
- * @param {string | undefined} omdbApiKey
+ * @param {ApiKeys} apiKeys
+ * @param {Map<string, ResolvedTmdbId>} resolvedTmdbIds
  * @returns {string | null}
  */
-function createRequestUrl(request, omdbApiKey) {
+function createRequestUrl(request, apiKeys, resolvedTmdbIds) {
 	if (request.source === 'omdb') {
-		if (!omdbApiKey) {
-			return null;
-		}
-
-		return `https://www.omdbapi.com/?i=${request.key}&apikey=${omdbApiKey}&plot=full`;
+		return apiKeys.omdbApiKey ? createOmdbUrl(request, apiKeys.omdbApiKey) : null;
 	}
 
-	if (request.endpoint === 'episodes') {
-		const { imdbId, season } = parseEpisodeKey(request.key);
+	return apiKeys.tmdbApiKey ? createTmdbUrl(request, apiKeys.tmdbApiKey, resolvedTmdbIds) : null;
+}
 
-		return `https://api.imdbapi.dev/titles/${imdbId}/episodes?season=${season}`;
+/**
+ * Builds an OMDb URL: the title-level lookup, or the by-season episode list.
+ * @param {CacheRequest} request
+ * @param {string} omdbApiKey
+ * @returns {string}
+ */
+function createOmdbUrl(request, omdbApiKey) {
+	if (request.endpoint === 'season') {
+		const { imdbId, season } = parseSeasonKey(request.key);
+
+		return `https://www.omdbapi.com/?i=${imdbId}&Season=${season}&apikey=${omdbApiKey}`;
 	}
 
-	return `https://api.imdbapi.dev/titles/${request.key}${request.endpoint === 'videos' ? '/videos' : ''}`;
+	return `https://www.omdbapi.com/?i=${request.key}&apikey=${omdbApiKey}&plot=full`;
+}
+
+/**
+ * Builds a TMDB URL: the imdb-id lookup, or (once resolved) the season episode list / videos.
+ * Null when the request's TMDB id has not been resolved by a "find" request yet.
+ * @param {CacheRequest} request
+ * @param {string} tmdbApiKey
+ * @param {Map<string, ResolvedTmdbId>} resolvedTmdbIds
+ * @returns {string | null}
+ */
+function createTmdbUrl(request, tmdbApiKey, resolvedTmdbIds) {
+	if (request.endpoint === 'find') {
+		return `https://api.themoviedb.org/3/find/${request.key}?external_source=imdb_id&api_key=${tmdbApiKey}`;
+	}
+
+	const { imdbId, season } = parseSeasonKey(request.key, { seasonOptional: true });
+	const resolved = resolvedTmdbIds.get(imdbId);
+
+	if (!resolved) {
+		return null;
+	}
+
+	if (request.endpoint === 'season') {
+		return `https://api.themoviedb.org/3/tv/${resolved.id}/season/${season}?api_key=${tmdbApiKey}`;
+	}
+
+	const path = resolved.kind === 'movie' ? `movie/${resolved.id}` : `tv/${resolved.id}/season/${season ?? '1'}`;
+
+	return `https://api.themoviedb.org/3/${path}/videos?api_key=${tmdbApiKey}`;
 }
 
 /**
@@ -326,18 +476,24 @@ function getSeasonNumber(itemId) {
 }
 
 /**
- * Splits an episode cache key into title id and season.
+ * Splits a "imdbId-sSeason" cache key into its parts. A movie's TMDB videos key has no
+ * season suffix (just "imdbId"); pass `seasonOptional` to accept that shape too.
  * @param {string} key
- * @returns {{ imdbId: string, season: string }}
+ * @param {{ seasonOptional?: boolean }} [options]
+ * @returns {{ imdbId: string, season: string | undefined }}
  */
-function parseEpisodeKey(key) {
-	const match = /^(tt\d+)-s(\d+)$/.exec(key);
+function parseSeasonKey(key, options = {}) {
+	const seasonMatch = /^(tt\d+)-s(\d+)$/.exec(key);
 
-	if (!match) {
-		throw new Error(`Invalid episode cache key: ${key}`);
+	if (seasonMatch) {
+		return { imdbId: seasonMatch[1], season: seasonMatch[2] };
 	}
 
-	return { imdbId: match[1], season: match[2] };
+	if (options.seasonOptional && /^tt\d+$/.test(key)) {
+		return { imdbId: key, season: undefined };
+	}
+
+	throw new Error(`Invalid season cache key: ${key}`);
 }
 
 /**

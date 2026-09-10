@@ -31,7 +31,7 @@ export interface Item {
 	/** MCU phase number, when known. Optional: not every catalog entry has one yet. */
 	phase?: number;
 
-	/** IMDb title id (e.g. "tt0371746"), used for IMDb links and OMDb/imdbapi lookups. */
+	/** IMDb title id (e.g. "tt0371746"), used for IMDb links, OMDb lookups, and TMDB's find endpoint. */
 	imdbId: string;
 
 	/** Runtime in minutes, for movies/specials/shorts. Series omit this (episodes vary). */

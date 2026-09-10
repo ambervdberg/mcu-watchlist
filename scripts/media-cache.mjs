@@ -1,5 +1,5 @@
 // CLI entry point for media cache refresh.
-// Fetches OMDb + imdbapi.dev metadata for catalog titles, updates titleInfo.snapshot.json.
+// Fetches OMDb + TMDB metadata for catalog titles, updates titleInfo.snapshot.json.
 // Usage: node scripts/media-cache.mjs [--title <id>] [--skip-fetch]
 import { isCliEntry, parseArgs, runMediaCacheRefresh } from './media-cache-core.mjs';
 

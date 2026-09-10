@@ -1,8 +1,7 @@
 // Astro Content Layer custom loader for the `titleInfo` collection (see
-// content.config.ts). Iterates apps/web/src/lib/data/items.ts and fetches
-// OMDb/imdbapi.dev metadata (plot, rating, poster, runtime, trailer) for every
-// catalog item at build time, via titleInfoFetch.ts (a straight port of
-// apps/api/src/media/titleInfoFetcher.ts — see that file's doc for why).
+// content.config.ts). Iterates apps/web/src/lib/data/items.ts and fetches OMDb
+// (plot, rating, poster, runtime, released) and TMDB (trailer) metadata for every
+// catalog item at build time, via titleInfoFetch.ts.
 //
 // Per-item upstream failures (missing OMDB_API_KEY, network error, rate limit) never
 // fail the build: snapshot.ts's withSnapshotFallback falls back to the last-known-good
@@ -10,8 +9,8 @@
 // snapshot in memory so it can be written back to disk (see writeSnapshot below) for
 // whoever next commits a build that had real network + a key.
 //
-// Series share one imdbId across every season, but their trailer pick is
-// season-dependent (see titleInfoFetch.ts's scoreSeasonMatch), so series items are
+// Series share one imdbId across every season, but their trailer pick and their season's
+// own release date are season-dependent (see titleInfoFetch.ts), so series items are
 // keyed by `imdbId-s{season}` while movies/shorts/specials are keyed by `imdbId`
 // alone — matching apps/api/src/media/titleInfoStore.ts's existing rowKeyFor scheme.
 import { fileURLToPath } from 'node:url';
@@ -22,9 +21,9 @@ import { mapWithConcurrencyLimit } from './concurrencyLimit';
 import { readSnapshot, withSnapshotFallback, writeSnapshot } from './snapshot';
 import { fetchTitleInfo, mergeTitleInfoWithPrior, type TitleInfo } from './titleInfoFetch';
 
-// Caps how many simultaneous OMDb/imdbapi.dev requests the loader fires; see
+// Caps how many simultaneous OMDb/TMDB requests the loader fires; see
 // concurrencyLimit.ts's file doc for why no external dependency is used for this.
-// Set to 1 to respect imdbapi.dev's aggressive rate limiting (~30-50 req/hour).
+// Set to 1 to respect OMDb's key rate limits (free tier keys cap out fast).
 const MAX_CONCURRENT_REQUESTS = 1;
 
 const snapshotPath = fileURLToPath(new URL('./titleInfo.snapshot.json', import.meta.url));
@@ -53,8 +52,8 @@ export function titleInfoLoader(): Loader {
 				// can fall back to the last-known-good values.
 				const priorEntry = snapshot[key];
 
-				// Skip the (rate-limit-prone) imdbapi.dev videos call ONLY when we already have an
-				// actual trailer for this title -- trailers are immutable once published. If none is
+				// Skip the TMDB trailer lookup ONLY when we already have an actual trailer for
+				// this title -- trailers are immutable once published. If none is
 				// cached yet (never looked up, genuinely none last time, or a prior failure), look
 				// again this build. Net: an item with a trailer never re-fetches; one without keeps
 				// trying until it finds one.
@@ -62,7 +61,7 @@ export function titleInfoLoader(): Loader {
 
 				const live = await withSnapshotFallback(key, snapshot, async () => {
 					try {
-						return await fetchTitleInfo(item.imdbId, season, cachedTrailer, priorEntry);
+						return await fetchTitleInfo(item.imdbId, season, cachedTrailer);
 					} catch (error) {
 						const message = error instanceof Error ? error.message : String(error);
 						logger.warn(`Failed to fetch "${key}": ${message}`);

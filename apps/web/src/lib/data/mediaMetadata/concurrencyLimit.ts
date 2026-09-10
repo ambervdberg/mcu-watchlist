@@ -1,11 +1,11 @@
-// Tiny concurrency limiter for build-time upstream fetches (OMDb/imdbapi.dev).
+// Tiny concurrency limiter for build-time upstream fetches (OMDb/TMDB).
 // No external dependency (e.g. p-limit) is pulled in for this: the whole job is
 // "never run more than N of these tasks at once", which is a handful of lines.
 //
 // Used by titleInfoLoader.ts and episodeInfoLoader.ts to cap how many concurrent
 // HTTP requests the Content Layer loaders fire during `astro build`/`astro dev`,
 // so a catalog of ~90 items doesn't open ~90 simultaneous sockets against OMDb
-// and imdbapi.dev (both of which apply their own rate limiting).
+// and TMDB (both of which apply their own rate limiting).
 
 /**
  * Runs `task` for every item in `items`, allowing at most `limit` tasks to be

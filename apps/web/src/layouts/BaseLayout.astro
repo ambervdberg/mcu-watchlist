@@ -66,6 +66,13 @@ import '../app.css';
 		<main class="app-main">
 			<slot />
 		</main>
+
+		<footer class="app-footer">
+			<a class="tmdb-credit" href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer">
+				<img class="tmdb-logo" src="/tmdb-logo.svg" alt="TMDB" width="92" height="12" />
+				<span>This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
+			</a>
+		</footer>
 	</body>
 </html>
 
@@ -103,6 +110,33 @@ import '../app.css';
 		max-width: 72rem;
 		margin: 0 auto;
 		padding: 1.5rem;
+	}
+
+	.app-footer {
+		display: flex;
+		justify-content: center;
+		padding: 1rem 1.5rem 1.5rem;
+	}
+
+	.tmdb-credit {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		color: var(--muted);
+		font-size: 0.75rem;
+		text-align: center;
+		text-decoration: none;
+	}
+
+	.tmdb-credit:hover {
+		color: var(--text);
+	}
+
+	.tmdb-logo {
+		flex: 0 0 auto;
+		display: block;
 	}
 
 	@media (max-width: 420px) {

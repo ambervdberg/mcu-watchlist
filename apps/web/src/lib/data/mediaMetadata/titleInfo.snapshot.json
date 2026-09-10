@@ -116,7 +116,7 @@
 		"imdbRating": "7.3",
 		"poster": "https://m.media-amazon.com/images/M/MV5BYWFiOTcwNzItMTg5Mi00ZTU4LThkZWYtYWNmZWQ1ODE5ZTVmXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 32,
-		"released": "11 Aug 2021",
+		"released": "22 Dec 2023",
 		"trailer": {
 			"id": "vi544392985",
 			"name": "What If: Season 2 (Australia)",
@@ -132,7 +132,7 @@
 		"imdbRating": "7.3",
 		"poster": "https://m.media-amazon.com/images/M/MV5BYWFiOTcwNzItMTg5Mi00ZTU4LThkZWYtYWNmZWQ1ODE5ZTVmXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 32,
-		"released": "11 Aug 2021",
+		"released": "22 Dec 2024",
 		"trailer": {
 			"id": "vi3501115673",
 			"name": "Official Trailer - Season 3",
@@ -356,7 +356,7 @@
 		"imdbRating": "6.7",
 		"poster": "https://m.media-amazon.com/images/M/MV5BMzBlODMyZGQtN2QzOS00MDAzLWFjOGQtMGRjN2JmZWM0NWJkXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 31,
-		"released": "10 Aug 2022",
+		"released": "06 Sep 2023",
 		"trailer": {
 			"id": "vi210224921",
 			"name": "Official Trailer - Season 2",
@@ -388,7 +388,7 @@
 		"imdbRating": "6.2",
 		"poster": "https://m.media-amazon.com/images/M/MV5BZjhhOTE5ODgtNDFjOS00ZTdlLTgzYjAtNGU1NmM4YzkwYWMxXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 30,
-		"released": "01 Aug 2025",
+		"released": "06 Aug 2025",
 		"trailer": {
 			"id": "vi3921987609",
 			"name": "Official Trailer",
@@ -500,7 +500,7 @@
 		"imdbRating": "8.1",
 		"poster": "https://m.media-amazon.com/images/M/MV5BNDBkMWRhMzEtM2M0Ny00OGZhLThkZGMtMTY1NWUwZWNhODdiXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 60,
-		"released": "04 Mar 2025",
+		"released": "24 Mar 2026",
 		"trailer": {
 			"id": "vi4226861849",
 			"name": "Official Trailer - Season 2",
@@ -560,22 +560,6 @@
 		}
 	},
 	"tt21066182-s1": {
-		"plot": "Small-time actor Simon Williams struggles to reckon with his personal life while hiding his super-powers as he tries to land his dream role. Meanwhile, a shady government agent leverages a new friendship in order to save his own job.",
-		"imdbRating": "7.4",
-		"poster": "https://m.media-amazon.com/images/M/MV5BMDk5YzQ3NjQtNzY3MC00NzM3LWE4NzYtZGRkNDQxYjdiZDkyXkEyXkFqcGc@._V1_.jpg",
-		"runtimeMinutes": 30,
-		"released": "27 Jan 2026",
-		"trailer": {
-			"id": "vi1251265305",
-			"name": "Official Trailer",
-			"description": "Hollywood actor Simon Williams is thrust into the world of superheroes as he gets powers of his own, and becomes the new superhero Wonder Man.",
-			"url": "https://www.imdb.com/video/vi1251265305/",
-			"embedUrl": "https://www.imdb.com/videoembed/vi1251265305",
-			"imageUrl": "https://m.media-amazon.com/images/M/MV5BYzcyMTBjMjQtZTM2My00NGNkLWJiNWQtNzUzNWY4YTc2NDJhXkEyXkFqcGdeQWpnYW1i._V1_.jpg",
-			"runtimeSeconds": 129
-		}
-	},
-	"tt21066182-s2": {
 		"plot": "Small-time actor Simon Williams struggles to reckon with his personal life while hiding his super-powers as he tries to land his dream role. Meanwhile, a shady government agent leverages a new friendship in order to save his own job.",
 		"imdbRating": "7.4",
 		"poster": "https://m.media-amazon.com/images/M/MV5BMDk5YzQ3NjQtNzY3MC00NzM3LWE4NzYtZGRkNDQxYjdiZDkyXkEyXkFqcGc@._V1_.jpg",
@@ -652,7 +636,7 @@
 		"imdbRating": "N/A",
 		"poster": "https://m.media-amazon.com/images/M/MV5BZGZkNThlYjYtOGI0MS00NGY2LTgwZTAtZWYwZTFlNTcxZDFhXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": null,
-		"released": "N/A",
+		"released": "14 Oct 2026",
 		"trailer": null
 	},
 	"tt2357547-s1": {
@@ -676,7 +660,7 @@
 		"imdbRating": "7.8",
 		"poster": "https://m.media-amazon.com/images/M/MV5BMDhhY2VlMWItMjM3Yi00MDc1LTlmYjctNjMzNDIxZjc5NGEwXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 56,
-		"released": "20 Nov 2015",
+		"released": "08 Mar 2018",
 		"trailer": {
 			"id": "vi2057420057",
 			"name": "Marvel's Jessica Jones: Season 2 Official Trailer",
@@ -692,7 +676,7 @@
 		"imdbRating": "7.8",
 		"poster": "https://m.media-amazon.com/images/M/MV5BMDhhY2VlMWItMjM3Yi00MDc1LTlmYjctNjMzNDIxZjc5NGEwXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 56,
-		"released": "20 Nov 2015",
+		"released": "14 Jun 2019",
 		"trailer": {
 			"id": "vi3939286041",
 			"name": "Season 3 Official Trailer",
@@ -732,7 +716,7 @@
 		"imdbRating": "6.4",
 		"poster": "https://m.media-amazon.com/images/M/MV5BMjI5Mjg1NDcyOV5BMl5BanBnXkFtZTgwMjAxOTQ5MTI@._V1_.jpg",
 		"runtimeMinutes": 60,
-		"released": "17 Mar 2017",
+		"released": "07 Sep 2018",
 		"trailer": {
 			"id": "vi3258498329",
 			"name": "Marvel's Iron Fist: Season 2 Official Trailer",
@@ -764,7 +748,7 @@
 		"imdbRating": "8.6",
 		"poster": "https://m.media-amazon.com/images/M/MV5BODcwOTg2MDE3NF5BMl5BanBnXkFtZTgwNTUyNTY1NjM@._V1_.jpg",
 		"runtimeMinutes": 60,
-		"released": "10 Apr 2015",
+		"released": "18 Mar 2016",
 		"trailer": {
 			"id": "vi633388313",
 			"name": "Marvel's Daredevil: Season 2",
@@ -780,7 +764,7 @@
 		"imdbRating": "8.6",
 		"poster": "https://m.media-amazon.com/images/M/MV5BODcwOTg2MDE3NF5BMl5BanBnXkFtZTgwNTUyNTY1NjM@._V1_.jpg",
 		"runtimeMinutes": 60,
-		"released": "10 Apr 2015",
+		"released": "19 Oct 2018",
 		"trailer": {
 			"id": "vi331463961",
 			"name": "Marvel's Daredevil: Season 3 Official Trailer",
@@ -812,7 +796,7 @@
 		"imdbRating": "7.2",
 		"poster": "https://m.media-amazon.com/images/M/MV5BMTcyMzc1MjI5MF5BMl5BanBnXkFtZTgwMzE4ODY2OTE@._V1_.jpg",
 		"runtimeMinutes": 60,
-		"released": "30 Sep 2016",
+		"released": "22 Jun 2018",
 		"trailer": {
 			"id": "vi4019436825",
 			"name": "Marvel's Luke Cage: Season 2 Official Trailer",
@@ -972,7 +956,7 @@
 		"imdbRating": "8.4",
 		"poster": "https://m.media-amazon.com/images/M/MV5BZTI2NDllMjgtOWEyYi00Y2YxLThhYjQtNTQ0NTgwNDE1YmYzXkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 60,
-		"released": "17 Nov 2017",
+		"released": "18 Jan 2019",
 		"trailer": {
 			"id": "vi1024571929",
 			"name": "Season 2: Official Trailer",
@@ -1076,7 +1060,7 @@
 		"imdbRating": "8.2",
 		"poster": "https://m.media-amazon.com/images/M/MV5BYzA2YjM2ZWQtYTZhMS00OTI3LTlhYzQtZjBiZWZkMDdlNjA5XkEyXkFqcGc@._V1_.jpg",
 		"runtimeMinutes": 50,
-		"released": "09 Jun 2021",
+		"released": "05 Oct 2023",
 		"trailer": {
 			"id": "vi3571960089",
 			"name": "Loki: Season 2 Mid-Season Trailer",

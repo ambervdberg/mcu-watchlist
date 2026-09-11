@@ -31,9 +31,14 @@
 // it is computed below from the `episodes` Content Layer collection, which only the
 // frontmatter here can read, and threaded into TimelineView -> EraGroup -> ItemCard so each
 // series card can render its "X/N" episode progress pill without any client-side fetch.
+//
+// `episodesByItemId` (marvel-q34) reuses the same loop, mapping each series item's baked
+// `entry.episodes` to the lean EpisodeSummary shape (lib/domain/upNext.ts) the UpNextCard
+// island needs to pick the next unwatched episode.
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { items } from '../lib/data/items';
+import type { EpisodeSummary } from '../lib/domain/upNext';
 import { getSeasonNumber } from '../lib/data/mediaMetadata/itemSeason';
 import { buildCatalogJsonLd } from '../lib/seo/jsonLd';
 import { serializeJsonLd } from '../lib/seo/jsonLdScript';
@@ -42,6 +47,7 @@ import FilterBar from '../lib/components/common/FilterBar.svelte';
 import SearchInput from '../lib/components/common/SearchInput.svelte';
 import EssentialToggle from '../lib/components/common/EssentialToggle.svelte';
 import StatsBar from '../lib/components/common/StatsBar.svelte';
+import UpNextCard from '../lib/components/common/UpNextCard.svelte';
 import TimelineView from '../lib/components/timeline/TimelineView.svelte';
 
 // Per-item baked episode counts (marvel-s4b), keyed by catalog item id, for series cards'
@@ -57,6 +63,7 @@ const episodeEntries = await getCollection('episodes');
 const episodesByKey = new Map(episodeEntries.map((entry) => [entry.id, entry.data]));
 
 const totalEpisodesByItemId: Record<string, number> = {};
+const episodesByItemId: Record<string, EpisodeSummary[]> = {};
 for (const item of items) {
 	if (item.type !== 'series') {
 		continue;
@@ -67,6 +74,7 @@ for (const item of items) {
 
 	if (entry) {
 		totalEpisodesByItemId[item.id] = entry.totalCount;
+		episodesByItemId[item.id] = entry.episodes.map(({ id, title, episodeNumber }) => ({ id, title, episodeNumber }));
 	}
 }
 
@@ -103,7 +111,11 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 			</p>
 		</div>
 
-		<StatsBar items={items} client:load />
+		<div class="hero-side">
+			<UpNextCard items={items} episodesByItemId={episodesByItemId} client:load />
+
+			<StatsBar items={items} client:load />
+		</div>
 	</section>
 
 	<section class="toolbar" aria-label="Watchlist controls">
@@ -128,6 +140,12 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 		gap: 28px;
 		align-items: end;
 		margin-bottom: 24px;
+	}
+
+	.hero-side {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
 	}
 
 	.eyebrow {

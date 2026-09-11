@@ -56,4 +56,18 @@ describe('buildLlmsTxt', () => {
 
 		expect(buildLlmsTxt(items, BASE_URL)).toBe(buildLlmsTxt(items, BASE_URL));
 	});
+
+	it('escapes a "]" in a title so it cannot close the link text early', () => {
+		const text = buildLlmsTxt([makeItem({ title: 'Guardians [Extended]' })], BASE_URL);
+
+		expect(text).toContain('[Guardians \\[Extended\\]](https://example.com/title/iron-man/)');
+	});
+
+	it('keeps a ")" in a title intact, still a valid single link', () => {
+		const text = buildLlmsTxt([makeItem({ title: 'Ant-Man and the Wasp (Quantumania)' })], BASE_URL);
+
+		expect(text).toContain(
+			'- [Ant-Man and the Wasp (Quantumania)](https://example.com/title/iron-man/): Movie, timeline 2008'
+		);
+	});
 });

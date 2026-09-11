@@ -6,8 +6,11 @@
 import type { TitleInfoDto } from '../api/ports';
 import type { Item } from '../domain/item';
 
+/** One optional JSON-LD field: present with a real value, or absent entirely, never `undefined`. */
+type OptionalField<Key extends string, Value> = Partial<Record<Key, Value>>;
+
 /** `description` field from `titleInfo.plot`, omitted when there is no real plot text. */
-export function descriptionField(titleInfo: TitleInfoDto | undefined): { description: string } | object {
+export function descriptionField(titleInfo: TitleInfoDto | undefined): OptionalField<'description', string> {
 	if (!titleInfo || isMissingText(titleInfo.plot)) {
 		return {};
 	}
@@ -16,7 +19,7 @@ export function descriptionField(titleInfo: TitleInfoDto | undefined): { descrip
 }
 
 /** `image` field from `titleInfo.poster`, omitted when there is no real poster URL. */
-export function imageField(titleInfo: TitleInfoDto | undefined): { image: string } | object {
+export function imageField(titleInfo: TitleInfoDto | undefined): OptionalField<'image', string> {
 	if (!titleInfo || isMissingText(titleInfo.poster)) {
 		return {};
 	}
@@ -28,7 +31,7 @@ export function imageField(titleInfo: TitleInfoDto | undefined): { image: string
  * `duration` field as ISO 8601 (e.g. "PT96M"), from the catalog item's own runtime first,
  * else the baked title info's runtime. Omitted when neither is a known number.
  */
-export function durationField(item: Item, titleInfo: TitleInfoDto | undefined): { duration: string } | object {
+export function durationField(item: Item, titleInfo: TitleInfoDto | undefined): OptionalField<'duration', string> {
 	const minutes = item.runtimeMinutes ?? titleInfo?.runtimeMinutes ?? null;
 
 	if (minutes === null) {
@@ -42,7 +45,7 @@ export function durationField(item: Item, titleInfo: TitleInfoDto | undefined): 
  * `datePublished` field as "YYYY-MM-DD", parsed from OMDb's "DD Mon YYYY" release date.
  * Omitted when `titleInfo` is missing or its `released` field does not parse.
  */
-export function datePublishedField(titleInfo: TitleInfoDto | undefined): { datePublished: string } | object {
+export function datePublishedField(titleInfo: TitleInfoDto | undefined): OptionalField<'datePublished', string> {
 	const parsed = titleInfo ? parseOmdbReleased(titleInfo.released) : null;
 
 	return parsed ? { datePublished: parsed } : {};
@@ -54,7 +57,7 @@ export function datePublishedField(titleInfo: TitleInfoDto | undefined): { dateP
  */
 export function aggregateRatingField(
 	titleInfo: TitleInfoDto | undefined
-): { aggregateRating: Record<string, unknown> } | object {
+): OptionalField<'aggregateRating', Record<string, unknown>> {
 	const ratingValue = titleInfo ? Number(titleInfo.imdbRating) : NaN;
 
 	if (!Number.isFinite(ratingValue)) {

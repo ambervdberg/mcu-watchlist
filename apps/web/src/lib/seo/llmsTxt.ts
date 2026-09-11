@@ -41,6 +41,12 @@ function buildEraSection(era: string, items: Item[], baseUrl: string): string {
 /** Renders one markdown link line for a catalog item. */
 function buildItemLink(item: Item, baseUrl: string): string {
 	const url = titleUrl(baseUrl, item.id);
+	const linkText = escapeMarkdownLinkText(item.title);
 
-	return `- [${item.title}](${url}): ${formatItemType(item.type)}, timeline ${item.timeline}`;
+	return `- [${linkText}](${url}): ${formatItemType(item.type)}, timeline ${item.timeline}`;
+}
+
+/** Escapes markdown link-text special characters, so a title can never close the link early. */
+function escapeMarkdownLinkText(text: string): string {
+	return text.replace(/\\/g, '\\\\').replace(/\[/g, '\\[').replace(/\]/g, '\\]');
 }

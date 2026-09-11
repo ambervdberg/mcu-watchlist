@@ -3,16 +3,15 @@
 import type { APIRoute } from 'astro';
 import { items } from '../lib/data/items';
 import { buildLlmsTxt } from '../lib/seo/llmsTxt';
+import { requireSiteUrl } from '../lib/seo/siteUrl';
 
 export const prerender = true;
 
 /** Serves the generated llms.txt as text/plain. */
 export const GET: APIRoute = ({ site }) => {
-	if (!site) {
-		throw new Error('astro.config.mjs must set `site` for llms.txt to know its base URL.');
-	}
+	const siteUrl = requireSiteUrl(site);
 
-	return new Response(buildLlmsTxt(items, site.toString()), {
+	return new Response(buildLlmsTxt(items, siteUrl.toString()), {
 		headers: { 'Content-Type': 'text/plain; charset=utf-8' }
 	});
 };

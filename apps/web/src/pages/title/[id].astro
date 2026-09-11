@@ -28,6 +28,8 @@ import TitleDetail from '../../lib/components/detail/TitleDetail.svelte';
 import { items } from '../../lib/data/items';
 import { getSeasonNumber } from '../../lib/data/mediaMetadata/itemSeason';
 import { buildItemJsonLd } from '../../lib/seo/jsonLd';
+import { serializeJsonLd } from '../../lib/seo/jsonLdScript';
+import { requireSiteUrl } from '../../lib/seo/siteUrl';
 
 export const getStaticPaths = (async () => {
 	const titleInfoEntries = await getCollection('titleInfo');
@@ -64,9 +66,9 @@ const { item, season, titleInfo, episodes } = Astro.props;
 
 // SEO copy, ported from the catalog fields available at build time (no OMDb data, since
 // that is fetched client-side only and must not block or vary the prerendered HTML).
-const pageTitle = `${item.title} — Marvel Chronological Watchlist`;
+const pageTitle = `${item.title} | Marvel Chronological Watchlist`;
 const pageDescription = `${item.title} (${item.timeline}) in the MCU chronological watch order.`;
-const pageUrl = new URL(`/title/${item.id}/`, Astro.site).toString();
+const pageUrl = new URL(`/title/${item.id}/`, requireSiteUrl(Astro.site)).toString();
 
 // JSON-LD (marvel-r0u): schema.org Movie/TVSeason for this item, built from the catalog entry
 // plus the baked titleInfo prop (undefined-safe, see lib/seo/jsonLd.ts).
@@ -81,7 +83,7 @@ const itemJsonLd = buildItemJsonLd(item, titleInfo, season, pageUrl);
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:type" content="video.movie" />
 		<meta property="og:url" content={pageUrl} />
-		<script type="application/ld+json" set:html={JSON.stringify(itemJsonLd)} is:inline />
+		<script type="application/ld+json" set:html={serializeJsonLd(itemJsonLd)} is:inline />
 	</Fragment>
 
 	<a class="back-link" href="/">&larr; Back to timeline</a>

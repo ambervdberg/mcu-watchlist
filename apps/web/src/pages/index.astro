@@ -33,8 +33,8 @@
 // series card can render its "X/N" episode progress pill without any client-side fetch.
 //
 // `episodesByItemId` (marvel-q34) reuses the same loop, mapping each series item's baked
-// `entry.episodes` to the lean EpisodeSummary shape (lib/domain/upNext.ts) the UpNextCard
-// island needs to pick the next unwatched episode.
+// `entry.episodes` to the lean EpisodeSummary shape (lib/domain/upNext.ts) StatsBar's
+// inner UpNextCard panel needs to pick the next unwatched episode.
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { items } from '../lib/data/items';
@@ -47,7 +47,6 @@ import FilterBar from '../lib/components/common/FilterBar.svelte';
 import SearchInput from '../lib/components/common/SearchInput.svelte';
 import EssentialToggle from '../lib/components/common/EssentialToggle.svelte';
 import StatsBar from '../lib/components/common/StatsBar.svelte';
-import UpNextCard from '../lib/components/common/UpNextCard.svelte';
 import TimelineView from '../lib/components/timeline/TimelineView.svelte';
 
 // Per-item baked episode counts (marvel-s4b), keyed by catalog item id, for series cards'
@@ -111,11 +110,7 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 			</p>
 		</div>
 
-		<div class="hero-side">
-			<UpNextCard items={items} episodesByItemId={episodesByItemId} client:load />
-
-			<StatsBar items={items} client:load />
-		</div>
+		<StatsBar items={items} episodesByItemId={episodesByItemId} client:load />
 	</section>
 
 	<section class="toolbar" aria-label="Watchlist controls">
@@ -140,12 +135,6 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 		gap: 28px;
 		align-items: end;
 		margin-bottom: 24px;
-	}
-
-	.hero-side {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
 	}
 
 	.eyebrow {

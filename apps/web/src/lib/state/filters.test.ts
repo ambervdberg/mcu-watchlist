@@ -4,7 +4,7 @@
 // filters.ts).
 
 import { describe, expect, it } from 'vitest';
-import { createEmptyProgress, markSkipped, markWatched } from '../domain/progress';
+import { createEmptyProgress, markWatched } from '../domain/progress';
 import type { Item } from '../domain/item';
 import { createFiltersStore } from './filters';
 
@@ -144,18 +144,7 @@ describe('createFiltersStore()', () => {
 
 			const stats = store.stats(ITEMS, progress);
 
-			expect(stats).toEqual({ watchedCount: 1, totalCount: 3, percentage: 33, nextItem: ITEMS[1] });
-		});
-
-		it('reports nextItem as null once every in-scope item is watched or skipped', () => {
-			const store = createFiltersStore();
-			let progress = markWatched(createEmptyProgress(), 'iron-man', '2026-01-01');
-			progress = markWatched(progress, 'thor', '2026-01-01');
-			progress = markSkipped(progress, 'loki');
-
-			const stats = store.stats(ITEMS, progress);
-
-			expect(stats.nextItem).toBeNull();
+			expect(stats).toEqual({ watchedCount: 1, totalCount: 3, percentage: 33 });
 		});
 	});
 });

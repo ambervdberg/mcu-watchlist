@@ -31,10 +31,10 @@ const LOKI = makeItem({
 const ITEMS = [IRON_MAN, IRON_MAN_2, LOKI];
 
 describe('computeStats', () => {
-	it('returns zero counts and a null nextItem for an empty item list', () => {
+	it('returns zero counts for an empty item list', () => {
 		const stats = computeStats([], createDefaultFilterState(), createEmptyProgress());
 
-		expect(stats).toEqual({ watchedCount: 0, totalCount: 0, percentage: 0, nextItem: null });
+		expect(stats).toEqual({ watchedCount: 0, totalCount: 0, percentage: 0 });
 	});
 
 	it('counts watched items and computes a rounded percentage over all items when unfiltered', () => {
@@ -46,24 +46,7 @@ describe('computeStats', () => {
 		expect(stats.percentage).toBe(33); // round(1/3 * 100) = 33
 	});
 
-	it('returns the first item in catalog order that is neither watched nor skipped', () => {
-		const progress = markWatched(createEmptyProgress(), IRON_MAN.id, '2026-06-23');
-		const stats = computeStats(ITEMS, createDefaultFilterState(), progress);
-
-		expect(stats.nextItem).toEqual(IRON_MAN_2);
-	});
-
-	it('skips over skipped items when picking nextItem, same as watched items', () => {
-		let progress: Progress = createEmptyProgress();
-		progress = markWatched(progress, IRON_MAN.id, '2026-06-23');
-		progress = markSkipped(progress, IRON_MAN_2.id);
-
-		const stats = computeStats(ITEMS, createDefaultFilterState(), progress);
-
-		expect(stats.nextItem).toEqual(LOKI);
-	});
-
-	it('returns nextItem null when every item is watched or skipped', () => {
+	it('computes percentage over the remaining scope once some items are watched or skipped', () => {
 		let progress: Progress = createEmptyProgress();
 		progress = markWatched(progress, IRON_MAN.id, '2026-06-23');
 		progress = markWatched(progress, IRON_MAN_2.id, '2026-06-23');
@@ -71,7 +54,6 @@ describe('computeStats', () => {
 
 		const stats = computeStats(ITEMS, createDefaultFilterState(), progress);
 
-		expect(stats.nextItem).toBeNull();
 		expect(stats.percentage).toBe(67); // round(2/3 * 100) = 67
 	});
 

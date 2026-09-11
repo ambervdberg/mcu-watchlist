@@ -1,24 +1,28 @@
 <!--
-	Watch-progress summary panel.
+	Watch-progress summary panel, with the "up next" pick (UpNextCard) as its inner panel.
 
 	Astro migration: mounted as its own island on the "/" page, separate from the other
 	toolbar/timeline islands (no shared parent closure across islands), so this recomputes
 	`filtersStore.stats(items, progress)` (lib/state/filters.ts) itself from the shared
 	`filtersStore`/`progressStore` singletons, re-deriving whenever either store's atom
-	changes. `items` (the static catalog, lib/data/items.ts) is still a prop: it is
-	build-time data passed once from the page, not store state any island mutates.
+	changes. `items`/`episodesByItemId` (the static catalog and baked episode lists) stay
+	props: build-time data passed once from the page, not store state any island mutates.
 -->
 <script lang="ts">
 	import { filtersStore } from '$lib/state/filters';
 	import { progressStore } from '$lib/state/progress';
 	import type { Item } from '$lib/domain/item';
+	import type { EpisodeSummary } from '$lib/domain/upNext';
+	import UpNextCard from './UpNextCard.svelte';
 
 	interface Props {
 		/** The full catalog (lib/data/items.ts), static build-time data. */
 		items: readonly Item[];
+		/** Baked per-series episode list (marvel-q34), keyed by catalog item id. */
+		episodesByItemId: Readonly<Record<string, readonly EpisodeSummary[]>>;
 	}
 
-	let { items }: Props = $props();
+	let { items, episodesByItemId }: Props = $props();
 
 	const { filters } = filtersStore;
 	const { progress } = progressStore;
@@ -42,10 +46,7 @@
 		<div class="progress-bar" style:width="{stats.percentage}%"></div>
 	</div>
 
-	<div class="next-card">
-		<p class="next-label">Next up</p>
-		<p class="next-title">{stats.nextItem ? stats.nextItem.title : 'Everything is watched'}</p>
-	</div>
+	<UpNextCard {items} {episodesByItemId} />
 </aside>
 
 <style>
@@ -86,27 +87,5 @@
 		border-radius: inherit;
 		background: linear-gradient(90deg, var(--accent), var(--accent-2));
 		transition: width 200ms ease;
-	}
-
-	.next-card {
-		margin-top: 16px;
-		padding: 14px;
-		border: 1px solid var(--border);
-		border-radius: 20px;
-		background: rgba(255, 255, 255, 0.055);
-	}
-
-	.next-label {
-		margin: 0 0 6px;
-		color: var(--muted);
-		font-size: 12px;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-	}
-
-	.next-title {
-		margin: 0;
-		font-size: 16px;
-		line-height: 1.35;
 	}
 </style>

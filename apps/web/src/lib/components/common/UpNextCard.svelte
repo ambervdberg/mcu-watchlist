@@ -2,11 +2,11 @@
 	"Up next" card: the single item (and, for a series, the single episode) the visitor
 	should watch next, in catalog order, scoped to the current essential-only filter.
 
-	Astro migration: mounted as its own island on "/" (marvel-q34), above StatsBar, reading
-	the shared `filtersStore`/`progressStore`/`sessionStore` singletons directly per
-	CLAUDE.md rather than as props -- Astro would serialize a store prop through JSON and
-	drop its methods. `items`/`episodesByItemId` are still props: build-time data passed
-	once from the page, not store state any island mutates.
+	Inner panel of StatsBar (marvel-q34), a plain child component in the same island, not
+	its own island -- it reads the shared `filtersStore`/`progressStore`/`sessionStore`
+	singletons directly per CLAUDE.md rather than as props. `items`/`episodesByItemId` are
+	still props: build-time data passed once from the page, not store state any island
+	mutates. No `aria-live` here: StatsBar (the outer `<aside>`) already owns that region.
 -->
 <script lang="ts">
 	import { formatItemType, type Item } from '$lib/domain/item';
@@ -53,7 +53,7 @@
 	}
 </script>
 
-<aside class="up-next" aria-live="polite">
+<aside class="up-next">
 	{#if upNext === null}
 		<p class="caught-up">All caught up</p>
 	{:else}
@@ -86,11 +86,11 @@
 
 <style>
 	.up-next {
-		padding: 14px 18px;
+		margin-top: 16px;
+		padding: 14px;
 		border: 1px solid var(--border);
 		border-radius: 20px;
-		background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025)), var(--panel);
-		box-shadow: var(--shadow);
+		background: rgba(255, 255, 255, 0.055);
 	}
 
 	.caught-up {

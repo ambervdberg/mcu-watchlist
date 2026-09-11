@@ -35,6 +35,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { items } from '../lib/data/items';
 import { getSeasonNumber } from '../lib/data/mediaMetadata/itemSeason';
+import { buildCatalogJsonLd } from '../lib/seo/jsonLd';
 import FilterBar from '../lib/components/common/FilterBar.svelte';
 import SearchInput from '../lib/components/common/SearchInput.svelte';
 import EssentialToggle from '../lib/components/common/EssentialToggle.svelte';
@@ -66,6 +67,10 @@ for (const item of items) {
 		totalEpisodesByItemId[item.id] = entry.totalCount;
 	}
 }
+
+// JSON-LD (marvel-r0u): an ItemList of the full catalog, so an agent/crawler can read the
+// whole chronological order straight out of the page's structured data.
+const catalogJsonLd = buildCatalogJsonLd(items, Astro.site!.toString());
 ---
 
 <BaseLayout>
@@ -76,13 +81,14 @@ for (const item of items) {
 			content="Browse the MCU in chronological order, sign in to track which movies, series, shorts and specials you've watched, and see what to watch next."
 		/>
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://mcu-watchlist.codequest.nl/" />
+		<meta property="og:url" content={Astro.site} />
 		<meta property="og:title" content="Marvel Chronological Watchlist" />
 		<meta
 			property="og:description"
 			content="Browse the MCU in chronological order, sign in to track which movies, series, shorts and specials you've watched, and see what to watch next."
 		/>
-		<link rel="canonical" href="https://mcu-watchlist.codequest.nl/" />
+		<link rel="canonical" href={Astro.site} />
+		<script type="application/ld+json" set:html={JSON.stringify(catalogJsonLd)} is:inline />
 	</Fragment>
 
 	<section class="hero">

@@ -27,6 +27,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TitleDetail from '../../lib/components/detail/TitleDetail.svelte';
 import { items } from '../../lib/data/items';
 import { getSeasonNumber } from '../../lib/data/mediaMetadata/itemSeason';
+import { buildItemJsonLd } from '../../lib/seo/jsonLd';
 
 export const getStaticPaths = (async () => {
 	const titleInfoEntries = await getCollection('titleInfo');
@@ -65,6 +66,11 @@ const { item, season, titleInfo, episodes } = Astro.props;
 // that is fetched client-side only and must not block or vary the prerendered HTML).
 const pageTitle = `${item.title} — Marvel Chronological Watchlist`;
 const pageDescription = `${item.title} (${item.timeline}) in the MCU chronological watch order.`;
+const pageUrl = new URL(`/title/${item.id}/`, Astro.site).toString();
+
+// JSON-LD (marvel-r0u): schema.org Movie/TVSeason for this item, built from the catalog entry
+// plus the baked titleInfo prop (undefined-safe, see lib/seo/jsonLd.ts).
+const itemJsonLd = buildItemJsonLd(item, titleInfo, season, pageUrl);
 ---
 
 <BaseLayout>
@@ -74,7 +80,8 @@ const pageDescription = `${item.title} (${item.timeline}) in the MCU chronologic
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:type" content="video.movie" />
-		<meta property="og:url" content={`https://mcu-watchlist.codequest.nl/title/${item.id}/`} />
+		<meta property="og:url" content={pageUrl} />
+		<script type="application/ld+json" set:html={JSON.stringify(itemJsonLd)} is:inline />
 	</Fragment>
 
 	<a class="back-link" href="/">&larr; Back to timeline</a>

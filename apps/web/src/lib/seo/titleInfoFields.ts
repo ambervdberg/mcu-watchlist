@@ -1,0 +1,93 @@
+// Data-hygiene field builders shared by jsonLd.ts. `titleInfo` may be undefined, and its
+// fields carry OMDb sentinels ('N/A', empty string, null); each builder here returns either a
+// single real key or an empty object, so a caller can spread the result without ever emitting
+// a junk value (undefined/null/'N/A') into JSON-LD output.
+
+import type { TitleInfoDto } from '../api/ports';
+import type { Item } from '../domain/item';
+
+/** `description` field from `titleInfo.plot`, omitted when there is no real plot text. */
+export function descriptionField(titleInfo: TitleInfoDto | undefined): { description: string } | object {
+	if (!titleInfo || isMissingText(titleInfo.plot)) {
+		return {};
+	}
+
+	return { description: titleInfo.plot };
+}
+
+/** `image` field from `titleInfo.poster`, omitted when there is no real poster URL. */
+export function imageField(titleInfo: TitleInfoDto | undefined): { image: string } | object {
+	if (!titleInfo || isMissingText(titleInfo.poster)) {
+		return {};
+	}
+
+	return { image: titleInfo.poster };
+}
+
+/**
+ * `duration` field as ISO 8601 (e.g. "PT96M"), from the catalog item's own runtime first,
+ * else the baked title info's runtime. Omitted when neither is a known number.
+ */
+export function durationField(item: Item, titleInfo: TitleInfoDto | undefined): { duration: string } | object {
+	const minutes = item.runtimeMinutes ?? titleInfo?.runtimeMinutes ?? null;
+
+	if (minutes === null) {
+		return {};
+	}
+
+	return { duration: `PT${minutes}M` };
+}
+
+/**
+ * `datePublished` field as "YYYY-MM-DD", parsed from OMDb's "DD Mon YYYY" release date.
+ * Omitted when `titleInfo` is missing or its `released` field does not parse.
+ */
+export function datePublishedField(titleInfo: TitleInfoDto | undefined): { datePublished: string } | object {
+	const parsed = titleInfo ? parseOmdbReleased(titleInfo.released) : null;
+
+	return parsed ? { datePublished: parsed } : {};
+}
+
+/**
+ * `aggregateRating` field built from `titleInfo.imdbRating`, omitted when missing or not a
+ * finite number.
+ */
+export function aggregateRatingField(
+	titleInfo: TitleInfoDto | undefined
+): { aggregateRating: Record<string, unknown> } | object {
+	const ratingValue = titleInfo ? Number(titleInfo.imdbRating) : NaN;
+
+	if (!Number.isFinite(ratingValue)) {
+		return {};
+	}
+
+	return {
+		aggregateRating: {
+			'@type': 'AggregateRating',
+			ratingValue,
+			bestRating: 10,
+			worstRating: 1
+		}
+	};
+}
+
+/** OMDb's sentinel for a field it has no value for; treated the same as an empty string. */
+function isMissingText(value: string): boolean {
+	return value === '' || value === 'N/A';
+}
+
+const MONTH_ABBREVIATIONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/** Parses OMDb's "DD Mon YYYY" release date (e.g. "02 May 2008") into "YYYY-MM-DD". */
+function parseOmdbReleased(released: string): string | null {
+	const match = new RegExp(/^(\d{2}) (\w{3}) (\d{4})$/).exec(released);
+
+	if (!match) {
+		return null;
+	}
+
+	const [, day, monthName, year] = match;
+	const monthIndex = MONTH_ABBREVIATIONS.indexOf(monthName);
+
+	return monthIndex === -1 ? null : `${year}-${String(monthIndex + 1).padStart(2, '0')}-${day}`;
+}

@@ -31,6 +31,7 @@ function ogImageRasterizer() {
 // equivalent built in, so it is reproduced here via Vite's resolve.alias so every existing
 // `$lib/...` import across .astro/.svelte files keeps working unchanged.
 export default defineConfig({
+	site: 'https://mcu-watchlist.codequest.nl',
 	output: 'static',
 	outDir: 'build',
 	publicDir: 'static',

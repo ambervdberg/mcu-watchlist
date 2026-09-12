@@ -1,69 +1,62 @@
 ---
-// The prerendered "/" timeline view (replaces routes/+page.svelte): the catalog hero, the
-// stats panel, the filter/search toolbar, and the era-grouped timeline of every catalog
-// item.
+// The prerendered "/" timeline view: the catalog hero, the progress strip, the
+// filter/search toolbar, and the era-grouped timeline of every catalog item.
 //
 // The hero markup (eyebrow/h1/intro) is static, plain .astro markup -- no reactivity needed
 // there, so it is rendered directly here rather than as a Svelte island.
 //
-// FilterBar/SearchInput/EssentialToggle/StatsBar/TimelineView are mounted as independent
+// EssentialToggle/FilterBar/SearchInput/ProgressStrip/TimelineView are mounted as independent
 // fine-grained islands, each reading/writing the shared `filtersStore`/`progressStore`
-// nanostore singletons directly (lib/state/filters.ts, lib/state/progress.ts). All but
-// TimelineView sit above the fold and use client:load; TimelineView is the heaviest island
-// and starts below the fold, so it uses client:visible to defer its hydration cost until it
-// scrolls into view.
-// instead of receiving props/callbacks from one parent component's script block -- unlike
-// +page.svelte, a single Svelte component's <script>, an .astro page has no client-side
-// script of its own that could hold that wiring, and separately mounted islands don't share
-// a closure. nanostores atoms are plain shared singletons, so every island reading the same
-// store re-renders independently when it changes; this is more idiomatic Astro than
-// introducing a new wrapper Svelte component that doesn't exist in the current codebase
-// (see docs/superpowers/specs/2026-06-23-astro-migration-design.md).
+// nanostore singletons directly (lib/state/filters.ts, lib/state/progress.ts) -- an .astro
+// page has no client-side script of its own to hold cross-island wiring, and separately
+// mounted islands don't share a closure. All but TimelineView sit above the fold and use
+// client:load; TimelineView is the heaviest island and starts below the fold, so it uses
+// client:visible to defer its hydration cost until it scrolls into view.
 //
-// The full catalog (`items`) is static, build-time data (lib/data/items.ts), imported here
-// and passed into the StatsBar/TimelineView islands, which each recompute their own
-// `filtersStore.stats`/`visibleItems` slice from it -- this is the "zero-JS catalog"
-// prerendering goal: every item is already in the prerendered HTML before any store
-// hydration happens client-side. Only `progress` (and therefore which items show as
-// watched/skipped) updates after hydration.
+// The full catalog (`items`) is static, build-time data (lib/data/items.ts), passed into the
+// ProgressStrip/TimelineView islands, which each recompute their own filtered slice from it --
+// this is the "zero-JS catalog" prerendering goal: every item is already in the prerendered
+// HTML before any store hydration happens client-side. Only `progress` (and therefore which
+// items show as watched/skipped) updates after hydration.
 //
-// `totalEpisodesByItemId` (marvel-s4b) is the same kind of static, build-time-derived prop:
-// it is computed below from the `episodes` Content Layer collection, which only the
-// frontmatter here can read, and threaded into TimelineView -> EraGroup -> ItemCard so each
-// series card can render its "X/N" episode progress pill without any client-side fetch.
-//
-// `episodesByItemId` (marvel-q34) reuses the same loop, mapping each series item's baked
-// `entry.episodes` to the lean EpisodeSummary shape (lib/domain/upNext.ts) StatsBar's
-// inner UpNextCard panel needs to pick the next unwatched episode.
+// `totalEpisodesByItemId`/`episodesByItemId` (marvel-s4b, marvel-q34) are baked from the
+// `episodes` Content Layer collection, keyed back from its own `imdbId-s{season}` key to the
+// catalog item id every series in the catalog actually uses, since TimelineView/ProgressStrip
+// are islands and can't read the collection themselves (Astro Content Layer is only readable
+// from .astro frontmatter). `runtimeByItemId` (marvel-b96) and `posterByItemId` (marvel-q34)
+// are built the same way, from `episodes` plus the `titleInfo` collection.
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { items } from '../lib/data/items';
 import type { EpisodeSummary } from '../lib/domain/upNext';
 import { getSeasonNumber } from '../lib/data/mediaMetadata/itemSeason';
+import { buildRuntimeIndex } from '../lib/data/runtimeIndex';
 import { buildCatalogJsonLd } from '../lib/seo/jsonLd';
 import { serializeJsonLd } from '../lib/seo/jsonLdScript';
 import { requireSiteUrl } from '../lib/seo/siteUrl';
 import FilterBar from '../lib/components/common/FilterBar.svelte';
 import SearchInput from '../lib/components/common/SearchInput.svelte';
 import EssentialToggle from '../lib/components/common/EssentialToggle.svelte';
-import StatsBar from '../lib/components/common/StatsBar.svelte';
+import ProgressStrip from '../lib/components/common/ProgressStrip.svelte';
 import TimelineView from '../lib/components/timeline/TimelineView.svelte';
 
-// Per-item baked episode counts (marvel-s4b), keyed by catalog item id, for series cards'
-// "X/N" progress pill. The `episodes` Content Layer collection (content.config.ts) is keyed
-// by `imdbId-s{season}` (matching episodeInfoLoader.ts), not by catalog item id, so this maps
-// from the collection's key back to the item id every series in the catalog actually uses --
-// the same lookup [id].astro does for its own episodes prop, but read-only-once here since
-// TimelineView/ItemCard are islands and can't read the collection themselves (Astro Content
-// Layer is only readable from .astro frontmatter). A series with no baked entry (unreleased,
-// or no snapshot yet) is simply absent from the map; ItemCard treats a missing/zero count as
-// "render nothing" rather than a broken "X/undefined" pill.
 const episodeEntries = await getCollection('episodes');
 const episodesByKey = new Map(episodeEntries.map((entry) => [entry.id, entry.data]));
 
+const titleInfoEntries = await getCollection('titleInfo');
+const titleInfoByKey = new Map(titleInfoEntries.map((entry) => [entry.id, entry.data]));
+
 const totalEpisodesByItemId: Record<string, number> = {};
 const episodesByItemId: Record<string, EpisodeSummary[]> = {};
+const posterByItemId: Record<string, string> = {};
+
 for (const item of items) {
+	const titleInfoKey = item.type === 'series' ? `${item.imdbId}-s${getSeasonNumber(item.id)}` : item.imdbId;
+	const poster = titleInfoByKey.get(titleInfoKey)?.poster;
+	if (poster && poster !== 'N/A') {
+		posterByItemId[item.id] = poster;
+	}
+
 	if (item.type !== 'series') {
 		continue;
 	}
@@ -76,6 +69,8 @@ for (const item of items) {
 		episodesByItemId[item.id] = entry.episodes.map(({ id, title, episodeNumber }) => ({ id, title, episodeNumber }));
 	}
 }
+
+const runtimeByItemId = buildRuntimeIndex(items, episodesByKey, titleInfoByKey);
 
 // JSON-LD (marvel-r0u): an ItemList of the full catalog, so an agent/crawler can read the
 // whole chronological order straight out of the page's structured data.
@@ -101,40 +96,47 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 	</Fragment>
 
 	<section class="hero">
-		<div>
-			<div class="eyebrow">MCU movies, series, shorts and specials</div>
-			<h1>Marvel Chronological Watchlist</h1>
-			<p class="intro">
-				Follow the MCU timeline order, mark what you have watched, and pick up where you left off. Sign in with email to
-				save your progress to your account.
-			</p>
-		</div>
-
-		<StatsBar items={items} episodesByItemId={episodesByItemId} client:load />
+		<div class="eyebrow">MCU movies, series, shorts and specials</div>
+		<h1>Marvel Chronological Watchlist</h1>
+		<p class="intro">
+			Follow the MCU timeline order, mark what you have watched, and pick up where you left off. Sign in with email to
+			save your progress to your account.
+		</p>
 	</section>
 
-	<section class="toolbar" aria-label="Watchlist controls">
-		<div class="toolbar-row">
-			<EssentialToggle client:load />
-		</div>
+	<div class="content">
+		<ProgressStrip
+			items={items}
+			episodesByItemId={episodesByItemId}
+			runtimeByItemId={runtimeByItemId}
+			posterByItemId={posterByItemId}
+			client:load
+		/>
 
-		<div class="toolbar-row">
-			<FilterBar client:load />
+		<section class="toolbar" aria-label="Watchlist controls">
+			<div class="chips">
+				<EssentialToggle client:load />
+				<span class="chip-divider" aria-hidden="true"></span>
+				<FilterBar client:load />
+			</div>
 
 			<SearchInput client:load />
-		</div>
-	</section>
+		</section>
 
-	<TimelineView items={items} totalEpisodesByItemId={totalEpisodesByItemId} client:visible />
+		<div class="timeline-column">
+			<TimelineView items={items} totalEpisodesByItemId={totalEpisodesByItemId} client:visible />
+		</div>
+	</div>
 </BaseLayout>
 
 <style>
 	.hero {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) 400px;
-		gap: 28px;
-		align-items: end;
-		margin-bottom: 24px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 22px;
+		padding-top: 12px;
+		text-align: center;
 	}
 
 	.eyebrow {
@@ -142,7 +144,6 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 		align-items: center;
 		gap: 9px;
 		width: fit-content;
-		margin-bottom: 14px;
 		padding: 7px 11px;
 		border: 1px solid var(--border);
 		border-radius: 999px;
@@ -162,28 +163,44 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 	}
 
 	h1 {
-		max-width: 900px;
 		margin: 0;
-		font-size: clamp(38px, 7vw, 82px);
+		font-size: clamp(38px, 5.3vw, 136px);
 		line-height: 0.94;
 		letter-spacing: -0.065em;
+		white-space: nowrap;
 	}
 
 	.intro {
-		max-width: 700px;
-		margin: 18px 0 0;
+		max-width: 820px;
+		margin: 0;
 		color: var(--muted);
 		font-size: 17px;
 		line-height: 1.6;
+	}
+
+	/* Timeline keeps its narrower reading width inside the wider strip column. */
+	.timeline-column {
+		width: min(1152px, 100%);
+		margin-inline: auto;
+	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		width: min(1400px, 100%);
+		margin: 30px auto 0;
 	}
 
 	.toolbar {
 		position: sticky;
 		top: 12px;
 		z-index: 3;
-		display: grid;
-		gap: 12px;
-		margin: 28px 0 18px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
 		padding: 12px;
 		border: 1px solid var(--border);
 		border-radius: 26px;
@@ -191,17 +208,30 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 		backdrop-filter: blur(18px);
 	}
 
-	.toolbar-row {
+	/* Island wrappers vanish from layout so the toggle, chips and search share one flex row. */
+	.toolbar :global(astro-island) {
+		display: contents;
+	}
+
+	.chips {
 		display: flex;
+		flex: 1 1 auto;
 		flex-wrap: wrap;
-		gap: 10px;
 		align-items: center;
-		justify-content: space-between;
+		gap: 10px;
+		min-width: 0;
+	}
+
+	.chip-divider {
+		flex: none;
+		width: 1px;
+		height: 28px;
+		background: rgba(255, 255, 255, 0.14);
 	}
 
 	@media (max-width: 820px) {
-		.hero {
-			grid-template-columns: 1fr;
+		h1 {
+			white-space: normal;
 		}
 
 		.toolbar {

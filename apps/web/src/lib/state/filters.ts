@@ -10,6 +10,7 @@
 
 import { atom } from 'nanostores';
 import { computeStats, type Stats } from '../domain/stats';
+import { computeRuntimeTotals, type RuntimeIndex, type RuntimeTotals } from '../domain/runtime';
 import {
 	createDefaultFilterState,
 	getVisibleItems,
@@ -54,6 +55,13 @@ export interface FiltersStore {
 	 * "plain method, caller recomputes on read" reasoning as `visibleItems` above.
 	 */
 	stats(items: readonly Item[], progress: Progress): Stats;
+
+	/**
+	 * Watch-time totals over `items`, scoped to the same filters as `stats` (search
+	 * excluded, per domain/runtime.ts's documented scoping rule). Same "plain method,
+	 * caller recomputes on read" reasoning as `visibleItems`/`stats` above.
+	 */
+	runtimeTotals(items: readonly Item[], progress: Progress, runtimeIndex: RuntimeIndex): RuntimeTotals;
 }
 
 /** Builds a FiltersStore. Production uses the `filtersStore` singleton below; tests build their own isolated instance. */
@@ -88,7 +96,21 @@ export function createFiltersStore(): FiltersStore {
 		return computeStats(items, filters.get(), progress);
 	}
 
-	return { filters, setTypeFilter, setPhaseFilter, setEssentialOnly, setSearch, reset, visibleItems, stats };
+	function runtimeTotals(items: readonly Item[], progress: Progress, runtimeIndex: RuntimeIndex): RuntimeTotals {
+		return computeRuntimeTotals(items, filters.get(), progress, runtimeIndex);
+	}
+
+	return {
+		filters,
+		setTypeFilter,
+		setPhaseFilter,
+		setEssentialOnly,
+		setSearch,
+		reset,
+		visibleItems,
+		stats,
+		runtimeTotals
+	};
 }
 
 /** The production filters store. Islands import this directly; it holds no gateway, so there's nothing to inject. */

@@ -6,6 +6,7 @@
 import { describe, expect, it } from 'vitest';
 import { createEmptyProgress, markWatched } from '../domain/progress';
 import type { Item } from '../domain/item';
+import type { RuntimeIndex } from '../domain/runtime';
 import { createFiltersStore } from './filters';
 
 const ITEMS: Item[] = [
@@ -145,6 +146,34 @@ describe('createFiltersStore()', () => {
 			const stats = store.stats(ITEMS, progress);
 
 			expect(stats).toEqual({ watchedCount: 1, totalCount: 3, percentage: 33 });
+		});
+	});
+
+	describe('runtimeTotals()', () => {
+		const RUNTIME_INDEX: RuntimeIndex = {
+			'iron-man': { totalMinutes: 100, episodeMinutes: {} },
+			thor: { totalMinutes: 50, episodeMinutes: {} },
+			loki: { totalMinutes: 300, episodeMinutes: {} }
+		};
+
+		it('follows the active type filter, excluding out-of-scope items from the totals', () => {
+			const store = createFiltersStore();
+			store.setTypeFilter('movie');
+
+			// loki (series, 300min) drops out of scope, leaving only iron-man + thor.
+			const totals = store.runtimeTotals(ITEMS, createEmptyProgress(), RUNTIME_INDEX);
+
+			expect(totals.remainingMinutes).toBe(150);
+		});
+
+		it('moves minutes from remaining to watched once an item is marked watched', () => {
+			const store = createFiltersStore();
+			const progress = markWatched(createEmptyProgress(), 'iron-man', '2026-01-01');
+
+			const totals = store.runtimeTotals(ITEMS, progress, RUNTIME_INDEX);
+
+			expect(totals.watchedMinutes).toBe(100);
+			expect(totals.remainingMinutes).toBe(350);
 		});
 	});
 });

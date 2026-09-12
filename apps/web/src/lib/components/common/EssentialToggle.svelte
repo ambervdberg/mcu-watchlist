@@ -6,7 +6,8 @@
 	Astro migration: mounted as its own island, separate from the other toolbar/timeline
 	islands on the "/" page (no shared parent closure across islands), so this reads/writes
 	`filtersStore.filters.essentialOnly` (lib/state/filters.ts) directly instead of taking a
-	`checked`/`onToggle` prop pair from a parent.
+	`checked`/`onToggle` prop pair from a parent. Styled as the toolbar's first chip
+	(marvel-q34); index.astro places it before a divider and FilterBar in one flex row.
 -->
 <script lang="ts">
 	import { filtersStore } from '$lib/state/filters';
@@ -30,6 +31,9 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 10px;
+		padding: 10px 14px 10px 10px;
+		border-radius: 999px;
+		background: var(--panel-light);
 		color: var(--text);
 		font-size: 14px;
 		cursor: pointer;
@@ -45,11 +49,11 @@
 
 	.toggle-switch {
 		position: relative;
-		width: 34px;
+		width: 36px;
 		height: 20px;
 		flex-shrink: 0;
 		border-radius: 999px;
-		background: var(--panel-light);
+		background: rgba(255, 255, 255, 0.16);
 		border: 1px solid var(--border);
 		transition:
 			background 160ms ease,
@@ -76,7 +80,7 @@
 	}
 
 	.toggle-input:checked ~ .toggle-switch::after {
-		transform: translateX(14px);
+		transform: translateX(16px);
 		background: var(--accent);
 	}
 

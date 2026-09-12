@@ -1,29 +1,36 @@
 <!--
-	"Up next" card: the single item (and, for a series, the single episode) the visitor
+	"Up next" row: the single item (and, for a series, the single episode) the visitor
 	should watch next, in catalog order, scoped to the current essential-only filter.
 
-	Inner panel of StatsBar (marvel-q34), a plain child component in the same island, not
+	Inner panel of ProgressStrip (marvel-q34), a plain child component in the same island, not
 	its own island -- it reads the shared `filtersStore`/`progressStore`/`sessionStore`
-	singletons directly per CLAUDE.md rather than as props. `items`/`episodesByItemId` are
-	still props: build-time data passed once from the page, not store state any island
-	mutates. No `aria-live` here: StatsBar (the outer `<aside>`) already owns that region.
+	singletons directly per CLAUDE.md rather than as props. `items`/`episodesByItemId`/
+	`runtimeByItemId`/`posterByItemId` are still props: build-time data passed once from the
+	page, not store state any island mutates. The whole row is a link to the title page --
+	it no longer scrolls the timeline into view. No `aria-live` here: ProgressStrip (the
+	outer `<aside>`) already owns that region.
 -->
 <script lang="ts">
-	import { formatItemType, type Item } from '$lib/domain/item';
-	import { findUpNext, type EpisodeSummary } from '$lib/domain/upNext';
+	import { formatItemType, formatRuntimeMinutes, type Item, type ItemType } from '$lib/domain/item';
+	import { findUpNext, type EpisodeSummary, type UpNext } from '$lib/domain/upNext';
 	import { getSeasonNumber } from '$lib/data/mediaMetadata/itemSeason';
 	import { filtersStore } from '$lib/state/filters';
 	import { progressStore } from '$lib/state/progress';
 	import { sessionStore } from '$lib/state/session';
+	import type { RuntimeIndex } from '$lib/domain/runtime';
 
 	interface Props {
 		/** The full catalog (lib/data/items.ts), static build-time data, in timeline order. */
 		items: readonly Item[];
 		/** Baked per-series episode list (marvel-q34), keyed by catalog item id. */
 		episodesByItemId: Readonly<Record<string, readonly EpisodeSummary[]>>;
+		/** Baked runtime minutes per catalog item, static build-time data. */
+		runtimeByItemId: RuntimeIndex;
+		/** Baked poster URL per catalog item, static build-time data. Missing entries have no poster. */
+		posterByItemId: Readonly<Record<string, string>>;
 	}
 
-	let { items, episodesByItemId }: Props = $props();
+	let { items, episodesByItemId, runtimeByItemId, posterByItemId }: Props = $props();
 
 	const { filters } = filtersStore;
 	const { progress } = progressStore;
@@ -33,172 +40,221 @@
 
 	let upNext = $derived(findUpNext(items, $progress, $filters.essentialOnly, episodesByItemId));
 
-	/** Season/episode/title line for a series' next episode, e.g. "S2 · E3 · Lamentis". */
-	function episodeLine(itemId: string, title: string, episodeNumber: number): string {
-		return `S${getSeasonNumber(itemId)} · E${episodeNumber} · ${title}`;
-	}
-
-	/** Scrolls the matching timeline card into view instead of following the `#item-{id}` href. */
-	function jumpToItem(event: MouseEvent): void {
-		if (upNext === null) {
-			return;
+	/** Series' next-episode line, e.g. "S2 · E3 · Lamentis · 4 of 6 left". */
+	function episodeLine(next: UpNext): string {
+		if (!next.episode) {
+			return '';
 		}
 
-		event.preventDefault();
-		document.getElementById(`item-${upNext.item.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		const season = getSeasonNumber(next.item.id);
+		return `S${season} · E${next.episode.episodeNumber} · ${next.episode.title} · ${next.remainingEpisodes} of ${next.allEpisodeIds.length} left`;
+	}
+
+	/** Movie/short/special runtime line, e.g. "2h 4m". Empty when the runtime is unknown. */
+	function runtimeLine(itemId: string): string {
+		const minutes = runtimeByItemId[itemId]?.totalMinutes ?? 0;
+		return minutes > 0 ? formatRuntimeMinutes(minutes) : '';
+	}
+
+	/** The meta line under the title: episode line for a series, runtime line otherwise. */
+	function metaLine(next: UpNext): string {
+		return next.item.type === 'series' ? episodeLine(next) : runtimeLine(next.item.id);
+	}
+
+	/** CSS class for the type tag, one per {@link ItemType}. */
+	function typeTagClass(type: ItemType): string {
+		return `type-tag ${type}`;
 	}
 </script>
 
-<aside class="up-next">
-	{#if upNext === null}
-		<p class="caught-up">All caught up</p>
-	{:else}
-		<div class="row">
-			<a
-				class="jump"
-				href={`#item-${upNext.item.id}`}
-				onclick={jumpToItem}
-				aria-label={`Jump to ${upNext.item.title} in the timeline`}
-			>
-				<span class="label">{signedIn ? 'Up next' : 'Start here'}</span>
+{#if upNext === null}
+	<p class="caught-up">All caught up</p>
+{:else}
+	<a class="up-next-link" href={`/title/${upNext.item.id}`}>
+		<span class="poster">
+			{#if posterByItemId[upNext.item.id]}
+				<img src={posterByItemId[upNext.item.id]} alt="" loading="lazy" />
+			{/if}
+		</span>
 
+		<span class="info">
+			<span class="label">{signedIn ? 'Up next' : 'Start here'}</span>
+
+			<span class="head">
 				<span class="title">{upNext.item.title}</span>
-
-				<span class="pill {upNext.item.type}-type">{formatItemType(upNext.item.type)}</span>
-
+				<span class={typeTagClass(upNext.item.type)}>{formatItemType(upNext.item.type)}</span>
 				<span class="timeline">{upNext.item.timeline}</span>
+			</span>
 
-				{#if upNext.episode}
-					<span class="episode">{episodeLine(upNext.item.id, upNext.episode.title, upNext.episode.episodeNumber)}</span>
-					<span class="remaining">{upNext.remainingEpisodes} of {upNext.allEpisodeIds.length} left</span>
-				{/if}
-			</a>
+			{#if metaLine(upNext)}
+				<span class="meta">{metaLine(upNext)}</span>
+			{/if}
+		</span>
 
-			<div class="actions">
-				<a class="open-link" href={`/title/${upNext.item.id}`}>Open</a>
-
-				{#if !signedIn}
-					<span class="sign-in-hint">Sign in to save progress</span>
-				{/if}
-			</div>
-		</div>
-	{/if}
-</aside>
+		<span class="open">
+			Open
+			<svg
+				width="20"
+				height="20"
+				viewBox="0 0 20 20"
+				fill="none"
+				stroke-width="1.8"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M7 4l6 6-6 6" />
+			</svg>
+		</span>
+	</a>
+{/if}
 
 <style>
-	.up-next {
-		margin-top: 16px;
-		padding: 14px;
-		border: 1px solid var(--border);
-		border-radius: 20px;
-		background: rgba(255, 255, 255, 0.055);
-	}
-
 	.caught-up {
+		flex: 1;
 		margin: 0;
+		padding: 10px 18px 10px 12px;
 		color: var(--muted);
 		font-size: 14px;
 	}
 
-	.row {
+	.up-next-link {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
+		flex: 1;
 		align-items: center;
-	}
-
-	.jump {
-		display: flex;
-		flex: 1 1 auto;
-		flex-wrap: wrap;
-		gap: 10px;
-		align-items: center;
+		gap: 16px;
 		min-width: 0;
-		color: inherit;
+		padding: 10px 18px 10px 12px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.07);
+		color: var(--text);
 		text-decoration: none;
-		cursor: pointer;
+		transition: background 160ms ease;
 	}
 
-	.jump:focus-visible {
+	.up-next-link:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	.up-next-link:focus-visible {
 		outline: 2px solid var(--text);
-		outline-offset: 4px;
+		outline-offset: 2px;
+	}
+
+	.poster {
+		display: block;
+		flex: none;
+		width: 44px;
+		height: 64px;
+		overflow: hidden;
+		border: 1px solid var(--border);
 		border-radius: 8px;
+		background: linear-gradient(160deg, #2a3350, #151b2c);
+	}
+
+	.poster img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		gap: 4px;
+		min-width: 0;
 	}
 
 	.label {
 		color: var(--muted);
-		font-size: 12px;
+		font-size: 11px;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.12em;
+	}
+
+	.head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px;
 	}
 
 	.title {
-		font-size: 15px;
+		font-size: 20px;
 		font-weight: 700;
 	}
 
-	.pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		padding: 4px 9px;
+	.type-tag {
+		padding: 2px 8px;
 		border-radius: 999px;
-		background: var(--soft);
-		color: var(--muted);
-		font-size: 12px;
-		line-height: 1;
+		font-size: 11px;
+		line-height: 1.4;
 	}
 
-	.pill.movie-type {
+	.type-tag.movie {
+		background: color-mix(in srgb, var(--movie) 16%, transparent);
 		color: var(--movie);
 	}
 
-	.pill.series-type {
+	.type-tag.series {
+		background: color-mix(in srgb, var(--series) 16%, transparent);
 		color: var(--series);
 	}
 
-	.pill.short-type {
+	.type-tag.short {
+		background: color-mix(in srgb, var(--short) 16%, transparent);
 		color: var(--short);
 	}
 
-	.pill.special-type {
+	.type-tag.special {
+		background: color-mix(in srgb, var(--special) 16%, transparent);
 		color: var(--special);
 	}
 
 	.timeline,
-	.episode,
-	.remaining {
+	.meta {
 		color: var(--muted);
 		font-size: 13px;
 	}
 
-	.actions {
+	.open {
 		display: flex;
+		flex: none;
 		align-items: center;
-		gap: 10px;
+		gap: 8px;
 		margin-left: auto;
-	}
-
-	.open-link {
 		color: var(--muted);
 		font-size: 13px;
-		font-weight: 700;
-		text-decoration: none;
 	}
 
-	.open-link:hover {
-		text-decoration: underline;
+	.open svg {
+		stroke: var(--text);
 	}
 
-	.sign-in-hint {
-		color: var(--muted);
-		font-size: 12px;
+	@media (max-width: 1100px) {
+		.up-next-link,
+		.caught-up {
+			flex-basis: 100%;
+		}
 	}
 
 	@media (max-width: 480px) {
-		.actions {
+		.up-next-link {
+			flex-wrap: wrap;
+			padding: 10px 14px;
+		}
+
+		/* Poster and text stay side by side, only the Open link drops to its own line. */
+		.info {
+			flex: 1 1 0;
+		}
+
+		.open {
 			margin-left: 0;
 			width: 100%;
+			justify-content: flex-end;
 		}
 	}
 </style>

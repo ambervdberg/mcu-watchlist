@@ -69,7 +69,7 @@
 	});
 </script>
 
-<article class="timeline-item" class:watched class:skipped>
+<article class="timeline-item" id={`item-${item.id}`} class:watched class:skipped>
 	<div class="timeline-dot">{item.dot}</div>
 
 	<div class="timeline-card">
@@ -148,6 +148,7 @@
 		grid-template-columns: 1fr 64px 1fr;
 		align-items: center;
 		min-height: 96px;
+		scroll-margin-top: 96px;
 	}
 
 	.timeline-dot {

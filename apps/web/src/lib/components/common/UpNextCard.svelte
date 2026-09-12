@@ -38,18 +38,14 @@
 		return `S${getSeasonNumber(itemId)} · E${episodeNumber} · ${title}`;
 	}
 
-	/** Marks the current pick watched: the next episode when one is pending, else the whole item. */
-	function markWatched(): void {
+	/** Scrolls the matching timeline card into view instead of following the `#item-{id}` href. */
+	function jumpToItem(event: MouseEvent): void {
 		if (upNext === null) {
 			return;
 		}
 
-		if (upNext.episode) {
-			void progressStore.toggleEpisodeWatched(upNext.item.id, upNext.episode.id, upNext.allEpisodeIds);
-			return;
-		}
-
-		void progressStore.toggleWatched(upNext.item.id);
+		event.preventDefault();
+		document.getElementById(`item-${upNext.item.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 	}
 </script>
 
@@ -58,25 +54,30 @@
 		<p class="caught-up">All caught up</p>
 	{:else}
 		<div class="row">
-			<span class="label">{signedIn ? 'Up next' : 'Start here'}</span>
+			<a
+				class="jump"
+				href={`#item-${upNext.item.id}`}
+				onclick={jumpToItem}
+				aria-label={`Jump to ${upNext.item.title} in the timeline`}
+			>
+				<span class="label">{signedIn ? 'Up next' : 'Start here'}</span>
 
-			<span class="title">{upNext.item.title}</span>
+				<span class="title">{upNext.item.title}</span>
 
-			<span class="pill {upNext.item.type}-type">{formatItemType(upNext.item.type)}</span>
+				<span class="pill {upNext.item.type}-type">{formatItemType(upNext.item.type)}</span>
 
-			<span class="timeline">{upNext.item.timeline}</span>
+				<span class="timeline">{upNext.item.timeline}</span>
 
-			{#if upNext.episode}
-				<span class="episode">{episodeLine(upNext.item.id, upNext.episode.title, upNext.episode.episodeNumber)}</span>
-				<span class="remaining">{upNext.remainingEpisodes} of {upNext.allEpisodeIds.length} left</span>
-			{/if}
+				{#if upNext.episode}
+					<span class="episode">{episodeLine(upNext.item.id, upNext.episode.title, upNext.episode.episodeNumber)}</span>
+					<span class="remaining">{upNext.remainingEpisodes} of {upNext.allEpisodeIds.length} left</span>
+				{/if}
+			</a>
 
 			<div class="actions">
 				<a class="open-link" href={`/title/${upNext.item.id}`}>Open</a>
 
-				{#if signedIn}
-					<button type="button" class="watch-btn" onclick={markWatched}>Mark watched</button>
-				{:else}
+				{#if !signedIn}
 					<span class="sign-in-hint">Sign in to save progress</span>
 				{/if}
 			</div>
@@ -104,6 +105,24 @@
 		flex-wrap: wrap;
 		gap: 10px;
 		align-items: center;
+	}
+
+	.jump {
+		display: flex;
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+		gap: 10px;
+		align-items: center;
+		min-width: 0;
+		color: inherit;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.jump:focus-visible {
+		outline: 2px solid var(--text);
+		outline-offset: 4px;
+		border-radius: 8px;
 	}
 
 	.label {
@@ -161,7 +180,7 @@
 	}
 
 	.open-link {
-		color: var(--accent-2);
+		color: var(--muted);
 		font-size: 13px;
 		font-weight: 700;
 		text-decoration: none;
@@ -169,23 +188,6 @@
 
 	.open-link:hover {
 		text-decoration: underline;
-	}
-
-	.watch-btn {
-		padding: 6px 12px;
-		border: 0;
-		border-radius: 999px;
-		background: var(--done);
-		color: #07130d;
-		font: inherit;
-		font-size: 12px;
-		font-weight: 700;
-		line-height: 1;
-		cursor: pointer;
-	}
-
-	.watch-btn:hover {
-		filter: brightness(1.05);
 	}
 
 	.sign-in-hint {

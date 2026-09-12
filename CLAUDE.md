@@ -18,6 +18,7 @@ npm run build:api      # tsc build of the API (apps/api -> apps/api/dist)
 npm run install:web    # npm install inside apps/web
 npm run build:web      # Astro static build (apps/web -> apps/web/build)
 npm run dev             # build:api + build:web, then swa start (local frontend + API together)
+npm run dev:web         # astro dev only (frontend, no API), the one that honours PUBLIC_FAKE_LOGIN
 npm run start:local     # swa start only, against the already-built API
 npm run azd:up         # azd up (provision + deploy)
 npm run azd:deploy     # azd deploy
@@ -57,7 +58,7 @@ azure.yaml                                 azd service/hook config
 - State (`apps/web/src/lib/state/{session,progress,filters}.ts`) is nanostores: each module exports a factory plus a module-level singleton wired to the real gateway. Tests use the factory with `lib/api/fakes.ts`. Production code imports the singleton directly.
 - Timeline and detail UI are Svelte islands (`client:load`, or `client:visible` for the heaviest below-the-fold one). Each island imports the shared singletons directly, no provider/context layer needed.
 - Never pass a store singleton as an Astro island **prop**. Astro serializes island props through JSON and drops functions, so the store's methods arrive `null` on the client. Import the singleton inside the island instead.
-- **Fake logged-in state for local debugging**: set `PUBLIC_FAKE_LOGIN=true` in an untracked `apps/web/.env`, run `npm run dev`. The session/progress singletons swap in `lib/api/fakes.ts`'s in-memory gateways, pre-seeded signed-in. Only active when Astro's `DEV` flag is true, never in a production build. Real auth needs HTTPS (see the cookie note below), so this is the only way to see logged-in UI without deploying.
+- **Fake logged-in state for local debugging**: set `PUBLIC_FAKE_LOGIN=true` in an untracked `apps/web/.env`, run `npm run dev:web` from the root (`astro dev`). `npm run dev` does a production build, where `DEV` is false, so fake login stays off there. The session/progress singletons swap in `lib/api/fakes.ts`'s in-memory gateways, pre-seeded signed-in. Only active when Astro's `DEV` flag is true, never in a production build. Real auth needs HTTPS (see the cookie note below), so this is the only way to see logged-in UI without deploying.
 
 **Auth** (app-owned, passwordless email magic-link, no password anywhere)
 - Catalog browsing and title/episode metadata are anonymous and don't touch the API. Only progress requires sign-in.

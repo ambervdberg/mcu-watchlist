@@ -4,7 +4,7 @@
 
 import { matchesActiveFilters, type FilterState } from './filters';
 import type { Item } from './item';
-import { isSkipped, isWatched, type Progress } from './progress';
+import { isWatched, type Progress } from './progress';
 
 /** Aggregated watch-progress numbers for the currently filtered scope of items. */
 export interface Stats {
@@ -16,14 +16,6 @@ export interface Stats {
 
 	/** Whole-number percentage (0-100) of in-scope items watched. 0 when totalCount is 0. */
 	percentage: number;
-
-	/**
-	 * The first in-scope item that is neither watched nor skipped, in catalog
-	 * order, or null when every in-scope item has been watched or skipped.
-	 * Rendered as "Everything is watched" when absent; that display-string
-	 * mapping belongs to the UI layer, not here.
-	 */
-	nextItem: Item | null;
 }
 
 /**
@@ -37,7 +29,6 @@ export function computeStats(items: readonly Item[], filters: FilterState, progr
 	const watchedCount = scopedItems.filter((item) => isWatched(progress, item.id)).length;
 	const totalCount = scopedItems.length;
 	const percentage = totalCount === 0 ? 0 : Math.round((watchedCount / totalCount) * 100);
-	const nextItem = scopedItems.find((item) => !isWatched(progress, item.id) && !isSkipped(progress, item.id)) ?? null;
 
-	return { watchedCount, totalCount, percentage, nextItem };
+	return { watchedCount, totalCount, percentage };
 }

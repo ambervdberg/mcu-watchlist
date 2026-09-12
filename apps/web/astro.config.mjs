@@ -57,8 +57,8 @@ export default defineConfig({
 			directives: [
 				"default-src 'self'",
 				"img-src 'self' https: data:",
-				'frame-src https://www.imdb.com',
-				"connect-src 'self' https://api.imdbapi.dev",
+				'frame-src https://www.imdb.com https://www.youtube.com https://www.youtube-nocookie.com',
+				"connect-src 'self'",
 				"object-src 'none'",
 				"base-uri 'self'"
 			]

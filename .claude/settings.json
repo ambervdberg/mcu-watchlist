@@ -1,16 +1,5 @@
 {
   "hooks": {
-    "PreCompact": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bd prime"
-          }
-        ]
-      }
-    ],
     "PostToolUse": [
       {
         "hooks": [
@@ -47,11 +36,8 @@
           },
           {
             "type": "command",
-            "command": "bd prime"
-          },
-          {
-            "type": "command",
-            "command": "graphify .",
+            "command": "graphify update .",
+            "async": true,
             "statusMessage": "Updating graphify graph..."
           }
         ]

@@ -1,5 +1,5 @@
 <!--
-	Collapsible per-season episode list for a series item. `episodes` is the baked Content
+	Per-season episode list for a series item, open by default and collapsible. `episodes` is the baked Content
 	Layer data passed down from [id].astro/TitleDetail.svelte (marvel-h8a) -- undefined means
 	no episode data was available at build time (unreleased season, or no snapshot entry yet),
 	which renders as an empty state rather than a loading spinner, since there is nothing left
@@ -51,7 +51,7 @@
 	}
 </script>
 
-<details class="detail-episodes">
+<details class="detail-episodes" open>
 	<summary>{summaryText}</summary>
 
 	{#if !episodes || episodes.length === 0}

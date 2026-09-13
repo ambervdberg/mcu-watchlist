@@ -92,7 +92,7 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 			content="Browse the MCU in chronological order, sign in to track which movies, series, shorts and specials you've watched, and see what to watch next."
 		/>
 		<link rel="canonical" href={Astro.site} />
-		<script type="application/ld+json" set:html={serializeJsonLd(catalogJsonLd)} is:inline />
+		<script type="application/ld+json" set:html={serializeJsonLd(catalogJsonLd)} is:inline></script>
 	</Fragment>
 
 	<section class="hero">

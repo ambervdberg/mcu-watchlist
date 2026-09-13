@@ -83,10 +83,12 @@ const itemJsonLd = buildItemJsonLd(item, titleInfo, season, pageUrl);
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:type" content="video.movie" />
 		<meta property="og:url" content={pageUrl} />
-		<script type="application/ld+json" set:html={serializeJsonLd(itemJsonLd)} is:inline />
+		<script type="application/ld+json" set:html={serializeJsonLd(itemJsonLd)} is:inline></script>
 	</Fragment>
 
-	<a class="back-link" href="/">&larr; Back to timeline</a>
+	<a class="back-link" href="/">
+		&larr; Back to timeline
+	</a>
 
 	<article class="detail-card">
 		<TitleDetail item={item} season={season} titleInfo={titleInfo} episodes={episodes} client:load />

@@ -18,7 +18,7 @@ param statsApiKey string
 param tableName string = 'WatchProgress'
 param usersTableName string = 'Users'
 param loginTokensTableName string = 'LoginTokens'
-param emailFrom string = 'Marvel Watchlist <no-reply@codequest.nl>'
+param emailFrom string = 'Marvel Watchlist <no-reply@mcu.watch>'
 
 // The Static Web App's custom domain is attached outside this Bicep file (Azure Portal / DNS),
 // so it isn't derivable from any resource here. Set it via `azd env set APP_BASE_URL <url>`;

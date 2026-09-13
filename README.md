@@ -2,10 +2,9 @@
 
 Public Marvel chronological watchlist with passwordless email sign-in for personal progress.
 
-### Live: <https://mcu-watchlist.codequest.nl>
+### Live: <https://mcu.watch>
 
 ## Structure
-
 ```text
 apps/web/       Astro frontend (Svelte islands)
 apps/api/       Azure Functions v4 TypeScript API
@@ -59,11 +58,3 @@ cd apps/web && npm test        # vitest unit tests, then playwright e2e
 cd apps/web && npm run lint    # prettier --check + eslint
 cd apps/web && npm run check   # astro check type checking
 ```
-
-## Contributing
-
-PRs welcome. By submitting one, you agree your contribution is licensed under the same terms as the rest of the project (see below).
-
-## License
-
-[PolyForm Noncommercial 1.0.0](./LICENSE). Free to use, modify, and contribute to for any noncommercial purpose. Commercial use (including selling the app or a derivative of it) is not permitted.

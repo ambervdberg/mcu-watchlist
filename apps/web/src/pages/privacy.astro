@@ -1,0 +1,82 @@
+---
+// Static privacy notice, linked from the footer in BaseLayout.
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+	<Fragment slot="head">
+		<title>Privacy | MCU Chronological Watchlist</title>
+		<meta name="description" content="What mcu.watch stores about you and why." />
+	</Fragment>
+
+	<article class="privacy">
+		<h1>Privacy</h1>
+		<p class="updated">Last updated: 13 September 2026</p>
+
+		<h2>Who is responsible</h2>
+		<p>
+			mcu.watch is a fan project run by Amber van den Berg. Questions about your data go to{' '}
+			<a href="mailto:info@mcu.watch">info@mcu.watch</a>.
+		</p>
+
+		<h2>What is stored and why</h2>
+		<p>When you sign in, the site stores:</p>
+		<ul>
+			<li>Your email address, to send you a login link and to know which progress is yours.</li>
+			<li>What you marked as watched or skipped, so you can pick up where you left off.</li>
+			<li>A login cookie that keeps you signed in for 60 days.</li>
+		</ul>
+		<p>
+			For every visitor, the server logs requests without your IP address, to find errors. These logs are kept for 30
+			days.
+		</p>
+		<p>Legal basis: your account. For server logs: keeping the site working.</p>
+		<p>Your email address and progress stay until you ask to delete them.</p>
+
+		<h2>Who else handles your data</h2>
+		<ul>
+			<li>Microsoft Azure hosts the site and stores the data in the Netherlands.</li>
+			<li>Resend sends the login email and stores your email address in the US.</li>
+		</ul>
+		<p>Both are US companies.</p>
+
+		<h2>Other websites</h2>
+		<p>
+			Posters load from Amazon and trailer images load from YouTube, so your browser sends your IP address to those
+			servers. Trailers load from YouTube or IMDb only after you click, and they may set cookies then.
+		</p>
+
+		<h2>Your rights</h2>
+		<p>
+			You can ask to see, correct, export or delete your data, or object to how it is used. Email&nbsp;
+			<a href="mailto:info@mcu.watch">info@mcu.watch</a>. Not happy with how your data is handled? You can file a
+			complaint with&nbsp;
+			<a href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener noreferrer">
+				Autoriteit Persoonsgegevens
+			</a>
+			&nbsp;(the Dutch data protection authority).
+		</p>
+	</article>
+</BaseLayout>
+
+<style>
+	.privacy {
+		width: min(820px, 100%);
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	h2 {
+		margin-top: 2rem;
+		font-size: 1.2rem;
+	}
+
+	h1,
+	.updated {
+		text-align: center;
+	}
+
+	.updated {
+		color: var(--muted);
+	}
+</style>

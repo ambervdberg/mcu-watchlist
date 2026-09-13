@@ -16,3 +16,4 @@ local.settings.json
 infra/main.json
 .claude.local.md
 graphify-out/
+*.local.*

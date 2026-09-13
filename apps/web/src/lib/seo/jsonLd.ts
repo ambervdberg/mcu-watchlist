@@ -3,6 +3,7 @@
 
 import type { TitleInfoDto } from '../api/ports';
 import type { Item } from '../domain/item';
+import { siteCreator } from '../data/siteCreator';
 import { titleUrl } from './catalogUrl';
 import {
 	aggregateRatingField,
@@ -56,7 +57,8 @@ export function buildCatalogJsonLd(items: Item[], baseUrl: string): Record<strin
 		'@type': 'ItemList',
 		itemListOrder: ITEM_LIST_ORDER_ASCENDING,
 		numberOfItems: items.length,
-		itemListElement: items.map((item, index) => buildListItem(item, index, baseUrl))
+		itemListElement: items.map((item, index) => buildListItem(item, index, baseUrl)),
+		creator: buildCreator()
 	};
 }
 
@@ -67,6 +69,15 @@ function buildListItem(item: Item, index: number, baseUrl: string): Record<strin
 		position: index + 1,
 		url: titleUrl(baseUrl, item.id),
 		name: item.title
+	};
+}
+
+/** Renders the site creator as a schema.org Person, linked to their LinkedIn profile. */
+function buildCreator(): Record<string, unknown> {
+	return {
+		'@type': 'Person',
+		name: siteCreator.name,
+		sameAs: siteCreator.linkedInUrl
 	};
 }
 

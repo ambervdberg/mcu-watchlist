@@ -24,7 +24,7 @@
     letter-spacing="1" fill="#aeb7cb">MARVEL CINEMATIC UNIVERSE</text>
 
   <text x="88" y="240" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800"
-    fill="#f8f8fc">Marvel Chronological</text>
+    fill="#f8f8fc">MCU Chronological</text>
   <text x="88" y="320" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800"
     fill="#f8f8fc">Watchlist</text>
 

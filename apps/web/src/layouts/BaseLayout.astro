@@ -21,10 +21,13 @@
 // `{#if $signInOpen}`, so mounting it unconditionally here renders nothing when closed.
 import AccountBadge from '../lib/components/auth/AccountBadge.svelte';
 import SignInPanel from '../lib/components/auth/SignInPanel.svelte';
+import { siteCreator } from '../lib/data/siteCreator';
 import { requireSiteUrl } from '../lib/seo/siteUrl';
 import '../app.css';
 
-const ogImageUrl = new URL('/og-image.png', requireSiteUrl(Astro.site)).toString();
+// Bump when og-image.svg changes, so social scrapers fetch the new card instead of their cached copy.
+const ogImageVersion = '2';
+const ogImageUrl = new URL(`/og-image.png?v=${ogImageVersion}`, requireSiteUrl(Astro.site)).toString();
 ---
 
 <!doctype html>
@@ -81,6 +84,15 @@ const ogImageUrl = new URL('/og-image.png', requireSiteUrl(Astro.site)).toString
 					This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.
 				</span>
 			</a>
+			<div class="footer-links">
+				<span>
+					Made by{' '}
+					<a href={siteCreator.linkedInUrl} target="_blank" rel="noopener noreferrer">
+						{siteCreator.name}
+					</a>
+				</span>
+				<a href="/privacy">Privacy</a>
+			</div>
 		</footer>
 	</body>
 </html>
@@ -123,8 +135,27 @@ const ogImageUrl = new URL('/og-image.png', requireSiteUrl(Astro.site)).toString
 
 	.app-footer {
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
 		padding: 1rem 1.5rem 1.5rem;
+	}
+
+	.footer-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+		color: var(--muted);
+		font-size: 0.75rem;
+	}
+
+	.footer-links a {
+		color: inherit;
+	}
+
+	.footer-links a:hover {
+		color: var(--text);
 	}
 
 	.tmdb-credit {

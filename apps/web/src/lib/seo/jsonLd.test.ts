@@ -124,6 +124,16 @@ describe('buildCatalogJsonLd', () => {
 		]);
 	});
 
+	it('credits the site creator as a Person linked to their LinkedIn profile', () => {
+		const jsonLd = buildCatalogJsonLd([], 'https://example.com');
+
+		expect(jsonLd.creator).toEqual({
+			'@type': 'Person',
+			name: 'Amber van den Berg',
+			sameAs: 'https://www.linkedin.com/in/amber-vandenberg/'
+		});
+	});
+
 	it('is empty-safe for an empty catalog', () => {
 		const jsonLd = buildCatalogJsonLd([], 'https://example.com');
 

@@ -25,7 +25,9 @@ import { siteCreator } from '../lib/data/siteCreator';
 import { requireSiteUrl } from '../lib/seo/siteUrl';
 import '../app.css';
 
-const ogImageUrl = new URL('/og-image.png', requireSiteUrl(Astro.site)).toString();
+// Bump when og-image.svg changes, so social scrapers fetch the new card instead of their cached copy.
+const ogImageVersion = '2';
+const ogImageUrl = new URL(`/og-image.png?v=${ogImageVersion}`, requireSiteUrl(Astro.site)).toString();
 ---
 
 <!doctype html>

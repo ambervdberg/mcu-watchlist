@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://mcu-watchlist.codequest.nl/sitemap.xml
+Sitemap: https://mcu.watch/sitemap.xml

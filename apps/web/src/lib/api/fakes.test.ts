@@ -1,6 +1,6 @@
 // Verifies the in-memory fakes both satisfy their port interfaces (a compile-time
 // check enforced by the type annotations below) and behave sensibly at runtime,
-// since the state layer's own tests (marvel-n4n.5) will depend on these fakes
+// since the state layer's own tests will depend on these fakes
 // rather than re-mocking fetch themselves.
 
 import { describe, expect, it } from 'vitest';

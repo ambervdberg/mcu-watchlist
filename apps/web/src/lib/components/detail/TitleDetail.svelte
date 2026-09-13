@@ -6,7 +6,7 @@
 	`item`/`season`/`titleInfo`/`episodes` all arrive as static, build-time-known props from
 	the page (see [id].astro's file doc): `titleInfo`/`episodes` are the matching entries from
 	the `titleInfo`/`episodes` Content Layer collections (content.config.ts), baked by their
-	loaders at build time (marvel-h8a) rather than fetched client-side. Either can be
+	loaders at build time rather than fetched client-side. Either can be
 	`undefined` -- no imdbId, an unreleased season, or a snapshot with no data yet for this
 	key -- and that must render as "nothing for this block", not an error; there is no loading
 	state to show since this data is already present in the prerendered HTML.

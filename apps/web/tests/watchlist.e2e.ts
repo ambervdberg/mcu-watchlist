@@ -51,7 +51,7 @@ test('browses and filters the timeline', async ({ page }) => {
 	await mockAnonymousApi(page);
 
 	await page.goto('/');
-	await expect(page.getByRole('heading', { name: 'Marvel Chronological Watchlist' })).toBeVisible();
+	await expect(page.getByRole('heading', { name: 'MCU Chronological Watchlist' })).toBeVisible();
 
 	await page.getByLabel('Search title or year').fill('Iron Man');
 	await expect(page.getByRole('heading', { name: 'Iron Man', exact: true })).toBeVisible();

@@ -15,7 +15,7 @@
 		items: readonly Item[];
 		/** Current watch progress, used to derive each card's watched/skipped/date state. */
 		progress: Progress;
-		/** Baked episode-count totals (marvel-s4b), keyed by series item id. See TimelineView. */
+		/** Baked episode-count totals, keyed by series item id. See TimelineView. */
 		totalEpisodesByItemId: Readonly<Record<string, number>>;
 		/** Called with an item id when its "Watched" toggle is clicked. */
 		onToggleWatched: (itemId: string) => void;

@@ -50,8 +50,8 @@ const ogImageUrl = new URL('/og-image.png', requireSiteUrl(Astro.site)).toString
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:type" content="image/png" />
-		<meta property="og:image:alt" content="Marvel Chronological Watchlist" />
-		<meta property="og:site_name" content="Marvel Chronological Watchlist" />
+		<meta property="og:image:alt" content="MCU Chronological Watchlist" />
+		<meta property="og:site_name" content="MCU Chronological Watchlist" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:image" content={ogImageUrl} />
 
@@ -59,7 +59,9 @@ const ogImageUrl = new URL('/og-image.png', requireSiteUrl(Astro.site)).toString
 	</head>
 	<body>
 		<header class="app-header">
-			<a class="app-title" href="/">Marvel Chronological Watchlist</a>
+			<a class="app-title" href="/">
+				MCU Chronological Watchlist
+			</a>
 
 			<div class="app-header-account">
 				<AccountBadge client:load />
@@ -75,9 +77,9 @@ const ogImageUrl = new URL('/og-image.png', requireSiteUrl(Astro.site)).toString
 		<footer class="app-footer">
 			<a class="tmdb-credit" href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer">
 				<img class="tmdb-logo" src="/tmdb-logo.svg" alt="TMDB" width="56" height="7" />
-				<span
-					>This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.</span
-				>
+				<span>
+					This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.
+				</span>
 			</a>
 		</footer>
 	</body>

@@ -19,11 +19,11 @@
 // HTML before any store hydration happens client-side. Only `progress` (and therefore which
 // items show as watched/skipped) updates after hydration.
 //
-// `totalEpisodesByItemId`/`episodesByItemId` (marvel-s4b, marvel-q34) are baked from the
+// `totalEpisodesByItemId`/`episodesByItemId` are baked from the
 // `episodes` Content Layer collection, keyed back from its own `imdbId-s{season}` key to the
 // catalog item id every series in the catalog actually uses, since TimelineView/ProgressStrip
 // are islands and can't read the collection themselves (Astro Content Layer is only readable
-// from .astro frontmatter). `runtimeByItemId` (marvel-b96) and `posterByItemId` (marvel-q34)
+// from .astro frontmatter). `runtimeByItemId` and `posterByItemId`
 // are built the same way, from `episodes` plus the `titleInfo` collection.
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -72,32 +72,32 @@ for (const item of items) {
 
 const runtimeByItemId = buildRuntimeIndex(items, episodesByKey, titleInfoByKey);
 
-// JSON-LD (marvel-r0u): an ItemList of the full catalog, so an agent/crawler can read the
+// JSON-LD: an ItemList of the full catalog, so an agent/crawler can read the
 // whole chronological order straight out of the page's structured data.
 const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toString());
 ---
 
 <BaseLayout>
 	<Fragment slot="head">
-		<title>Marvel Chronological Watchlist</title>
+		<title>MCU Chronological Watchlist</title>
 		<meta
 			name="description"
 			content="Browse the MCU in chronological order, sign in to track which movies, series, shorts and specials you've watched, and see what to watch next."
 		/>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.site} />
-		<meta property="og:title" content="Marvel Chronological Watchlist" />
+		<meta property="og:title" content="MCU Chronological Watchlist" />
 		<meta
 			property="og:description"
 			content="Browse the MCU in chronological order, sign in to track which movies, series, shorts and specials you've watched, and see what to watch next."
 		/>
 		<link rel="canonical" href={Astro.site} />
-		<script type="application/ld+json" set:html={serializeJsonLd(catalogJsonLd)} is:inline />
+		<script type="application/ld+json" set:html={serializeJsonLd(catalogJsonLd)} is:inline></script>
 	</Fragment>
 
 	<section class="hero">
 		<div class="eyebrow">MCU movies, series, shorts and specials</div>
-		<h1>Marvel Chronological Watchlist</h1>
+		<h1>MCU Chronological Watchlist</h1>
 		<p class="intro">
 			Follow the MCU timeline order, mark what you have watched, and pick up where you left off. Sign in with email to
 			save your progress to your account.

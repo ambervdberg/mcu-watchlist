@@ -25,7 +25,7 @@
 		/** "YYYY-MM-DD" the item was marked watched, or undefined if not watched/never stamped. */
 		watchedDate: string | undefined;
 		/**
-		 * Baked total episode count for this series/season (marvel-s4b), from the `episodes`
+		 * Baked total episode count for this series/season from the `episodes`
 		 * Content Layer collection threaded down via index.astro -> TimelineView -> EraGroup.
 		 * Undefined (or 0) for movies/shorts/specials, and for a series with no baked episode
 		 * data yet (unreleased season) -- both cases render no progress pill, see `episodeProgress`.

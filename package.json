@@ -3,6 +3,24 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "Chronological MCU watchlist with saved progress",
+  "license": "UNLICENSED",
+  "keywords": [
+    "marvel",
+    "mcu",
+    "watchlist",
+    "astro",
+    "svelte",
+    "azure-static-web-apps"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambervdberg/mcu-watchlist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ambervdberg/mcu-watchlist/issues"
+  },
+  "homepage": "mcu.watch",
   "scripts": {
     "install:web": "npm --prefix apps/web install",
     "build:web": "npm --prefix apps/web run build",
@@ -17,8 +35,7 @@
     "azd:up": "azd up",
     "azd:deploy": "azd deploy"
   },
-  "devDependencies": {},
   "volta": {
-    "node": "22.22.1"
+    "node": "24.21.0"
   }
 }

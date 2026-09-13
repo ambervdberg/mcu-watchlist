@@ -1,4 +1,4 @@
-// Build-time runtime index (marvel-b96): total + per-episode minutes for every catalog
+// Build-time runtime index: total + per-episode minutes for every catalog
 // item, derived from the `episodes` and `titleInfo` Content Layer collections. Astro
 // Content Layer is only readable from .astro frontmatter, so index.astro reads both
 // collections and passes their data in here as plain maps.

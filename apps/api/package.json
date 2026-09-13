@@ -7,18 +7,18 @@
   "scripts": {
     "build": "tsc",
     "start": "func start",
-    "test": "npm run build && node --test dist/auth/auth.test.js dist/auth/userAuth.test.js dist/auth/authHandlers.test.js dist/progress/progressStore.test.js"
+    "test": "npm run build && node --test dist/auth/auth.test.js dist/auth/userAuth.test.js dist/auth/authHandlers.test.js dist/auth/loginLinkEmail.test.js dist/progress/progressStore.test.js"
   },
   "dependencies": {
     "@azure/data-tables": "^13.3.2",
-    "@azure/functions": "^4.16.1",
-    "resend": "^6.14.0"
+    "@azure/functions": "^4.16.2",
+    "resend": "^6.28.0"
   },
   "devDependencies": {
-    "@types/node": "^22.20.0",
-    "typescript": "^5.8.0"
+    "@types/node": "^26.5.1",
+    "typescript": "^7.0.2"
   },
   "volta": {
-    "node": "22.22.1"
+    "node": "24.21.0"
   }
 }

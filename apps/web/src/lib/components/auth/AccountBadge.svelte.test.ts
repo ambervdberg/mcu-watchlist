@@ -88,14 +88,14 @@ afterEach(() => {
 
 describe('AccountBadge', () => {
 	it('shows a Sign in button for an anonymous visitor', async () => {
-		const screen = render(AccountBadge);
+		const screen = await render(AccountBadge);
 
 		await expect.element(screen.getByRole('button', { name: 'Sign in' })).toBeVisible();
 		await expect.element(screen.getByRole('button', { name: 'Log out' })).not.toBeInTheDocument();
 	});
 
 	it('clicking Sign in opens the shared sign-in panel via the session store', async () => {
-		const screen = render(AccountBadge);
+		const screen = await render(AccountBadge);
 
 		await screen.getByRole('button', { name: 'Sign in' }).click();
 
@@ -105,7 +105,7 @@ describe('AccountBadge', () => {
 	it('shows the signed-in user email and a Log out button once authenticated', async () => {
 		sessionStore.currentUser.set({ id: 'u1', email: 'fan@example.com' });
 
-		const screen = render(AccountBadge);
+		const screen = await render(AccountBadge);
 
 		await expect.element(screen.getByText('fan@example.com')).toBeVisible();
 		await expect.element(screen.getByRole('button', { name: 'Log out' })).toBeVisible();
@@ -115,7 +115,7 @@ describe('AccountBadge', () => {
 	it('clicking Log out clears the session via the store', async () => {
 		sessionStore.currentUser.set({ id: 'u1', email: 'fan@example.com' });
 
-		const screen = render(AccountBadge);
+		const screen = await render(AccountBadge);
 		await screen.getByRole('button', { name: 'Log out' }).click();
 
 		await expect.element(screen.getByRole('button', { name: 'Sign in' })).toBeVisible();
@@ -128,7 +128,7 @@ describe('AccountBadge', () => {
 		// logout() call, matching SessionStore.logout()'s documented "no partial logout" contract.
 		stubFetchFails();
 
-		const screen = render(AccountBadge);
+		const screen = await render(AccountBadge);
 		await screen.getByRole('button', { name: 'Log out' }).click();
 
 		await expect.element(screen.getByRole('alert')).toHaveTextContent('Could not log out. Try again.');

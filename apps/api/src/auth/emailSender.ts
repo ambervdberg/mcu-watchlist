@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { buildLoginLinkEmail } from "./loginLinkEmail.js";
 
 type SendEmailRequest = {
   to: string;
@@ -27,22 +28,7 @@ export class EmailSender {
 
   /**Sends the one-time sign-in link used by passwordless authentication. */
   async sendLoginLinkEmail(request: SendLoginLinkEmailRequest): Promise<void> {
-    const appName = "Marvel Watchlist";
-    const subject = `Sign in to ${appName}`;
-    const text = [
-      `Use this link to sign in to ${appName}:`,
-      "",
-      request.magicLink,
-      "",
-      "This link expires soon. If you did not request it, you can ignore this email."
-    ].join("\n");
-
-    // Keep the HTML simple so the message stays readable in strict email clients.
-    const html = [
-      `<p>Use this link to sign in to ${appName}:</p>`,
-      `<p><a href="${escapeHtml(request.magicLink)}">Sign in to ${appName}</a></p>`,
-      "<p>This link expires soon. If you did not request it, you can ignore this email.</p>"
-    ].join("");
+    const { subject, text, html } = buildLoginLinkEmail(request.magicLink);
 
     await this.sendEmail({
       to: request.to,
@@ -89,13 +75,4 @@ function readEmailSenderConfig(): EmailSenderConfig {
   }
 
   return { apiKey, from };
-}
-
-function escapeHtml(value: string): string {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
 }

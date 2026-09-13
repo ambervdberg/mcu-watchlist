@@ -44,7 +44,7 @@ afterEach(() => {
 
 describe('SignInPanel', () => {
 	it('focuses the email field on open', async () => {
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		await expect.element(screen.getByLabelText('Email')).toHaveFocus();
 	});
@@ -53,7 +53,7 @@ describe('SignInPanel', () => {
 		// jsdom-style location is not in play here (this is a real Chromium page via
 		// playwright), so location.pathname reflects the actual test page URL, matching
 		// spec section 4's "real returnPath" requirement.
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		await screen.getByLabelText('Email').fill('fan@example.com');
 		await screen.getByRole('button', { name: 'Send sign-in link' }).click();
@@ -80,7 +80,7 @@ describe('SignInPanel', () => {
 					})
 			)
 		);
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		await screen.getByLabelText('Email').fill('fan@example.com');
 		await screen.getByRole('button', { name: 'Send sign-in link' }).click();
@@ -94,7 +94,7 @@ describe('SignInPanel', () => {
 	});
 
 	it('replaces the form with a success message once signIn() resolves', async () => {
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		await screen.getByLabelText('Email').fill('fan@example.com');
 		await screen.getByRole('button', { name: 'Send sign-in link' }).click();
@@ -109,7 +109,7 @@ describe('SignInPanel', () => {
 			'fetch',
 			vi.fn(async () => ({ ok: false, status: 400, json: async () => errorBody }))
 		);
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		// Server-side validation is what's under test here (the 400 + body.message path), so
 		// the value must satisfy the input's native type="email" constraint or the browser
@@ -127,7 +127,7 @@ describe('SignInPanel', () => {
 			'fetch',
 			vi.fn(async () => ({ ok: false, status: 500, json: async () => ({ message: 'should not be shown' }) }))
 		);
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		await screen.getByLabelText('Email').fill('fan@example.com');
 		await screen.getByRole('button', { name: 'Send sign-in link' }).click();
@@ -142,7 +142,7 @@ describe('SignInPanel', () => {
 				throw new Error('network down');
 			})
 		);
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		await screen.getByLabelText('Email').fill('fan@example.com');
 		await screen.getByRole('button', { name: 'Send sign-in link' }).click();
@@ -152,7 +152,7 @@ describe('SignInPanel', () => {
 
 	it('clicking the close button closes the panel via the session store', async () => {
 		sessionStore.openSignIn();
-		const screen = render(SignInPanel);
+		const screen = await render(SignInPanel);
 
 		await screen.getByRole('button', { name: 'Close sign-in panel' }).click();
 
@@ -161,7 +161,7 @@ describe('SignInPanel', () => {
 
 	it('pressing Escape closes the panel via the session store', async () => {
 		sessionStore.openSignIn();
-		render(SignInPanel);
+		await render(SignInPanel);
 
 		document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
 

@@ -1,6 +1,6 @@
 <!--
 	Watch-progress strip: watched count + bar, watched/left time, and the "up next" pick
-	(UpNextCard), laid out as one panel row (marvel-q34 hero rebuild).
+	(UpNextCard), laid out as one panel row.
 
 	Astro migration: mounted as its own island on the "/" page, separate from the other
 	toolbar/timeline islands (no shared parent closure across islands), so this recomputes
@@ -20,7 +20,7 @@
 	interface Props {
 		/** The full catalog (lib/data/items.ts), static build-time data. */
 		items: readonly Item[];
-		/** Baked per-series episode list (marvel-q34), keyed by catalog item id. */
+		/** Baked per-series episode list, keyed by catalog item id. */
 		episodesByItemId: Readonly<Record<string, readonly EpisodeSummary[]>>;
 		/** Baked runtime minutes per catalog item (lib/data/runtimeIndex.ts), static build-time data. */
 		runtimeByItemId: RuntimeIndex;

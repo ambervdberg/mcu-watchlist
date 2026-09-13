@@ -7,7 +7,7 @@
 	islands on the "/" page (no shared parent closure across islands), so this reads/writes
 	`filtersStore.filters.essentialOnly` (lib/state/filters.ts) directly instead of taking a
 	`checked`/`onToggle` prop pair from a parent. Styled as the toolbar's first chip
-	(marvel-q34); index.astro places it before a divider and FilterBar in one flex row.
+	index.astro places it before a divider and FilterBar in one flex row.
 -->
 <script lang="ts">
 	import { filtersStore } from '$lib/state/filters';

@@ -3,8 +3,8 @@ import { defineConfig } from 'vitest/config';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { playwright } from '@vitest/browser-playwright';
 
-// Standalone replacement for the old SvelteKit-flavoured vite.config.ts (bead: Astro
-// migration cleanup). Astro reads its own astro.config.mjs for dev/build and never touches
+// Standalone replacement for the old SvelteKit-flavoured vite.config.ts for Astro
+// migration. Astro reads its own astro.config.mjs for dev/build and never touches
 // this file -- this file exists purely so `vitest` has a vite pipeline to compile .svelte
 // component test fixtures and resolve the `$lib` alias, now that `sveltekit()` (which used
 // to provide both) is gone along with the rest of src/routes/.

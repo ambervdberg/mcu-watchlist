@@ -8,8 +8,8 @@
 // straight from items.ts, so an out-of-range id can never reach this template at all.
 //
 // titleInfo/episodes used to be fetched client-side in TitleDetail.svelte's onMount (the
-// SvelteKit-era +page.svelte pattern, kept alive through the first Astro migration). Per
-// marvel-h8a, that runtime fetch is gone: this getStaticPaths now reads the build-time-baked
+// SvelteKit-era +page.svelte pattern, kept alive through the first Astro migration). That
+// runtime fetch is gone: this getStaticPaths now reads the build-time-baked
 // `titleInfo`/`episodes` Content Layer collections (content.config.ts) and passes the
 // matching entry's `data` straight through as props, keyed exactly like the loaders key
 // their store entries -- `imdbId` for movies/shorts/specials, `imdbId-s{season}` for series
@@ -66,11 +66,11 @@ const { item, season, titleInfo, episodes } = Astro.props;
 
 // SEO copy, ported from the catalog fields available at build time (no OMDb data, since
 // that is fetched client-side only and must not block or vary the prerendered HTML).
-const pageTitle = `${item.title} | Marvel Chronological Watchlist`;
+const pageTitle = `${item.title} | MCU Chronological Watchlist`;
 const pageDescription = `${item.title} (${item.timeline}) in the MCU chronological watch order.`;
 const pageUrl = new URL(`/title/${item.id}/`, requireSiteUrl(Astro.site)).toString();
 
-// JSON-LD (marvel-r0u): schema.org Movie/TVSeason for this item, built from the catalog entry
+// JSON-LD: schema.org Movie/TVSeason for this item, built from the catalog entry
 // plus the baked titleInfo prop (undefined-safe, see lib/seo/jsonLd.ts).
 const itemJsonLd = buildItemJsonLd(item, titleInfo, season, pageUrl);
 ---
@@ -83,10 +83,12 @@ const itemJsonLd = buildItemJsonLd(item, titleInfo, season, pageUrl);
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:type" content="video.movie" />
 		<meta property="og:url" content={pageUrl} />
-		<script type="application/ld+json" set:html={serializeJsonLd(itemJsonLd)} is:inline />
+		<script type="application/ld+json" set:html={serializeJsonLd(itemJsonLd)} is:inline></script>
 	</Fragment>
 
-	<a class="back-link" href="/">&larr; Back to timeline</a>
+	<a class="back-link" href="/">
+		&larr; Back to timeline
+	</a>
 
 	<article class="detail-card">
 		<TitleDetail item={item} season={season} titleInfo={titleInfo} episodes={episodes} client:load />

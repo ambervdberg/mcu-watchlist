@@ -9,11 +9,10 @@
 	Sign-in posts the visitor's actual `location.pathname` (e.g. `/title/loki-season-1`)
 	so consume-link can redirect back to a real, crawlable URL.
 
-	Bead marvel-n4n.9 (this bead) layers UX polish on top of the marvel-n4n.6 stub: a
-	disabled-button-plus-spinner submit state, a success sub-view that replaces the form
-	inline error text sourced from ApiError (status 400 + body.message, falling back to a
-	generic message for anything else), focus-on-open, and an Escape key to close.
-	The public surface stays prop-less: everything reads/writes through shared stores.
+	Adds UX polish: disabled-button-plus-spinner submit state, a success sub-view that
+	replaces the form inline error text sourced from ApiError (status 400 + body.message,
+	falling back to a generic message for anything else), focus-on-open, and an Escape key
+	to close. The public surface stays prop-less: everything reads/writes through shared stores.
 -->
 <script lang="ts">
 	import { sessionStore } from '$lib/state/session';
@@ -24,7 +23,7 @@
 	// (the bag of atoms + actions), which has no `subscribe` method of its own.
 	const { signInOpen } = sessionStore;
 
-	// Local presentation/UX state only, per this bead's brief: the store holds *whether*
+	// Local presentation/UX state only. The store holds *whether*
 	// the panel is open and the actual signIn() I/O, but the in-progress form value, the
 	// submit-in-flight flag, and the success/error message are this component's own concern
 	// and would have no other consumer if hoisted into the store.

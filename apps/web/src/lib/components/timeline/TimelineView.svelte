@@ -24,7 +24,7 @@
 		/** The full catalog (lib/data/items.ts), static build-time data. */
 		items: readonly Item[];
 		/**
-		 * Baked episode-count totals (marvel-s4b), keyed by series item id, for the "X/N"
+		 * Baked episode-count totals, keyed by series item id, for the "X/N"
 		 * progress pill on series cards. Built once in index.astro frontmatter from the
 		 * `episodes` Content Layer collection (only readable there, not inside this island)
 		 * and threaded straight through to ItemCard, same as `items` itself.

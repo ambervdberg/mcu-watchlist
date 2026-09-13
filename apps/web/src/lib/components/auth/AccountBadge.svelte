@@ -5,10 +5,9 @@
 	its own neutral-state rule, and flips to signed-in only once init() resolves on the
 	client, so this component just renders whatever the store currently holds.
 
-	Bead marvel-n4n.9 (this bead) adds one piece of polish over the marvel-n4n.6 stub: the
-	"Log out" button disables itself and the logout() call is wrapped so a network failure
+	The "Log out" button disables itself and the logout() call is wrapped so a network failure
 	surfaces as a small inline message instead of becoming an unhandled promise rejection.
-	The public surface is unchanged from the stub: still no props, no events, everything
+	The public surface remains unchanged: still no props, no events, everything
 	reads/writes through the shared stores.
 
 	Astro migration: this island is always mounted with `client:load` by BaseLayout.astro

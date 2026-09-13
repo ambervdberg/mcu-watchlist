@@ -8,8 +8,8 @@
 // straight from items.ts, so an out-of-range id can never reach this template at all.
 //
 // titleInfo/episodes used to be fetched client-side in TitleDetail.svelte's onMount (the
-// SvelteKit-era +page.svelte pattern, kept alive through the first Astro migration). Per
-// marvel-h8a, that runtime fetch is gone: this getStaticPaths now reads the build-time-baked
+// SvelteKit-era +page.svelte pattern, kept alive through the first Astro migration). That
+// runtime fetch is gone: this getStaticPaths now reads the build-time-baked
 // `titleInfo`/`episodes` Content Layer collections (content.config.ts) and passes the
 // matching entry's `data` straight through as props, keyed exactly like the loaders key
 // their store entries -- `imdbId` for movies/shorts/specials, `imdbId-s{season}` for series
@@ -70,7 +70,7 @@ const pageTitle = `${item.title} | MCU Chronological Watchlist`;
 const pageDescription = `${item.title} (${item.timeline}) in the MCU chronological watch order.`;
 const pageUrl = new URL(`/title/${item.id}/`, requireSiteUrl(Astro.site)).toString();
 
-// JSON-LD (marvel-r0u): schema.org Movie/TVSeason for this item, built from the catalog entry
+// JSON-LD: schema.org Movie/TVSeason for this item, built from the catalog entry
 // plus the baked titleInfo prop (undefined-safe, see lib/seo/jsonLd.ts).
 const itemJsonLd = buildItemJsonLd(item, titleInfo, season, pageUrl);
 ---

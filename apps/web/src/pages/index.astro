@@ -19,11 +19,11 @@
 // HTML before any store hydration happens client-side. Only `progress` (and therefore which
 // items show as watched/skipped) updates after hydration.
 //
-// `totalEpisodesByItemId`/`episodesByItemId` (marvel-s4b, marvel-q34) are baked from the
+// `totalEpisodesByItemId`/`episodesByItemId` are baked from the
 // `episodes` Content Layer collection, keyed back from its own `imdbId-s{season}` key to the
 // catalog item id every series in the catalog actually uses, since TimelineView/ProgressStrip
 // are islands and can't read the collection themselves (Astro Content Layer is only readable
-// from .astro frontmatter). `runtimeByItemId` (marvel-b96) and `posterByItemId` (marvel-q34)
+// from .astro frontmatter). `runtimeByItemId` and `posterByItemId`
 // are built the same way, from `episodes` plus the `titleInfo` collection.
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -72,7 +72,7 @@ for (const item of items) {
 
 const runtimeByItemId = buildRuntimeIndex(items, episodesByKey, titleInfoByKey);
 
-// JSON-LD (marvel-r0u): an ItemList of the full catalog, so an agent/crawler can read the
+// JSON-LD: an ItemList of the full catalog, so an agent/crawler can read the
 // whole chronological order straight out of the page's structured data.
 const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toString());
 ---

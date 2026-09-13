@@ -2,7 +2,7 @@
 	"Up next" row: the single item (and, for a series, the single episode) the visitor
 	should watch next, in catalog order, scoped to the current essential-only filter.
 
-	Inner panel of ProgressStrip (marvel-q34), a plain child component in the same island, not
+	Inner panel of ProgressStrip, a plain child component in the same island, not
 	its own island -- it reads the shared `filtersStore`/`progressStore`/`sessionStore`
 	singletons directly per CLAUDE.md rather than as props. `items`/`episodesByItemId`/
 	`runtimeByItemId`/`posterByItemId` are still props: build-time data passed once from the
@@ -22,7 +22,7 @@
 	interface Props {
 		/** The full catalog (lib/data/items.ts), static build-time data, in timeline order. */
 		items: readonly Item[];
-		/** Baked per-series episode list (marvel-q34), keyed by catalog item id. */
+		/** Baked per-series episode list, keyed by catalog item id. */
 		episodesByItemId: Readonly<Record<string, readonly EpisodeSummary[]>>;
 		/** Baked runtime minutes per catalog item, static build-time data. */
 		runtimeByItemId: RuntimeIndex;

@@ -84,7 +84,7 @@ azure.yaml                                 azd service/hook config
 - Table Storage (not Cosmos DB), tables `WatchProgress`, `Users`, `LoginTokens`.
 - App settings via `Microsoft.Web/staticSites/config`, never in frontend JS: `APP_BASE_URL`, `EMAIL_FROM`, `RESEND_API_KEY`, `SESSION_SECRET`, `STORAGE_CONNECTION_STRING`, `TABLE_NAME`, `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 - `sessionSecret` and `resendApiKey` are required secure Bicep parameters. Set with `azd env set SESSION_SECRET <value>` and `azd env set RESEND_API_KEY <value>` before `azd up`/`azd deploy`, or provisioning fails.
-- `appBaseUrl`/`APP_BASE_URL` is optional, only needed for a custom domain. Falls back to the auto-generated `*.azurestaticapps.net` hostname.
+- `appBaseUrl`/`APP_BASE_URL` is set to `https://mcu.watch` via `azd env set APP_BASE_URL`. Empty falls back to the auto-generated `*.azurestaticapps.net` hostname. The custom domain itself is attached outside Bicep.
 - `OMDB_API_KEY` and `TMDB_API_KEY` are build-time secrets, not SWA app settings. Read via `process.env.OMDB_API_KEY` in `titleInfoFetch.ts` and `getTmdbApiKey()` in `tmdb/tmdbKey.ts` during `astro build`. Locally, export both or put them in an untracked `apps/web/.env`. For `azd up`/`azd deploy`, run `azd env set OMDB_API_KEY <value>` and `azd env set TMDB_API_KEY <value>` first. Missing either key just falls back to the committed snapshot, doesn't fail the build or deploy.
 
 ## A real azd gotcha in azure.yaml

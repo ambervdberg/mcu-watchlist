@@ -4,7 +4,7 @@
 import { formatItemType, type Item } from '../domain/item';
 import { titleUrl } from './catalogUrl';
 
-const SITE_TITLE = 'Marvel Chronological Watchlist';
+const SITE_TITLE = 'MCU Chronological Watchlist';
 const SITE_SUMMARY = 'Browse the MCU in chronological order, movies, series, shorts and specials alike.';
 const SITE_DESCRIPTION =
 	'A public catalog of every Marvel Cinematic Universe title, ordered by in-universe timeline rather ' +

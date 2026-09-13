@@ -1,4 +1,4 @@
-# Marvel Chronological Watchlist
+# MCU Chronological Watchlist
 
 Public Marvel chronological watchlist with passwordless email sign-in for personal progress.
 

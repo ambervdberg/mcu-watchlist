@@ -66,7 +66,7 @@ const { item, season, titleInfo, episodes } = Astro.props;
 
 // SEO copy, ported from the catalog fields available at build time (no OMDb data, since
 // that is fetched client-side only and must not block or vary the prerendered HTML).
-const pageTitle = `${item.title} | Marvel Chronological Watchlist`;
+const pageTitle = `${item.title} | MCU Chronological Watchlist`;
 const pageDescription = `${item.title} (${item.timeline}) in the MCU chronological watch order.`;
 const pageUrl = new URL(`/title/${item.id}/`, requireSiteUrl(Astro.site)).toString();
 

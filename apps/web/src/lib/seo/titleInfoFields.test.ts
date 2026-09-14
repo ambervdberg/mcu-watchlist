@@ -27,6 +27,7 @@ function makeTitleInfo(overrides: Partial<TitleInfoDto> = {}): TitleInfoDto {
 	return {
 		plot: 'A rich playboy builds a suit of armor.',
 		imdbRating: '7.9',
+		imdbVotes: '1,234,567',
 		poster: 'https://example.com/poster.jpg',
 		runtimeMinutes: 126,
 		released: '02 May 2008',
@@ -117,8 +118,20 @@ describe('aggregateRatingField', () => {
 		expect(aggregateRatingField(makeTitleInfo({ imdbRating: 'N/A' }))).toEqual({});
 	});
 
-	it('builds an AggregateRating from a real imdbRating', () => {
-		expect(aggregateRatingField(makeTitleInfo({ imdbRating: '7.9' }))).toEqual({
+	it('builds an AggregateRating with ratingCount from a real imdbRating and imdbVotes', () => {
+		expect(aggregateRatingField(makeTitleInfo({ imdbRating: '7.9', imdbVotes: '1,234,567' }))).toEqual({
+			aggregateRating: {
+				'@type': 'AggregateRating',
+				ratingValue: 7.9,
+				ratingCount: 1234567,
+				bestRating: 10,
+				worstRating: 1
+			}
+		});
+	});
+
+	it('omits ratingCount when imdbVotes is the OMDb "N/A" sentinel', () => {
+		expect(aggregateRatingField(makeTitleInfo({ imdbRating: '7.9', imdbVotes: 'N/A' }))).toEqual({
 			aggregateRating: { '@type': 'AggregateRating', ratingValue: 7.9, bestRating: 10, worstRating: 1 }
 		});
 	});

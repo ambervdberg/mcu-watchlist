@@ -22,6 +22,7 @@ function makeTitleInfo(overrides: Partial<TitleInfoDto> = {}): TitleInfoDto {
 	return {
 		plot: 'A rich playboy builds a suit of armor.',
 		imdbRating: '7.9',
+		imdbVotes: '1,234,567',
 		poster: 'https://example.com/poster.jpg',
 		runtimeMinutes: 126,
 		released: '02 May 2008',
@@ -89,6 +90,7 @@ describe('buildItemJsonLd', () => {
 		expect(jsonLd.aggregateRating).toEqual({
 			'@type': 'AggregateRating',
 			ratingValue: 7.9,
+			ratingCount: 1234567,
 			bestRating: 10,
 			worstRating: 1
 		});
@@ -97,7 +99,14 @@ describe('buildItemJsonLd', () => {
 	it('never emits OMDb sentinel values', () => {
 		const jsonLd = buildItemJsonLd(
 			makeItem({ runtimeMinutes: undefined }),
-			makeTitleInfo({ plot: 'N/A', poster: 'N/A', runtimeMinutes: null, released: 'N/A', imdbRating: 'N/A' }),
+			makeTitleInfo({
+				plot: 'N/A',
+				poster: 'N/A',
+				runtimeMinutes: null,
+				released: 'N/A',
+				imdbRating: 'N/A',
+				imdbVotes: 'N/A'
+			}),
 			1,
 			URL
 		);

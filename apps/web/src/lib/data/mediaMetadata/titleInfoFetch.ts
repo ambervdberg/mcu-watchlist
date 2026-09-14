@@ -1,4 +1,4 @@
-// Build-time title metadata fetch: OMDb for plot/rating/poster/runtime/released,
+// Build-time title metadata fetch: OMDb for plot/rating/votes/poster/runtime/released,
 // TMDB for the trailer. See tmdb/ for the TMDB client this file is built on.
 import { fetchJsonWithRawCache, type RawFetchOptions } from './rawResponseCache';
 import { getOmdbApiKey } from './omdb/omdbKey';
@@ -11,7 +11,7 @@ export type { TitleInfo, TrailerInfo } from './titleInfoTypes';
 import type { TitleInfo, TrailerInfo } from './titleInfoTypes';
 
 /**
- * Fetches title metadata for one catalog item: OMDb for plot/rating/poster/runtime, the
+ * Fetches title metadata for one catalog item: OMDb for plot/rating/votes/poster/runtime, the
  * season's own premiere date for a series season, and a TMDB trailer when none is cached.
  *
  * Throws only when OMDB_API_KEY is missing or OMDb has no data for this title -- the
@@ -50,9 +50,9 @@ function isMissingText(value: string): boolean {
  * Never overwrites real prior data: plot, poster, runtimeMinutes and trailer keep the prior
  * value whenever it is real, since none of those change once a title is published -- a fresh
  * fetch only fills a gap (empty/`N/A`/`null`) that the prior entry never had a real value for.
- * `released` and `imdbRating` are the two fields that genuinely do change over time (a season
- * gets a real air date, a rating keeps moving), so those two take the live value whenever it
- * is real, falling back to prior only when live is a sentinel.
+ * `released`, `imdbRating` and `imdbVotes` are the fields that genuinely do change over time
+ * (a season gets a real air date, a rating and its vote count keep moving), so those take the
+ * live value whenever it is real, falling back to prior only when live is a sentinel.
  */
 export function mergeTitleInfoWithPrior(live: TitleInfo, prior: TitleInfo | undefined): TitleInfo {
 	if (!prior) {
@@ -62,6 +62,7 @@ export function mergeTitleInfoWithPrior(live: TitleInfo, prior: TitleInfo | unde
 	return {
 		plot: isMissingText(prior.plot) ? live.plot : prior.plot,
 		imdbRating: isMissingText(live.imdbRating) ? prior.imdbRating : live.imdbRating,
+		imdbVotes: isMissingText(live.imdbVotes) ? prior.imdbVotes : live.imdbVotes,
 		poster: isMissingText(prior.poster) ? live.poster : prior.poster,
 		runtimeMinutes: prior.runtimeMinutes === null ? live.runtimeMinutes : prior.runtimeMinutes,
 		released: isMissingText(live.released) ? prior.released : live.released,
@@ -104,6 +105,7 @@ type OmdbResponse = {
 	Response: string;
 	Plot?: string;
 	imdbRating?: string;
+	imdbVotes?: string;
 	Poster?: string;
 	Runtime?: string;
 	Released?: string;
@@ -136,6 +138,7 @@ async function fetchOmdbTitleInfo(
 	return {
 		plot: data.Plot ?? '',
 		imdbRating: data.imdbRating ?? 'N/A',
+		imdbVotes: data.imdbVotes ?? 'N/A',
 		poster: data.Poster ?? 'N/A',
 		runtimeMinutes: parseRuntimeMinutes(data.Runtime),
 		released: data.Released ?? 'N/A'

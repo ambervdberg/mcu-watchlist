@@ -25,9 +25,12 @@ npm run azd:deploy     # azd deploy
 npm run media-cache:missing    # fetch OMDb/TMDB metadata for catalog titles missing from titleInfo.snapshot.json
 npm run media-cache:stale      # re-fetch snapshot entries older than 7 days
 npm run media-cache:typecheck  # tsc --checkJs over the scripts/media-cache*.mjs files
+npm run update-snapshot        # re-fetch all titles, then build, so both snapshot files are current
 ```
 
 `media-cache:missing`/`media-cache:stale` only write to `apps/web/.media-cache`. Run `npm run build:web` after, that step writes `titleInfo.snapshot.json`.
+
+To add a movie or show: add it to `apps/web/src/lib/data/items.ts` with its IMDb id, run `npm run update-snapshot`, commit the snapshot files with it.
 
 The frontend is an Astro app (Svelte islands) in `apps/web`, building to `apps/web/build`.
 

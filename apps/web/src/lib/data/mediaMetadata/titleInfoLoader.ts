@@ -1,6 +1,6 @@
 // Astro Content Layer custom loader for the `titleInfo` collection (see
 // content.config.ts). Iterates apps/web/src/lib/data/items.ts and fetches OMDb
-// (plot, rating, poster, runtime, released) and TMDB (trailer) metadata for every
+// (plot, rating, votes, poster, runtime, released) and TMDB (trailer) metadata for every
 // catalog item at build time, via titleInfoFetch.ts.
 //
 // Per-item upstream failures (missing OMDB_API_KEY, network error, rate limit) never

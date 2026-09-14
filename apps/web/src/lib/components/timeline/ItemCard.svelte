@@ -1,14 +1,17 @@
 <!--
 	A single timeline entry: the era-line dot plus title/meta card.
-	The whole-card detail affordance is a link to `/title/{id}` (the Astro-prerendered
-	detail page, src/pages/title/[id].astro) stretched to cover the entire card via
-	`.card-overlay-link` (position: absolute; inset: 0), rather than wrapping just the
-	title in an anchor. Astro has no `$app/paths` equivalent of SvelteKit's `resolve()` --
-	the site has no configured `base` path (astro.config.mjs), so a plain template-literal
-	href is the direct equivalent.
-	The watch/skip buttons sit in their own stacking context (z-index above the overlay
-	link) so they stay independently clickable -- nesting them inside the anchor itself
-	would be invalid HTML (interactive controls can't nest) and would break keyboard nav.
+	The detail affordance is a link to `/title/{id}` (the Astro-prerendered detail page,
+	src/pages/title/[id].astro) wrapping the title text itself, stretched to cover the whole
+	card via `.title-link::after` (position: absolute; inset: 0). The anchor has to carry the
+	title as its own text: an empty overlay anchor labelled only by `aria-label` reads as a
+	bare URL to crawlers, agents and link-graph extractors, which is what kept these cards out
+	of the site's machine-readable link graph. Astro has no `$app/paths` equivalent of
+	SvelteKit's `resolve()` -- the site has no configured `base` path (astro.config.mjs), so a
+	plain template-literal href is the direct equivalent.
+	The watch/skip buttons and the watched-date editor sit above the stretched pseudo-element
+	(position: relative; z-index) so they stay independently clickable -- nesting them inside
+	the anchor itself would be invalid HTML (interactive controls can't nest) and would break
+	keyboard nav.
 -->
 <script lang="ts">
 	import { formatItemType, formatRuntimeMinutes, type Item } from '$lib/domain/item';
@@ -73,11 +76,11 @@
 	<div class="timeline-dot">{item.dot}</div>
 
 	<div class="timeline-card">
-		<a class="card-overlay-link" href={`/title/${item.id}`} aria-label={`View details for ${item.title}`}></a>
-
 		<div class="timeline-card-header">
 			<div class="card-content">
-				<h2 class="title">{item.title}</h2>
+				<h2 class="title">
+					<a class="title-link" href={`/title/${item.id}`}>{item.title}</a>
+				</h2>
 
 				<div class="meta">
 					<span class="pill {item.type}-type">{formatItemType(item.type)}</span>
@@ -110,7 +113,7 @@
 
 				{#if watched && watchedDate}
 					<!-- Wrapper opts back into pointer events (card-content disables them so text
-					     clicks fall through to the overlay link), keeping the Edit control clickable. -->
+					     clicks fall through to the stretched title link), keeping Edit clickable. -->
 					<div class="watched-date-row">
 						<WatchedDateEditor itemId={item.id} itemTitle={item.title} {watchedDate} />
 					</div>
@@ -196,18 +199,6 @@
 			opacity 160ms ease;
 	}
 
-	.card-overlay-link {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-		border-radius: inherit;
-	}
-
-	.card-overlay-link:focus-visible {
-		outline: 2px solid var(--accent-2);
-		outline-offset: 4px;
-	}
-
 	.timeline-card:hover {
 		transform: translateY(-2px);
 		border-color: rgba(255, 255, 255, 0.25);
@@ -220,15 +211,13 @@
 	}
 
 	.timeline-card-header {
-		position: relative;
-		z-index: 1;
 		display: flex;
 		gap: 12px;
 		align-items: flex-start;
 		justify-content: space-between;
-		/* Header and card-content ignore pointer events so clicks on the title/meta text
-		   fall through to .card-overlay-link underneath. .watch-toggle opts back in so its
-		   buttons stay independently clickable. */
+		/* Header and card-content ignore pointer events so clicks on the meta text fall
+		   through to the stretched .title-link::after underneath. The title link, the
+		   watch toggle and the watched-date editor opt back in so they stay clickable. */
 		pointer-events: none;
 	}
 
@@ -237,7 +226,10 @@
 		pointer-events: none;
 	}
 
+	/* Above the stretched .title-link::after, so the toggle wins the click on its own area. */
 	.watch-toggle {
+		position: relative;
+		z-index: 1;
 		pointer-events: auto;
 	}
 
@@ -265,7 +257,35 @@
 		line-height: 1.32;
 	}
 
+	.title-link {
+		color: inherit;
+		text-decoration: none;
+		pointer-events: auto;
+	}
+
+	/* Stretches the title anchor's hit area over the whole card, keeping the card clickable
+	   without an extra text-less anchor in the markup. Positioned against .timeline-card,
+	   the nearest positioned ancestor. */
+	.title-link::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+	}
+
+	.title-link:focus-visible {
+		outline: none;
+	}
+
+	.title-link:focus-visible::after {
+		outline: 2px solid var(--accent-2);
+		outline-offset: 4px;
+		border-radius: 23px;
+	}
+
 	.watched-date-row {
+		position: relative;
+		z-index: 1;
 		width: fit-content;
 		pointer-events: auto;
 	}

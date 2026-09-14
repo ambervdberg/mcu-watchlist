@@ -31,9 +31,11 @@ import { items } from '../lib/data/items';
 import type { EpisodeSummary } from '../lib/domain/upNext';
 import { getSeasonNumber } from '../lib/data/mediaMetadata/itemSeason';
 import { buildRuntimeIndex } from '../lib/data/runtimeIndex';
-import { buildCatalogJsonLd } from '../lib/seo/jsonLd';
+import { buildFaqEntries } from '../lib/seo/faq';
+import { buildCatalogJsonLd, buildFaqJsonLd } from '../lib/seo/jsonLd';
 import { serializeJsonLd } from '../lib/seo/jsonLdScript';
 import { requireSiteUrl } from '../lib/seo/siteUrl';
+import Faq from '../components/Faq.astro';
 import FilterBar from '../lib/components/common/FilterBar.svelte';
 import SearchInput from '../lib/components/common/SearchInput.svelte';
 import EssentialToggle from '../lib/components/common/EssentialToggle.svelte';
@@ -75,32 +77,34 @@ const runtimeByItemId = buildRuntimeIndex(items, episodesByKey, titleInfoByKey);
 // JSON-LD: an ItemList of the full catalog, so an agent/crawler can read the
 // whole chronological order straight out of the page's structured data.
 const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toString());
+
+// FAQ entries feed both the visible Faq section and the FAQPage JSON-LD below, from one source.
+const faqEntries = buildFaqEntries(items);
+const faqJsonLd = buildFaqJsonLd(faqEntries);
+
+const pageTitle = 'Marvel Watch Order: MCU Chronological Watchlist';
+const pageDescription =
+	'All Marvel Cinematic Universe movies, series, shorts and specials in chronological watch order. Track what you ' +
+	'have watched, free, sign in with just an email.';
 ---
 
-<BaseLayout>
+<BaseLayout title={pageTitle} description={pageDescription}>
 	<Fragment slot="head">
-		<title>MCU Chronological Watchlist</title>
-		<meta
-			name="description"
-			content="Browse the MCU in chronological order, sign in to track which movies, series, shorts and specials you've watched, and see what to watch next."
-		/>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.site} />
-		<meta property="og:title" content="MCU Chronological Watchlist" />
-		<meta
-			property="og:description"
-			content="Browse the MCU in chronological order, sign in to track which movies, series, shorts and specials you've watched, and see what to watch next."
-		/>
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
 		<link rel="canonical" href={Astro.site} />
 		<script type="application/ld+json" set:html={serializeJsonLd(catalogJsonLd)} is:inline></script>
+		<script type="application/ld+json" set:html={serializeJsonLd(faqJsonLd)} is:inline></script>
 	</Fragment>
 
 	<section class="hero">
-		<div class="eyebrow">MCU movies, series, shorts and specials</div>
+		<div class="eyebrow">Marvel movies, series, shorts and specials in timeline order</div>
 		<h1>MCU Chronological Watchlist</h1>
 		<p class="intro">
-			Follow the MCU timeline order, mark what you have watched, and pick up where you left off. Sign in with email to
-			save your progress to your account.
+			Follow the Marvel Cinematic Universe (MCU) in chronological watch order, mark what you have watched, and pick up
+			where you left off. Sign in with email to save your progress to your account.
 		</p>
 	</section>
 
@@ -127,6 +131,8 @@ const catalogJsonLd = buildCatalogJsonLd(items, requireSiteUrl(Astro.site).toStr
 			<TimelineView items={items} totalEpisodesByItemId={totalEpisodesByItemId} client:visible />
 		</div>
 	</div>
+
+	<Faq entries={faqEntries} />
 </BaseLayout>
 
 <style>

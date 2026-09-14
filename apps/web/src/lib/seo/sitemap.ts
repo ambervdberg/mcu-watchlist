@@ -4,10 +4,14 @@
 import type { Item } from '../domain/item';
 import { homeUrl, titleUrl } from './catalogUrl';
 
+// One build date for every url. The whole site rebuilds together, so a per-item date
+// would claim precision the build process does not have.
+const buildDate = new Date().toISOString().slice(0, 10);
+
 /** Builds a sitemap.xml document: the home page plus one `<url>` per catalog item. */
 export function buildSitemapXml(items: Item[], baseUrl: string): string {
 	const locations = [homeUrl(baseUrl), ...items.map((item) => titleUrl(baseUrl, item.id))];
-	const urlEntries = locations.map(buildUrlEntry);
+	const urlEntries = locations.map((loc) => buildUrlEntry(loc, buildDate));
 
 	return [
 		'<?xml version="1.0" encoding="UTF-8"?>',
@@ -18,8 +22,8 @@ export function buildSitemapXml(items: Item[], baseUrl: string): string {
 }
 
 /** Renders one `<url>` entry for a single page location. */
-function buildUrlEntry(loc: string): string {
-	return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n  </url>`;
+function buildUrlEntry(loc: string, lastmod: string): string {
+	return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`;
 }
 
 /** Escapes XML special characters in text content. */

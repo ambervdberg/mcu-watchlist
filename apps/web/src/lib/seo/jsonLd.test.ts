@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { TitleInfoDto } from '../api/ports';
 import type { Item } from '../domain/item';
-import { buildCatalogJsonLd, buildItemJsonLd } from './jsonLd';
+import type { FaqEntry } from './faq';
+import { buildCatalogJsonLd, buildFaqJsonLd, buildItemJsonLd } from './jsonLd';
 
 function makeItem(overrides: Partial<Item> = {}): Item {
 	return {
@@ -139,5 +140,35 @@ describe('buildCatalogJsonLd', () => {
 
 		expect(jsonLd.numberOfItems).toBe(0);
 		expect(jsonLd.itemListElement).toEqual([]);
+	});
+});
+
+describe('buildFaqJsonLd', () => {
+	const entries: FaqEntry[] = [
+		{ question: 'What order should I watch the Marvel movies in?', answer: 'Chronological, as listed here.' },
+		{ question: 'Do I need to watch everything?', answer: 'No, use the Essential only filter.' }
+	];
+
+	it('builds an FAQPage with one Question per entry', () => {
+		const jsonLd = buildFaqJsonLd(entries);
+
+		expect(jsonLd['@context']).toBe('https://schema.org');
+		expect(jsonLd['@type']).toBe('FAQPage');
+		expect(jsonLd.mainEntity).toEqual([
+			{
+				'@type': 'Question',
+				name: 'What order should I watch the Marvel movies in?',
+				acceptedAnswer: { '@type': 'Answer', text: 'Chronological, as listed here.' }
+			},
+			{
+				'@type': 'Question',
+				name: 'Do I need to watch everything?',
+				acceptedAnswer: { '@type': 'Answer', text: 'No, use the Essential only filter.' }
+			}
+		]);
+	});
+
+	it('is empty-safe when there are no entries', () => {
+		expect(buildFaqJsonLd([]).mainEntity).toEqual([]);
 	});
 });

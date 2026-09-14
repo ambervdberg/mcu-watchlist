@@ -2,8 +2,11 @@
 	"platform": {
 		"apiRuntime": "node:20"
 	},
-	"navigationFallback": {
-		"rewrite": "/index.html"
+	"responseOverrides": {
+		"404": {
+			"rewrite": "/404.html",
+			"statusCode": 404
+		}
 	},
 	"globalHeaders": {
 		"X-Content-Type-Options": "nosniff",

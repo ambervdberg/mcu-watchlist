@@ -25,6 +25,14 @@ describe('buildSitemapXml', () => {
 		expect(xml).toContain('<loc>https://example.com/</loc>');
 	});
 
+	it('includes a lastmod date for every url', () => {
+		const xml = buildSitemapXml([makeItem()], BASE_URL);
+		const today = new Date().toISOString().slice(0, 10);
+
+		expect(xml.match(/<lastmod>/g)).toHaveLength(2);
+		expect(xml).toContain(`<lastmod>${today}</lastmod>`);
+	});
+
 	it('includes one url entry per catalog item, in catalog order', () => {
 		const items = [makeItem({ id: 'iron-man' }), makeItem({ id: 'iron-man-2' })];
 		const xml = buildSitemapXml(items, BASE_URL);

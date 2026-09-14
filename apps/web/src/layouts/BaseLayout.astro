@@ -26,8 +26,23 @@ import { requireSiteUrl } from '../lib/seo/siteUrl';
 import '../app.css';
 
 // Bump when og-image.svg changes, so social scrapers fetch the new card instead of their cached copy.
-const ogImageVersion = '2';
+const ogImageVersion = '3';
 const ogImageUrl = new URL(`/og-image.png?v=${ogImageVersion}`, requireSiteUrl(Astro.site)).toString();
+
+// title/description feed <title>, the meta description and the twitter card tags.
+// Pages still set og:title/og:description in their own `head` slot.
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const DEFAULT_DESCRIPTION =
+	'All Marvel Cinematic Universe movies, series, shorts and specials in chronological watch order.';
+
+const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
+
+// Matches --bg in app.css: the browser chrome (address bar, PWA task switcher) picks this up.
+const THEME_COLOR = '#080a12';
 ---
 
 <!doctype html>
@@ -37,8 +52,12 @@ const ogImageUrl = new URL(`/og-image.png?v=${ogImageVersion}`, requireSiteUrl(A
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
 		<meta name="google-site-verification" content="PLMGWLKPJ7jbyTmD_9VshzDjGmYQzi83Fjoac5-HO3s" />
+		<meta name="theme-color" content={THEME_COLOR} />
 		<!-- Favicon is served straight from /static (Astro's publicDir), no import needed (it never changes per-route). -->
 		<link rel="icon" href="/favicon.svg" />
+
+		{title && <title>{title}</title>}
+		<meta name="description" content={description} />
 
 		<!--
 			Site-wide social-card defaults. The og:image URL must be absolute: scrapers
@@ -53,10 +72,12 @@ const ogImageUrl = new URL(`/og-image.png?v=${ogImageVersion}`, requireSiteUrl(A
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:type" content="image/png" />
-		<meta property="og:image:alt" content="MCU Chronological Watchlist" />
+		<meta property="og:image:alt" content="MCU Chronological Watchlist, all Marvel movies and series in watch order" />
 		<meta property="og:site_name" content="MCU Chronological Watchlist" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:image" content={ogImageUrl} />
+		{title && <meta name="twitter:title" content={title} />}
+		<meta name="twitter:description" content={description} />
 
 		<slot name="head" />
 	</head>

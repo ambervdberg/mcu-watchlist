@@ -26,7 +26,7 @@
 	let { era, items, progress, totalEpisodesByItemId, onToggleWatched, onToggleSkipped }: Props = $props();
 </script>
 
-<div class="timeline-era">{era}</div>
+<h2 class="timeline-era">{era}</h2>
 
 {#each items as item (item.id)}
 	<ItemCard

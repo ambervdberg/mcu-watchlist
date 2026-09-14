@@ -25,9 +25,12 @@ npm run azd:deploy     # azd deploy
 npm run media-cache:missing    # fetch OMDb/TMDB metadata for catalog titles missing from titleInfo.snapshot.json
 npm run media-cache:stale      # re-fetch snapshot entries older than 7 days
 npm run media-cache:typecheck  # tsc --checkJs over the scripts/media-cache*.mjs files
+npm run update-snapshot        # re-fetch all titles, then build, so both snapshot files are current
 ```
 
 `media-cache:missing`/`media-cache:stale` only write to `apps/web/.media-cache`. Run `npm run build:web` after, that step writes `titleInfo.snapshot.json`.
+
+To add a movie or show: add it to `apps/web/src/lib/data/items.ts` with its IMDb id, run `npm run update-snapshot`, commit the snapshot files with it.
 
 The frontend is an Astro app (Svelte islands) in `apps/web`, building to `apps/web/build`.
 
@@ -39,7 +42,7 @@ Web tests: `cd apps/web && npm run test:unit` (vitest, domain/state/api-gateway)
 
 ```
 apps/web/                                  Astro frontend (Svelte islands), builds to apps/web/build
-apps/web/static/staticwebapp.config.json   SWA routing/platform config (node:20 API runtime, fallback)
+apps/web/static/staticwebapp.config.json   SWA routing/platform config (node:20 API runtime, 404 page)
 apps/api/                                  Azure Functions v4 (TypeScript) managed API, deployed with the SWA
 apps/api/src/functions/                    route registration + handlers, one file per HTTP function
 apps/api/src/auth/                         session cookie, magic-link, user/token stores, email sender, rate limiter
@@ -89,7 +92,7 @@ azure.yaml                                 azd service/hook config
 
 ## A real azd gotcha in azure.yaml
 
-`azd`'s `staticwebapp` host doesn't run an Oryx build for the managed API and doesn't pass `--api-language`/`--api-version` to the SWA CLI deploy. Without those, the SWA backend can't detect the Functions runtime and silently deploys zero functions. `/api/*` then falls through `navigationFallback` to `index.html` instead of returning JSON, with no error from `azd up`/`azd deploy`.
+`azd`'s `staticwebapp` host doesn't run an Oryx build for the managed API and doesn't pass `--api-language`/`--api-version` to the SWA CLI deploy. Without those, the SWA backend can't detect the Functions runtime and silently deploys zero functions. `/api/*` then returns the 404 page instead of JSON, with no error from `azd up`/`azd deploy`.
 
 The root `postdeploy` hook in `azure.yaml` works around this: after `azd`'s deploy, it redeploys `apps/web/build` via `npx @azure/static-web-apps-cli deploy`, passing `--api-language node --api-version 20` explicitly. Don't remove this hook without re-checking that `/api/me` returns JSON, not HTML, after a deploy.
 

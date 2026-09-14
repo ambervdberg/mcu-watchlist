@@ -5,6 +5,7 @@ import type { TitleInfoDto } from '../api/ports';
 import type { Item } from '../domain/item';
 import { siteCreator } from '../data/siteCreator';
 import { titleUrl } from './catalogUrl';
+import type { FaqEntry } from './faq';
 import {
 	aggregateRatingField,
 	datePublishedField,
@@ -59,6 +60,27 @@ export function buildCatalogJsonLd(items: Item[], baseUrl: string): Record<strin
 		numberOfItems: items.length,
 		itemListElement: items.map((item, index) => buildListItem(item, index, baseUrl)),
 		creator: buildCreator()
+	};
+}
+
+/** Builds the JSON-LD for the catalog page's FAQ section: one Question per entry. */
+export function buildFaqJsonLd(entries: readonly FaqEntry[]): Record<string, unknown> {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: entries.map(buildQuestion)
+	};
+}
+
+/** Renders one Question entry for the FAQPage's mainEntity list. */
+function buildQuestion(entry: FaqEntry): Record<string, unknown> {
+	return {
+		'@type': 'Question',
+		name: entry.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: entry.answer
+		}
 	};
 }
 

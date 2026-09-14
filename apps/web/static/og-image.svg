@@ -28,8 +28,8 @@
   <text x="88" y="320" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800"
     fill="#f8f8fc">Watchlist</text>
 
-  <text x="90" y="382" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#aeb7cb">The full MCU timeline, movies, series, shorts and</text>
-  <text x="90" y="414" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#aeb7cb">specials in chronological order</text>
+  <text x="90" y="382" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#aeb7cb">All Marvel movies, series, shorts and specials</text>
+  <text x="90" y="414" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#aeb7cb">in chronological watch order</text>
 
   <rect x="90" y="458" width="380" height="48" rx="24" fill="#e62429"/>
   <path d="M114 482 l6 6 12 -13" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>

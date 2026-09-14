@@ -52,8 +52,8 @@ export function datePublishedField(titleInfo: TitleInfoDto | undefined): Optiona
 }
 
 /**
- * `aggregateRating` field built from `titleInfo.imdbRating`, omitted when missing or not a
- * finite number.
+ * `aggregateRating` field built from `titleInfo.imdbRating` (and `imdbVotes` as
+ * `ratingCount` when real), omitted when the rating itself is missing or not a finite number.
  */
 export function aggregateRatingField(
 	titleInfo: TitleInfoDto | undefined
@@ -64,14 +64,24 @@ export function aggregateRatingField(
 		return {};
 	}
 
+	const ratingCount = titleInfo ? parseVoteCount(titleInfo.imdbVotes) : null;
+
 	return {
 		aggregateRating: {
 			'@type': 'AggregateRating',
 			ratingValue,
+			...(ratingCount === null ? {} : { ratingCount }),
 			bestRating: 10,
 			worstRating: 1
 		}
 	};
+}
+
+/** Parses OMDb's "1,234,567"-style vote count into a number, or null when not a real count. */
+function parseVoteCount(imdbVotes: string): number | null {
+	const votes = Number(imdbVotes.replace(/,/g, ''));
+
+	return Number.isFinite(votes) && votes > 0 ? votes : null;
 }
 
 /** OMDb's sentinel for a field it has no value for; treated the same as an empty string. */

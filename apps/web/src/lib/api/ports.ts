@@ -56,6 +56,7 @@ export type TrailerDto = {
 export type TitleInfoDto = {
 	plot: string;
 	imdbRating: string;
+	imdbVotes: string;
 	poster: string;
 	runtimeMinutes: number | null;
 	released: string;

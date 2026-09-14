@@ -31,6 +31,7 @@
     "dev:web": "npm --prefix apps/web run dev",
     "media-cache:missing": "node scripts/media-cache.mjs missing",
     "media-cache:stale": "node scripts/media-cache.mjs stale --max-age-days=7",
+    "update-snapshot": "node scripts/media-cache.mjs stale --max-age-days=0 && npm run build:web",
     "media-cache:typecheck": "cd apps/web && npm exec -- tsc --ignoreConfig --allowJs --checkJs --noEmit --module NodeNext --moduleResolution NodeNext --target ES2022 --lib ES2022,DOM --types node ../../scripts/media-cache.mjs ../../scripts/media-cache-core.mjs",
     "azd:up": "azd up",
     "azd:deploy": "azd deploy"

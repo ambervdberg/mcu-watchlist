@@ -73,7 +73,7 @@
 	<a class="up-next-link" href={`/title/${upNext.item.id}`}>
 		<span class="poster">
 			{#if posterByItemId[upNext.item.id]}
-				<img src={posterByItemId[upNext.item.id]} alt="" loading="lazy" />
+				<img src={posterByItemId[upNext.item.id]} alt={`${upNext.item.title} poster`} loading="lazy" />
 			{/if}
 		</span>
 

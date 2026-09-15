@@ -102,9 +102,20 @@ If `/api/*` returns HTML again, check `az rest --method get --uri ".../staticSit
 
 `infra/main.bicep` provisions Application Insights (`appInsights` + `logAnalyticsWorkspace`), wired to the API via `APPLICATIONINSIGHTS_CONNECTION_STRING`. Server-side only, no client-side snippet, no cookies, no visitor identity, so no consent banner. `DisableIpMasking` stays `false`, client IPs stay anonymized.
 
-Two queries in Application Insights (Portal → `appi-marvel-*` → Logs):
-- App usage: `AppRequests | where Name == "me"`. The frontend calls this on every page load regardless of auth state, a proxy for total visits.
-- Resend email volume: `AppTraces | where Message == "resend:email_sent"` (and `"resend:email_failed"`). Logged in `emailSender.ts` without the recipient address.
+Three queries in Application Insights (Portal → `appi-marvel-*` → Logs):
+- App usage: `requests | where name == "me"`. The frontend calls this on every page load regardless of auth state, a proxy for total visits.
+- Resend email volume: `traces | where message == "resend:email_sent"` (and `"resend:email_failed"`). Logged in `emailSender.ts` without the recipient address.
+- Visits per page: `handleMe` (`apps/api/src/auth/handlers/me.ts`) logs `page_view <pathname>`, pathname read from the Referer header, no query string, no hash, no tokens. Missing or invalid Referer logs `page_view unknown`.
+```kusto
+traces
+| where timestamp > ago(7d)
+| where message startswith "page_view "
+| extend page = substring(message, 10)
+| summarize visits = count() by page
+| order by visits desc
+```
+
+The Logs blade in the Portal uses the classic table names `requests` and `traces`. The Log Analytics workspace uses `AppRequests` and `AppTraces` instead.
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
 ## Beads Issue Tracker

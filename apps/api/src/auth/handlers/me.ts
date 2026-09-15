@@ -3,6 +3,7 @@
 import type { HttpRequest, HttpResponseInit } from "@azure/functions";
 import { getAuthenticatedUser } from "../auth.js";
 import { UserStore } from "../userAuth.js";
+import { logPageView } from "./pageView.js";
 import type { UserStoreLike } from "./storePorts.js";
 
 type MeDependencies = {
@@ -14,6 +15,8 @@ export async function handleMe(
   request: HttpRequest,
   dependencies: MeDependencies = {},
 ): Promise<HttpResponseInit> {
+  logPageView(request);
+
   const sessionUser = getAuthenticatedUser(request);
 
   if (!sessionUser) {

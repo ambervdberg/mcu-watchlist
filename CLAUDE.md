@@ -34,7 +34,7 @@ To add a movie or show: add it to `apps/web/src/lib/data/items.ts` with its IMDb
 
 The frontend is an Astro app (Svelte islands) in `apps/web`, building to `apps/web/build`.
 
-API tests: `cd apps/api && npm test` (tsc, then `node --test` against `auth.test.js`, `userAuth.test.js`, `authHandlers.test.js`, `progressStore.test.js`).
+API tests: `cd apps/api && npm test` (tsc, then `node --test` against every `dist/**/*.test.js`).
 
 Web tests: `cd apps/web && npm run test:unit` (vitest, domain/state/api-gateway). `npm test` adds `playwright test`. `npm run lint` runs prettier + eslint. `npm run check` runs `astro check`.
 

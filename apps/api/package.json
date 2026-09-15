@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "func start",
-    "test": "npm run build && node --test dist/auth/auth.test.js dist/auth/userAuth.test.js dist/auth/authHandlers.test.js dist/auth/loginLinkEmail.test.js dist/progress/progressStore.test.js"
+    "test": "npm run build && node --test \"dist/**/*.test.js\""
   },
   "dependencies": {
     "@azure/data-tables": "^13.3.2",

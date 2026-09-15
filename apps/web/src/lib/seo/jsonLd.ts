@@ -6,13 +6,7 @@ import type { Item } from '../domain/item';
 import { siteCreator } from '../data/siteCreator';
 import { titleUrl } from './catalogUrl';
 import type { FaqEntry } from './faq';
-import {
-	aggregateRatingField,
-	datePublishedField,
-	descriptionField,
-	durationField,
-	imageField
-} from './titleInfoFields';
+import { datePublishedField, descriptionField, durationField, imageField } from './titleInfoFields';
 
 const IMDB_TITLE_URL_PREFIX = 'https://www.imdb.com/title/';
 const ITEM_LIST_ORDER_ASCENDING = 'https://schema.org/ItemListOrderAscending';
@@ -39,8 +33,7 @@ export function buildItemJsonLd(
 		...descriptionField(titleInfo),
 		...imageField(titleInfo),
 		...durationField(item, titleInfo),
-		...datePublishedField(titleInfo),
-		...aggregateRatingField(titleInfo)
+		...datePublishedField(titleInfo)
 	};
 
 	if (item.type === 'series') {

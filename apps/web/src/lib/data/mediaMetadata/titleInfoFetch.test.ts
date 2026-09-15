@@ -26,7 +26,6 @@ function goodPrior(): TitleInfo {
 	return {
 		plot: 'A real plot.',
 		imdbRating: '8.1',
-		imdbVotes: '1,234,567',
 		poster: 'https://example.com/poster.jpg',
 		runtimeMinutes: 126,
 		released: '02 May 2008',
@@ -39,7 +38,6 @@ function sentinelLive(): TitleInfo {
 	return {
 		plot: '',
 		imdbRating: 'N/A',
-		imdbVotes: 'N/A',
 		poster: 'N/A',
 		runtimeMinutes: null,
 		released: 'N/A',
@@ -54,7 +52,6 @@ function omdbTitleResponse(overrides: Record<string, string> = {}): Response {
 			Response: 'True',
 			Plot: 'A billionaire builds an armored suit.',
 			imdbRating: '7.9',
-			imdbVotes: '1,111,111',
 			Poster: 'https://example.com/iron-man.jpg',
 			Runtime: '126 min',
 			Released: '02 May 2008',
@@ -75,7 +72,6 @@ describe('mergeTitleInfoWithPrior', () => {
 		const live: TitleInfo = {
 			plot: 'Updated plot.',
 			imdbRating: '8.4',
-			imdbVotes: '2,000,000',
 			poster: 'https://example.com/new.jpg',
 			runtimeMinutes: 130,
 			released: '03 May 2008',
@@ -94,7 +90,6 @@ describe('mergeTitleInfoWithPrior', () => {
 		const live: TitleInfo = {
 			plot: 'Fresh plot.',
 			imdbRating: '7.0',
-			imdbVotes: '500,000',
 			poster: 'https://example.com/p.jpg',
 			runtimeMinutes: 100,
 			released: '01 Jan 2020',
@@ -109,26 +104,23 @@ describe('mergeTitleInfoWithPrior', () => {
 		expect(merged.trailer).toEqual(trailer);
 	});
 
-	it('takes live released, imdbRating and imdbVotes whenever the live value is real', () => {
+	it('takes live released and imdbRating whenever the live value is real', () => {
 		const live: TitleInfo = {
 			...goodPrior(),
 			imdbRating: '8.4',
-			imdbVotes: '2,000,000',
 			released: '03 May 2008'
 		};
 
 		const merged = mergeTitleInfoWithPrior(live, goodPrior());
 
 		expect(merged.imdbRating).toBe('8.4');
-		expect(merged.imdbVotes).toBe('2,000,000');
 		expect(merged.released).toBe('03 May 2008');
 	});
 
-	it('keeps prior released, imdbRating and imdbVotes when live returns a sentinel', () => {
+	it('keeps prior released and imdbRating when live returns a sentinel', () => {
 		const merged = mergeTitleInfoWithPrior(sentinelLive(), goodPrior());
 
 		expect(merged.imdbRating).toBe('8.1');
-		expect(merged.imdbVotes).toBe('1,234,567');
 		expect(merged.released).toBe('02 May 2008');
 	});
 });

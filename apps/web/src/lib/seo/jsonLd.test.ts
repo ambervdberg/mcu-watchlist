@@ -22,7 +22,6 @@ function makeTitleInfo(overrides: Partial<TitleInfoDto> = {}): TitleInfoDto {
 	return {
 		plot: 'A rich playboy builds a suit of armor.',
 		imdbRating: '7.9',
-		imdbVotes: '1,234,567',
 		poster: 'https://example.com/poster.jpg',
 		runtimeMinutes: 126,
 		released: '02 May 2008',
@@ -80,20 +79,19 @@ describe('buildItemJsonLd', () => {
 		expect(jsonLd).not.toHaveProperty('aggregateRating');
 	});
 
-	it('includes description, image, duration, datePublished and aggregateRating from real titleInfo', () => {
+	it('includes description, image, duration and datePublished from real titleInfo', () => {
 		const jsonLd = buildItemJsonLd(makeItem(), makeTitleInfo(), 1, URL);
 
 		expect(jsonLd.description).toBe('A rich playboy builds a suit of armor.');
 		expect(jsonLd.image).toBe('https://example.com/poster.jpg');
 		expect(jsonLd.duration).toBe('PT126M');
 		expect(jsonLd.datePublished).toBe('2008-05-02');
-		expect(jsonLd.aggregateRating).toEqual({
-			'@type': 'AggregateRating',
-			ratingValue: 7.9,
-			ratingCount: 1234567,
-			bestRating: 10,
-			worstRating: 1
-		});
+	});
+
+	it('never emits aggregateRating, even with a real imdbRating', () => {
+		const jsonLd = buildItemJsonLd(makeItem(), makeTitleInfo({ imdbRating: '7.9' }), 1, URL);
+
+		expect(jsonLd).not.toHaveProperty('aggregateRating');
 	});
 
 	it('never emits OMDb sentinel values', () => {
@@ -104,8 +102,7 @@ describe('buildItemJsonLd', () => {
 				poster: 'N/A',
 				runtimeMinutes: null,
 				released: 'N/A',
-				imdbRating: 'N/A',
-				imdbVotes: 'N/A'
+				imdbRating: 'N/A'
 			}),
 			1,
 			URL

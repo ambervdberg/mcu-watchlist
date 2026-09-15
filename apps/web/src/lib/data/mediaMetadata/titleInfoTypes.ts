@@ -4,7 +4,6 @@
 export type TitleInfo = {
 	plot: string;
 	imdbRating: string;
-	imdbVotes: string;
 	poster: string;
 	runtimeMinutes: number | null;
 	released: string;

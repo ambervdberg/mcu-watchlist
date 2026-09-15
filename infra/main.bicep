@@ -82,7 +82,8 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2023-09
     sku: {
       name: 'PerGB2018'
     }
-    retentionInDays: 30
+    // Two years, so page view counts can be compared over time.
+    retentionInDays: 730
   }
 }
 

@@ -32,7 +32,6 @@ const titleInfo = defineCollection({
 	schema: z.object({
 		plot: z.string(),
 		imdbRating: z.string(),
-		imdbVotes: z.string(),
 		poster: z.string(),
 		runtimeMinutes: z.number().nullable(),
 		released: z.string(),
